@@ -1,6 +1,5 @@
-<p align="center">
-<img src="https://i.328888.xyz/2023/01/16/2zGKQ.png" width="600"/>
-</p>
+![](https://picxyxsw.oss-cn-hangzhou.aliyuncs.com/20230116155200.png)
+
 
 <h2 align="center">
 <a href="https://github.com/MarleneJiang/ByteDream-JueJin">ByteDream-JueJin</a>
