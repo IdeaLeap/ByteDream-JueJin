@@ -1,6 +1,0 @@
-{
-  "buildCommand": "yarn build",
-  "cleanUrls": true,
-  "framework": "nuxtjs",
-  "installCommand": "yarn install"
-}
