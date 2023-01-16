@@ -5,6 +5,7 @@
   "main": "index.ts",
   "private": true,
   "scripts": {
+    "dev": "npx turbo dev",
     "prepare": "husky install",
     "postinstall": "nuxi prepare",
     "build": "npx turbo build"
