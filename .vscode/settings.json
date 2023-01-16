@@ -6,5 +6,10 @@
   "files.associations": {
     "*.css": "postcss"
   },
-  "editor.formatOnSave": false
+  "editor.formatOnSave": false,
+  "unocss.root": "frontend",
+  "cSpell.words": [
+    "Nuxt",
+    "Vitesse"
+  ]
 }

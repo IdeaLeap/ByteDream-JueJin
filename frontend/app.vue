@@ -1,4 +1,6 @@
 <script setup>
+import { NConfigProvider, darkTheme } from 'naive-ui'
+
 useHead({
   title: 'Vitesse Nuxt 3',
   link: [
@@ -7,12 +9,17 @@ useHead({
     },
   ],
 })
+const color = useColorMode()
+const dark = computed(() => color.value === 'dark')
+const isDark = computed(() => dark.value ? darkTheme : 'light')
 </script>
 
 <template>
-  <NuxtLayout>
-    <NuxtPage />
-  </NuxtLayout>
+  <NConfigProvider :theme="isDark">
+    <NuxtLayout>
+      <NuxtPage />
+    </NuxtLayout>
+  </NConfigProvider>
 </template>
 
 <style>
