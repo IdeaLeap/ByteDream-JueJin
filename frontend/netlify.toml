@@ -2,8 +2,8 @@
   NODE_VERSION = "16"
 
 [build]
-  publish = "dist"
-  command = "yarn build"
+  publish = ".output/public"
+  command = "yarn generate"
 
 [[redirects]]
   from = "/*"
