@@ -1,10 +1,20 @@
 <script setup>
 useHead({
-  title: 'Vitesse Nuxt 3',
+  title: 'JueJin | ByteDream',
   link: [
-    {
-      rel: 'icon', type: 'image/png', href: '/nuxt.png',
-    },
+    { rel: 'icon', type: 'image/png', href: '/nuxt.png' },
+    { rel: 'canonical', href: 'https://bytedream.top/' },
+    {},
+  ],
+  meta: [
+    { name: 'description', content: 'Yet Another Blog In JueJin Style By ByteDream.' },
+    { property: 'og:title', title: 'JueJin | ByteDream' },
+    { property: 'og:site_name', siteName: 'JueJin | ByteDream' },
+    { property: 'og:url', url: 'https://bytedream.top' },
+    { property: 'og:type', type: 'website' },
+    { robots: 'follow, index' },
+    { name: 'image', property: 'og:image', image: 'https://picxyxsw.oss-cn-hangzhou.aliyuncs.com/20230116155200.png' },
+    { property: 'og:description', content: 'Yet Another Blog In JueJin Style By ByteDream' },
   ],
 })
 </script>

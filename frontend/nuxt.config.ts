@@ -18,4 +18,14 @@ export default defineNuxtConfig({
   nitro: {
     preset: 'vercel',
   },
+  app: {
+    head: {
+      charset: 'UTF-8',
+      viewport: 'width=device-width',
+      title: 'JueJin | ByteDream',
+      meta: [
+        { name: 'description', content: 'Yet Another Blog In JueJin Style By ByteDream.' },
+      ],
+    },
+  },
 })
