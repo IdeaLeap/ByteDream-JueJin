@@ -15,9 +15,6 @@ export default defineNuxtConfig({
   colorMode: {
     classSuffix: '',
   },
-  nitro: {
-    preset: 'vercel',
-  },
   extends: [
     'nuxt-seo-kit',
   ],
