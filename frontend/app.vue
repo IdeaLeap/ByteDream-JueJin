@@ -1,16 +1,11 @@
 <script setup>
-useHead({
-  title: 'Vitesse Nuxt 3',
-  link: [
-    {
-      rel: 'icon', type: 'image/png', href: '/nuxt.png',
-    },
-  ],
-})
+// import { OgImageScreenshot, SeoKit } from 'nuxt-seo-kit'
 </script>
 
 <template>
   <NuxtLayout>
+    <SeoKit />
+    <OgImageScreenshot />
     <NuxtPage />
   </NuxtLayout>
 </template>
