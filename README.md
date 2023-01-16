@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://pan.marlene.top/d/share/large-og.png" width="600"/>
+<img src="https://i.328888.xyz/2023/01/16/2zGKQ.png" width="600"/>
 </p>
 
 <h2 align="center">
