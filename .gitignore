@@ -1,3 +1,11 @@
+node_modules
+*.log
+dist
+.output
+.nuxt
+.env
+.turbo
+
 # Logs
 logs
 *.log
