@@ -1,13 +1,13 @@
 {
   "name": "frontend",
   "private": true,
+  "version": "1.0.0",
   "scripts": {
     "build": "nuxi build",
     "dev": "nuxi dev",
     "start": "node .output/server/index.mjs",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "postinstall": "nuxi prepare",
     "generate": "nuxi generate",
     "typecheck": "tsc --noEmit --incremental false",
     "lint:strict": "eslint --max-warnings=0 ."

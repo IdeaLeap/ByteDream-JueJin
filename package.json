@@ -3,11 +3,18 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.ts",
+  "private": true,
   "scripts": {
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "postinstall": "nuxi prepare"
   },
-  "packageManager": "pnpm@7.25.0",
-  "dependencies": {
-    "frontend": "workspace:*"
+  "packageManager": "yarn@1.22.19",
+  "workspaces": [
+    "frontend"
+  ],
+  "devDependencies": {
+    "husky": "^8.0.3",
+    "nuxt": "^3.0.0",
+    "turbo": "^1.7.0"
   }
 }
