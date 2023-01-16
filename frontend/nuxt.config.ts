@@ -15,7 +15,4 @@ export default defineNuxtConfig({
   colorMode: {
     classSuffix: '',
   },
-  nitro: {
-    preset: 'vercel',
-  },
 })
