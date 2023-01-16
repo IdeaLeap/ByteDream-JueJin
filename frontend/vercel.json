@@ -1,7 +1,7 @@
 {
   "buildCommand": "yarn build",
   "cleanUrls": true,
-  "famework": "nuxtjs",
+  "framework": "nuxtjs",
   "installCommand": "yarn install",
   "outputDirectory": "public"
 }
