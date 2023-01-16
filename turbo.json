@@ -4,7 +4,9 @@
     "build": {},
     "lint": {},
     "lint:fix": {},
-    "dev":{},
+    "lint:strict": {},
+    "typecheck": {},
+    "dev": {},
     "start": {},
     "generate": {}
   }
