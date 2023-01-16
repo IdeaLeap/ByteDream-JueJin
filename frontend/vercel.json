@@ -3,5 +3,5 @@
   "cleanUrls": true,
   "famework": "nuxtjs",
   "installCommand": "yarn install",
-  "outputDirectory": "dist"
+  "outputDirectory": "public"
 }
