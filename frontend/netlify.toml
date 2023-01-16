@@ -3,7 +3,7 @@
 
 [build]
   publish = "dist"
-  command = "next build"
+  command = "yarn build"
   functions = "netlify/functions"
 
 [[redirects]]
