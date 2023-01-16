@@ -8,7 +8,8 @@
     "dev": "npx turbo dev",
     "prepare": "husky install",
     "postinstall": "nuxi prepare",
-    "build": "npx turbo build"
+    "build": "npx turbo build",
+    "lint:fix": "npx turbo lint:fix"
   },
   "packageManager": "yarn@1.22.19",
   "workspaces": [
