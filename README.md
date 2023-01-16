@@ -1,15 +1,38 @@
-# super-duper-barnacle
-bytecamp project
----
+<p align="center">
+<img src="https://pan.marlene.top/d/share/large-og.png" width="600"/>
+</p>
 
-## 开发成员
+<h2 align="center">
+<a href="https://github.com/MarleneJiang/ByteDream-JueJin">ByteDream-JueJin</a>
+</h2><br>
 
-|  ID   | 介绍  |
-|  ----  | ----  |
-| Marlene  | 杭电本科在读大二,惯用Vue3,目前学习React |
-| camera-2018 | 杭电本科在读大二,惯用Vue3、不用ts,目前学习Go |
-| 35507187 | 杭电本科在读大一，小白，目前学习vue3         |
-| Plumbiu | 杭电本科在读大二，Vue、React都会一点，惯用Vue3，在学NextJS |
-| Jerome | 广州新华学院在读大三，熟悉vue3/2 ，目前学习vite原理中 |
-| yizhankui | 郑州西亚斯学院大四，学习前端一年，熟悉Vue2/3,目前学习node |
-| Zora178 | 广外本科在读大二，目前学习前端方向，在学Vue3 |
+<pre align="center">
+🧪 正在开发中
+</pre>
+
+<p align="center">
+<br>
+<a href="https://bytedream.top/">🖥 Online Preview</a>
+</p>
+
+## Features
+
+- [💚 Nuxt 3](https://nuxt.com/) - SSR, ESR, File-based routing, components auto importing, modules, etc.
+
+- ⚡️ Vite - Instant HMR
+
+- 🎨 [UnoCSS](https://github.com/antfu/unocss) - The instant on-demand atomic CSS engine.
+
+- 😃 Use icons from any icon sets in Pure CSS, powered by [UnoCSS](https://github.com/antfu/unocss)
+
+- 🔥 The `<script setup>` syntax
+
+- 🍍 [State Management via Pinia](https://pinia.esm.dev), see [./composables/user.ts](./composables/user.ts)
+
+- 📑 [Layout system](./layouts)
+
+- 📥 APIs auto importing - for Composition API, VueUse and custom composables.
+
+- 🏎 Zero-config cloud functions and deploy
+
+- 🦾 TypeScript, of course
