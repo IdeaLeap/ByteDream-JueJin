@@ -6,7 +6,8 @@
   "private": true,
   "scripts": {
     "prepare": "husky install",
-    "postinstall": "nuxi prepare"
+    "postinstall": "nuxi prepare",
+    "build": "npx turbo build"
   },
   "packageManager": "yarn@1.22.19",
   "workspaces": [
