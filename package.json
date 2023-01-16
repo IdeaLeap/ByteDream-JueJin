@@ -9,7 +9,8 @@
     "prepare": "husky install",
     "postinstall": "nuxi prepare",
     "build": "npx turbo build",
-    "lint:fix": "npx turbo lint:fix"
+    "lint:fix": "npx turbo lint:fix",
+    "typecheck": "npx turbo typecheck"
   },
   "packageManager": "yarn@1.22.19",
   "workspaces": [
