@@ -26,7 +26,7 @@ jobs:
         uses: bahmutov/npm-install@v1
 
       - name: 🔬 Lint
-        run: pnpm lint:strict
+        run: yarn lint:strict
 
   typecheck:
     name: ʦ TypeScript
@@ -47,4 +47,4 @@ jobs:
         uses: bahmutov/npm-install@v1
 
       - name: 🔎 Type check
-        run: pnpm typecheck
+        run: yarn typecheck
