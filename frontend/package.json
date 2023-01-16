@@ -34,6 +34,7 @@
   },
   "lint-staged": {
     "**/*.{js,ts,vue,html}": [
+      "yarn lint:fix"
     ]
   }
 }
