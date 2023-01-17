@@ -9,5 +9,8 @@
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "prettier.requireConfig": true,
-  "eslint.enable": true
+  "eslint.enable": true,
+  "cSpell.words": [
+    "nuxtjs"
+  ]
 }
