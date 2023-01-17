@@ -5,7 +5,7 @@
 <template>
   <NuxtLayout>
     <SeoKit />
-    <OgImageScreenshot />
+    <OgImage component="Banner" my-custom-title="JueJin | ByteDream" background-image="https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-image-store.s3.ap-northeast-1.amazonaws.com%2F0%2F163786%2F120faf0c-b0ce-e482-e0aa-382a30443b2a.png" runtime="true" />
     <NuxtPage />
   </NuxtLayout>
 </template>
