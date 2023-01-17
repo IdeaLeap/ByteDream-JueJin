@@ -10,12 +10,6 @@ useHead({
   link: [
     { rel: 'icon', type: 'image/png', href: '/favicon.png' },
     { rel: 'canonical', href: 'https://bytedream.top/' },
-    {},
-  ],
-  meta: [
-    {
-      rel: 'icon', type: 'image/png', href: '/favicon.png',
-    },
   ],
 })
 </script>
