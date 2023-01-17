@@ -1,0 +1,4 @@
+{
+  "framework": "nuxtjs",
+  "outputDirectory": ".vercel/output"
+}
