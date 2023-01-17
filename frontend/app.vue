@@ -1,11 +1,5 @@
 <script setup>
 // import { OgImageScreenshot, SeoKit } from 'nuxt-seo-kit'
-defineOgImage({
-  component: 'Banner', // Nuxt Island component
-  alt: 'JueJin | ByteDream', // alt text for image
-  // pass in any custom props
-  myCustomTitle: 'JueJin',
-})
 useHead({
   link: [
     { rel: 'icon', type: 'image/png', href: '/favicon.png' },
@@ -50,6 +44,7 @@ useHead({
 <template>
   <NuxtLayout>
     <SeoKit />
+    <OgImage component="Banner" my-custom-title="ByteDream-JueJin" alt="JueJin | ByteDream" />
     <NuxtPage />
   </NuxtLayout>
 </template>
