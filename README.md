@@ -35,3 +35,10 @@
 - 🗺 `Nuxt SEO Kit` - Sitemap,Schema.org,Generate dynamic social share images
 - 📦 `Vercel` - Auto Deploy & Preview with Workflows
 - 🔥 `Netlify + Cloudflare` - Deploy in Production Environment
+
+## 开发
+
+```bash
+yarn
+yarn dev
+```
