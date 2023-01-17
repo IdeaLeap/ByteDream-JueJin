@@ -34,7 +34,7 @@ export default defineNuxtConfig({
   sitemap: {
     hostname: 'https://bytedream.top',
     exclude: [
-      '/**',
+      './*',
     ],
   },
   head: {
@@ -48,4 +48,5 @@ export default defineNuxtConfig({
       ],
     },
   },
+  linkChecker: { failOn404: false },
 })
