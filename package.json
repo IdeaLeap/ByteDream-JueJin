@@ -14,7 +14,8 @@
   },
   "packageManager": "yarn@1.22.19",
   "workspaces": [
-    "frontend"
+    "frontend",
+    "backend"
   ],
   "devDependencies": {
     "husky": "^8.0.3",
