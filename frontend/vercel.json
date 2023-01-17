@@ -1,4 +1,3 @@
 {
-  "framework": "nuxtjs",
-  "buildCommand": "npx turbo build --no-cache --force"
+  "framework": "nuxtjs"
 }
