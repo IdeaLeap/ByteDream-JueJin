@@ -20,6 +20,8 @@
 - ✨ `Vue3.2`
 - 💨 `Turbo` - Manage Monorepo
 - 💎 `Strapi` - Headless CMS
+- 🤷‍♂️ `@Nuxt/Strapi` - Perfect BFF support
+- 😎 `@Nuxt/Image` - Optimised images
 - 🃏 `Commit Lint` -  Make sure you & your teammates follow the conventional commit
 - 💖 `Husky & Lint Staged` — Run scripts on your staged files before they are committed
 - 📏 `Eslint` - Find and fix problems in your code, also will auto-sort your imports
