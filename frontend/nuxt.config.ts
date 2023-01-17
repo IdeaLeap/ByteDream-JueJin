@@ -8,6 +8,7 @@ export default defineNuxtConfig({
   experimental: {
     reactivityTransform: true,
     inlineSSRStyles: false,
+    componentIslands: true,
   },
   css: [
     '@unocss/reset/tailwind.css',
@@ -28,11 +29,25 @@ export default defineNuxtConfig({
       trailingSlash: true,
     },
     indexable: true,
+    siteUrl: 'https://bytedream.top',
   },
   sitemap: {
     hostname: 'https://bytedream.top',
   },
   head: {
     ogTitleTemplate: '%s | ByteDream',
+  },
+  ogImage: {
+    colorScheme: 'dark',
+    mask: '.screenshot-hidden',
+    runtimeImages: true,
+  },
+  nitro: {
+    prerender: {
+      crawlLinks: true,
+      routes: [
+        '/',
+      ],
+    },
   },
 })
