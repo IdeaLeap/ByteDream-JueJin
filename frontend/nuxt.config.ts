@@ -1,4 +1,4 @@
-const strapiBaseUri = process.env.API_URL || 'http://localhost:1337'
+const strapiBaseUri = process.env.NODE_ENV === 'production' ? process.env.STRAPI_API_URL : 'http://localhost:1337'
 export default defineNuxtConfig({
   modules: [
     '@vueuse/nuxt',
