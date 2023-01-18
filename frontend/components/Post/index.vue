@@ -3,23 +3,27 @@
 </script>
 
 <template>
-  <div class="list">
-    <h1>这里是文章</h1>
-    <h1>这里是文章</h1>
-    <h1>这里是文章</h1>
-    <h1>这里是文章</h1>
-    <h1>这里是文章</h1>
-    <h1>这里是文章</h1>
-    <h1>这里是文章</h1>
-    <h1>这里是文章</h1>
-    <h1>这里是文章</h1>
-    <h1>这里是文章</h1>
+  <div>
+    <div class="ad">
+      1
+    </div>
+    <ul class="list">
+      <li>这里是文章</li>
+      <li>这里是文章</li>
+      <li>这里是文章</li>
+      <li>这里是文章</li>
+      <li>这里是文章</li>
+      <li>这里是文章</li>
+      <li>这里是文章</li>
+      <li>这里是文章</li>
+      <li>这里是文章</li>
+      <li>这里是文章</li>
+    </ul>
   </div>
 </template>
 
-<style>
+<style scoped>
 .list {
   display: block;
-
 }
 </style>

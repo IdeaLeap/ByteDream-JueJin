@@ -19,6 +19,7 @@
   ],
   "devDependencies": {
     "husky": "^8.0.3",
+    "naive-ui": "^2.34.3",
     "nuxt": "^3.0.0",
     "turbo": "^1.7.0"
   }

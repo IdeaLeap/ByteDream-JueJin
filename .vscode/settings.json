@@ -12,5 +12,6 @@
   "eslint.enable": true,
   "cSpell.words": [
     "nuxtjs"
-  ]
+  ],
+  "nuxt.isNuxtApp": false
 }
