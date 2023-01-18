@@ -3,12 +3,12 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "nuxi build NODE_ENV=production",
-    "dev": "nuxi dev NODE_ENV=development",
-    "start": "node .output/server/index.mjs NODE_ENV=production",
+    "build": "nuxi build",
+    "dev": "nuxi dev",
+    "start": "node .output/server/index.mjs",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "generate": "nuxi generate NODE_ENV=production",
+    "generate": "nuxi generate",
     "typecheck": "tsc --noEmit --incremental false",
     "lint:strict": "eslint --max-warnings=0 ."
   },
@@ -19,6 +19,7 @@
     "@iconify-json/carbon": "^1.1.10",
     "@iconify-json/twemoji": "^1.1.5",
     "@nuxtjs/color-mode": "^3.2.0",
+    "@nuxtjs/strapi": "^1.7.0",
     "@pinia/nuxt": "^0.4.3",
     "@unocss/nuxt": "^0.46.5",
     "@vueuse/nuxt": "^9.5.0",
@@ -41,7 +42,6 @@
   "dependencies": {
     "@nuxt/image": "^0.7.1",
     "@nuxt/image-edge": "^1.0.0-27840416.dc1ed65",
-    "cross-env": "^7.0.3",
     "nuxt-umami": "^1.2.0"
   }
 }

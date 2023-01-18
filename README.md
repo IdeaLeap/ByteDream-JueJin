@@ -20,7 +20,6 @@
 - ✨ `Vue3.2`
 - 💨 `Turbo` - Manage Monorepo
 - 💎 `Strapi` - Headless CMS
-- 🤷‍♂️ `@nuxtjs/apollo + graphql-tag` - Perfect BFF support with graphql
 - 😎 `@Nuxt/Image` - Optimised images
 - 😁 `Umami` - Better Analytics
 - 🃏 `Commit Lint` -  Make sure you & your teammates follow the conventional commit

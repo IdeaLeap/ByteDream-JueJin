@@ -2,7 +2,7 @@
   "name": "backend",
   "private": true,
   "version": "0.1.0",
-  "description": "A Strapi application",
+  "description": "JueJin CMS",
   "scripts": {
     "dev": "strapi develop",
     "start": "strapi start",
@@ -16,11 +16,10 @@
     "@strapi/plugin-i18n": "4.5.6",
     "@strapi/plugin-users-permissions": "4.5.6",
     "@strapi/strapi": "4.5.6",
-    "better-sqlite3": "^8.0.1",
-    "strapi-plugin-menus": "^1.2.1"
+    "better-sqlite3": "^8.0.1"
   },
   "author": {
-    "name": "A Strapi developer"
+    "name": "ByteDream"
   },
   "strapi": {
     "uuid": "87a16a2a-c1c7-4264-9346-84fcba39ab34"
