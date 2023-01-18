@@ -5,6 +5,7 @@ export default defineNuxtConfig({
     '@pinia/nuxt',
     '@nuxtjs/color-mode',
     '@nuxt/image-edge',
+    '@nuxtjs/strapi',
   ],
   experimental: {
     reactivityTransform: true,
