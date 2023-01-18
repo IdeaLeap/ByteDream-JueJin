@@ -53,6 +53,7 @@ useHead({
 html,
 body,
 #__nuxt {
+  font-size: 12px;
   height: 100vh;
   margin: 0;
   padding: 0;
