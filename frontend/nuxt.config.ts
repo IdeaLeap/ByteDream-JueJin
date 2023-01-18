@@ -60,9 +60,9 @@ export default defineNuxtConfig({
     autoTrack: true,
     doNotTrack: false,
     cache: false,
-    domains: 'mywebsite.com,mywebsite2.com',
-    websiteId: 'your-website-id',
-    scriptUrl: 'https://path.to.umami.js',
+    domains: 'bytedream.top',
+    websiteId: 'f0ab5003-8840-46dc-956b-36dbabc6fa4f',
+    scriptUrl: 'https://analytics.umami.is/script.js',
   },
   strapi: {
     url: process.env.STRAPI_API_URL || 'http://localhost:1337',
