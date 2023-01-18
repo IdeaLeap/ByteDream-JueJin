@@ -34,14 +34,14 @@
     "vite": "^3.2.1",
     "vue": "^3.2.45"
   },
-  "lint-staged": {
-    "**/*.{js,ts,vue,html}": [
-      "eslint --max-warnings=0"
-    ]
-  },
   "dependencies": {
     "@nuxt/image": "^0.7.1",
     "@nuxt/image-edge": "^1.0.0-27840416.dc1ed65",
     "nuxt-umami": "^1.2.0"
+  },
+  "lint-staged": {
+    "**/*.{js,ts,vue,html}": [
+      "eslint --max-warnings=0"
+    ]
   }
 }
