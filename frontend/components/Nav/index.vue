@@ -1,19 +1,13 @@
 <script setup>
-const NavList = reactive([{
-  name: '首页',
-  path: '/',
-},
-{
-  name: '关于',
-  path: '/about',
-}])
+const { data: NavList } = await useFetch('http://127.0.0.1:1337/api/navs')
 </script>
 
 <template>
   <div class="view-nav">
+    11{{ NavList }}
     <div class="nav-list">
-      <li v-for="item in NavList" :key="item.path">
-        <NuxtLink :to="item.path">
+      <li v-for="item in NavList.data" :key="item.url">
+        <NuxtLink :to="item.url">
           {{ item.name }}
         </NuxtLink>
       </li>
