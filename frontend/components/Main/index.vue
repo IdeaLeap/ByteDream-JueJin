@@ -11,7 +11,6 @@
         <Aside class="absolute top-0 right-0" />
       </div>
     </div>
-
   </div>
 </template>
 

@@ -13,7 +13,9 @@ const NavList = reactive([{
   <div class="view-nav">
     <div class="nav-list">
       <li v-for="item in NavList" :key="item.path">
-        <NuxtLink :to="item.path">{{ item.name }}</NuxtLink>
+        <NuxtLink :to="item.path">
+          {{ item.name }}
+        </NuxtLink>
       </li>
     </div>
   </div>

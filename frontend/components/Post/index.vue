@@ -2,7 +2,7 @@
 
 </script>
 
-<template >
+<template>
   <div class="list">
     <h1>这里是文章</h1>
     <h1>这里是文章</h1>
