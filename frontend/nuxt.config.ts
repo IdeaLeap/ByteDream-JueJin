@@ -30,6 +30,8 @@ export default defineNuxtConfig({
       language: 'zh-CN',
       titleSeparator: '·',
       trailingSlash: true,
+      mode: process.env.NODE_ENV,
+      base_url: process.env.NODE_ENV === 'development' ? 'http://localhost:1337' : 'https://cms.bytedream.top',
     },
     indexable: true,
     siteUrl: 'https://bytedream.top',
