@@ -1,3 +1,4 @@
+const strapiBaseUri = process.env.API_URL || 'http://localhost:1337'
 export default defineNuxtConfig({
   modules: [
     '@vueuse/nuxt',
@@ -5,7 +6,8 @@ export default defineNuxtConfig({
     '@pinia/nuxt',
     '@nuxtjs/color-mode',
     '@nuxt/image-edge',
-    '@nuxtjs/strapi',
+    '@nuxtjs/apollo',
+    'nuxt-umami',
   ],
   experimental: {
     reactivityTransform: true,
@@ -51,4 +53,20 @@ export default defineNuxtConfig({
     },
   },
   linkChecker: { failOn404: false },
+  apollo: {
+    clientConfigs: {
+      default: {
+        httpEndpoint: `${strapiBaseUri}/graphql`,
+      },
+    },
+  },
+  umami: {
+    enable: true, // enable the module? true by default
+    autoTrack: true,
+    doNotTrack: false,
+    cache: false,
+    domains: 'mywebsite.com,mywebsite2.com',
+    websiteId: 'your-website-id',
+    scriptUrl: 'https://path.to.umami.js',
+  },
 })

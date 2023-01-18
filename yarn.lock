@@ -1903,7 +1903,7 @@
   optionalDependencies:
     ipx "^0.9.9"
 
-"@nuxt/kit@3.0.0", "@nuxt/kit@^3.0.0", "@nuxt/kit@^3.0.0-rc.11", "@nuxt/kit@^3.0.0-rc.14":
+"@nuxt/kit@3.0.0", "@nuxt/kit@^3.0.0", "@nuxt/kit@^3.0.0-rc.11", "@nuxt/kit@^3.0.0-rc.13", "@nuxt/kit@^3.0.0-rc.14":
   version "3.0.0"
   resolved "https://registry.npmmirror.com/@nuxt/kit/-/kit-3.0.0.tgz#ae49b4e27b15285556cb88f35a56309c5ca0dd79"
   integrity sha512-7ZsOLt5s9a0ZleAIzmoD70JwkZf5ti6bDdxl6f8ew7Huxz+ni/oRfTPTX9TrORXsgW5CvDt6Q9M7IJNPkAN/Iw==
@@ -10988,6 +10988,13 @@ nuxt-simple-sitemap@^0.5.9:
     radix3 "^1.0.0"
     sitemap "^7.1.1"
     ufo "^1.0.1"
+
+nuxt-umami@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/nuxt-umami/-/nuxt-umami-1.2.0.tgz#761b2066ea50ca804e22cfc4091a9d325dd1c4bb"
+  integrity sha512-GkGOhNE0I989NFWFJkL93pP9tjaBpxUmj/7tfhVCO9flDF5B0UMDtfYpZSV0DQ2G4qZ1uTYLAL/kUkvEZnTlVw==
+  dependencies:
+    "@nuxt/kit" "^3.0.0-rc.13"
 
 nuxt-unhead@^1.0.13:
   version "1.0.13"

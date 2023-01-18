@@ -40,6 +40,7 @@
   },
   "dependencies": {
     "@nuxt/image": "^0.7.1",
-    "@nuxt/image-edge": "^1.0.0-27840416.dc1ed65"
+    "@nuxt/image-edge": "^1.0.0-27840416.dc1ed65",
+    "nuxt-umami": "^1.2.0"
   }
 }
