@@ -4,6 +4,9 @@ export default defineNuxtConfig({
     '@unocss/nuxt',
     '@pinia/nuxt',
     '@nuxtjs/color-mode',
+    '@nuxt/image-edge',
+    'nuxt-umami',
+    '@nuxtjs/strapi',
   ],
   experimental: {
     reactivityTransform: true,
@@ -30,6 +33,7 @@ export default defineNuxtConfig({
     },
     indexable: true,
     siteUrl: 'https://bytedream.top',
+    url: process.env.STRAPI_API_URL || 'http://localhost:1337',
   },
   sitemap: {
     hostname: 'https://bytedream.top',
@@ -49,4 +53,20 @@ export default defineNuxtConfig({
     },
   },
   linkChecker: { failOn404: false },
+  umami: {
+    enable: true, // enable the module? true by default
+    autoTrack: true,
+    doNotTrack: false,
+    cache: false,
+    domains: 'mywebsite.com,mywebsite2.com',
+    websiteId: 'your-website-id',
+    scriptUrl: 'https://path.to.umami.js',
+  },
+  strapi: {
+    url: process.env.STRAPI_API_URL || 'http://localhost:1337',
+    prefix: '/api',
+    version: 'v4',
+    cookie: {},
+    cookieName: 'strapi_jwt',
+  },
 })
