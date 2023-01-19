@@ -1,10 +1,10 @@
 <script setup>
-const { data: NavList } = await useFetch('http://127.0.0.1:1337/api/navs')
+const runtimeConfig = useRuntimeConfig()
+const { data: NavList } = await useFetch(`${runtimeConfig.public.strapi_base_url}/api/navs`)
 </script>
 
 <template>
   <div class="view-nav">
-    11{{ NavList }}
     <div class="nav-list">
       <li v-for="item in NavList.data" :key="item.url">
         <NuxtLink :to="item.url">

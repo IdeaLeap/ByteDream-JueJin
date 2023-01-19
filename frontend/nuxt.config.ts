@@ -31,11 +31,10 @@ export default defineNuxtConfig({
       titleSeparator: '·',
       trailingSlash: true,
       mode: process.env.NODE_ENV,
-      base_url: process.env.NODE_ENV === 'development' ? 'http://localhost:1337' : 'https://cms.bytedream.top',
+      strapi_base_url: process.env.NODE_ENV === 'development' ? 'http://127.0.0.1:1337' : 'https://cms.bytedream.top',
     },
     indexable: true,
     siteUrl: 'https://bytedream.top',
-    url: process.env.STRAPI_API_URL || 'http://localhost:1337',
   },
   sitemap: {
     hostname: 'https://bytedream.top',
