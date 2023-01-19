@@ -1,19 +1,13 @@
 <script setup>
-const NavList = reactive([{
-  name: '首页',
-  path: '/',
-},
-{
-  name: '关于',
-  path: '/about',
-}])
+const runtimeConfig = useRuntimeConfig()
+const { data: NavList } = await useFetch(`${runtimeConfig.public.strapi_base_url}/api/navs`)
 </script>
 
 <template>
   <div class="view-nav">
     <div class="nav-list">
-      <li v-for="item in NavList" :key="item.path">
-        <NuxtLink :to="item.path">
+      <li v-for="item in NavList.data" :key="item.url">
+        <NuxtLink :to="item.url">
           {{ item.name }}
         </NuxtLink>
       </li>

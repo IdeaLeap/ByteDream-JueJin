@@ -1,10 +1,11 @@
 <script setup>
-
+const runtimeConfig = useRuntimeConfig()
 </script>
 
 <template>
   <main>
     <h1>这里是头部</h1>
+    <div>当前环境：{{ runtimeConfig.public.mode }}</div>
     <div class="block">
       <DarkToggle />
     </div>
