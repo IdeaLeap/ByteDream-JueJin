@@ -1,2 +1,2 @@
 yarn build;
-yarn start;
+NODE_ENV=production yarn start;
