@@ -22,7 +22,6 @@ const removeAttributeWrapper = (data: Object) => {
 const removeStrapiWrapper = (data: any) => {
   if (Array.isArray(data)) {
     const _: any = data.map((item) => {
-      // 如果含有attribute字段则去除
       return removeStrapiWrapper(removeAttributeWrapper(item))
     })
     return _
