@@ -6,7 +6,6 @@ export default defineNuxtConfig({
     '@nuxtjs/color-mode',
     '@nuxt/image-edge',
     'nuxt-umami',
-    '@nuxtjs/strapi',
   ],
   experimental: {
     reactivityTransform: true,
@@ -31,7 +30,8 @@ export default defineNuxtConfig({
       titleSeparator: '·',
       trailingSlash: true,
       mode: process.env.NODE_ENV,
-      strapi_base_url: process.env.NODE_ENV === 'development' ? 'http://127.0.0.1:1337' : 'https://cms.bytedream.top',
+      strapi_base_url: process.env.NODE_ENV === 'development' ? 'http://127.0.0.1:8886' : 'https://cms.bytedream.top',
+      graphql_url: process.env.NODE_ENV === 'development' ? 'http://127.0.0.1:8886/graphql' : 'https://cms.bytedream.top/graphql',
     },
     indexable: true,
     siteUrl: 'https://bytedream.top',
@@ -62,12 +62,5 @@ export default defineNuxtConfig({
     domains: 'bytedream.top',
     websiteId: 'f0ab5003-8840-46dc-956b-36dbabc6fa4f',
     scriptUrl: 'https://analytics.umami.is/script.js',
-  },
-  strapi: {
-    url: process.env.STRAPI_API_URL || 'http://localhost:1337',
-    prefix: '/api',
-    version: 'v4',
-    cookie: {},
-    cookieName: 'strapi_jwt',
   },
 })

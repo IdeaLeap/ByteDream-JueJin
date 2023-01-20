@@ -2260,17 +2260,6 @@
     lodash.template "^4.5.0"
     pathe "^1.0.0"
 
-"@nuxtjs/strapi@^1.7.0":
-  version "1.7.0"
-  resolved "https://registry.yarnpkg.com/@nuxtjs/strapi/-/strapi-1.7.0.tgz#ad4502cefff852cc77bd1516c81ad9e44a32f67e"
-  integrity sha512-58HCziFn/wJ+OKZVem9EiePbL/VYCPyK9XC7S+S61jrC32bYdBGAO3azDZV9DHR0jMvfoLfjCiI2YuBqCPloUA==
-  dependencies:
-    "@nuxt/kit" "^3.0.0"
-    defu "^6.1.1"
-    graphql "^16.6.0"
-    pathe "^1.0.0"
-    qs "^6.11.0"
-
 "@open-draft/until@^1.0.3":
   version "1.0.3"
   resolved "https://registry.npmmirror.com/@open-draft/until/-/until-1.0.3.tgz#db9cc719191a62e7d9200f6e7bab21c5b848adca"
@@ -8502,7 +8491,7 @@ graphql-upload@^13.0.0:
     http-errors "^1.8.1"
     object-path "^0.11.8"
 
-"graphql@^15.0.0 || ^16.0.0", graphql@^16.6.0:
+"graphql@^15.0.0 || ^16.0.0":
   version "16.6.0"
   resolved "https://registry.npmmirror.com/graphql/-/graphql-16.6.0.tgz#c2dcffa4649db149f6282af726c8c83f1c7c5fdb"
   integrity sha512-KPIBPDlW7NxrbT/eh4qPXz5FiFdL5UbaA0XUNz2Rp3Z3hqBSkbj0GVjwFDztsWVauZUWsbKHgMg++sk8UX0bkw==
@@ -12935,7 +12924,7 @@ q@^1.5.1:
   resolved "https://registry.npmmirror.com/q/-/q-1.5.1.tgz#7e32f75b41381291d04611f1bf14109ac00651d7"
   integrity sha512-kV/CThkXo6xyFEZUugw/+pIOywXcDbFYgSct5cT3gqlbkBE1SJdwy6UQoZvodiWF/ckQLZyDE/Bu1M6gVu5lVw==
 
-qs@6.11.0, qs@^6.10.2, qs@^6.10.3, qs@^6.11.0, qs@^6.4.0, qs@^6.5.2, qs@^6.9.6:
+qs@6.11.0, qs@^6.10.2, qs@^6.10.3, qs@^6.4.0, qs@^6.5.2, qs@^6.9.6:
   version "6.11.0"
   resolved "https://registry.npmmirror.com/qs/-/qs-6.11.0.tgz#fd0d963446f7a65e1367e01abd85429453f0c37a"
   integrity sha512-MvjoMCJwEarSbUYk5O+nmoSzSutSsTwF85zcHPQ9OrlFoZOYIjaqBAJIqIXjptyD5vThxGq52Xu/MaJzRkIk4Q==
