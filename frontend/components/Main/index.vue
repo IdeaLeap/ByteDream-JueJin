@@ -17,7 +17,7 @@
 <style scoped>
 .container {
   display: block;
-  background-color: red;
+  /* background-color: red; */
   position: relative;
   margin: 0 auto;
   width: 100%;

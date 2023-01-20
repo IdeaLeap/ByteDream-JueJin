@@ -38,6 +38,7 @@ export default defineConfig({
     colors: {
       primary: 'var(--primary-color)',
       dark_bg: 'var(--dark-bg)',
+      link: 'var(--link)',
     },
   },
 })
