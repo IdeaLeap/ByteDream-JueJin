@@ -1,6 +1,6 @@
 <script setup>
 const runtimeConfig = useRuntimeConfig()
-const { data: NavList } = await useFetch(`${runtimeConfig.public.strapi_base_url}/api/navs`)
+const NavList = await useFetch('/api/navs')
 </script>
 
 <template>
