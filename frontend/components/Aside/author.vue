@@ -1,4 +1,11 @@
-<script setup>
+<script setup lang="ts">
+interface IAuthor {
+  uid: string
+  name: string
+  img: string
+  rank: number
+  describe: string
+}
 const { data: Authors } = await useFetch('/api/authors')
 </script>
 
@@ -26,7 +33,7 @@ const { data: Authors } = await useFetch('/api/authors')
                 </span>
               </nuxt-link>
               <div class="position">
-                {{ item.scr }}
+                {{ item.describe }}
               </div>
             </div>
           </nuxt-link>
@@ -112,5 +119,9 @@ const { data: Authors } = await useFetch('/api/authors')
 
 .recommend-author-block .item .link:hover {
   background-color: hsla(0, 0%, 84.7%, .1);
+}
+
+.recommend-author-block {
+  background-color: #fff;
 }
 </style>
