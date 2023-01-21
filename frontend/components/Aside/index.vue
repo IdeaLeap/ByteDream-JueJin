@@ -1,5 +1,5 @@
 <template lang="">
-  <div>
+  <div class="index-aside">
     <h1 class="text-center">
       这里是广告
     </h1>
@@ -17,5 +17,9 @@
   font-size: 1.16rem;
   line-height: 1.29;
   color: #333;
+}
+
+.index-aside{
+  width: 20rem;
 }
 </style>
