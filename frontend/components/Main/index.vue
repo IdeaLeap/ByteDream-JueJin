@@ -1,4 +1,4 @@
-<script setup>
+<script lnag="ts" setup>
 
 </script>
 

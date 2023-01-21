@@ -10,4 +10,13 @@ declare module '@vue/runtime-core' {
     [key: string]: any
   }
 }
-export {}
+interface ITitle {
+  uname: string
+  duration: string
+  tags: string[]
+  title: string
+  desc: string
+  topicHeat: number[],
+  imgUrl?: string
+}
+export { ITitle }
