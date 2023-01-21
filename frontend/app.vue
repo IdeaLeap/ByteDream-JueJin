@@ -1,5 +1,4 @@
 <script setup>
-// import { OgImageScreenshot, SeoKit } from 'nuxt-seo-kit'
 useHead({
   link: [
     { rel: 'icon', type: 'image/png', href: '/favicon.png' },
