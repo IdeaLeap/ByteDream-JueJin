@@ -5,6 +5,9 @@
     </h1>
     <AsideAuthor class="sidebar-block" />
     <AsideRelatedArticles class="sidebar-block" />
+    <AsideSign class="mb-5" />
+    <AsideAds class="mb-5" />
+    <AsideAuthor class="sidebar-block mb-5" />
     2333
   </div>
 </template>
@@ -20,7 +23,7 @@
   color: #333;
 }
 
-.index-aside{
+.index-aside {
   width: 20rem;
 }
 </style>
