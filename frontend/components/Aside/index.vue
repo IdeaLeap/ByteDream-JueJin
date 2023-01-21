@@ -4,6 +4,7 @@
       这里是广告
     </h1>
     <AsideAuthor class="sidebar-block" />
+    <AsideRelatedArticles class="sidebar-block" />
     2333
   </div>
 </template>

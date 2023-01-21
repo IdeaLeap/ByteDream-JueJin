@@ -27,6 +27,12 @@
     },
     "rank": {
       "type": "integer"
+    },
+    "author_id": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::article.article",
+      "inversedBy": "author_id"
     }
   }
 }
