@@ -1,14 +1,14 @@
 {
-  "prettier.enable": false,
+  // "prettier.enable": false,
   "editor.codeActionsOnSave": {
-    "source.fixAll": true
+    // "source.fixAll": true
   },
   "files.associations": {
     "*.css": "postcss"
   },
   // "editor.formatOnSave": true,
   // "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "prettier.requireConfig": true,
+  // "prettier.requireConfig": true,
   "eslint.enable": true,
   "cSpell.words": [
     "nuxtjs"

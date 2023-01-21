@@ -1,13 +1,13 @@
 <script setup>
 const runtimeConfig = useRuntimeConfig()
-const NavList = await useFetch('/api/navs')
+const { data: NavList } = await useFetch('/api/navs')
 </script>
 
 <template>
   <div class="view-nav">
-    <div class="nav-list">
-      <li v-for="item in NavList.data" :key="item.url">
-        <NuxtLink :to="item.url">
+    <div class="nav-list text-primary">
+      <li v-for="item in NavList" :key="item.url">
+        <NuxtLink :to="item.url" target="_blank">
           {{ item.name }}
         </NuxtLink>
       </li>

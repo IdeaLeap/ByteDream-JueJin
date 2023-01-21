@@ -4,6 +4,10 @@
     <h1 class="text-center">
       这里是广告
     </h1>
+    <h1 class="text-center">
+      这里是广告
+    </h1>
+    <AsideAuthor class="sidebar-block" />
     2333
   </div>
 </template>
