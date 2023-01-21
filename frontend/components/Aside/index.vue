@@ -20,7 +20,7 @@
   color: #333;
 }
 
-.index-aside{
+.index-aside {
   width: 20rem;
 }
 </style>

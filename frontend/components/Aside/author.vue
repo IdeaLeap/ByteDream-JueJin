@@ -6,12 +6,12 @@ interface IAuthor {
   rank: number
   describe: string
 }
-const { data: Authors } = await useFetch('/api/authors')
+const { data: Authors } = await useFetch('/api/authors', { server: false })
 </script>
 
 <template>
   <div>
-    <div class="recommend-author-block sticky-author-block">
+    <div v-if="!!Authors" class="recommend-author-block sticky-author-block">
       <header class="user-block-header">
         🎖️作者榜
       </header>
