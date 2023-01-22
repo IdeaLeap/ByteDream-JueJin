@@ -3,6 +3,7 @@
     <AsideSign class="mb-5" />
     <AsideAds class="mb-5" />
     <AsideAuthor class="sidebar-block mb-5" />
+    <AsideRelatedArticles class="sidebar-block mb-5" />
     2333
   </div>
 </template>

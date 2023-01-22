@@ -1,0 +1,49 @@
+{
+  "kind": "collectionType",
+  "collectionName": "articles",
+  "info": {
+    "singularName": "article",
+    "pluralName": "articles",
+    "displayName": "Article",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "tag": {
+      "type": "string"
+    },
+    "viewed_times": {
+      "type": "biginteger"
+    },
+    "author_name": {
+      "type": "string"
+    },
+    "article_content": {
+      "type": "text"
+    },
+    "like": {
+      "type": "biginteger"
+    },
+    "comment": {
+      "type": "biginteger"
+    },
+    "publish_time": {
+      "type": "datetime"
+    },
+    "author_id": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::author.author",
+      "mappedBy": "author_id"
+    }
+  }
+}
