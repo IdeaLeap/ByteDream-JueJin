@@ -12,5 +12,11 @@
   "eslint.enable": true,
   "cSpell.words": [
     "nuxtjs"
-  ]
+  ],
+  "[typescript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  }
 }

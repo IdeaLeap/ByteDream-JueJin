@@ -6,11 +6,11 @@ const NavList = await useFetch('/api/navs')
 <template>
   <div class="view-nav">
     <div class="nav-list">
-      <li v-for="item in NavList.data" :key="item.url">
+      <!-- <li v-for="item in NavList.data" :key="item.url">
         <NuxtLink :to="item.url">
           {{ item.name }}
         </NuxtLink>
-      </li>
+      </li> -->
     </div>
   </div>
 </template>
