@@ -57,6 +57,7 @@ const route = useRoute()
 const url = ref(`/api/posts/${route.params.id}`)
 
 const { data: articleData } = await useFetch(url)
+console.log(articleData)
 const article = ref<IPost>() // 文章数据
 const articleHtmlContent = ref() // md字符串渲染在view组件中
 article.value = articleData.value.data.post.data.attributes
