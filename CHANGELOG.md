@@ -1,5 +1,43 @@
 # Changelog
 
+## [1.1.0](https://github.com/MarleneJiang/ByteDream-JueJin/compare/v1.0.0...v1.1.0) (2023-01-20)
+
+
+### Features
+
+* add a nav example ([6e87092](https://github.com/MarleneJiang/ByteDream-JueJin/commit/6e87092d0571a62bb507cfbfb895f3100a961d48))
+* add backend to monorepo ([a49d01c](https://github.com/MarleneJiang/ByteDream-JueJin/commit/a49d01c193b09a126dec6fa0af77e8760ff84794))
+* add base_url ([bb40c41](https://github.com/MarleneJiang/ByteDream-JueJin/commit/bb40c41cf9d1fc774d87f2082ac3ab17b90bc00b))
+* add database ([ff9cb6c](https://github.com/MarleneJiang/ByteDream-JueJin/commit/ff9cb6cbdb865a728dd2411e77fcfde071971a80))
+* add graphql ([3363286](https://github.com/MarleneJiang/ByteDream-JueJin/commit/3363286cf0a7385b4a4f347622594b0cf005959f))
+* add new favicon ([fcdbd19](https://github.com/MarleneJiang/ByteDream-JueJin/commit/fcdbd1910506d75e5c13b674ea8d4636cee5fce3))
+* add some features ([424f861](https://github.com/MarleneJiang/ByteDream-JueJin/commit/424f861443afa8cc5542c6f202179a3322ed098e))
+* add some head-link ([f2aaa39](https://github.com/MarleneJiang/ByteDream-JueJin/commit/f2aaa39ca9a1da83c8690fa4f691f3c250783e2f))
+* add some meta ([7180d9c](https://github.com/MarleneJiang/ByteDream-JueJin/commit/7180d9c17f0e950c12fb65989b0aff089920102f))
+* add strapi ([7990e71](https://github.com/MarleneJiang/ByteDream-JueJin/commit/7990e71736f7f62fd586d86ddf070e44e55c4a0a))
+* add umami trace ([83fcc22](https://github.com/MarleneJiang/ByteDream-JueJin/commit/83fcc22a9dc936ad71f28414a649b0c13f58a211))
+* del repeat icon-link ([6e2610d](https://github.com/MarleneJiang/ByteDream-JueJin/commit/6e2610d1c7198fdf07891cd35aeb8ac921decea0))
+* 部分结构搭建 ([82bc86a](https://github.com/MarleneJiang/ByteDream-JueJin/commit/82bc86a6ce415b62e9a27c2ee5d564e85a432033))
+
+
+### Bug Fixes
+
+* base_url ([452254d](https://github.com/MarleneJiang/ByteDream-JueJin/commit/452254de8290ada82807700de35395db549e94f2))
+* del nav.ts ([055273b](https://github.com/MarleneJiang/ByteDream-JueJin/commit/055273bbdd06ed53f1f5003f7eb5f3f33b0131aa))
+* ogimage ([6594205](https://github.com/MarleneJiang/ByteDream-JueJin/commit/65942054dbdf3b57d3b59ea18038dc06cf81e71c))
+* resolve eslint err ([f6f4c85](https://github.com/MarleneJiang/ByteDream-JueJin/commit/f6f4c85cebfffed35ef9761669fbb207a49b9bda))
+* resolve eslint err ([3964ffa](https://github.com/MarleneJiang/ByteDream-JueJin/commit/3964ffada8e46c43281774ea8a2daa7d114c236d))
+* seo ([9bb8ae0](https://github.com/MarleneJiang/ByteDream-JueJin/commit/9bb8ae04c1cfa7db8e3e67e8463f027eb248bfe9))
+* strapi url ([a7c9b01](https://github.com/MarleneJiang/ByteDream-JueJin/commit/a7c9b01a73d914157ba1c42df43d37334b4b6eee))
+* vercel ([defd431](https://github.com/MarleneJiang/ByteDream-JueJin/commit/defd431a1c35e6a3489ba0ca3290f583a2030a38))
+* vercel ([0419071](https://github.com/MarleneJiang/ByteDream-JueJin/commit/0419071396f9bee155b6cf75eb0a465f6b96cd73))
+* vercel ([e4897cc](https://github.com/MarleneJiang/ByteDream-JueJin/commit/e4897ccdb1043da6a498472900c9d2c1bb58a79d))
+* vercel ([0105b36](https://github.com/MarleneJiang/ByteDream-JueJin/commit/0105b36d4f3393a15666d4d1f8d77d84a8cff534))
+* vercel ([82dd52f](https://github.com/MarleneJiang/ByteDream-JueJin/commit/82dd52fbf954f2c38caad4cb88699db5d00a4d74))
+* vercel ([aeaf275](https://github.com/MarleneJiang/ByteDream-JueJin/commit/aeaf2757d88559953347ce527c9c4d1c61dc9adb))
+* vercel ([9c5377f](https://github.com/MarleneJiang/ByteDream-JueJin/commit/9c5377f7180a8f8c4a455d1b6b5482348e33dee5))
+* 修复eslint错误 ([dd2c682](https://github.com/MarleneJiang/ByteDream-JueJin/commit/dd2c68285a0189564e66995ff0f8332ff936763b))
+
 ## 1.0.0 (2023-01-16)
 
 

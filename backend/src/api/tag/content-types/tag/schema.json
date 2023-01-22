@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tags",
+  "info": {
+    "singularName": "tag",
+    "pluralName": "tags",
+    "displayName": "tag",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "kind": {
+      "type": "string"
+    },
+    "tag1": {
+      "type": "string"
+    },
+    "tag2": {
+      "type": "string"
+    },
+    "tag": {
+      "type": "string"
+    }
+  }
+}

@@ -1,6 +1,6 @@
 {
   "name": "ByteDream-JueJin",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "",
   "main": "index.ts",
   "private": true,
@@ -10,7 +10,8 @@
     "postinstall": "nuxi prepare",
     "build": "npx turbo build --no-cache --force",
     "lint:fix": "npx turbo lint:fix",
-    "typecheck": "npx turbo typecheck"
+    "typecheck": "npx turbo typecheck",
+    "start": "npx turbo start"
   },
   "packageManager": "yarn@1.22.19",
   "workspaces": [

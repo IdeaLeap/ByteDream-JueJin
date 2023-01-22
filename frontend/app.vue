@@ -3,7 +3,7 @@
 useHead({
   link: [
     { rel: 'icon', type: 'image/png', href: '/favicon.png' },
-    { rel: 'canonical', href: 'https://bytedream.top/' },
+    { rel: 'canonical', href: 'https://bytedream.top' },
   ],
   meta: [
     { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -44,7 +44,7 @@ useHead({
 <template>
   <NuxtLayout>
     <SeoKit />
-    <OgImage component="Banner" my-custom-title="ByteDream-JueJin" alt="JueJin | ByteDream" />
+    <OgImageScreenshot />
     <NuxtPage />
   </NuxtLayout>
 </template>
@@ -57,6 +57,7 @@ body,
   height: 100vh;
   margin: 0;
   padding: 0;
+  background-color: #f4f5f5;
 }
 
 html.dark {

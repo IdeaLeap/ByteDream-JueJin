@@ -1,5 +1,5 @@
 import { useGraphql } from '~~/composables/graphql'
-export default defineEventHandler(() => {
+export default defineEventHandler(async () => {
   const reqQuery = `query{
       navs{
         data{
@@ -12,5 +12,5 @@ export default defineEventHandler(() => {
         }
       }
     }`
-  return useGraphql(reqQuery)
+  return (await useGraphql(reqQuery)).navs.data
 })

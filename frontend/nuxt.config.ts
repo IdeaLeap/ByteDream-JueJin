@@ -10,10 +10,10 @@ export default defineNuxtConfig({
   experimental: {
     reactivityTransform: true,
     inlineSSRStyles: false,
-    componentIslands: true,
   },
   css: [
     '@unocss/reset/tailwind.css',
+    '@/assets/css/main.css',
   ],
   colorMode: {
     classSuffix: '',
@@ -28,10 +28,10 @@ export default defineNuxtConfig({
       siteDescription: 'Yet Another Blog In JueJin Style By ByteDream',
       language: 'zh-CN',
       titleSeparator: '·',
-      trailingSlash: true,
+      trailingSlash: false,
       mode: process.env.NODE_ENV,
-      strapi_base_url: process.env.NODE_ENV === 'development' ? 'http://127.0.0.1:8886' : 'https://cms.bytedream.top',
-      graphql_url: process.env.NODE_ENV === 'development' ? 'http://127.0.0.1:8886/graphql' : 'https://cms.bytedream.top/graphql',
+      strapi_base_url: process.env.NODE_ENV === 'development' ? 'http://127.0.0.1:8886' : 'https://cms.marlene.top',
+      graphql_url: process.env.NODE_ENV === 'development' ? 'http://127.0.0.1:8886/graphql' : 'https://cms.marlene.top/graphql',
     },
     indexable: true,
     siteUrl: 'https://bytedream.top',

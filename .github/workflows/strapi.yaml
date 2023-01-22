@@ -21,6 +21,16 @@ jobs:
           connect_timeout: 10s
           local: './backend/*' # 源路径（工作流）
           remote: /opt/cms # 目标路径（服务器）
+
+      - name: Deploy DataBase
+        uses: cross-the-world/scp-pipeline@master
+        with:
+          host: ${{ secrets.STRAPI_HOST }} # 服务器IP（需要在GitHub上自行配置对应的secret）
+          user: ${{ secrets.STRAPI_USER }} # 服务器用户名
+          pass: ${{ secrets.STRAPI_PASS }} # 服务器密码
+          connect_timeout: 10s
+          local: './backend/.tmp/*' # 源路径（工作流）
+          remote: /opt/cms/.tmp # 目标路径（服务器）
       
       # 在服务器端执行相关指令
       - name: Executing remote ssh commands
