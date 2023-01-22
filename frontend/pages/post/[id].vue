@@ -100,8 +100,10 @@ function handleChange(v: any) {
               </div>
 
               <div class="meta-box">
-                <time :datetime="article?.updatedAt" title="Mon Jan 09 2023 18:31:13 GMT+0800 (China Standard Time)"
-                  class="time">
+                <time
+                  :datetime="article?.updatedAt" title="Mon Jan 09 2023 18:31:13 GMT+0800 (China Standard Time)"
+                  class="time"
+                >
                   {{ useDateFormat(article?.updatedAt, 'YYYY-MM-DD HH:mm:ss').value }}
                 </time>
                 <span class="views-count">
@@ -110,9 +112,11 @@ function handleChange(v: any) {
               </div>
             </div>
           </div>
-          <nuxt-img loading="eager"
+          <nuxt-img
+            loading="eager"
             src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/64ae7f2565544e9b87d92e21ced7350a~tplv-k3u1fbpfcp-zoom-crop-mark:3024:3024:3024:1702.awebp?"
-            class="lazy article-hero" />
+            class="lazy article-hero"
+          />
 
           <div itemprop="articleBody" class="article-content">
             <div class="markdown-body cache">
