@@ -1,24 +1,25 @@
 {
   "collectionName": "components_layouts_footers",
   "info": {
-    "displayName": "footers"
+    "displayName": "footers",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "footer": {
       "type": "string",
       "required": true,
-      "unique": true
+      "unique": false
     },
     "url": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "describe": {
       "type": "string"
     },
-    "isShow": {
-      "type": "boolean"
+    "icon": {
+      "type": "string"
     }
   }
 }

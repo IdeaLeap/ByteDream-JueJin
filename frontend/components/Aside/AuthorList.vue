@@ -1,24 +1,17 @@
 <script setup lang="ts">
-interface IAuthor {
-  uid: string
-  name: string
-  img: string
-  rank: number
-  describe: string
-}
-const { data: Authors } = await useFetch('/api/authors', { server: false })
+const { data: AuthorList } = await useFetch('/api/authors/list', { server: false })
 </script>
 
 <template>
   <div>
-    <div v-if="!!Authors" class="recommend-author-block sticky-author-block">
-      <header class="user-block-header">
+    <div v-if="!!AuthorList" class="recommend-author-block sticky-author-block">
+      <div class="user-block-header">
         🎖️作者榜
-      </header>
+      </div>
       <div class="user-list">
-        <div v-for="item in Authors" :key="item.uid" class="item">
+        <div v-for="item in AuthorList" :key="item.uid" class="item">
           <nuxt-link target="_blank" rel="" class="link">
-            <nuxt-img :src="item.img" :alt="`${item.name}的头像`" class="lazy avatar" loading="lazy" />
+            <nuxt-img :src="item.avatar" :alt="`${item.name}的头像`" class="lazy avatar" loading="lazy" />
 
             <div class="user-info">
               <nuxt-link target="_blank" rel="" class="username username">
@@ -33,7 +26,7 @@ const { data: Authors } = await useFetch('/api/authors', { server: false })
                 </span>
               </nuxt-link>
               <div class="position">
-                {{ item.describe }}
+                {{ item.motto }}
               </div>
             </div>
           </nuxt-link>

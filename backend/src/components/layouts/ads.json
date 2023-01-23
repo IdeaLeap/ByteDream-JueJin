@@ -8,7 +8,7 @@
   "attributes": {
     "ad": {
       "type": "string",
-      "unique": true,
+      "unique": false,
       "required": true
     },
     "img": {

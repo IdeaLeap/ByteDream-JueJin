@@ -1,14 +1,10 @@
-<script setup lang="ts">
-interface IArticle {
-  title: string
-  like: number
-  comment: number
-  url: string
-  kind: string
-  tag: string
-  tag1: string
-  tag2: string
-}
+<script setup>
+defineProps({
+  articleList: {
+    type: Array,
+    required: true,
+  },
+})
 </script>
 
 <template>
@@ -18,7 +14,7 @@ interface IArticle {
         相关文章
       </div>
       <div class="block-body">
-        <div class="entry-list">
+        <div v-for="item in articleList" :key="item.name" class="entry-list">
           <nuxt-link
             href="/post/7181618141456236601" target="_blank" rel="" st:name="link" title="把ChatGPT配置到微信群里，可以对AI提问了！"
             class="item"
