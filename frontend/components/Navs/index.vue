@@ -4,6 +4,9 @@ const runtimeConfig = useRuntimeConfig()
 
 <template>
   <main>
+    <NuxtLink to="/">
+      <Logo />
+    </NuxtLink>
     <h1>这里是头部 {{ runtimeConfig.public.graphql_url }}</h1>
     <div>当前环境：{{ runtimeConfig.public.mode }}</div>
     <div class="block">

@@ -16,11 +16,6 @@
       "type": "string",
       "required": true
     },
-    "slug": {
-      "type": "uid",
-      "targetField": "title",
-      "required": true
-    },
     "viewed": {
       "type": "biginteger",
       "required": true,

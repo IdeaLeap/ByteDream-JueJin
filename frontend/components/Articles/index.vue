@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { IPanel } from './IPanel'
+import type { IPanel } from '../../types/IPanel'
 let pagenum = 0
 const isLoading = useState('isLoading', () => false)
 const artlistNav = useState('artlistNav', () => 'recommend')
@@ -71,13 +71,13 @@ onUnmounted(() => {
       </select>
     </div>
     <ul v-if="!isLoading && initialItem" class="w-full overflow-hidden">
-      <PostItem
+      <ArticlesItem
         v-for="items in artlistData" :key="items.uname" :uname="items.uname" :duration="items.duration"
         :title="items.title" :desc="items.desc" :tags="items.tags" :topic-heat="items.topicHeat"
       />
     </ul>
     <div v-else>
-      <PostSkeleton />
+      <ArticlesSkeleton />
     </div>
   </div>
 </template>

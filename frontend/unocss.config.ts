@@ -39,6 +39,7 @@ export default defineConfig({
       primary: 'var(--primary-color)',
       dark_bg: 'var(--dark-bg)',
       link: 'var(--link)',
+      nav_icon_color: 'var(--jjext-color-navbar-icon)',
     },
   },
 })

@@ -1,5 +1,12 @@
 import { useGraphql } from '~~/composables/graphql'
-export default defineEventHandler((event) => {
+import { apiResponse } from '~~/types/apiTypes'
+interface IArticleItem {
+  name: string
+  motto: string
+  avatar: string
+  rank: Number
+}
+export default defineEventHandler(async (event) => {
   const id = event.context.params.id
   const reqQuery = `query{
     post(id:${id}){
@@ -19,5 +26,5 @@ export default defineEventHandler((event) => {
       }
     }
   }`
-  return useGraphql(reqQuery)
+  return apiResponse<IArticleItem[]>(await useGraphql(reqQuery))
 })

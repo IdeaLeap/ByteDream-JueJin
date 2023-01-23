@@ -1,14 +1,5 @@
 <script setup lang="ts">
-interface IArticle {
-  title: string
-  like: number
-  comment: number
-  url: string
-  kind: string
-  tag: string
-  tag1: string
-  tag2: string
-}
+// const { data: AuthorList } = await useFetch('/api/authors/list', { server: false })
 </script>
 
 <template>

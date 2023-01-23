@@ -9,7 +9,7 @@
     "title": {
       "type": "string",
       "required": true,
-      "unique": true
+      "unique": false
     },
     "subtitle": {
       "type": "string",
