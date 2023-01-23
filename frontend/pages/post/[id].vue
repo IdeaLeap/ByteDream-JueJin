@@ -117,9 +117,11 @@ const rightNormalContainer = ref<HTMLInputElement>()
               </div>
             </div>
           </div>
-          <nuxt-img loading="eager"
+          <nuxt-img
+            loading="eager"
             src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/64ae7f2565544e9b87d92e21ced7350a~tplv-k3u1fbpfcp-zoom-crop-mark:3024:3024:3024:1702.awebp?"
-            class="lazy article-hero" />
+            class="lazy article-hero"
+          />
 
           <div itemprop="articleBody" class="article-content">
             <div class="markdown-body cache">
@@ -128,71 +130,97 @@ const rightNormalContainer = ref<HTMLInputElement>()
           </div>
         </article>
       </div>
-      <div class="sidebar top bg-yellow hidden lg:block lg:w-4/12" ref="rightNormalContainer">
+      <div ref="rightNormalContainer" class="sidebar top bg-yellow hidden lg:block lg:w-4/12">
         <!-- 目录 -->
         <div class="sticky-block-box" data-v-4a0b7e3a="">
-          <div class="sidebar-block catalog-block catalog-block pure isExpand" style="" data-v-71f2d09e=""
-            data-v-4a0b7e3a="">
+          <div
+            class="sidebar-block catalog-block catalog-block pure isExpand" style="" data-v-71f2d09e=""
+            data-v-4a0b7e3a=""
+          >
             <nav class="article-catalog" style="" data-v-cb93f23a="" data-v-71f2d09e="">
-              <div class="catalog-title" data-v-cb93f23a="">目录</div>
+              <div class="catalog-title" data-v-cb93f23a="">
+                目录
+              </div>
               <div class="catalog-body" data-v-cb93f23a="">
                 <ul class="catalog-list" style="margin-top:0px;" data-v-cb93f23a="">
                   <li data-v-cb93f23a="" class="item d1">
-                    <div class="a-container"><a href="#heading-0" title="前言" class="catalog-aTag">
+                    <div class="a-container">
+                      <a href="#heading-0" title="前言" class="catalog-aTag">
                         前言
-                      </a></div> <!---->
+                      </a>
+                    </div> <!---->
                   </li>
                   <li data-v-cb93f23a="" class="item d1 active">
-                    <div class="a-container"><a href="#heading-1" title="plugin简要介绍" class="catalog-aTag">
+                    <div class="a-container">
+                      <a href="#heading-1" title="plugin简要介绍" class="catalog-aTag">
                         plugin简要介绍
-                      </a></div>
+                      </a>
+                    </div>
                     <ul class="sub-list">
                       <li class="item d2">
-                        <div class="a-container"><a href="#heading-2" title="断点调试" class="catalog-aTag">
+                        <div class="a-container">
+                          <a href="#heading-2" title="断点调试" class="catalog-aTag">
                             断点调试
-                          </a></div> <!---->
+                          </a>
+                        </div> <!---->
                       </li>
                     </ul>
                   </li>
                   <li data-v-cb93f23a="" class="item d1">
-                    <div class="a-container"><a href="#heading-3" title="hello plugin" class="catalog-aTag">
+                    <div class="a-container">
+                      <a href="#heading-3" title="hello plugin" class="catalog-aTag">
                         hello plugin
-                      </a></div> <!---->
+                      </a>
+                    </div> <!---->
                   </li>
                   <li data-v-cb93f23a="" class="item d1">
-                    <div class="a-container"><a href="#heading-4" title="analyze-webpack-plugin" class="catalog-aTag">
+                    <div class="a-container">
+                      <a href="#heading-4" title="analyze-webpack-plugin" class="catalog-aTag">
                         analyze-webpack-plugin
-                      </a></div> <!---->
+                      </a>
+                    </div> <!---->
                   </li>
                   <li data-v-cb93f23a="" class="item d1">
-                    <div class="a-container"><a href="#heading-5" title="clean-webpack-plugin" class="catalog-aTag">
+                    <div class="a-container">
+                      <a href="#heading-5" title="clean-webpack-plugin" class="catalog-aTag">
                         clean-webpack-plugin
-                      </a></div> <!---->
+                      </a>
+                    </div> <!---->
                   </li>
                   <li data-v-cb93f23a="" class="item d1">
-                    <div class="a-container"><a href="#heading-6" title="copy-webpack-plugin" class="catalog-aTag">
+                    <div class="a-container">
+                      <a href="#heading-6" title="copy-webpack-plugin" class="catalog-aTag">
                         copy-webpack-plugin
-                      </a></div> <!---->
+                      </a>
+                    </div> <!---->
                   </li>
                   <li data-v-cb93f23a="" class="item d1">
-                    <div class="a-container"><a href="#heading-7" title="define-webpack-plugin" class="catalog-aTag">
+                    <div class="a-container">
+                      <a href="#heading-7" title="define-webpack-plugin" class="catalog-aTag">
                         define-webpack-plugin
-                      </a></div> <!---->
+                      </a>
+                    </div> <!---->
                   </li>
                   <li data-v-cb93f23a="" class="item d1">
-                    <div class="a-container"><a href="#heading-8" title="html-webpack-plugin" class="catalog-aTag">
+                    <div class="a-container">
+                      <a href="#heading-8" title="html-webpack-plugin" class="catalog-aTag">
                         html-webpack-plugin
-                      </a></div> <!---->
+                      </a>
+                    </div> <!---->
                   </li>
                   <li data-v-cb93f23a="" class="item d1">
-                    <div class="a-container"><a href="#heading-9" title="md2html-webpack-plugin" class="catalog-aTag">
+                    <div class="a-container">
+                      <a href="#heading-9" title="md2html-webpack-plugin" class="catalog-aTag">
                         md2html-webpack-plugin
-                      </a></div> <!---->
+                      </a>
+                    </div> <!---->
                   </li>
                   <li data-v-cb93f23a="" class="item d1">
-                    <div class="a-container"><a href="#heading-10" title="最后" class="catalog-aTag">
+                    <div class="a-container">
+                      <a href="#heading-10" title="最后" class="catalog-aTag">
                         最后
-                      </a></div> <!---->
+                      </a>
+                    </div> <!---->
                   </li>
                 </ul>
               </div>
