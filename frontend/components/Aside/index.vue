@@ -1,3 +1,7 @@
+<script setup lang="ts">
+const { data: GloablData } = await useFetch('/api/global', { server: false })
+</script>
+
 <template lang="">
   <div class="index-aside">
     <AsideSign class="mb-5" />
