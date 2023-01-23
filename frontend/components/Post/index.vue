@@ -47,10 +47,10 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="all-text-black pb-5 px-5 box-border">
-    <div class="flex all-cursor-pointer all-px-7 all-my-4 border-b-1 all-text-gray-500" style="font-size: 1.35rem;">
-      <a id="recommend" class="text-blue navlist border-r-2" @click="artModeHandler('recommend')">推荐</a>
-      <a id="latest" class="navlist border-r-2" @click="artModeHandler('latest')">最新</a>
+  <div class="all-text-black pb-5 box-border w-full">
+    <div class="flex all-cursor-pointer all-px-7 all-my-4 border-b-1 all-text-gray-500" style="font-size: 13.67px;">
+      <a id="recommend" class="text-blue navlist border-r-1" @click="artModeHandler('recommend')">推荐</a>
+      <a id="latest" class="navlist border-r-1" @click="artModeHandler('latest')">最新</a>
       <a id="hot" class="navlist" @click="artModeHandler('hot')">热榜</a>
       <select
         v-if="artlistNav === 'hot'" v-model="hotRange" class="text-2 px-2 border-1"
@@ -70,7 +70,7 @@ onUnmounted(() => {
         </option>
       </select>
     </div>
-    <ul v-if="!isLoading || initialItem">
+    <ul v-if="!isLoading && initialItem" class="w-full overflow-hidden">
       <PostItem
         v-for="items in artlistData" :key="items.uname" :uname="items.uname" :duration="items.duration"
         :title="items.title" :desc="items.desc" :tags="items.tags" :topic-heat="items.topicHeat"
