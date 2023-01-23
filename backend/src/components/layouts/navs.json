@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_layouts_navs",
+  "info": {
+    "displayName": "navs"
+  },
+  "options": {},
+  "attributes": {
+    "nav": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "url": {
+      "type": "string",
+      "required": true,
+      "unique": false
+    },
+    "badge": {
+      "type": "string",
+      "required": false
+    }
+  }
+}

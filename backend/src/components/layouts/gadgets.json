@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_gadgets_gadgets",
+  "info": {
+    "displayName": "gadgets",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "subtitle": {
+      "type": "string",
+      "required": true
+    },
+    "qrcode": {
+      "type": "string",
+      "required": true,
+      "unique": false
+    },
+    "url": {
+      "type": "string",
+      "required": true,
+      "unique": false
+    }
+  }
+}

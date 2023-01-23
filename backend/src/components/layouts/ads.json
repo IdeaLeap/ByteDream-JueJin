@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_layouts_ads",
+  "info": {
+    "displayName": "ads",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "ad": {
+      "type": "string",
+      "unique": true,
+      "required": true
+    },
+    "img": {
+      "type": "string",
+      "required": true,
+      "unique": false
+    }
+  }
+}
