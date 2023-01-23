@@ -1,17 +1,17 @@
 {
   "kind": "collectionType",
-  "collectionName": "tags",
+  "collectionName": "colums",
   "info": {
-    "singularName": "tag",
-    "pluralName": "tags",
-    "displayName": "tag"
+    "singularName": "colum",
+    "pluralName": "colums",
+    "displayName": "colum"
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "tag": {
+    "column": {
       "type": "string",
       "required": true,
       "unique": true
@@ -20,7 +20,7 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::article.article",
-      "mappedBy": "tagId"
+      "mappedBy": "columId"
     }
   }
 }

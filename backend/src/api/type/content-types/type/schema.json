@@ -1,17 +1,17 @@
 {
   "kind": "collectionType",
-  "collectionName": "tags",
+  "collectionName": "types",
   "info": {
-    "singularName": "tag",
-    "pluralName": "tags",
-    "displayName": "tag"
+    "singularName": "type",
+    "pluralName": "types",
+    "displayName": "type"
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "tag": {
+    "type": {
       "type": "string",
       "required": true,
       "unique": true
@@ -20,7 +20,7 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::article.article",
-      "mappedBy": "tagId"
+      "mappedBy": "typeId"
     }
   }
 }

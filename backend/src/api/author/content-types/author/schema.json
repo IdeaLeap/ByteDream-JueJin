@@ -28,11 +28,11 @@
     "rank": {
       "type": "integer"
     },
-    "author_id": {
+    "articles": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "oneToMany",
       "target": "api::article.article",
-      "inversedBy": "author_id"
+      "mappedBy": "authorId"
     }
   }
 }

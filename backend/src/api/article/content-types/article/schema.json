@@ -4,7 +4,7 @@
   "info": {
     "singularName": "article",
     "pluralName": "articles",
-    "displayName": "Article",
+    "displayName": "article",
     "description": ""
   },
   "options": {
@@ -13,37 +13,74 @@
   "pluginOptions": {},
   "attributes": {
     "title": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
-    "url": {
-      "type": "string"
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true
     },
-    "tag": {
-      "type": "string"
+    "viewed": {
+      "type": "biginteger",
+      "required": true,
+      "default": "0"
     },
-    "viewed_times": {
-      "type": "biginteger"
+    "liked": {
+      "type": "biginteger",
+      "default": "0",
+      "required": true
     },
-    "author_name": {
-      "type": "string"
+    "shared": {
+      "type": "biginteger",
+      "default": "0",
+      "required": true
     },
-    "article_content": {
-      "type": "text"
+    "commented": {
+      "type": "biginteger",
+      "default": "0",
+      "required": true
     },
-    "like": {
-      "type": "biginteger"
+    "content": {
+      "type": "richtext",
+      "required": true
     },
-    "comment": {
-      "type": "biginteger"
+    "cover": {
+      "type": "string",
+      "required": true
     },
-    "publish_time": {
-      "type": "datetime"
+    "summary": {
+      "type": "string",
+      "required": true
     },
-    "author_id": {
+    "isAd": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "typeId": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "manyToOne",
+      "target": "api::type.type",
+      "inversedBy": "articles"
+    },
+    "authorId": {
+      "type": "relation",
+      "relation": "manyToOne",
       "target": "api::author.author",
-      "mappedBy": "author_id"
+      "inversedBy": "articles"
+    },
+    "columId": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::colum.colum",
+      "inversedBy": "articles"
+    },
+    "tagId": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::tag.tag",
+      "inversedBy": "articles"
     }
   }
 }
