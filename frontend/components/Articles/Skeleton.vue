@@ -5,7 +5,7 @@ export default {
   props: {
     bg: {
       type: String,
-      default: '#efefef',
+      default: '#E5E7EC',
     },
     width: {
       type: String,
@@ -57,7 +57,7 @@ export default {
 .shan::after {
   content: "";
   position: absolute;
-  animation: shan 1.5s ease 0s infinite;
+  animation: shan .75s ease 0s infinite;
   top: 0;
   width: 50%;
   height: 100%;

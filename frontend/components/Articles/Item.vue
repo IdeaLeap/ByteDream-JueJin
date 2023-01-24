@@ -34,7 +34,7 @@ const enteredtopicHeat: (string | number)[] = props.topicHeat.map((item) => {
         </div>
       </div>
       <div class="py-4">
-        <div class="title font-semibold tracking-wide" style="font-size: 16px;">
+        <div class="truncate title font-semibold tracking-wide" style="font-size: 16px;">
           {{ title }}
         </div>
         <div class="truncate pt-4 text-slate-500" style="font-size: 13px;">
