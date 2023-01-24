@@ -1,5 +1,6 @@
 <script setup>
 const runtimeConfig = useRuntimeConfig()
+const { data: NavList } = await useFetch('/api/global/navs')
 </script>
 
 <template>
@@ -12,6 +13,7 @@ const runtimeConfig = useRuntimeConfig()
     <div class="block">
       <DarkToggle />
     </div>
+    {{ NavList }}
   </main>
 </template>
 

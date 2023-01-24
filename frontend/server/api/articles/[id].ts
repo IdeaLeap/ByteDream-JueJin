@@ -1,30 +1,90 @@
 import { useGraphql } from '~~/composables/graphql'
-import { apiResponse } from '~~/types/apiTypes'
-interface IArticleItem {
+interface IAuthor {
   name: string
   motto: string
   avatar: string
   rank: Number
+  liked: Number
+  viewed: Number
 }
-export default defineEventHandler(async (event) => {
+
+interface ITagItem {
+  tag: string
+}
+
+interface IType {
+  type: string
+}
+
+interface IColumn {
+  column: string
+}
+interface IArticle {
+  id: string
+  title: string
+  viewed: number
+  liked: number
+  shared: number
+  commented: number
+  content: string
+  cover: string
+  createdAt: string
+  authorId: IAuthor
+  tagId: { data: ITagItem[] }
+  typeId: IType
+  columId: IColumn
+}
+export default defineEventHandler(async (event): Promise<IArticle> => {
   const id = event.context.params.id
   const reqQuery = `query{
-    post(id:${id}){
-      data{
-        id,
-        attributes{
-          title,
-          author,
-          body,
-          viewsCount,
-          articleHero,
-          avatar,
-          createdAt,
-          updatedAt,
-          rank
+        articles(id:${id}){
+        data{
+          id
+          attributes{
+            title
+            viewed
+            liked
+            shared
+            commented
+            content
+            cover
+            createdAt
+            authorId{
+              data{
+                attributes{
+                  name
+                  motto
+                  avatar
+                  rank
+                  liked
+                  viewed
+                }
+              }
+            }
+            tagId{
+              data{
+                attributes{
+                  tag
+                }
+              }
+            }
+            typeId{
+              data{
+                attributes{
+                  type
+                }
+              }
+            }
+            columId{
+              data{
+                attributes{
+                  column
+                }
+              }
+            }
+          }
         }
       }
-    }
-  }`
-  return apiResponse<IArticleItem[]>(await useGraphql(reqQuery))
+}`
+  return await useGraphql(reqQuery)
 })

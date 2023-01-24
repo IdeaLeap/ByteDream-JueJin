@@ -48,11 +48,6 @@
       "type": "string",
       "required": true
     },
-    "isAd": {
-      "type": "boolean",
-      "default": false,
-      "required": true
-    },
     "typeId": {
       "type": "relation",
       "relation": "manyToOne",
@@ -71,9 +66,9 @@
       "target": "api::colum.colum",
       "inversedBy": "articles"
     },
-    "tagId": {
+    "tagIds": {
       "type": "relation",
-      "relation": "manyToOne",
+      "relation": "manyToMany",
       "target": "api::tag.tag",
       "inversedBy": "articles"
     }

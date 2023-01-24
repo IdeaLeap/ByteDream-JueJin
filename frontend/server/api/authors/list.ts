@@ -1,12 +1,11 @@
 import { useGraphql } from '~~/composables/graphql'
-import { apiResponse } from '~~/types/apiTypes'
 interface IAuthorListItem {
   name: string
   motto: string
   avatar: string
   rank: Number
 }
-export default defineEventHandler(async () => {
+export default defineEventHandler(async (): Promise<IAuthorListItem[]> => {
   const reqQuery = `query{
         authors(pagination: { page: 1, pageSize: 3 }){
           data{
@@ -19,5 +18,5 @@ export default defineEventHandler(async () => {
           }
         }
       }`
-  return apiResponse<IAuthorListItem[]>((await useGraphql(reqQuery)).authors.data)
+  return (await useGraphql(reqQuery)).authors.data
 })
