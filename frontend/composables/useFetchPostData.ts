@@ -1,4 +1,4 @@
-import type { IPanel } from '~~/components/Post/IPanel'
+import type { IPanel } from '~~/types/IPanel'
 const postData: IPanel[] = []
 // TODO: 请求数据
 export default async (/* mode = 'recommend' | 'latest' | 'heat' , pagenum = 1,  */): Promise<IPanel[]> => {

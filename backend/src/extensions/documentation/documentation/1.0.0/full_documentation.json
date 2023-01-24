@@ -96,7 +96,6 @@
           "data": {
             "required": [
               "title",
-              "slug",
               "viewed",
               "liked",
               "shared",
@@ -109,9 +108,6 @@
             "type": "object",
             "properties": {
               "title": {
-                "type": "string"
-              },
-              "slug": {
                 "type": "string"
               },
               "viewed": {
@@ -206,9 +202,6 @@
               "title": {
                 "type": "string"
               },
-              "slug": {
-                "type": "string"
-              },
               "viewed": {
                 "type": "string",
                 "pattern": "^\\d*$",
@@ -271,9 +264,6 @@
                                       "type": "object",
                                       "properties": {
                                         "title": {
-                                          "type": "string"
-                                        },
-                                        "slug": {
                                           "type": "string"
                                         },
                                         "viewed": {
@@ -340,17 +330,16 @@
                                                     "name": {
                                                       "type": "string"
                                                     },
-                                                    "describe": {
+                                                    "motto": {
                                                       "type": "string"
                                                     },
-                                                    "img": {
-                                                      "type": "string"
-                                                    },
-                                                    "uid": {
+                                                    "avatar": {
                                                       "type": "string"
                                                     },
                                                     "rank": {
-                                                      "type": "integer"
+                                                      "type": "string",
+                                                      "pattern": "^\\d*$",
+                                                      "example": "123456789"
                                                     },
                                                     "articles": {
                                                       "type": "object",
@@ -371,6 +360,16 @@
                                                           }
                                                         }
                                                       }
+                                                    },
+                                                    "liked": {
+                                                      "type": "string",
+                                                      "pattern": "^\\d*$",
+                                                      "example": "123456789"
+                                                    },
+                                                    "viewed": {
+                                                      "type": "string",
+                                                      "pattern": "^\\d*$",
+                                                      "example": "123456789"
                                                     },
                                                     "createdAt": {
                                                       "type": "string",
@@ -1067,9 +1066,6 @@
               "title": {
                 "type": "string"
               },
-              "slug": {
-                "type": "string"
-              },
               "viewed": {
                 "type": "string",
                 "pattern": "^\\d*$",
@@ -1132,9 +1128,6 @@
                                       "type": "object",
                                       "properties": {
                                         "title": {
-                                          "type": "string"
-                                        },
-                                        "slug": {
                                           "type": "string"
                                         },
                                         "viewed": {
@@ -1201,17 +1194,16 @@
                                                     "name": {
                                                       "type": "string"
                                                     },
-                                                    "describe": {
+                                                    "motto": {
                                                       "type": "string"
                                                     },
-                                                    "img": {
-                                                      "type": "string"
-                                                    },
-                                                    "uid": {
+                                                    "avatar": {
                                                       "type": "string"
                                                     },
                                                     "rank": {
-                                                      "type": "integer"
+                                                      "type": "string",
+                                                      "pattern": "^\\d*$",
+                                                      "example": "123456789"
                                                     },
                                                     "articles": {
                                                       "type": "object",
@@ -1232,6 +1224,16 @@
                                                           }
                                                         }
                                                       }
+                                                    },
+                                                    "liked": {
+                                                      "type": "string",
+                                                      "pattern": "^\\d*$",
+                                                      "example": "123456789"
+                                                    },
+                                                    "viewed": {
+                                                      "type": "string",
+                                                      "pattern": "^\\d*$",
+                                                      "example": "123456789"
                                                     },
                                                     "createdAt": {
                                                       "type": "string",
@@ -1961,9 +1963,6 @@
               "title": {
                 "type": "string"
               },
-              "slug": {
-                "type": "string"
-              },
               "viewed": {
                 "type": "string",
                 "pattern": "^\\d*$",
@@ -2026,9 +2025,6 @@
                                       "type": "object",
                                       "properties": {
                                         "title": {
-                                          "type": "string"
-                                        },
-                                        "slug": {
                                           "type": "string"
                                         },
                                         "viewed": {
@@ -2095,17 +2091,16 @@
                                                     "name": {
                                                       "type": "string"
                                                     },
-                                                    "describe": {
+                                                    "motto": {
                                                       "type": "string"
                                                     },
-                                                    "img": {
-                                                      "type": "string"
-                                                    },
-                                                    "uid": {
+                                                    "avatar": {
                                                       "type": "string"
                                                     },
                                                     "rank": {
-                                                      "type": "integer"
+                                                      "type": "string",
+                                                      "pattern": "^\\d*$",
+                                                      "example": "123456789"
                                                     },
                                                     "articles": {
                                                       "type": "object",
@@ -2126,6 +2121,16 @@
                                                           }
                                                         }
                                                       }
+                                                    },
+                                                    "liked": {
+                                                      "type": "string",
+                                                      "pattern": "^\\d*$",
+                                                      "example": "123456789"
+                                                    },
+                                                    "viewed": {
+                                                      "type": "string",
+                                                      "pattern": "^\\d*$",
+                                                      "example": "123456789"
                                                     },
                                                     "createdAt": {
                                                       "type": "string",
@@ -2822,9 +2827,6 @@
               "title": {
                 "type": "string"
               },
-              "slug": {
-                "type": "string"
-              },
               "viewed": {
                 "type": "string",
                 "pattern": "^\\d*$",
@@ -2887,9 +2889,6 @@
                                       "type": "object",
                                       "properties": {
                                         "title": {
-                                          "type": "string"
-                                        },
-                                        "slug": {
                                           "type": "string"
                                         },
                                         "viewed": {
@@ -2956,17 +2955,16 @@
                                                     "name": {
                                                       "type": "string"
                                                     },
-                                                    "describe": {
+                                                    "motto": {
                                                       "type": "string"
                                                     },
-                                                    "img": {
-                                                      "type": "string"
-                                                    },
-                                                    "uid": {
+                                                    "avatar": {
                                                       "type": "string"
                                                     },
                                                     "rank": {
-                                                      "type": "integer"
+                                                      "type": "string",
+                                                      "pattern": "^\\d*$",
+                                                      "example": "123456789"
                                                     },
                                                     "articles": {
                                                       "type": "object",
@@ -2987,6 +2985,16 @@
                                                           }
                                                         }
                                                       }
+                                                    },
+                                                    "liked": {
+                                                      "type": "string",
+                                                      "pattern": "^\\d*$",
+                                                      "example": "123456789"
+                                                    },
+                                                    "viewed": {
+                                                      "type": "string",
+                                                      "pattern": "^\\d*$",
+                                                      "example": "123456789"
                                                     },
                                                     "createdAt": {
                                                       "type": "string",
@@ -3688,23 +3696,28 @@
         ],
         "properties": {
           "data": {
-            "required": [],
+            "required": [
+              "name",
+              "avatar",
+              "rank",
+              "liked",
+              "viewed"
+            ],
             "type": "object",
             "properties": {
               "name": {
                 "type": "string"
               },
-              "describe": {
+              "motto": {
                 "type": "string"
               },
-              "img": {
-                "type": "string"
-              },
-              "uid": {
+              "avatar": {
                 "type": "string"
               },
               "rank": {
-                "type": "integer"
+                "type": "string",
+                "pattern": "^\\d*$",
+                "example": "123456789"
               },
               "articles": {
                 "type": "array",
@@ -3719,6 +3732,16 @@
                   ],
                   "example": "string or id"
                 }
+              },
+              "liked": {
+                "type": "string",
+                "pattern": "^\\d*$",
+                "example": "123456789"
+              },
+              "viewed": {
+                "type": "string",
+                "pattern": "^\\d*$",
+                "example": "123456789"
               }
             }
           }
@@ -3736,17 +3759,16 @@
               "name": {
                 "type": "string"
               },
-              "describe": {
+              "motto": {
                 "type": "string"
               },
-              "img": {
-                "type": "string"
-              },
-              "uid": {
+              "avatar": {
                 "type": "string"
               },
               "rank": {
-                "type": "integer"
+                "type": "string",
+                "pattern": "^\\d*$",
+                "example": "123456789"
               },
               "articles": {
                 "type": "object",
@@ -3763,9 +3785,6 @@
                           "type": "object",
                           "properties": {
                             "title": {
-                              "type": "string"
-                            },
-                            "slug": {
                               "type": "string"
                             },
                             "viewed": {
@@ -4153,17 +4172,16 @@
                                         "name": {
                                           "type": "string"
                                         },
-                                        "describe": {
+                                        "motto": {
                                           "type": "string"
                                         },
-                                        "img": {
-                                          "type": "string"
-                                        },
-                                        "uid": {
+                                        "avatar": {
                                           "type": "string"
                                         },
                                         "rank": {
-                                          "type": "integer"
+                                          "type": "string",
+                                          "pattern": "^\\d*$",
+                                          "example": "123456789"
                                         },
                                         "articles": {
                                           "type": "object",
@@ -4184,6 +4202,16 @@
                                               }
                                             }
                                           }
+                                        },
+                                        "liked": {
+                                          "type": "string",
+                                          "pattern": "^\\d*$",
+                                          "example": "123456789"
+                                        },
+                                        "viewed": {
+                                          "type": "string",
+                                          "pattern": "^\\d*$",
+                                          "example": "123456789"
                                         },
                                         "createdAt": {
                                           "type": "string",
@@ -4463,6 +4491,16 @@
                     }
                   }
                 }
+              },
+              "liked": {
+                "type": "string",
+                "pattern": "^\\d*$",
+                "example": "123456789"
+              },
+              "viewed": {
+                "type": "string",
+                "pattern": "^\\d*$",
+                "example": "123456789"
               },
               "createdAt": {
                 "type": "string",
@@ -4526,17 +4564,16 @@
               "name": {
                 "type": "string"
               },
-              "describe": {
+              "motto": {
                 "type": "string"
               },
-              "img": {
-                "type": "string"
-              },
-              "uid": {
+              "avatar": {
                 "type": "string"
               },
               "rank": {
-                "type": "integer"
+                "type": "string",
+                "pattern": "^\\d*$",
+                "example": "123456789"
               },
               "articles": {
                 "type": "object",
@@ -4553,9 +4590,6 @@
                           "type": "object",
                           "properties": {
                             "title": {
-                              "type": "string"
-                            },
-                            "slug": {
                               "type": "string"
                             },
                             "viewed": {
@@ -4943,17 +4977,16 @@
                                         "name": {
                                           "type": "string"
                                         },
-                                        "describe": {
+                                        "motto": {
                                           "type": "string"
                                         },
-                                        "img": {
-                                          "type": "string"
-                                        },
-                                        "uid": {
+                                        "avatar": {
                                           "type": "string"
                                         },
                                         "rank": {
-                                          "type": "integer"
+                                          "type": "string",
+                                          "pattern": "^\\d*$",
+                                          "example": "123456789"
                                         },
                                         "articles": {
                                           "type": "object",
@@ -4974,6 +5007,16 @@
                                               }
                                             }
                                           }
+                                        },
+                                        "liked": {
+                                          "type": "string",
+                                          "pattern": "^\\d*$",
+                                          "example": "123456789"
+                                        },
+                                        "viewed": {
+                                          "type": "string",
+                                          "pattern": "^\\d*$",
+                                          "example": "123456789"
                                         },
                                         "createdAt": {
                                           "type": "string",
@@ -5253,6 +5296,16 @@
                     }
                   }
                 }
+              },
+              "liked": {
+                "type": "string",
+                "pattern": "^\\d*$",
+                "example": "123456789"
+              },
+              "viewed": {
+                "type": "string",
+                "pattern": "^\\d*$",
+                "example": "123456789"
               },
               "createdAt": {
                 "type": "string",
@@ -5349,17 +5402,16 @@
               "name": {
                 "type": "string"
               },
-              "describe": {
+              "motto": {
                 "type": "string"
               },
-              "img": {
-                "type": "string"
-              },
-              "uid": {
+              "avatar": {
                 "type": "string"
               },
               "rank": {
-                "type": "integer"
+                "type": "string",
+                "pattern": "^\\d*$",
+                "example": "123456789"
               },
               "articles": {
                 "type": "object",
@@ -5376,9 +5428,6 @@
                           "type": "object",
                           "properties": {
                             "title": {
-                              "type": "string"
-                            },
-                            "slug": {
                               "type": "string"
                             },
                             "viewed": {
@@ -5766,17 +5815,16 @@
                                         "name": {
                                           "type": "string"
                                         },
-                                        "describe": {
+                                        "motto": {
                                           "type": "string"
                                         },
-                                        "img": {
-                                          "type": "string"
-                                        },
-                                        "uid": {
+                                        "avatar": {
                                           "type": "string"
                                         },
                                         "rank": {
-                                          "type": "integer"
+                                          "type": "string",
+                                          "pattern": "^\\d*$",
+                                          "example": "123456789"
                                         },
                                         "articles": {
                                           "type": "object",
@@ -5797,6 +5845,16 @@
                                               }
                                             }
                                           }
+                                        },
+                                        "liked": {
+                                          "type": "string",
+                                          "pattern": "^\\d*$",
+                                          "example": "123456789"
+                                        },
+                                        "viewed": {
+                                          "type": "string",
+                                          "pattern": "^\\d*$",
+                                          "example": "123456789"
                                         },
                                         "createdAt": {
                                           "type": "string",
@@ -6076,6 +6134,16 @@
                     }
                   }
                 }
+              },
+              "liked": {
+                "type": "string",
+                "pattern": "^\\d*$",
+                "example": "123456789"
+              },
+              "viewed": {
+                "type": "string",
+                "pattern": "^\\d*$",
+                "example": "123456789"
               },
               "createdAt": {
                 "type": "string",
@@ -6139,17 +6207,16 @@
               "name": {
                 "type": "string"
               },
-              "describe": {
+              "motto": {
                 "type": "string"
               },
-              "img": {
-                "type": "string"
-              },
-              "uid": {
+              "avatar": {
                 "type": "string"
               },
               "rank": {
-                "type": "integer"
+                "type": "string",
+                "pattern": "^\\d*$",
+                "example": "123456789"
               },
               "articles": {
                 "type": "object",
@@ -6166,9 +6233,6 @@
                           "type": "object",
                           "properties": {
                             "title": {
-                              "type": "string"
-                            },
-                            "slug": {
                               "type": "string"
                             },
                             "viewed": {
@@ -6556,17 +6620,16 @@
                                         "name": {
                                           "type": "string"
                                         },
-                                        "describe": {
+                                        "motto": {
                                           "type": "string"
                                         },
-                                        "img": {
-                                          "type": "string"
-                                        },
-                                        "uid": {
+                                        "avatar": {
                                           "type": "string"
                                         },
                                         "rank": {
-                                          "type": "integer"
+                                          "type": "string",
+                                          "pattern": "^\\d*$",
+                                          "example": "123456789"
                                         },
                                         "articles": {
                                           "type": "object",
@@ -6587,6 +6650,16 @@
                                               }
                                             }
                                           }
+                                        },
+                                        "liked": {
+                                          "type": "string",
+                                          "pattern": "^\\d*$",
+                                          "example": "123456789"
+                                        },
+                                        "viewed": {
+                                          "type": "string",
+                                          "pattern": "^\\d*$",
+                                          "example": "123456789"
                                         },
                                         "createdAt": {
                                           "type": "string",
@@ -6866,6 +6939,16 @@
                     }
                   }
                 }
+              },
+              "liked": {
+                "type": "string",
+                "pattern": "^\\d*$",
+                "example": "123456789"
+              },
+              "viewed": {
+                "type": "string",
+                "pattern": "^\\d*$",
+                "example": "123456789"
               },
               "createdAt": {
                 "type": "string",
@@ -6989,9 +7072,6 @@
                             "title": {
                               "type": "string"
                             },
-                            "slug": {
-                              "type": "string"
-                            },
                             "viewed": {
                               "type": "string",
                               "pattern": "^\\d*$",
@@ -7377,17 +7457,16 @@
                                         "name": {
                                           "type": "string"
                                         },
-                                        "describe": {
+                                        "motto": {
                                           "type": "string"
                                         },
-                                        "img": {
-                                          "type": "string"
-                                        },
-                                        "uid": {
+                                        "avatar": {
                                           "type": "string"
                                         },
                                         "rank": {
-                                          "type": "integer"
+                                          "type": "string",
+                                          "pattern": "^\\d*$",
+                                          "example": "123456789"
                                         },
                                         "articles": {
                                           "type": "object",
@@ -7408,6 +7487,16 @@
                                               }
                                             }
                                           }
+                                        },
+                                        "liked": {
+                                          "type": "string",
+                                          "pattern": "^\\d*$",
+                                          "example": "123456789"
+                                        },
+                                        "viewed": {
+                                          "type": "string",
+                                          "pattern": "^\\d*$",
+                                          "example": "123456789"
                                         },
                                         "createdAt": {
                                           "type": "string",
@@ -7767,9 +7856,6 @@
                             "title": {
                               "type": "string"
                             },
-                            "slug": {
-                              "type": "string"
-                            },
                             "viewed": {
                               "type": "string",
                               "pattern": "^\\d*$",
@@ -8155,17 +8241,16 @@
                                         "name": {
                                           "type": "string"
                                         },
-                                        "describe": {
+                                        "motto": {
                                           "type": "string"
                                         },
-                                        "img": {
-                                          "type": "string"
-                                        },
-                                        "uid": {
+                                        "avatar": {
                                           "type": "string"
                                         },
                                         "rank": {
-                                          "type": "integer"
+                                          "type": "string",
+                                          "pattern": "^\\d*$",
+                                          "example": "123456789"
                                         },
                                         "articles": {
                                           "type": "object",
@@ -8186,6 +8271,16 @@
                                               }
                                             }
                                           }
+                                        },
+                                        "liked": {
+                                          "type": "string",
+                                          "pattern": "^\\d*$",
+                                          "example": "123456789"
+                                        },
+                                        "viewed": {
+                                          "type": "string",
+                                          "pattern": "^\\d*$",
+                                          "example": "123456789"
                                         },
                                         "createdAt": {
                                           "type": "string",
@@ -8578,9 +8673,6 @@
                             "title": {
                               "type": "string"
                             },
-                            "slug": {
-                              "type": "string"
-                            },
                             "viewed": {
                               "type": "string",
                               "pattern": "^\\d*$",
@@ -8966,17 +9058,16 @@
                                         "name": {
                                           "type": "string"
                                         },
-                                        "describe": {
+                                        "motto": {
                                           "type": "string"
                                         },
-                                        "img": {
-                                          "type": "string"
-                                        },
-                                        "uid": {
+                                        "avatar": {
                                           "type": "string"
                                         },
                                         "rank": {
-                                          "type": "integer"
+                                          "type": "string",
+                                          "pattern": "^\\d*$",
+                                          "example": "123456789"
                                         },
                                         "articles": {
                                           "type": "object",
@@ -8997,6 +9088,16 @@
                                               }
                                             }
                                           }
+                                        },
+                                        "liked": {
+                                          "type": "string",
+                                          "pattern": "^\\d*$",
+                                          "example": "123456789"
+                                        },
+                                        "viewed": {
+                                          "type": "string",
+                                          "pattern": "^\\d*$",
+                                          "example": "123456789"
                                         },
                                         "createdAt": {
                                           "type": "string",
@@ -9356,9 +9457,6 @@
                             "title": {
                               "type": "string"
                             },
-                            "slug": {
-                              "type": "string"
-                            },
                             "viewed": {
                               "type": "string",
                               "pattern": "^\\d*$",
@@ -9744,17 +9842,16 @@
                                         "name": {
                                           "type": "string"
                                         },
-                                        "describe": {
+                                        "motto": {
                                           "type": "string"
                                         },
-                                        "img": {
-                                          "type": "string"
-                                        },
-                                        "uid": {
+                                        "avatar": {
                                           "type": "string"
                                         },
                                         "rank": {
-                                          "type": "integer"
+                                          "type": "string",
+                                          "pattern": "^\\d*$",
+                                          "example": "123456789"
                                         },
                                         "articles": {
                                           "type": "object",
@@ -9775,6 +9872,16 @@
                                               }
                                             }
                                           }
+                                        },
+                                        "liked": {
+                                          "type": "string",
+                                          "pattern": "^\\d*$",
+                                          "example": "123456789"
+                                        },
+                                        "viewed": {
+                                          "type": "string",
+                                          "pattern": "^\\d*$",
+                                          "example": "123456789"
                                         },
                                         "createdAt": {
                                           "type": "string",
@@ -10124,8 +10231,6 @@
           "data": {
             "required": [
               "gadgets",
-              "favicon",
-              "siteName",
               "navs",
               "links",
               "ads"
@@ -10134,12 +10239,6 @@
             "properties": {
               "gadgets": {
                 "$ref": "#/components/schemas/LayoutsGadgetsComponent"
-              },
-              "favicon": {
-                "type": "string"
-              },
-              "siteName": {
-                "type": "string"
               },
               "navs": {
                 "type": "array",
@@ -10180,12 +10279,6 @@
             "properties": {
               "gadgets": {
                 "$ref": "#/components/schemas/LayoutsGadgetsComponent"
-              },
-              "favicon": {
-                "type": "string"
-              },
-              "siteName": {
-                "type": "string"
               },
               "navs": {
                 "type": "array",
@@ -10523,12 +10616,6 @@
             "properties": {
               "gadgets": {
                 "$ref": "#/components/schemas/LayoutsGadgetsComponent"
-              },
-              "favicon": {
-                "type": "string"
-              },
-              "siteName": {
-                "type": "string"
               },
               "navs": {
                 "type": "array",
@@ -10900,12 +10987,6 @@
               "gadgets": {
                 "$ref": "#/components/schemas/LayoutsGadgetsComponent"
               },
-              "favicon": {
-                "type": "string"
-              },
-              "siteName": {
-                "type": "string"
-              },
               "navs": {
                 "type": "array",
                 "items": {
@@ -11242,12 +11323,6 @@
             "properties": {
               "gadgets": {
                 "$ref": "#/components/schemas/LayoutsGadgetsComponent"
-              },
-              "favicon": {
-                "type": "string"
-              },
-              "siteName": {
-                "type": "string"
               },
               "navs": {
                 "type": "array",
@@ -11667,8 +11742,8 @@
           "describe": {
             "type": "string"
           },
-          "isShow": {
-            "type": "boolean"
+          "icon": {
+            "type": "string"
           }
         }
       },
@@ -11732,9 +11807,6 @@
                           "type": "object",
                           "properties": {
                             "title": {
-                              "type": "string"
-                            },
-                            "slug": {
                               "type": "string"
                             },
                             "viewed": {
@@ -12122,17 +12194,16 @@
                                         "name": {
                                           "type": "string"
                                         },
-                                        "describe": {
+                                        "motto": {
                                           "type": "string"
                                         },
-                                        "img": {
-                                          "type": "string"
-                                        },
-                                        "uid": {
+                                        "avatar": {
                                           "type": "string"
                                         },
                                         "rank": {
-                                          "type": "integer"
+                                          "type": "string",
+                                          "pattern": "^\\d*$",
+                                          "example": "123456789"
                                         },
                                         "articles": {
                                           "type": "object",
@@ -12153,6 +12224,16 @@
                                               }
                                             }
                                           }
+                                        },
+                                        "liked": {
+                                          "type": "string",
+                                          "pattern": "^\\d*$",
+                                          "example": "123456789"
+                                        },
+                                        "viewed": {
+                                          "type": "string",
+                                          "pattern": "^\\d*$",
+                                          "example": "123456789"
                                         },
                                         "createdAt": {
                                           "type": "string",
@@ -12512,9 +12593,6 @@
                             "title": {
                               "type": "string"
                             },
-                            "slug": {
-                              "type": "string"
-                            },
                             "viewed": {
                               "type": "string",
                               "pattern": "^\\d*$",
@@ -12900,17 +12978,16 @@
                                         "name": {
                                           "type": "string"
                                         },
-                                        "describe": {
+                                        "motto": {
                                           "type": "string"
                                         },
-                                        "img": {
-                                          "type": "string"
-                                        },
-                                        "uid": {
+                                        "avatar": {
                                           "type": "string"
                                         },
                                         "rank": {
-                                          "type": "integer"
+                                          "type": "string",
+                                          "pattern": "^\\d*$",
+                                          "example": "123456789"
                                         },
                                         "articles": {
                                           "type": "object",
@@ -12931,6 +13008,16 @@
                                               }
                                             }
                                           }
+                                        },
+                                        "liked": {
+                                          "type": "string",
+                                          "pattern": "^\\d*$",
+                                          "example": "123456789"
+                                        },
+                                        "viewed": {
+                                          "type": "string",
+                                          "pattern": "^\\d*$",
+                                          "example": "123456789"
                                         },
                                         "createdAt": {
                                           "type": "string",
@@ -13323,9 +13410,6 @@
                             "title": {
                               "type": "string"
                             },
-                            "slug": {
-                              "type": "string"
-                            },
                             "viewed": {
                               "type": "string",
                               "pattern": "^\\d*$",
@@ -13711,17 +13795,16 @@
                                         "name": {
                                           "type": "string"
                                         },
-                                        "describe": {
+                                        "motto": {
                                           "type": "string"
                                         },
-                                        "img": {
-                                          "type": "string"
-                                        },
-                                        "uid": {
+                                        "avatar": {
                                           "type": "string"
                                         },
                                         "rank": {
-                                          "type": "integer"
+                                          "type": "string",
+                                          "pattern": "^\\d*$",
+                                          "example": "123456789"
                                         },
                                         "articles": {
                                           "type": "object",
@@ -13742,6 +13825,16 @@
                                               }
                                             }
                                           }
+                                        },
+                                        "liked": {
+                                          "type": "string",
+                                          "pattern": "^\\d*$",
+                                          "example": "123456789"
+                                        },
+                                        "viewed": {
+                                          "type": "string",
+                                          "pattern": "^\\d*$",
+                                          "example": "123456789"
                                         },
                                         "createdAt": {
                                           "type": "string",
@@ -14101,9 +14194,6 @@
                             "title": {
                               "type": "string"
                             },
-                            "slug": {
-                              "type": "string"
-                            },
                             "viewed": {
                               "type": "string",
                               "pattern": "^\\d*$",
@@ -14489,17 +14579,16 @@
                                         "name": {
                                           "type": "string"
                                         },
-                                        "describe": {
+                                        "motto": {
                                           "type": "string"
                                         },
-                                        "img": {
-                                          "type": "string"
-                                        },
-                                        "uid": {
+                                        "avatar": {
                                           "type": "string"
                                         },
                                         "rank": {
-                                          "type": "integer"
+                                          "type": "string",
+                                          "pattern": "^\\d*$",
+                                          "example": "123456789"
                                         },
                                         "articles": {
                                           "type": "object",
@@ -14520,6 +14609,16 @@
                                               }
                                             }
                                           }
+                                        },
+                                        "liked": {
+                                          "type": "string",
+                                          "pattern": "^\\d*$",
+                                          "example": "123456789"
+                                        },
+                                        "viewed": {
+                                          "type": "string",
+                                          "pattern": "^\\d*$",
+                                          "example": "123456789"
                                         },
                                         "createdAt": {
                                           "type": "string",
@@ -14922,9 +15021,6 @@
                             "title": {
                               "type": "string"
                             },
-                            "slug": {
-                              "type": "string"
-                            },
                             "viewed": {
                               "type": "string",
                               "pattern": "^\\d*$",
@@ -15310,17 +15406,16 @@
                                         "name": {
                                           "type": "string"
                                         },
-                                        "describe": {
+                                        "motto": {
                                           "type": "string"
                                         },
-                                        "img": {
-                                          "type": "string"
-                                        },
-                                        "uid": {
+                                        "avatar": {
                                           "type": "string"
                                         },
                                         "rank": {
-                                          "type": "integer"
+                                          "type": "string",
+                                          "pattern": "^\\d*$",
+                                          "example": "123456789"
                                         },
                                         "articles": {
                                           "type": "object",
@@ -15341,6 +15436,16 @@
                                               }
                                             }
                                           }
+                                        },
+                                        "liked": {
+                                          "type": "string",
+                                          "pattern": "^\\d*$",
+                                          "example": "123456789"
+                                        },
+                                        "viewed": {
+                                          "type": "string",
+                                          "pattern": "^\\d*$",
+                                          "example": "123456789"
                                         },
                                         "createdAt": {
                                           "type": "string",
@@ -15700,9 +15805,6 @@
                             "title": {
                               "type": "string"
                             },
-                            "slug": {
-                              "type": "string"
-                            },
                             "viewed": {
                               "type": "string",
                               "pattern": "^\\d*$",
@@ -16088,17 +16190,16 @@
                                         "name": {
                                           "type": "string"
                                         },
-                                        "describe": {
+                                        "motto": {
                                           "type": "string"
                                         },
-                                        "img": {
-                                          "type": "string"
-                                        },
-                                        "uid": {
+                                        "avatar": {
                                           "type": "string"
                                         },
                                         "rank": {
-                                          "type": "integer"
+                                          "type": "string",
+                                          "pattern": "^\\d*$",
+                                          "example": "123456789"
                                         },
                                         "articles": {
                                           "type": "object",
@@ -16119,6 +16220,16 @@
                                               }
                                             }
                                           }
+                                        },
+                                        "liked": {
+                                          "type": "string",
+                                          "pattern": "^\\d*$",
+                                          "example": "123456789"
+                                        },
+                                        "viewed": {
+                                          "type": "string",
+                                          "pattern": "^\\d*$",
+                                          "example": "123456789"
                                         },
                                         "createdAt": {
                                           "type": "string",
@@ -16511,9 +16622,6 @@
                             "title": {
                               "type": "string"
                             },
-                            "slug": {
-                              "type": "string"
-                            },
                             "viewed": {
                               "type": "string",
                               "pattern": "^\\d*$",
@@ -16899,17 +17007,16 @@
                                         "name": {
                                           "type": "string"
                                         },
-                                        "describe": {
+                                        "motto": {
                                           "type": "string"
                                         },
-                                        "img": {
-                                          "type": "string"
-                                        },
-                                        "uid": {
+                                        "avatar": {
                                           "type": "string"
                                         },
                                         "rank": {
-                                          "type": "integer"
+                                          "type": "string",
+                                          "pattern": "^\\d*$",
+                                          "example": "123456789"
                                         },
                                         "articles": {
                                           "type": "object",
@@ -16930,6 +17037,16 @@
                                               }
                                             }
                                           }
+                                        },
+                                        "liked": {
+                                          "type": "string",
+                                          "pattern": "^\\d*$",
+                                          "example": "123456789"
+                                        },
+                                        "viewed": {
+                                          "type": "string",
+                                          "pattern": "^\\d*$",
+                                          "example": "123456789"
                                         },
                                         "createdAt": {
                                           "type": "string",
@@ -17289,9 +17406,6 @@
                             "title": {
                               "type": "string"
                             },
-                            "slug": {
-                              "type": "string"
-                            },
                             "viewed": {
                               "type": "string",
                               "pattern": "^\\d*$",
@@ -17677,17 +17791,16 @@
                                         "name": {
                                           "type": "string"
                                         },
-                                        "describe": {
+                                        "motto": {
                                           "type": "string"
                                         },
-                                        "img": {
-                                          "type": "string"
-                                        },
-                                        "uid": {
+                                        "avatar": {
                                           "type": "string"
                                         },
                                         "rank": {
-                                          "type": "integer"
+                                          "type": "string",
+                                          "pattern": "^\\d*$",
+                                          "example": "123456789"
                                         },
                                         "articles": {
                                           "type": "object",
@@ -17708,6 +17821,16 @@
                                               }
                                             }
                                           }
+                                        },
+                                        "liked": {
+                                          "type": "string",
+                                          "pattern": "^\\d*$",
+                                          "example": "123456789"
+                                        },
+                                        "viewed": {
+                                          "type": "string",
+                                          "pattern": "^\\d*$",
+                                          "example": "123456789"
                                         },
                                         "createdAt": {
                                           "type": "string",

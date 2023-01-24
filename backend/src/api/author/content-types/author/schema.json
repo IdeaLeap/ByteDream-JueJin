@@ -13,26 +13,37 @@
   "pluginOptions": {},
   "attributes": {
     "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "motto": {
       "type": "string"
     },
-    "describe": {
-      "type": "text"
-    },
-    "img": {
-      "type": "string"
-    },
-    "uid": {
-      "type": "uid",
-      "targetField": "name"
+    "avatar": {
+      "type": "string",
+      "required": true
     },
     "rank": {
-      "type": "integer"
+      "type": "biginteger",
+      "default": "1",
+      "required": true
     },
     "articles": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::article.article",
       "mappedBy": "authorId"
+    },
+    "liked": {
+      "type": "biginteger",
+      "default": "0",
+      "required": true
+    },
+    "viewed": {
+      "type": "biginteger",
+      "required": true,
+      "default": "0"
     }
   }
 }

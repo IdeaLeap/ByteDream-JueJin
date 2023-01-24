@@ -1,14 +1,15 @@
 {
   "collectionName": "components_layouts_navs",
   "info": {
-    "displayName": "navs"
+    "displayName": "navs",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "nav": {
       "type": "string",
       "required": true,
-      "unique": true
+      "unique": false
     },
     "url": {
       "type": "string",
