@@ -1,11 +1,10 @@
 import { useGraphql } from '~~/composables/graphql'
-import { apiResponse } from '~~/types/apiTypes'
-interface INav {
+interface INavItem {
   name: string
   url: string
   badge?: string
 }
-export default defineEventHandler(async () => {
+export default defineEventHandler(async (): Promise<INavItem[]> => {
   const reqQuery = `query{
     global{
       data{
@@ -19,5 +18,5 @@ export default defineEventHandler(async () => {
       }
     }
   }`
-  return apiResponse<INav[]>((await useGraphql(reqQuery)).global.data.navs)
+  return (await useGraphql(reqQuery)).global.navs
 })

@@ -64,6 +64,7 @@ export default {
     <div class="block">
       <DarkToggle />
     </div>
+    {{ NavList }}
   </main>
 </template>
 

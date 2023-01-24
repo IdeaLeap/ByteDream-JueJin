@@ -1,10 +1,11 @@
 import axios from 'axios'
 
-const removeAttributeWrapper = (data: Object) => {
+const removeAttributeWrapper = (data: Object): any => {
   if ('attributes' in data) {
     const _ = data.attributes as Object
     delete data.attributes
-    return { ...data, ..._ }
+
+    return removeAttributeWrapper({ ...data, ..._ })
   }
   if ('data' in data) {
     const _ = data.data as Object
@@ -13,7 +14,7 @@ const removeAttributeWrapper = (data: Object) => {
     }
     else {
       delete data.data
-      return { ...data, ..._ }
+      return removeAttributeWrapper({ ...data, ..._ })
     }
   }
   return data
@@ -26,7 +27,7 @@ const removeStrapiWrapper = (data: any) => {
     })
     return _
   }
-  else if (typeof data === 'object') {
+  else if (Object.prototype.toString.call(data) === '[object Object]') {
     const _ = removeAttributeWrapper(data)
     Object.entries(_).forEach(([k, v]) => {
       _[k as keyof Object] = removeStrapiWrapper(v)
