@@ -1,5 +1,4 @@
 import { useGraphql } from '~~/composables/graphql'
-import { apiResponse } from '~~/types/apiTypes'
 interface IGadget {
   title: string
   subscribe: string
@@ -21,13 +20,21 @@ interface IFootersItem {
   describe?: string
   icon?: string
 }
+interface IArticleAd {
+  title: string
+  author: string
+  summary: string
+  cover: string
+  url: string
+}
 interface IGlobal {
-  gadgets: IGadget[]
+  gadgets: IGadget
   links: ILinksItem[]
   ads: IAdsItem[]
   footers: IFootersItem[]
+  articleAds: IArticleAd
 }
-export default defineEventHandler(async () => {
+export default defineEventHandler(async (): Promise<IGlobal> => {
   const reqQuery = `query{
         global{
           data{
@@ -57,5 +64,5 @@ export default defineEventHandler(async () => {
           }
         }
       }`
-  return apiResponse<IGlobal>((await useGraphql(reqQuery)).global)
+  return (await useGraphql(reqQuery)).global
 })

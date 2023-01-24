@@ -1,13 +1,13 @@
-<script setup lang="ts">
-const { data: GloablData } = await useFetch('/api/global', { server: false })
+<script setup>
+const { data: GlobalData } = await useFetch('/api/global')
 </script>
 
-<template lang="">
+<template>
   <div class="index-aside">
     <AsideSign class="mb-5" />
-    <AsideAds class="mb-5" />
+    <AsideGadgets class="mb-5" :gadgets="GlobalData.gadgets" />
     <AsideAuthorList class="sidebar-block mb-5" />
-    <AsideArticleList class="sidebar-block mb-5" />
+    <!-- <AsideArticleList class="sidebar-block mb-5" /> -->
     2333
   </div>
 </template>

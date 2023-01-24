@@ -40,6 +40,11 @@
       "type": "component",
       "repeatable": true,
       "component": "layouts.footers"
+    },
+    "articleAds": {
+      "type": "component",
+      "repeatable": false,
+      "component": "articles.ads"
     }
   }
 }

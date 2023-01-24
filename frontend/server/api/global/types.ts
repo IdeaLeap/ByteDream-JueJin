@@ -1,9 +1,8 @@
 import { useGraphql } from '~~/composables/graphql'
-import { apiResponse } from '~~/types/apiTypes'
 interface ITypeItem {
   type: string
 }
-export default defineEventHandler(async () => {
+export default defineEventHandler(async (): Promise<ITypeItem[]> => {
   const reqQuery = `query{
     types{
       data{
@@ -13,5 +12,5 @@ export default defineEventHandler(async () => {
       }
     }
   }`
-  return apiResponse<ITypeItem[]>((await useGraphql(reqQuery)).types.data)
+  return (await useGraphql(reqQuery)).types.data
 })
