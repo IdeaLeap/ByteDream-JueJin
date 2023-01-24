@@ -62,7 +62,7 @@ export default {
       </div>
     </header>
     <div class="block">
-      <DarkToggle />
+      <UnoDarkToggle />
     </div>
     {{ NavList }}
   </main>
