@@ -70,7 +70,7 @@ onUnmounted(() => {
         </option>
       </select>
     </div>
-    <ul v-if="!isLoading && initialItem" class="w-full overflow-hidden">
+    <ul v-if="!isLoading && initialItem">
       <ArticlesItem
         v-for="items in artlistData" :key="items.uname" :uname="items.uname" :duration="items.duration"
         :title="items.title" :desc="items.desc" :tags="items.tags" :topic-heat="items.topicHeat"
