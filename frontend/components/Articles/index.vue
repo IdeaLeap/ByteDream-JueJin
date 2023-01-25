@@ -49,7 +49,7 @@ onUnmounted(() => {
   <div class="all-text-black pb-5 box-border w-full">
     <div class="flex" style="font-size: 13.67px;" border-b-1>
       <ul all-px-7 all-my-4 flex all-cursor-pointer all-text-gray-500>
-        <li id="recommend" class="text-blue navlist border-r-1" @click="artModeHandler('recommend')">
+        <li id="recommend" class="navlist border-r-1" @click="artModeHandler('recommend')">
           推荐
         </li>
         <li id="latest" class="navlist border-r-1" @click="artModeHandler('latest')">
@@ -76,7 +76,7 @@ onUnmounted(() => {
           全部
         </option>
       </select> -->
-      <UnoSelect class="" />
+      <UnoSelect v-if="artlistNav === 'hot'" class="" />
     </div>
     <ul v-if="!isLoading && initialItem">
       <ArticlesItem
@@ -93,5 +93,8 @@ onUnmounted(() => {
 <style scoped>
 li:hover {
   color: deepskyblue!important;
+}
+#recommend {
+  color: deepskyblue;
 }
 </style>
