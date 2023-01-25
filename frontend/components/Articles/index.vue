@@ -25,11 +25,11 @@ const artModeHandler = (mode: string) => {
   artlistNav.value = mode
   const allEl = document.querySelectorAll('.navlist') as unknown as HTMLElement[]
   allEl.forEach((item) => {
-    item.style.color = '#6b7280'
+    item.classList.remove('text-active')
   })
   const el = document.getElementById(mode) as unknown as HTMLElement
   if (el.style)
-    el.style.color = '#007fff'
+    el.classList.add('text-active')
   artlistData.value = []
   // TODO: 请求数据
   artlistData.value = initialItem
@@ -49,13 +49,13 @@ onUnmounted(() => {
   <div class="all-text-black pb-5 box-border w-full">
     <div class="flex" style="font-size: 13.67px;" border-b-1>
       <ul all-px-7 all-my-4 flex all-cursor-pointer all-text-gray-500>
-        <li id="recommend" class="navlist border-r-1" @click="artModeHandler('recommend')">
+        <li id="recommend" class=" text-blue-600 navlist border-r-1 hover:text-[#007fff]" @click="artModeHandler('recommend')">
           推荐
         </li>
-        <li id="latest" class="navlist border-r-1" @click="artModeHandler('latest')">
+        <li id="latest" class="navlist border-r-1 hover:text-[#007fff]" @click="artModeHandler('latest')">
           最新
         </li>
-        <li id="hot" class="navlist" @click="artModeHandler('hot')">
+        <li id="hot" class="navlist hover:text-[#007fff]" @click="artModeHandler('hot')">
           热榜
         </li>
       </ul>
@@ -74,10 +74,10 @@ onUnmounted(() => {
 </template>
 
 <style scoped>
-li:hover {
-  color: #007fff!important;
-}
 #recommend {
   color: #007fff;
+}
+.text-active {
+  @apply text-[#007fff]
 }
 </style>
