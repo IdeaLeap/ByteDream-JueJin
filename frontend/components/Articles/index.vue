@@ -5,8 +5,7 @@ const isLoading = useState('isLoading', () => false)
 const artlistNav = useState('artlistNav', () => 'recommend')
 const hotRange = useState('hotRange', () => 'all')
 const hotRangeHandler = () => {
-  // eslint-disable-next-line no-console
-  console.log(hotRange.value)
+  // TODO: 热度选择天数范围
 }
 const initialItem = await useFetchPostData()
 const artlistData = useState('artlist', () => [...initialItem] as IPanel[])
@@ -92,8 +91,7 @@ onUnmounted(() => {
 </template>
 
 <style scoped>
-a {
-  transition: all .15s ease;
-  color: '#6b7280';
+li:hover {
+  color: deepskyblue!important;
 }
 </style>
