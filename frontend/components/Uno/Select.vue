@@ -7,7 +7,7 @@ const isShow = ref(false)
     <div class="drop-down dorp-down">
       <li class="dropdown-toggle flex items-center justify-between" @click="isShow = !isShow">
         7天内
-        <div class=" text-[#b2bac2]" i-carbon:caret-up :class="!!isShow ? 'toggled' : ''" style="transition: all .5s;" />
+        <div class=" text-[#b2bac2]" i-carbon:caret-up :class="!isShow ? 'toggled' : ''" style="transition: all .5s;" />
       </li> <ul v-if="isShow" class="dropdown-menu">
         <li class="route-active">
           <a href="/?sort=three_days_hottest">3天内</a>
