@@ -29,7 +29,7 @@ const artModeHandler = (mode: string) => {
   })
   const el = document.getElementById(mode) as unknown as HTMLElement
   if (el.style)
-    el.style.color = 'deepskyblue'
+    el.style.color = '#007fff'
   artlistData.value = []
   // TODO: 请求数据
   artlistData.value = initialItem
@@ -59,23 +59,6 @@ onUnmounted(() => {
           热榜
         </li>
       </ul>
-      <!-- <select
-        v-if="artlistNav === 'hot'" v-model="hotRange" class="text-2 px-2 border-1"
-        @change="hotRangeHandler"
-      >
-        <option class="" :value="24 * 60 * 60 * 1000 * 3">
-          3天内
-        </option>
-        <option class="" :value="24 * 60 * 60 * 1000 * 7">
-          7天内
-        </option>
-        <option class="" :value="24 * 60 * 60 * 1000 * 30">
-          30天内
-        </option>
-        <option value="all">
-          全部
-        </option>
-      </select> -->
       <UnoSelect v-if="artlistNav === 'hot'" class="" />
     </div>
     <ul v-if="!isLoading && initialItem">
@@ -92,9 +75,9 @@ onUnmounted(() => {
 
 <style scoped>
 li:hover {
-  color: deepskyblue!important;
+  color: #007fff!important;
 }
 #recommend {
-  color: deepskyblue;
+  color: #007fff;
 }
 </style>
