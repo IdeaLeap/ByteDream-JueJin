@@ -5,8 +5,7 @@ const isLoading = useState('isLoading', () => false)
 const artlistNav = useState('artlistNav', () => 'recommend')
 const hotRange = useState('hotRange', () => 'all')
 const hotRangeHandler = () => {
-  // eslint-disable-next-line no-console
-  console.log(hotRange.value)
+  // TODO: 热度选择天数范围
 }
 const initialItem = await useFetchPostData()
 const artlistData = useState('artlist', () => [...initialItem] as IPanel[])
@@ -48,11 +47,19 @@ onUnmounted(() => {
 
 <template>
   <div class="all-text-black pb-5 box-border w-full">
-    <div class="flex all-cursor-pointer all-px-7 all-my-4 border-b-1 all-text-gray-500" style="font-size: 13.67px;">
-      <a id="recommend" class="text-blue navlist border-r-1" @click="artModeHandler('recommend')">推荐</a>
-      <a id="latest" class="navlist border-r-1" @click="artModeHandler('latest')">最新</a>
-      <a id="hot" class="navlist" @click="artModeHandler('hot')">热榜</a>
-      <select
+    <div class="flex" style="font-size: 13.67px;" border-b-1>
+      <ul all-px-7 all-my-4 flex all-cursor-pointer all-text-gray-500>
+        <li id="recommend" class="text-blue navlist border-r-1" @click="artModeHandler('recommend')">
+          推荐
+        </li>
+        <li id="latest" class="navlist border-r-1" @click="artModeHandler('latest')">
+          最新
+        </li>
+        <li id="hot" class="navlist" @click="artModeHandler('hot')">
+          热榜
+        </li>
+      </ul>
+      <!-- <select
         v-if="artlistNav === 'hot'" v-model="hotRange" class="text-2 px-2 border-1"
         @change="hotRangeHandler"
       >
@@ -68,7 +75,8 @@ onUnmounted(() => {
         <option value="all">
           全部
         </option>
-      </select>
+      </select> -->
+      <UnoSelect class="" />
     </div>
     <ul v-if="!isLoading && initialItem">
       <ArticlesItem
@@ -83,8 +91,7 @@ onUnmounted(() => {
 </template>
 
 <style scoped>
-a {
-  transition: all .15s ease;
-  color: '#6b7280';
+li:hover {
+  color: deepskyblue!important;
 }
 </style>

@@ -26,7 +26,7 @@ const { data: NavList } = await useFetch('/api/global/navs')
       </div>
     </header>
     <div class="block">
-      <DarkToggle />
+      <UnoDarkToggle />
     </div>
   </main>
 </template>
