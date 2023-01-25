@@ -22,7 +22,9 @@ else if (parseInt(hours.value) > 18 && parseInt(hours.value) <= 24)
           </div>
         </div>
         <div>
-          <button class="bg-[#f4f9ff] border-[#8dbfff] hover:bg-[#e8f2ff] border-solid border-1 rounded-2 h-13">
+          <button
+            class="bg-[#f4f9ff] border-[#8dbfff] hover:bg-[#e8f2ff] border-solid border-1 rounded-2 h-13"
+          >
             <span class="text-lg text-[#1e80ff] px-5 py-1">去签到</span>
           </button>
         </div>
@@ -31,6 +33,4 @@ else if (parseInt(hours.value) > 18 && parseInt(hours.value) <= 24)
   </div>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>
