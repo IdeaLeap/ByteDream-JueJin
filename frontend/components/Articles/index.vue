@@ -91,10 +91,7 @@ onUnmounted(() => {
 </template>
 
 <style scoped>
-a {
-  transition: all .15s ease;
-}
-a:hover {
+li:hover {
   color: deepskyblue!important;
 }
 </style>
