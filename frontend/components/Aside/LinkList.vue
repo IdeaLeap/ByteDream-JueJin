@@ -11,7 +11,7 @@ defineProps({
 <template>
   <div display="block" class="">
     <div class="bg-[#ffffff]">
-      <ul class="flex flex-col gap-3 items-center">
+      <ul class=" flex-col gap-3 items-center flex">
         <li v-for="i in links" :key="i.url" class="h-[100%] w-[100%]">
           <nuxt-link
             :to="i.url"

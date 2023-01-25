@@ -42,7 +42,7 @@
     },
     "cover": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "summary": {
       "type": "string",
