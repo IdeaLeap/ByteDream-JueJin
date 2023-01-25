@@ -15,7 +15,9 @@ const { data: NavList } = await useFetch('/api/global/navs')
           <nav class="nav-list">
             <ul>
               <li v-for="item in NavList" :key="item.nav">
-                <a href="">{{ item.nav }}</a>
+                <NuxtLink to="{{ item.url }}">
+                  <a>{{ item.nav }}</a>
+                </NuxtLink>
               </li>
             </ul>
             <span v-for="item in NavList" :key="item.badge">{{ item.badge }}</span>
@@ -26,7 +28,6 @@ const { data: NavList } = await useFetch('/api/global/navs')
     <div class="block">
       <DarkToggle />
     </div>
-    {{ NavList }}
   </main>
 </template>
 
