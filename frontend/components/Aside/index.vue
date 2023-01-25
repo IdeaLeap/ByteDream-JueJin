@@ -7,8 +7,10 @@ const { data: GlobalData } = await useFetch('/api/global')
     <AsideSign class="mb-5" />
     <AsideGadgets class="mb-5" :gadgets="GlobalData.gadgets" />
     <AsideAuthorList class="sidebar-block mb-5" />
+    <AsideLinkList class="mb-5" :links="GlobalData.links" />
     <!-- <AsideArticleList class="sidebar-block mb-5" /> -->
-    2333
+    <AsideFooters class="mb-5" />
+    <AsideSuspensionPanel class="fixed right-3 bottom-1" />
   </div>
 </template>
 
