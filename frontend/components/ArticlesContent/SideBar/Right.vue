@@ -1,0 +1,289 @@
+<!-- eslint-disable no-console -->
+<script setup>
+import { getProcessor } from 'bytemd'
+import { visit } from 'unist-util-visit'
+const props = defineProps({
+  content: {
+    type: String,
+    default: '',
+  },
+  author: {
+    type: Object,
+  },
+})
+const Catalogue = ref([])
+const stringifyHeading = (e) => {
+  let result = ''
+  visit(e, (node) => {
+    if (node.type === 'text')
+      result += node.value
+  })
+  return result
+}
+getProcessor({
+  plugins: [
+    {
+      rehype: p =>
+        p.use(() => (tree) => {
+          if (tree && tree.children.length) {
+            const items = []
+            tree.children
+              .filter(v => v.type === 'element')
+              .forEach((node) => {
+                const selectedVal1 = 'theme'
+                const selectedVal2 = 'highlight'
+                const isSelected1 = node.children.filter(item => item.value?.includes(selectedVal1))
+                const isSelected2 = node.children.filter(item => item.value?.includes(selectedVal2))
+
+                if (node.tagName[0] === 'h' && !!node.children.length && isSelected1.length === 0 && isSelected2.length === 0) {
+                  const i = Number(node.tagName[1])
+                  items.push({
+                    level: i,
+                    text: stringifyHeading(node),
+                  })
+                }
+              })
+            Catalogue.value = items.filter(v => v.level === 1 || v.level === 2 || v.level === 3)
+          }
+        }),
+    },
+  ],
+}).processSync(props.content)
+
+const isActive = ref()
+const activeSelect = (index) => {
+  if (isActive.value === index)
+    return
+  isActive.value = index
+}
+const catalogueClass = (level) => {
+  switch (level) {
+    case 1:
+      return 'item d1'
+    case 2:
+      return 'item d2'
+    case 3:
+      return 'item d3'
+    default:
+      return 'item'
+  }
+}
+
+const itemOffsetTop = ref([])
+const onScroll = () => {
+  itemOffsetTop.value = []
+  Catalogue.value.forEach((val, i) => {
+    const firstHead = document.querySelector(`#heading-${i}`)
+    if (firstHead) {
+      itemOffsetTop.value.push({
+        key: i,
+        top: firstHead.offsetTop,
+      })
+    }
+  })
+  const scrollTop = document.documentElement.scrollTop - 80
+  // console.log(scrollTop)
+  // console.log(itemOffsetTop.value)
+  let num = 0
+  for (let n = 0; n < itemOffsetTop.value.length; n++) {
+    if (scrollTop >= itemOffsetTop.value[n].top)
+      num = itemOffsetTop.value[n].key
+  }
+
+  isActive.value = num
+}
+
+const throttledScrollHandler = useThrottleFn(() => {
+  onScroll()
+}, 300)
+const calculateOffTop = () => {
+  window.addEventListener('scroll', throttledScrollHandler)
+}
+
+const firtstCatalogueTop = ref(0)
+
+const scrollFixedCatalogue = () => {
+  const scrollTop = document.documentElement.scrollTop
+  const sideBar = document.querySelector('.sidebar')
+  const catalogue = document.querySelector('.sticky-block-box')
+  if (scrollTop > catalogue.offsetTop)
+    sideBar.classList.add('sticky')
+  if (sideBar.classList.contains('sticky') && scrollTop - 80 < firtstCatalogueTop.value)
+    sideBar.classList.remove('sticky')
+}
+
+onMounted(() => {
+  calculateOffTop()
+  const route = useRoute()
+  setTimeout(() => {
+    if (route.hash) {
+      const hashIndex = route.hash.slice(9)
+      if (hashIndex !== -1) {
+        isActive.value = hashIndex
+        const a = document.createElement('a')
+        a.href = `#heading-${hashIndex}`
+        a.click()
+      }
+    }
+  }, 1)
+  firtstCatalogueTop.value = document.querySelector('.sticky-block-box').offsetTop
+  window.addEventListener('scroll', scrollFixedCatalogue)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', throttledScrollHandler)
+  window.addEventListener('scroll', scrollFixedCatalogue)
+})
+</script>
+
+<template>
+  <div class="sidebar hidden lg:block lg:w-4/12">
+    <ArticlesContentSideBarAuthor :author="props.author" />
+    <!-- <AsideArticleList /> -->
+    <div class="sticky-block-box">
+      <div class="sidebar-block catalog-block catalog-block pure isExpand" style="">
+        <nav class="article-catalog">
+          <div class="catalog-title">
+            目录
+          </div>
+          <div class="catalog-body">
+            <ul class="catalog-list" style="margin-top: 0px">
+              <li v-for="(item, index) in Catalogue" :key="index" :class="[{ active: index === isActive }, catalogueClass(item.level)]" @click="activeSelect(index)">
+                <div class="a-container">
+                  <a :href="`#heading-${index}`" :title="item.text" class="catalog-aTag"> {{ item.text }} </a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
+</template>
+
+<style scoped>
+.sidebar {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 25rem;
+}
+.sidebar.sticky .sticky-block-box {
+  position: fixed;
+  top: 1.767rem;
+  width: inherit;
+  transition: top 0.2s;
+}
+.sidebar-block {
+  position: relative;
+  margin-bottom: 1.5rem;
+  border-radius: 2px;
+}
+
+.sidebar .sidebar-block {
+  margin-bottom: 20px;
+}
+
+.catalog-block.isExpand {
+  max-height: 675px;
+}
+
+.catalog-block {
+  transition: all 0.2s linear;
+}
+.catalog-block.isExpand .article-catalog {
+  height: 100%;
+}
+
+.article-catalog {
+  background: #fff;
+  border-radius: 4px;
+  padding: 0;
+}
+
+.catalog-title {
+  font-weight: 500;
+  padding: 1.333rem 0;
+  margin: 0 1.667rem;
+  font-size: 16px;
+  line-height: 2rem;
+  color: #1d2129;
+  border-bottom: 1px solid #e4e6eb;
+}
+
+.catalog-block.isExpand .article-catalog .catalog-body {
+  max-height: 612px;
+}
+
+.catalog-body {
+  position: relative;
+  max-height: 460px;
+  margin: 8px 4px 0 0;
+  overflow: auto;
+}
+
+.catalog-list {
+  position: relative;
+  line-height: 22px;
+  padding: 0 0 12px;
+}
+
+.catalog-list .item {
+  margin: 0;
+  padding: 0;
+  font-size: 1.167rem;
+  font-weight: 400;
+  line-height: 22px;
+  color: #333;
+  list-style: none;
+}
+
+.catalog-list .item.d1 {
+  font-weight: 400;
+  color: #000;
+}
+
+.catalog-list .item.active > .a-container {
+  color: #007fff;
+}
+
+.catalog-list .item.active > .a-container:before {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 0;
+  margin-top: 7px;
+  width: 4px;
+  height: 16px;
+  background: #1e80ff;
+  border-radius: 0 4px 4px 0;
+}
+.catalog-list .item.d1 > .a-container {
+  margin: 0;
+  padding: 0 0 0 11px;
+}
+.catalog-list .item.d2 > .a-container {
+  padding-left: 26px;
+}
+.catalog-list .item.d3 > .a-container {
+  padding-left: 41px;
+}
+.catalog-list .item .a-container {
+  display: block;
+  position: relative;
+  padding: 0 0 0 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.catalog-list .catalog-aTag {
+  color: inherit;
+  display: inline-block;
+  padding: 8px;
+  width: 90%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+</style>

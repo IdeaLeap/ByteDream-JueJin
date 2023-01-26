@@ -16847,6 +16847,15 @@ unist-util-visit@^4.0.0, unist-util-visit@^4.1.1:
     unist-util-is "^5.0.0"
     unist-util-visit-parents "^5.1.1"
 
+unist-util-visit@^4.1.2:
+  version "4.1.2"
+  resolved "https://registry.npmmirror.com/unist-util-visit/-/unist-util-visit-4.1.2.tgz#125a42d1eb876283715a3cb5cceaa531828c72e2"
+  integrity sha512-MSd8OUGISqHdVvfY9TPhyK2VdUrPgxkUtWSuMHF6XAAFuL4LokseigBnZtPnJMu+FbynTkFNnFlyjxpVKujMRg==
+  dependencies:
+    "@types/unist" "^2.0.0"
+    unist-util-is "^5.0.0"
+    unist-util-visit-parents "^5.1.1"
+
 universalify@^2.0.0:
   version "2.0.0"
   resolved "https://registry.npmmirror.com/universalify/-/universalify-2.0.0.tgz#75a4984efedc4b08975c5aeb73f530d02df25717"
