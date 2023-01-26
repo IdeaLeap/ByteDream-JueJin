@@ -5,9 +5,8 @@ watchEffect(() => {
 })
 let pagenum = 0
 const isLoading = useState('isLoading', () => false)
-const artlistNav = useState('artlistNav', () => 'recommend')
 const initialItem = await useFetchPostData()
-const artlistData = useArlist(initialItem)
+const artlistData = useArtlist(initialItem)
 const addArtListItem = () => {
   if (useScrollBottom()) {
     const timer = setTimeout(async () => {
@@ -32,12 +31,12 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="all-text-black pb-5 box-border w-full">
+  <div class="pb-5 box-border w-full">
     <div class="flex" style="font-size: 13.67px;" border-b-1>
       <ArticlesLink />
       <UnoSelect />
     </div>
-    <ul v-if="!isLoading && initialItem">
+    <ul v-if="!isLoading && artlistData">
       <ArticlesItem
         v-for="items in artlistData" :key="items.uname" :uname="items.uname" :duration="items.duration"
         :title="items.title" :desc="items.desc" :tags="items.tags" :topic-heat="items.topicHeat"
