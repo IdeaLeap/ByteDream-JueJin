@@ -5,27 +5,25 @@ watchEffect(() => {
 })
 let pagenum = 0
 const isLoading = useState('isLoading', () => false)
-const initialItem = await useFetchPostData()
-const artlistData = useArtlist(initialItem)
+const artlistData = useArtlist(await useFetchPostData())
 const addArtListItem = () => {
   if (useScrollBottom()) {
     const timer = setTimeout(async () => {
       if (useScrollBottom()) {
         pagenum++
-        const newItem = await useFetchPostData()
-        artlistData.value.push(...newItem)
+        const newArtlistData = await useFetchPostData()
+        artlistData.value = newArtlistData
       }
       clearTimeout(timer)
     }, 1000)
   }
 }
-let EmployeeWindow
 onMounted(() => {
-  EmployeeWindow = window as any
+  const EmployeeWindow = window as any
   EmployeeWindow.addEventListener('scroll', addArtListItem)
 })
 onUnmounted(() => {
-  EmployeeWindow = window as any
+  const EmployeeWindow = window as any
   EmployeeWindow.removeEventListener('scroll', addArtListItem) // 页面离开后销毁监听事件
 })
 </script>
