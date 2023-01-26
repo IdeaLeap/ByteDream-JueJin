@@ -1,6 +1,11 @@
 import type { IPanel } from '~~/types/IPanel'
 const postData: IPanel[] = []
 export const useArtlist = (data: IPanel[]) => useState('artlist', () => [...data] as IPanel[])
+export const useArtlistPath = (path?: string | undefined) => useState('artlistPath', () => {
+  if (path === undefined)
+    return ''
+  return path
+})
 // TODO: 请求数据
 export default async (/* mode = 'recommend' | 'latest' | 'heat' , pagenum = 1,  */): Promise<IPanel[]> => {
   // 接口
