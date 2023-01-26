@@ -3,11 +3,5 @@ useArtlistPath(useRoute().path)
 </script>
 
 <template>
-  <div>
-    <Main />
-  </div>
+  <Main />
 </template>
-
-<style scoped>
-
-</style>
