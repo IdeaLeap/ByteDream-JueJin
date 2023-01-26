@@ -1,6 +1,7 @@
 <script setup lang="ts">
 const isShow = useState<boolean>('isShow', () => false)
 const iptValue = useState<string>('iptValue', () => '3天内')
+const artlistPath = useArtlistPath()
 const iptValueHandler = (time: string) => {
   isShow.value = false
   iptValue.value = time
@@ -16,22 +17,22 @@ const iptValueHandler = (time: string) => {
       </div>
       <ul v-if="isShow" class="dropdown-menu">
         <li class="route-active">
-          <NuxtLink to="/?sort=three_days_hottest" @click="iptValueHandler('3天内')">
+          <NuxtLink :to="`${artlistPath}?sort=three_days_hottest`" @click="iptValueHandler('3天内')">
             3天内
           </NuxtLink>
         </li>
         <li class="router-link-exact-active route-active">
-          <NuxtLink to="/?sort=weekly_hottest" aria-current="page" @click="iptValueHandler('7天内')">
+          <NuxtLink :to="`${artlistPath}?sort=weekly_hottest`" aria-current="page" @click="iptValueHandler('7天内')">
             7天内
           </NuxtLink>
         </li>
         <li class="route-active">
-          <NuxtLink to="/?sort=monthly_hottest" @click="iptValueHandler('30天内')">
+          <NuxtLink :to="`${artlistPath}?sort=monthly_hottest`" @click="iptValueHandler('30天内')">
             30天内
           </NuxtLink>
         </li>
         <li class="route-active">
-          <NuxtLink to="/?sort=hottest" @click="iptValueHandler('全部')">
+          <NuxtLink :to="`${artlistPath}?sort=hottest`" @click="iptValueHandler('全部')">
             全部
           </NuxtLink>
         </li>
