@@ -1,4 +1,4 @@
-import { useGraphql } from '~~/composables/graphql'
+import { useGraphql } from '~~/composables/useGraphql'
 interface ITagItem {
   tag: string
 }
