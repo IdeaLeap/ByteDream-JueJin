@@ -125,7 +125,7 @@ onMounted(() => {
         </div>
       </div>
     </article>
-    <ArticlesContentEnd  :type="props.article.typeId" :tag="props.article.tagIds"/>
+    <ArticlesContentEnd :type="props.article.typeId" :tag="props.article.tagIds" />
   </div>
   <!-- // 骨架屏 -->
   <!-- <span animate-pulse v-else class="h-screen bg-white w-1024px block" >Loading...</span> -->

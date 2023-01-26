@@ -8,17 +8,14 @@ const props = defineProps({
 
 <template>
   <div class="sidebar-block author-block pure mb-20px">
-    <a href="#" target="_blank" rel class="user-item item pb-1.416rem"
-      ><img :src="props.author.avatar" alt="" class="lazy avatar" loading="lazy" />
+    <a href="#" target="_blank" rel class="user-item item pb-1.416rem"><img :src="props.author.avatar" alt="" class="lazy avatar" loading="lazy">
       <div class="info-box">
-        <a href="#" target="_blank" rel class="username flex items-center"
-          ><span class="name" style="max-width: 128px"> {{ props.author.name }} </span>
+        <a href="#" target="_blank" rel class="username flex items-center"><span class="name" style="max-width: 128px"> {{ props.author.name }} </span>
         </a>
         <div :title="props.author.motto" class="position">
           {{ props.author.motto }}
         </div>
-      </div></a
-    >
+      </div></a>
   </div>
 </template>
 
