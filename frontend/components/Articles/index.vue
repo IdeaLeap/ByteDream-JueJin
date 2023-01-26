@@ -1,5 +1,4 @@
 <script setup lang="ts">
-const route = useRoute()
 watchEffect(() => {
   // TODO: 请求数据
 })

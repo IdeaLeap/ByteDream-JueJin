@@ -1,7 +1,5 @@
 <script setup lang="ts">
 const artlistPath = useArtlistPath()
-// eslint-disable-next-line no-console
-console.log(artlistPath)
 </script>
 
 <template>

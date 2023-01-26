@@ -4,7 +4,7 @@ useArtlistPath(useRoute().path)
 
 <template>
   <div>
-    <Main :tag="$route.path" />
+    <Main />
   </div>
 </template>
 
