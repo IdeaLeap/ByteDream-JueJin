@@ -35,7 +35,7 @@ onUnmounted(() => {
   <div class="all-text-black pb-5 box-border w-full">
     <div class="flex" style="font-size: 13.67px;" border-b-1>
       <ArticlesLink />
-      <UnoSelect v-if="route.query.sort?.indexOf('hottest') !== -1" class="" />
+      <UnoSelect />
     </div>
     <ul v-if="!isLoading && initialItem">
       <ArticlesItem

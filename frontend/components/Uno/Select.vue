@@ -3,7 +3,7 @@ const isShow = ref(false)
 </script>
 
 <template>
-  <div class="dorp-down-area">
+  <div v-if="$route.query.sort && $route.query.sort?.indexOf('hottest') !== -1" class="dorp-down-area">
     <div class="drop-down dorp-down">
       <li class="dropdown-toggle flex items-center justify-between" @click="isShow = !isShow">
         7天内
