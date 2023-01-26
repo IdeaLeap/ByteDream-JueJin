@@ -7,7 +7,8 @@ function toggleDark() {
 </script>
 
 <template>
-  <button class="!outline-none" @click="toggleDark">
+  <button class="!outline-none flex" @click="toggleDark">
+    <span>切换主题</span>
     <div class="dark:i-carbon-moon i-carbon-sun" />
   </button>
 </template>
