@@ -27,5 +27,5 @@ export function useDayParts() {
     state.value = '下午好!'
   else if (hour > 18 && hour <= 24)
     state.value = '晚上好!'
-  return state
+  return hours
 }
