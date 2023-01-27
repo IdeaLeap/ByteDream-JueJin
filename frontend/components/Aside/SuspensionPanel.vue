@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { useWindowScroll } from '@vueuse/core'
+const { x, y } = useWindowScroll()
 const to_top = () => {
   window.scrollTo({
     top: 0,
@@ -9,6 +11,7 @@ const to_top = () => {
 <template>
   <div display="block" class="p-5 flex flex-col">
     <div
+      v-if="y > 900"
       class="my-2 bg-light-50 p-4 rounded-full shadow hover:shadow-md"
       @click="to_top"
     >
