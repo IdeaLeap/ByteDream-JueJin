@@ -1,5 +1,44 @@
-import type { IPanel } from '~~/types/IPanel'
-const postData: IPanel[] = []
+import type { Ref } from 'vue'
+import type { IArticleItem, IPanel } from '~~/types/IPanel'
+function fixPoint(num: number) {
+  return num.toFixed(0)
+}
+function formatTime(createdAt: string) {
+  const created = new Date(createdAt)
+  const now = new Date()
+  const duration = (now.getTime() - created.getTime()) / 1000 / 60
+  let ans = '刚刚'
+  // 年月日时分秒
+  if (duration < 60) // 一小时内
+    ans = `${fixPoint(duration)}分钟前`
+  else if (duration < 60 * 24) // 一天内
+    ans = `${fixPoint(duration / 60)}小时前`
+  else if (duration < 60 * 24 * 30) // 一个月内
+    ans = `${fixPoint(duration / 60 / 24)}天前`
+  else if (duration < 60 * 24 * 30 * 365) // 一年内
+    ans = `${fixPoint(duration / 60 / 24 / 30)}月前`
+  else // 超过一年
+    ans = `${fixPoint(duration / 60 / 24 / 30 / 365)}年前`
+  return ans
+}
+function formatArtlist(artlistData: Ref<IArticleItem[]>): IPanel[] {
+  return artlistData.value.map((item: IArticleItem) => {
+    const tagIds: string[] = []
+    item.tagIds.data.forEach((sub) => {
+      tagIds.push(sub.tag)
+    })
+    return {
+      id: item.id,
+      title: item.title,
+      topicHeat: [item.viewed, item.liked, item.commented],
+      summary: item.summary,
+      cover: item.cover,
+      duration: formatTime(item.createdAt),
+      tagIds,
+      name: item.authorId.name,
+    }
+  })
+}
 export const useArtlist = (data: IPanel[]) => useState('artlist', () => [...data] as IPanel[])
 export const useArtlistPath = (path?: string | undefined) => useState('artlistPath', () => {
   if (path === undefined)
@@ -7,108 +46,13 @@ export const useArtlistPath = (path?: string | undefined) => useState('artlistPa
   return path
 })
 // TODO: 请求数据
-export default async (/* mode = 'recommend' | 'latest' | 'heat' , pagenum = 1,  */): Promise<IPanel[]> => {
+export default async (type?: string, sort?: string, pagenum = 1): Promise<IPanel[]> => {
   // 接口
-  // const fetchData = await useFetch()
-  const value = [
-    {
-      uname: 'OrzR3',
-      duration: '2月',
-      tags: ['后端', 'Go', '前端'],
-      title: 'Go 语言中的 Gin 框架',
-      desc: 'Go 语言中的 gin 框架简易上手指南，初始化安装，加载静态资源和页面，以及表单提交Go 语言中的 gin 框架简易上手指南，初始化安装，加载静态资源和页面，以及表单提交',
-      topicHeat: [3182, 22, 6],
-    },
-    {
-      uname: 'xj1',
-      duration: '2月',
-      tags: ['Vue.js', 'arco design', 'koa'],
-      title: '帮朋友搭建后台管理系统',
-      desc: '对，还是那位朋友，一位接近40的澳洲老哥，找我帮忙搞一个管理后台，他刚找到编程',
-      topicHeat: [15000, 276, 45],
-    },
-    {
-      uname: 'sx1',
-      duration: '8天',
-      tags: ['前端', '后端'],
-      title: '如何打造一个优雅的git工作流',
-      desc: '在开发中，不论是一个团队一起开发一个项目，还是自己独立开发一个项目。都少不了',
-      topicHeat: [2022, 26, 6],
-    },
-    {
-      uname: 'OrzR31',
-      duration: '2月',
-      tags: ['后端', 'Go', '前端'],
-      title: 'Go 语言中的 Gin 框架',
-      desc: 'Go 语言中的 gin 框架简易上手指南，初始化安装，加载静态资源和页面，以及表单提交Go 语言中的 gin 框架简易上手指南，初始化安装，加载静态资源和页面，以及表单提交',
-      topicHeat: [3182, 22, 6],
-    },
-    {
-      uname: 'xj2',
-      duration: '2月',
-      tags: ['Vue.js', 'arco design', 'koa'],
-      title: '帮朋友搭建后台管理系统',
-      desc: '对，还是那位朋友，一位接近40的澳洲老哥，找我帮忙搞一个管理后台，他刚找到编程',
-      topicHeat: [15000, 276, 45],
-    },
-    {
-      uname: 'sx2',
-      duration: '8天',
-      tags: ['前端', '后端'],
-      title: '如何打造一个优雅的git工作流',
-      desc: '在开发中，不论是一个团队一起开发一个项目，还是自己独立开发一个项目。都少不了',
-      topicHeat: [2022, 26, 6],
-    },
-    {
-      uname: 'OrzR32',
-      duration: '2月',
-      tags: ['后端', 'Go', '前端'],
-      title: 'Go 语言中的 Gin 框架',
-      desc: 'Go 语言中的 gin 框架简易上手指南，初始化安装，加载静态资源和页面，以及表单提交Go 语言中的 gin 框架简易上手指南，初始化安装，加载静态资源和页面，以及表单提交',
-      topicHeat: [3182, 22, 6],
-    },
-    {
-      uname: 'xj',
-      duration: '2月',
-      tags: ['Vue.js', 'arco design', 'koa'],
-      title: '帮朋友搭建后台管理系统',
-      desc: '对，还是那位朋友，一位接近40的澳洲老哥，找我帮忙搞一个管理后台，他刚找到编程',
-      topicHeat: [15000, 276, 45],
-    },
-    {
-      uname: 'sx',
-      duration: '8天',
-      tags: ['前端', '后端'],
-      title: '如何打造一个优雅的git工作流',
-      desc: '在开发中，不论是一个团队一起开发一个项目，还是自己独立开发一个项目。都少不了',
-      topicHeat: [2022, 26, 6],
-    },
-    {
-      uname: 'OrzR3',
-      duration: '2月',
-      tags: ['后端', 'Go', '前端'],
-      title: 'Go 语言中的 Gin 框架',
-      desc: 'Go 语言中的 gin 框架简易上手指南，初始化安装，加载静态资源和页面，以及表单提交Go 语言中的 gin 框架简易上手指南，初始化安装，加载静态资源和页面，以及表单提交',
-      topicHeat: [3182, 22, 6],
-    },
-    {
-      uname: 'xj',
-      duration: '2月',
-      tags: ['Vue.js', 'arco design', 'koa'],
-      title: '帮朋友搭建后台管理系统',
-      desc: '对，还是那位朋友，一位接近40的澳洲老哥，找我帮忙搞一个管理后台，他刚找到编程',
-      topicHeat: [15000, 276, 45],
-    },
-    {
-      uname: 'sx',
-      duration: '8天',
-      tags: ['前端', '后端'],
-      title: '如何打造一个优雅的git工作流',
-      desc: '在开发中，不论是一个团队一起开发一个项目，还是自己独立开发一个项目。都少不了',
-      topicHeat: [2022, 26, 6],
-    },
-  ]
+  if (type === undefined)
+    type = ''
+  if (sort === undefined)
+    sort = 'recommended'
+  const { data } = await useFetch(`/api/articles/list?sort=${sort}&type=${type}&pageNum=${pagenum}`)
   // 数据内容
-  postData.push(...value)
-  return postData
+  return formatArtlist(data)
 }

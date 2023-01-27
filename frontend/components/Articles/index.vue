@@ -1,7 +1,5 @@
 <script setup lang="ts">
-watchEffect(() => {
-  // TODO: 请求数据
-})
+const route = useRoute()
 let pagenum = 0
 const isLoading = useState('isLoading', () => false)
 const artlistData = useArtlist(await useFetchPostData())
@@ -10,13 +8,24 @@ const addArtListItem = () => {
     const timer = setTimeout(async () => {
       if (useScrollBottom()) {
         pagenum++
-        const newArtlistData = await useFetchPostData()
-        artlistData.value = newArtlistData
+        const type = route.path.replace('/', '')
+        const sort = route.query?.sort as string | undefined
+        const newArtlistData = await useFetchPostData(type, sort, pagenum)
+        artlistData.value.push(...newArtlistData)
       }
       clearTimeout(timer)
     }, 1000)
   }
 }
+watchEffect(() => {
+  const type = route.path.replace('/', '')
+  const sort = route.query?.sort as string | undefined
+  isLoading.value = true
+  useFetchPostData(type, sort).then((data) => {
+    artlistData.value = data
+    isLoading.value = false
+  })
+}, { flush: 'post' })
 onMounted(() => {
   const EmployeeWindow = window as any
   EmployeeWindow.addEventListener('scroll', addArtListItem)
@@ -33,10 +42,11 @@ onUnmounted(() => {
       <ArticlesLink />
       <UnoSelect />
     </div>
-    <ul v-if="!isLoading && artlistData">
+    <ul v-if="!isLoading">
       <ArticlesItem
-        v-for="items in artlistData" :key="items.uname" :uname="items.uname" :duration="items.duration"
-        :title="items.title" :desc="items.desc" :tags="items.tags" :topic-heat="items.topicHeat"
+        v-for="items in artlistData" :key="items.id" :name="items.name" :duration="items.duration"
+        :title="items.title" :summary="items.summary" :tags="items.tagIds" :topic-heat="items.topicHeat"
+        :cover="items.cover"
       />
     </ul>
     <ArticlesSkeleton v-else />
