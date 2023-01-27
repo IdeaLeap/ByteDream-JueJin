@@ -88,5 +88,5 @@ export default defineEventHandler(async (event): Promise<IArticleItem[]> => {
       }
     }
 }`
-  return await useGraphql(reqQuery)
+  return (await useGraphql(reqQuery)).articles.data
 })
