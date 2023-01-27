@@ -2,7 +2,13 @@ import { useGraphql } from '~~/composables/useGraphql'
 interface ITagItem {
   tag: string
 }
-export default defineEventHandler(async (event): Promise<ITagItem[]> => {
+interface IArticleItem {
+  id: string
+  title: string
+  liked: number
+  commented: number
+}
+export default defineEventHandler(async (event): Promise<ITagItem[] | IArticleItem[]> => {
   const query = getQuery(event)
   let reqQuery = `query{
     tags{
