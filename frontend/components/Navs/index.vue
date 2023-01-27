@@ -4,7 +4,7 @@ const runtimeConfig = useRuntimeConfig()
 const { data: NavList } = await useFetch('/api/global/navs')
 // button按钮
 const list = reactive({
-  showList: true,
+  showList: false,
 })
 const onClick = () => {
   list.showList = !list.showList
