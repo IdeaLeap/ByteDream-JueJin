@@ -6,7 +6,7 @@ const { data: TypeList } = await useFetch('/api/global/types')
 <template>
   <div class="view-nav">
     <div class="flex list-none ma pr-114">
-      <li v-for="item in TypeList" :key="item.type" class="mr-8 text-lg text-gray-700 h-5 w-10 float-left cursor-pointer">
+      <li v-for="item in TypeList" :key="item.type" class="navList">
         {{ item.type }}
       </li>
     </div>
@@ -17,7 +17,7 @@ const { data: TypeList } = await useFetch('/api/global/types')
 .view-nav {
   background: #fff;
   position: fixed;
-  top: 5rem;
+  top: 4.84rem;
   width: 100%;
   height: 3.833rem;
   z-index: 100;
@@ -25,5 +25,11 @@ const { data: TypeList } = await useFetch('/api/global/types')
   transition: all .2s;
   transform: translateZ(0);
   display: flex;
+}
+.navList{
+  @apply mr-8 text-lg text-gray-700 h-5 w-auto float-left cursor-pointer whitespace-nowrap;
+}
+.navList:hover{
+  color: #1e80ff;
 }
 </style>

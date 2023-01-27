@@ -1,4 +1,4 @@
-import { useGraphql } from '~~/composables/graphql'
+import { useGraphql } from '~~/composables/useGraphql'
 interface IAuthor {
   name: string
   motto: string
@@ -29,62 +29,63 @@ interface IArticle {
   content: string
   cover: string
   createdAt: string
+  updatedAt: string
   authorId: IAuthor
-  tagId: { data: ITagItem[] }
+  tagIds: { data: ITagItem[] }
   typeId: IType
   columId: IColumn
 }
 export default defineEventHandler(async (event): Promise<IArticle> => {
   const id = event.context.params.id
   const reqQuery = `query{
-        articles(id:${id}){
-        data{
-          id
-          attributes{
-            title
-            viewed
-            liked
-            shared
-            commented
-            content
-            cover
-            createdAt
-            authorId{
-              data{
-                attributes{
-                  name
-                  motto
-                  avatar
-                  rank
-                  liked
-                  viewed
-                }
-              }
-            }
-            tagId{
-              data{
-                attributes{
-                  tag
-                }
-              }
-            }
-            typeId{
-              data{
-                attributes{
-                  type
-                }
-              }
-            }
-            columId{
-              data{
-                attributes{
-                  column
-                }
-              }
-            }
-          }
-        }
-      }
+    article(id : ${id}){
+       data{
+         attributes{
+           title
+           viewed
+           liked
+           shared
+           commented
+           content
+           cover
+           createdAt
+           updatedAt
+           authorId{
+             data{
+               attributes{
+                 name
+                 motto
+                 avatar
+                 rank
+                 liked
+                 viewed
+               }
+             }
+           }
+           tagIds{
+             data{
+               attributes{
+                 tag
+               }
+             }
+           }
+           typeId{
+             data{
+               attributes{
+                 type
+               }
+             }
+           }
+           columId{
+             data{
+               attributes{
+                 column
+               }
+             }
+           }
+         }
+       }
+     }
 }`
   return await useGraphql(reqQuery)
 })

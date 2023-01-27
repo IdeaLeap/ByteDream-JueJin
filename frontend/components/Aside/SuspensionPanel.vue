@@ -53,4 +53,5 @@ const to_top = () => {
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+</style>
