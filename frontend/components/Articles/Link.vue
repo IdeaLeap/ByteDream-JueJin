@@ -3,7 +3,7 @@ const artlistPath = useArtlistPath()
 </script>
 
 <template>
-  <div all-px-7 all-my-4 flex all-cursor-pointer>
+  <div all-px-5 all-my-4 flex all-cursor-pointer>
     <NuxtLink
       :to="`${artlistPath === '' ? '/' : artlistPath}`"
       :class="`${
@@ -24,7 +24,7 @@ const artlistPath = useArtlistPath()
       :to="`${artlistPath}?sort=three_days_hottest`"
       :class="`${
         ($route.query.sort && $route.query.sort?.indexOf('hottest') !== -1) ? 'text-[#007fff]' : 'text-gray-500'
-      } border-r-1 focus:text-[#007fff] hover:text-[#007fff]`"
+      } focus:text-[#007fff] hover:text-[#007fff]`"
     >
       热榜
     </NuxtLink>

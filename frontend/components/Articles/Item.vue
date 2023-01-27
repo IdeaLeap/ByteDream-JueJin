@@ -22,27 +22,27 @@ const enteredtopicHeat: (string | number)[] = props.topicHeat.map((item) => {
 </script>
 
 <template>
-  <li class="focus:text-slate-500 flex justify-between items-center py-4 transition-all bg-white hover:bg-gray-50 b-b b-grey all-cursor-pointer">
+  <li class="flex justify-between items-center py-4 transition-all bg-white hover:bg-[#FAFAFA] b-b b-grey all-cursor-pointer">
     <NuxtLink class="flex-auto pl-5 truncate" :to="`/${name}`" style="flex: 1">
-      <div class="flex items-center all-px-4 pr-4" style="font-size: 13px;">
-        <span class="border-r-1 pl-0">{{ name }}</span>
-        <span class="text-gray-500 border-r-1">{{ duration }}</span>
-        <div class="flex">
-          <div v-for="(tag, index) in tags" :key="index" class="al-px-0 px-0 text-gray-500 items-center flex">
-            <span class="px-0 text-gray-500">{{ tag }}</span>
+      <div class="flex items-center pr-4" style="font-size: 13px;">
+        <span class="text-[#4E5968] px-3 border-r-1 pl-0">{{ name }}</span>
+        <span class="text-[#86909c] px-3 border-r-1">{{ duration }}</span>
+        <div class="flex px-3">
+          <div v-for="(tag, index) in tags" :key="index" class="items-center flex">
+            <span class="px-0 text-[#86909c]">{{ tag }}</span>
             <div v-if="index !== tags.length - 1" style="font-size: 0.15rem;" class="i-carbon-circle-solid px-2" />
           </div>
         </div>
       </div>
       <div class="py-4">
-        <div class="truncate title font-semibold tracking-wide" style="font-size: 16px;">
+        <div class="truncate text-[#1d2129] title font-semibold tracking-wide" style="font-size: 16px;">
           {{ title }}
         </div>
-        <div class="truncate pt-4 text-slate-500" style="font-size: 13px;">
+        <div class="truncate pt-4 text-[#86909c]" style="font-size: 13px;">
           {{ summary }}
         </div>
       </div>
-      <div class="flex all-flex all-items-center all-text-slate-700" style="font-size: 13px;">
+      <div class="flex all-flex all-items-center all-text-[#4e5969]" style="font-size: 13px;">
         <div>
           <div class="i-carbon-view" />
           <span class="pl-2">{{ enteredtopicHeat[0] ? enteredtopicHeat[0] : '观看' }}</span>
@@ -74,6 +74,6 @@ const enteredtopicHeat: (string | number)[] = props.topicHeat.map((item) => {
 
 <style scoped>
 a:visited .title {
-  color: gray;
+  color: #909090;
 }
 </style>
