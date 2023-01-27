@@ -101,14 +101,14 @@ const calculateOffTop = () => {
 }
 
 const firtstCatalogueTop = ref(0)
-
+const headerHeight = document.querySelector('.header').clientHeight
 const scrollFixedCatalogue = () => {
   const scrollTop = document.documentElement.scrollTop
   const sideBar = document.querySelector('.sidebar')
   const catalogue = document.querySelector('.sticky-block-box')
   if (scrollTop > catalogue.offsetTop)
     sideBar.classList.add('sticky')
-  if (sideBar.classList.contains('sticky') && scrollTop - 80 < firtstCatalogueTop.value)
+  if (sideBar.classList.contains('sticky') && (scrollTop - headerHeight) < firtstCatalogueTop.value)
     sideBar.classList.remove('sticky')
 }
 
@@ -177,7 +177,6 @@ onUnmounted(() => {
 .sidebar-block {
   position: relative;
   margin-bottom: 1.5rem;
-  border-radius: 2px;
 }
 
 .sidebar .sidebar-block {
