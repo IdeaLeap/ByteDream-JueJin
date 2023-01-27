@@ -1,8 +1,8 @@
 <script setup lang="ts">
 const route = useRoute()
-const path = route.path.replace('/', '')
-const sort = route.query?.sort ? route.query.sort : ''
 let pagenum = 0
+const type = route.path.replace('/', '')
+const sort = route.query?.sort as string | undefined
 const isLoading = useState('isLoading', () => false)
 const artlistData = useArtlist(await useFetchPostData())
 const addArtListItem = () => {
@@ -10,22 +10,19 @@ const addArtListItem = () => {
     const timer = setTimeout(async () => {
       if (useScrollBottom()) {
         pagenum++
-        const newArtlistData = await useFetchPostData()
-        artlistData.value = newArtlistData
+        const newArtlistData = await useFetchPostData(type, sort, pagenum)
+        artlistData.value.push(...newArtlistData)
       }
       clearTimeout(timer)
     }, 1000)
   }
 }
 watchEffect(() => {
-  // TODO: 请求数据
-  // const queryStr = '/api/articles/list?sort=sort&type=type&pageNum=pageNum'
-
   // eslint-disable-next-line no-console
-  console.log('path', path)
-  // eslint-disable-next-line no-console
-  console.log('sort', sort)
-  const queryStr = path === '' ? `/api/articles/list?sort=${sort}&type=${path}&pageNum=${pagenum}` : `/api/articles/list?sort=${sort}&type=type&pageNum=${pagenum}`
+  console.log(type, sort)
+  useFetchPostData(type, sort).then((data) => {
+    artlistData.value = data
+  })
 })
 onMounted(() => {
   const EmployeeWindow = window as any
@@ -45,8 +42,9 @@ onUnmounted(() => {
     </div>
     <ul v-if="!isLoading && artlistData">
       <ArticlesItem
-        v-for="items in artlistData" :key="items.uname" :uname="items.uname" :duration="items.duration"
-        :title="items.title" :desc="items.desc" :tags="items.tags" :topic-heat="items.topicHeat"
+        v-for="items in artlistData" :key="items.id" :name="items.name" :duration="items.duration"
+        :title="items.title" :summary="items.summary" :tags="items.tagIds" :topic-heat="items.topicHeat"
+        :cover="items.cover"
       />
     </ul>
     <ArticlesSkeleton v-else />
