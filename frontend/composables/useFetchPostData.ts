@@ -18,9 +18,8 @@ export const useArtlistPath = (path?: string | undefined) => useState('artlistPa
 // TODO: 请求数据
 export default async (type?: string, sort = 'recommended', pagenum = 1): Promise<IPanel[]> => {
   // 接口
-  const { data: fetchData } = await useFetch(`/api/articles/list?sort=${sort}&type=${type}&pageNum=${pagenum}`)
-  const data = fetchData.value.articles.data
-  const value: IPanel[] = data.map((item: IArticleItem) => {
+  const { data } = await useFetch(`/api/articles/list?sort=${sort}&type=${type}&pageNum=${pagenum}`)
+  const value: IPanel[] = data.value.map((item: IArticleItem) => {
     const tagIds: string[] = []
     item.tagIds.data.forEach((sub) => {
       tagIds.push(sub.tag)

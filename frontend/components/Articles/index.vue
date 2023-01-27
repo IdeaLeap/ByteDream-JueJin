@@ -1,8 +1,6 @@
 <script setup lang="ts">
 const route = useRoute()
-let pagenum = 0
-const type = route.path.replace('/', '')
-const sort = route.query?.sort as string | undefined
+let pagenum = 1
 const isLoading = useState('isLoading', () => false)
 const artlistData = useArtlist(await useFetchPostData())
 const addArtListItem = () => {
@@ -10,6 +8,8 @@ const addArtListItem = () => {
     const timer = setTimeout(async () => {
       if (useScrollBottom()) {
         pagenum++
+        const type = route.path.replace('/', '')
+        const sort = route.query?.sort as (string | undefined)
         const newArtlistData = await useFetchPostData(type, sort, pagenum)
         artlistData.value.push(...newArtlistData)
       }
@@ -18,10 +18,12 @@ const addArtListItem = () => {
   }
 }
 watchEffect(() => {
-  // eslint-disable-next-line no-console
-  console.log(type, sort)
+  const type = route.path.replace('/', '')
+  const sort = route.query?.sort as (string | undefined)
+  isLoading.value = true
   useFetchPostData(type, sort).then((data) => {
     artlistData.value = data
+    isLoading.value = false
   })
 })
 onMounted(() => {
