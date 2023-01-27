@@ -1,31 +1,34 @@
+<!-- eslint-disable no-console -->
 <script setup lang="ts">
 const route = useRoute()
-let pagenum = 1
+let pagenum = 0
 const isLoading = useState('isLoading', () => false)
 const artlistData = useArtlist(await useFetchPostData())
+console.log('0', artlistData.value)
 const addArtListItem = () => {
   if (useScrollBottom()) {
     const timer = setTimeout(async () => {
       if (useScrollBottom()) {
         pagenum++
         const type = route.path.replace('/', '')
-        const sort = route.query?.sort as (string | undefined)
+        const sort = route.query?.sort as string | undefined
         const newArtlistData = await useFetchPostData(type, sort, pagenum)
+        console.log('new', newArtlistData)
         artlistData.value.push(...newArtlistData)
       }
       clearTimeout(timer)
     }, 1000)
   }
 }
-watchEffect(() => {
-  const type = route.path.replace('/', '')
-  const sort = route.query?.sort as (string | undefined)
+watch(route, (newRoute) => {
+  const type = newRoute.path.replace('/', '')
+  const sort = newRoute.query?.sort as string | undefined
   isLoading.value = true
   useFetchPostData(type, sort).then((data) => {
     artlistData.value = data
     isLoading.value = false
   })
-})
+}, { immediate: false, deep: true })
 onMounted(() => {
   const EmployeeWindow = window as any
   EmployeeWindow.addEventListener('scroll', addArtListItem)
@@ -42,7 +45,7 @@ onUnmounted(() => {
       <ArticlesLink />
       <UnoSelect />
     </div>
-    <ul v-if="!isLoading && artlistData">
+    <ul v-if="!isLoading">
       <ArticlesItem
         v-for="items in artlistData" :key="items.id" :name="items.name" :duration="items.duration"
         :title="items.title" :summary="items.summary" :tags="items.tagIds" :topic-heat="items.topicHeat"

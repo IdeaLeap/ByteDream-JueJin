@@ -26,7 +26,7 @@ const enteredtopicHeat: (string | number)[] = props.topicHeat.map((item) => {
     <NuxtLink class="flex-auto pl-5 truncate" :to="`/${name}`" style="flex: 1">
       <div class="flex items-center all-px-4 pr-4" style="font-size: 13px;">
         <span class="border-r-1 pl-0">{{ name }}</span>
-        <span class="text-gray-500 border-r-1">{{ duration }}前</span>
+        <span class="text-gray-500 border-r-1">{{ duration }}</span>
         <div class="flex">
           <div v-for="(tag, index) in tags" :key="index" class="al-px-0 px-0 text-gray-500 items-center flex">
             <span class="px-0 text-gray-500">{{ tag }}</span>

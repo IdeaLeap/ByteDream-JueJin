@@ -18,6 +18,17 @@ interface IArticleItem {
   authorId: IAuthor
   tagIds: { data: ITagItem[] }
 }
+interface IPanel {
+  id: string
+  title: string
+  topicHeat: number[]
+  summary: string
+  cover: string
+  duration: string
+  tagIds: string[]
+  name: string
+}
 export {
   IArticleItem,
+  IPanel,
 }
