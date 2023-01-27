@@ -1,4 +1,3 @@
-<!-- eslint-disable no-console -->
 <script setup lang="ts">
 const route = useRoute()
 let pagenum = 0
@@ -12,7 +11,6 @@ const addArtListItem = () => {
         const type = route.path.replace('/', '')
         const sort = route.query?.sort as string | undefined
         const newArtlistData = await useFetchPostData(type, sort, pagenum)
-        console.log('new', newArtlistData)
         artlistData.value.push(...newArtlistData)
       }
       clearTimeout(timer)
