@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const hours = useDateFormat(useNow(), 'HH')
+const hours = useDateFormat(useNow(), 'HH', { locales: 'zh-Hans-CN' })
 const state = ref('')
 if (parseInt(hours.value) >= 0 && parseInt(hours.value) <= 11)
   state.value = '早上好!'
@@ -14,7 +14,7 @@ else if (parseInt(hours.value) > 18 && parseInt(hours.value) <= 24)
 <template>
   <div display="block" class="">
     <div class="bg-light-50 p-5 py-6">
-      <div class="flex flex-row gap-3 items-center">
+      <div class="flex flex-row gap-4 items-center">
         <div class="flex flex-col gap-1">
           <span class="text-black font-bold text-2xl">{{ state }}</span>
           <div class="text-[#8a919f] text-lg">
