@@ -8,9 +8,9 @@ defineProps({
 </script>
 
 <template>
-  <div display="block" class="bg-light-50 p-5">
+  <div display="block" class="bg-light-50 p-4 rounded-sm shadow-[0_2px_2px_0_rgba(0,0,0,0.05)]">
     <nuxt-link class="" :href="gadgets.url">
-      <div class="flex flex-row items-center gap-4">
+      <div class="flex flex-row items-center gap-5">
         <div class="items-end">
           <nuxt-img
             :src="gadgets.qrcode"
