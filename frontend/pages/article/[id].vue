@@ -3,13 +3,12 @@
 const route = useRoute()
 const url = ref(`/api/articles/${route.params.id}`)
 const { data: articleData } = await useFetch(url)
-// console.log(articleData.value.article)
 </script>
 
 <template>
   <div class="view-container">
-    <main class="container main-container" style="max-width: 1140px">
-      <div class="view column-view" bg-yello>
+    <main class="container main-container relative w-100% max-w-960px my-0 mx-auto" style="max-width: 1140px">
+      <div class="view column-view mt-1.767rem">
         <ArticlesContentSideBarLeft :commented="articleData.article.commented" :liked="articleData.article.liked" />
         <ArticlesContent :article="articleData.article" />
         <ClientOnly>
@@ -21,15 +20,6 @@ const { data: articleData } = await useFetch(url)
 </template>
 
 <style scoped>
-.container {
-  position: relative;
-  margin: 0 auto;
-  width: 100%;
-  max-width: 960px;
-}
-.main-container > .view {
-  margin-top: 1.767rem;
-}
 .column-view {
   padding: 0 0 8rem;
 }

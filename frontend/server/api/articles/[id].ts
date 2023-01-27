@@ -31,7 +31,7 @@ interface IArticle {
   createdAt: string
   updatedAt: string
   authorId: IAuthor
-  tagId: { data: ITagItem[] }
+  tagIds: { data: ITagItem[] }
   typeId: IType
   columId: IColumn
 }
