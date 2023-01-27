@@ -9,9 +9,9 @@ defineProps({
 </script>
 
 <template>
-  <div display="block" class="">
-    <div class="bg-[#ffffff]">
-      <ul class=" flex-col gap-3 items-center flex">
+  <div display="block">
+    <div class="bg-[#ffffff] rounded-sm shadow-[0_2px_2px_0_rgba(0,0,0,0.05)]">
+      <ul class="flex flex-col gap-3 items-center px-2.5">
         <li v-for="i in links" :key="i.url" class="h-[100%] w-[100%]">
           <nuxt-link
             :to="i.url"
