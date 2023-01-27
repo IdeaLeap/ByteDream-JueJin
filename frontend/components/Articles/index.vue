@@ -38,15 +38,12 @@ onUnmounted(() => {
 
 <template>
   <div class="pb-5 box-border w-full">
-    <div class="flex" style="font-size: 13.67px;" border-b-1>
-      <ArticlesLink />
-      <UnoSelect />
-    </div>
+    <ArticlesNavigation />
     <ul v-if="!isLoading">
       <ArticlesItem
-        v-for="items in artlistData" :key="items.id" :name="items.name" :duration="items.duration"
-        :title="items.title" :summary="items.summary" :tags="items.tagIds" :topic-heat="items.topicHeat"
-        :cover="items.cover"
+        v-for="item in artlistData" :key="item.id" :name="item.name" :duration="item.duration"
+        :title="item.title" :summary="item.summary" :tags="item.tagIds" :topic-heat="item.topicHeat"
+        :cover="item.cover"
       />
     </ul>
     <ArticlesSkeleton v-else />

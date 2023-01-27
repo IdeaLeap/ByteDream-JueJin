@@ -1,41 +1,16 @@
-<script>
-export default {
-  name: 'XtxSkeleton',
-  // 使用的时候需要动态设置 高度，宽度，背景颜色，是否闪下
-  props: {
-    bg: {
-      type: String,
-      default: '#E5E7EC',
-    },
-    width: {
-      type: String,
-      default: '70%',
-    },
-    height: {
-      type: String,
-      default: '1.35rem',
-    },
-    animated: {
-      type: Boolean,
-      default: true,
-    },
-  },
-}
-</script>
-
 <template>
   <div class="all-py-5 all-px-7">
-    <div class="skeleton" :style="{ width: '40%', height }" :class="{ shan: animated }">
-      <div class="block" :style="{ backgroundColor: bg }" />
+    <div class="skeleton w-2/5">
+      <div />
     </div>
-    <div class="skeleton" :style="{ width: '95%', height }" :class="{ shan: animated }">
-      <div class="block" :style="{ backgroundColor: bg }" />
+    <div class="skeleton w-19/20">
+      <div />
     </div>
-    <div class="skeleton" :style="{ width: '80%', height }" :class="{ shan: animated }">
-      <div class="block" :style="{ backgroundColor: bg }" />
+    <div class="skeleton w-4/5">
+      <div />
     </div>
-    <div class="skeleton" :style="{ width: '60%', height }" :class="{ shan: animated }">
-      <div class="block" :style="{ backgroundColor: bg }" />
+    <div class="skeleton w-3/5">
+      <div />
     </div>
   </div>
 </template>
@@ -46,20 +21,22 @@ export default {
   position: relative;
   overflow: hidden;
   vertical-align: middle;
+  height: 1.35rem;
 }
 
-.skeleton .block {
+.skeleton div {
   width: 100%;
   height: 100%;
   border-radius: 2px;
+  background-color: #E5E7EC;
 }
 
-.shan::after {
+.skeleton::after {
   content: "";
   position: absolute;
   animation: shan .75s ease 0s infinite;
   top: 0;
-  width: 50%;
+  width: 70%;
   height: 100%;
   background: linear-gradient(to left,
       rgba(255, 255, 255, 0) 0,
