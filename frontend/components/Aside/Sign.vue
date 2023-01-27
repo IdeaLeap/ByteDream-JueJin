@@ -1,5 +1,7 @@
 <script setup lang="ts">
-const day_parts = ref(useDayParts())
+let day_parts = ref('')
+if (process.server)
+  day_parts = useDayParts()
 </script>
 
 <template>

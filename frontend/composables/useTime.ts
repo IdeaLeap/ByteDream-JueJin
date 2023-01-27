@@ -17,7 +17,7 @@ export function useTime(num: number) {
 
 export function useDayParts() {
   const state = ref('')
-  const hours = useDateFormat(useNow(), 'HH', { locales: 'zh-Hans-CN' })
+  const hours = useDateFormat(useNow(), 'HH', { locales: 'zh-CN' })
   const hour = parseInt(hours.value)
   if (hour >= 0 && hour <= 11)
     state.value = '早上好!'
