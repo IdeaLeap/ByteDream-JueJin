@@ -1,3 +1,4 @@
+import { useDateFormat } from '@vueuse/shared'
 export function getChineseDate() {
   return new Date(
     new Date().getTime()
@@ -9,10 +10,7 @@ export function getChineseDate() {
 // 返回num天前的日期
 export function useTime(num: number) {
   const date = new Date(getChineseDate().getTime() - num * 24 * 60 * 60 * 1000)
-  const year = date.getFullYear()
-  const month = date.getMonth() + 1
-  const day = date.getDate()
-  return `${year}-${month}-${day}`
+  return useDateFormat(date, 'YYYY-MM-DD').value
 }
 
 export function useDayParts() {
