@@ -4,7 +4,6 @@ const route = useRoute()
 let pagenum = 0
 const isLoading = useState('isLoading', () => false)
 const artlistData = useArtlist(await useFetchPostData())
-console.log('0', artlistData.value)
 const addArtListItem = () => {
   if (useScrollBottom()) {
     const timer = setTimeout(async () => {
@@ -20,15 +19,15 @@ const addArtListItem = () => {
     }, 1000)
   }
 }
-watch(route, (newRoute) => {
-  const type = newRoute.path.replace('/', '')
-  const sort = newRoute.query?.sort as string | undefined
+watchEffect(() => {
+  const type = route.path.replace('/', '')
+  const sort = route.query?.sort as string | undefined
   isLoading.value = true
   useFetchPostData(type, sort).then((data) => {
     artlistData.value = data
     isLoading.value = false
   })
-}, { immediate: false, deep: true })
+}, { flush: 'post' })
 onMounted(() => {
   const EmployeeWindow = window as any
   EmployeeWindow.addEventListener('scroll', addArtListItem)
