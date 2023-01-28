@@ -22,7 +22,7 @@ export const useArtlistPath = (path?: string | undefined) => useState('artlistPa
     return ''
   return path
 })
-export default async (
+export const useFetchPostData = async (
   type?: string,
   sort: any = 'recommended',
   pagenum = 1,

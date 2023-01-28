@@ -1,6 +1,6 @@
 <template>
-  <div class="flex" style="font-size: 13.67px" border-b-1>
+  <div class="flex text-[13.67px]" border-b-1>
     <ArticlesNavigationLink />
-    <UnoSelect />
+    <ArticlesNavigationSelect />
   </div>
 </template>
