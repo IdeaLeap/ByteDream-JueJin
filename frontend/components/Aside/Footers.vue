@@ -10,17 +10,52 @@ defineProps({
 <template>
   <div>
     <ul class="more-list">
-      <li v-for="i in footers" :key="i.footer" class="item">
+      <li v-for="i in footers.slice(0, 4)" :key="i.footer" class="item">
+        <NuxtLink :to="i.url" target="_blank" rel="nofollow">
+          {{ i.footer }}
+        </NuxtLink>
+      </li>
+    </ul>
+    <ul class="more-list">
+      <li v-for="i in footers.slice(4, 8)" :key="i.footer" class="item">
+        <NuxtLink :to="i.url" target="_blank" rel="nofollow">
+          {{ i.footer }}
+        </NuxtLink>
+      </li>
+    </ul>
+    <ul class="more-list">
+      <li v-for="i in footers.slice(8, 9)" :key="i.footer" class="item">
+        <NuxtLink :to="i.url" target="_blank" rel="nofollow">
+          {{ i.footer }}
+        </NuxtLink>
+      </li>
+    </ul>
+    <ul class="more-list">
+      <li v-for="i in footers.slice(9, 10)" :key="i.footer" class="item">
+        <NuxtLink :to="i.url" target="_blank" rel="nofollow">
+          {{ i.footer }}
+        </NuxtLink>
+      </li>
+    </ul>
+    <ul class="more-list">
+      <li v-for="i in footers.slice(10, 15)" :key="i.footer" class="item">
+        <span>{{ i.describe }}</span>
         <NuxtLink :to="i.url" target="_blank" rel="nofollow">
           <NuxtImg
             v-if="i.icon"
-            src="https://lf3-cdn-tos.bytescm.com/obj/static/xitu_juejin_web/img/police.d0289dc.png"
+            :src="i.icon"
             alt="police"
             class="police_img"
           />
           {{ i.footer }}
         </NuxtLink>
-        <span>{{ i.describe }}</span>
+      </li>
+    </ul>
+    <ul class="more-list">
+      <li v-for="i in footers.slice(15, 16)" :key="i.footer" class="item">
+        <NuxtLink :to="i.url" target="_blank" rel="nofollow">
+          {{ i.footer }}
+        </NuxtLink>
       </li>
     </ul>
     <ul class="more-list account-list">
