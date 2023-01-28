@@ -19,7 +19,7 @@ interface IType {
 interface IColumn {
   column: string
 }
-interface IArticle {
+export interface IArticle {
   id: string
   title: string
   viewed: number

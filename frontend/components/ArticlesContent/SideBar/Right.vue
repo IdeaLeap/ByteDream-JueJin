@@ -11,7 +11,12 @@ const props = defineProps({
     type: Object,
   },
 })
-const Catalogue = ref([])
+
+/**
+ *  @description: 获取目录
+ *
+ */
+const Catalogue = ref([]) // 目录
 const stringifyHeading = (e) => {
   let result = ''
   visit(e, (node) => {
@@ -50,6 +55,9 @@ getProcessor({
   ],
 }).processSync(props.content)
 
+/**
+ * @description: 目录点击事件
+ */
 const isActive = ref()
 const activeSelect = (index) => {
   if (isActive.value === index)
@@ -69,6 +77,9 @@ const catalogueClass = (level) => {
   }
 }
 
+/**
+ * @description: 目录滚动事件
+ */
 const itemOffsetTop = ref([])
 const onScroll = () => {
   itemOffsetTop.value = []
@@ -92,14 +103,13 @@ const onScroll = () => {
 
   isActive.value = num
 }
-
 const throttledScrollHandler = useThrottleFn(() => {
   onScroll()
 }, 300)
-const calculateOffTop = () => {
-  window.addEventListener('scroll', throttledScrollHandler)
-}
 
+/**
+ * @description: 目录固定
+ */
 const firtstCatalogueTop = ref(0)
 const headerHeight = document.querySelector('.header').clientHeight
 const scrollFixedCatalogue = () => {
@@ -108,12 +118,14 @@ const scrollFixedCatalogue = () => {
   const catalogue = document.querySelector('.sticky-block-box')
   if (scrollTop > catalogue.offsetTop)
     sideBar.classList.add('sticky')
+
   if (sideBar.classList.contains('sticky') && (scrollTop - headerHeight) < firtstCatalogueTop.value)
     sideBar.classList.remove('sticky')
 }
 
 onMounted(() => {
-  calculateOffTop()
+  window.addEventListener('scroll', throttledScrollHandler)
+  window.addEventListener('scroll', scrollFixedCatalogue)
   const route = useRoute()
   setTimeout(() => {
     if (route.hash) {
@@ -127,18 +139,18 @@ onMounted(() => {
     }
   }, 1)
   firtstCatalogueTop.value = document.querySelector('.sticky-block-box').offsetTop
-  window.addEventListener('scroll', scrollFixedCatalogue)
 })
 
 onUnmounted(() => {
   window.removeEventListener('scroll', throttledScrollHandler)
   window.addEventListener('scroll', scrollFixedCatalogue)
 })
+const { immerseState } = useImmerse()
 </script>
 
 <template>
   <div class="sidebar hidden lg:block lg:w-4/12">
-    <ArticlesContentSideBarAuthor :author="props.author" />
+    <ArticlesContentSideBarAuthor v-show="!immerseState" :author="props.author" />
     <!-- <AsideArticleList /> -->
     <div class="sticky-block-box">
       <div class="sidebar-block catalog-block catalog-block pure isExpand" style="">
