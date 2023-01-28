@@ -32,12 +32,7 @@ onUnmounted(() => {
   <div class="pb-5 box-border w-full">
     <ArticlesNavigation />
     <ul v-if="!isLoading">
-      <ArticlesItem
-        v-for="item in artlistData" :id="item.id" :key="item.id" :author-id="item.authorId"
-        :created-at="item.createdAt" :title="item.title" :summary="item.summary"
-        :viewed="item.viewed" :liked="item.liked" :commented="item.commented" :cover="item.cover"
-        :tag-ids="item.tagIds"
-      />
+      <ArticlesItem :artlist-item="artlistData" />
     </ul>
     <ArticlesSkeleton v-else />
   </div>
