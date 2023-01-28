@@ -5,34 +5,26 @@ const isLoading = useState('isLoading', () => false)
 const artlistData = useArtlist(await useFetchPostData())
 const addArtListItem = () => {
   if (useScrollBottom()) {
-    const timer = setTimeout(async () => {
-      if (useScrollBottom()) {
-        pagenum++
-        const type = route.path.replace('/', '')
-        const sort = route.query?.sort as string | undefined
-        const newArtlistData = await useFetchPostData(type, sort, pagenum)
-        artlistData.value.push(...newArtlistData)
-      }
-      clearTimeout(timer)
-    }, 1000)
+    pagenum++
+    useFetchPostData(route.path, route.query?.sort, pagenum).then((data) => {
+      artlistData.value.push(...data)
+    })
   }
 }
 watchEffect(() => {
-  const type = route.path.replace('/', '')
-  const sort = route.query?.sort as string | undefined
   isLoading.value = true
-  useFetchPostData(type, sort).then((data) => {
+  useFetchPostData(route.path, route.query?.sort).then((data) => {
     artlistData.value = data
     isLoading.value = false
   })
 }, { flush: 'post' })
 onMounted(() => {
   const EmployeeWindow = window as any
-  EmployeeWindow.addEventListener('scroll', addArtListItem)
+  EmployeeWindow.addEventListener('scroll', useThrottle(addArtListItem))
 })
 onUnmounted(() => {
   const EmployeeWindow = window as any
-  EmployeeWindow.removeEventListener('scroll', addArtListItem) // 页面离开后销毁监听事件
+  EmployeeWindow.removeEventListener('scroll', useThrottle(addArtListItem)) // 页面离开后销毁监听事件
 })
 </script>
 
