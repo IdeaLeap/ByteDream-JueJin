@@ -20,7 +20,7 @@ const { data: TypeList } = await useFetch('/api/global/types')
   top: 4.84rem;
   width: 100%;
   height: 3.833rem;
-  z-index: 100;
+  z-index: 1;
   box-shadow: 0 1px 2px 0 rgb(0 0 0 / 5%);
   transition: all .2s;
   transform: translateZ(0);
