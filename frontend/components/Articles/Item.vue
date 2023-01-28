@@ -23,26 +23,26 @@ const enteredtopicHeat: (string | number)[] = props.topicHeat.map((item) => {
 
 <template>
   <li class="flex justify-between items-center py-4 transition-all bg-white hover:bg-[#FAFAFA] b-b b-grey all-cursor-pointer">
-    <NuxtLink class="flex-auto pl-5 truncate" :to="`/${name}`" style="flex: 1">
-      <div class="flex items-center pr-4" style="font-size: 13px;">
+    <NuxtLink class="flex-1 pl-5 truncate" :to="`/${name}`">
+      <div class="flex items-center pr-4 text-[13px]">
         <span class="text-[#4E5968] px-3 border-r-1 pl-0">{{ name }}</span>
         <span class="text-[#86909c] px-3 border-r-1">{{ duration }}</span>
         <div class="flex px-3">
           <div v-for="(tag, index) in tags" :key="index" class="items-center flex">
             <span class="px-0 text-[#86909c]">{{ tag }}</span>
-            <div v-if="index !== tags.length - 1" style="font-size: 0.15rem;" class="i-carbon-circle-solid px-2" />
+            <div v-if="index !== tags.length - 1" class="i-carbon-circle-solid px-2 text-[0.15rem]" />
           </div>
         </div>
       </div>
       <div class="py-4">
-        <div class="truncate text-[#1d2129] title font-semibold tracking-wide" style="font-size: 16px;">
+        <div class="truncate text-[#1d2129] text-[16px] title font-semibold tracking-wide">
           {{ title }}
         </div>
-        <div class="truncate pt-4 text-[#86909c]" style="font-size: 13px;">
+        <div class="truncate pt-4 text-[#86909c] text-[13px]">
           {{ summary }}
         </div>
       </div>
-      <div class="flex all-flex all-items-center all-text-[#4e5969]" style="font-size: 13px;">
+      <div class="flex all-flex all-items-center all-text-[#4e5969] all-text-[13px]">
         <div>
           <div class="i-carbon-view" />
           <span class="pl-2">{{ enteredtopicHeat[0] ? enteredtopicHeat[0] : '观看' }}</span>
