@@ -2,11 +2,15 @@
 <script setup lang="ts">
 import { Viewer } from '@bytemd/vue-next'
 import 'highlight.js/styles/atom-one-dark.css'
+import type { IArticle } from '@/server/api/articles/[id]'
 const props = defineProps({
   article: {
-    type: Object,
+    type: Object as () => IArticle,
+    required: true,
     default: () => {
-      return {}
+      return {
+        content: '',
+      }
     },
   },
 })
@@ -20,7 +24,6 @@ const medium = (await import('@bytemd/plugin-medium-zoom')).default
 const mermaid = (await import('@bytemd/plugin-mermaid')).default
 const frontmatter = (await import('@bytemd/plugin-frontmatter')).default
 const themes = (await import('~~/assets/themes')).themes
-
 const plugins = [
   breaks(),
   frontmatter(),
@@ -48,13 +51,15 @@ const plugins = [
   medium(),
   mermaid(),
 ]
-const isRender = ref(false)
-const article = ref() // 文章数据
+
+const isRender = useState('isRender', () => false)
+const article = useState('article', () => { return { content: '' } }) // 文章数据
 const articleHtmlContent = ref<string>('') // md字符串渲染在view组件中
 article.value = props.article
 
 function handleChange(v: string) {
   articleHtmlContent.value = v
+  isRender.value = true
 }
 
 // 赋值属性唯一ID
@@ -74,43 +79,42 @@ function transformToId() {
 }
 
 onMounted(() => {
-  if (article.value) {
+  if (article.value)
     handleChange(article.value.content)
-    isRender.value = true
-  }
   setTimeout(() => {
     transformToId()
   }, 1)
 })
+const { immerseState } = useImmerse()
 </script>
 
 <template>
   <div class="main-area article-area" mb-1.5rem>
     <article class="article">
       <h1 class="article-title">
-        {{ article?.title }}
+        {{ article.title }}
       </h1>
       <div class="author-info-block">
         <NuxtLink target="_blank" to="#" class="avatar-link" rel>
-          <nuxt-img class="avatar" :src="article?.authorId.avatar" loading="eager" />
+          <nuxt-img class="avatar" :src="article.authorId.avatar" loading="eager" />
         </NuxtLink>
         <div class="author-info-box">
           <div class="author-name">
             <NuxtLink class="username ellipsis" to="#" target="_blank">
               <span class="name" max-w-128px>
-                {{ article?.authorId.name }}
+                {{ article.authorId.name }}
               </span>
-              <span blank="true" class="rank">
+              <span v-show="!immerseState" blank="true" class="rank">
                 <nuxt-img class="avatar" src="https://lf3-cdn-tos.bytescm.com/obj/static/xitu_juejin_web/img/lv-3.7938ebc.png" loading="eager" />
               </span>
             </NuxtLink>
           </div>
 
-          <div class="meta-box">
-            <time :datetime="article?.updatedAt" title="Mon Jan 09 2023 18:31:13 GMT+0800 (China Standard Time)" class="time">
-              {{ useDateFormat(article?.updatedAt, 'YYYY-MM-DD HH:mm:ss').value }}
+          <div v-show="!immerseState" class="meta-box">
+            <time :datetime="article.updatedAt" :title="article.updatedAt" class="time">
+              {{ useDateFormat(article.updatedAt, 'YYYY-MM-DD HH:mm:ss').value }}
             </time>
-            <span class="views-count"> ·&nbsp;&nbsp;{{ article?.viewed }} </span>
+            <span class="views-count"> ·&nbsp;&nbsp;{{ article.viewed }} </span>
           </div>
         </div>
       </div>
@@ -125,10 +129,8 @@ onMounted(() => {
         </div>
       </div>
     </article>
-    <ArticlesContentEnd :type="props.article.typeId" :tag="props.article.tagIds" />
+    <ArticlesContentEnd v-if="isRender" :type="props.article.typeId" :tag="props.article.tagIds" />
   </div>
-  <!-- // 骨架屏 -->
-  <!-- <span animate-pulse v-else class="h-screen bg-white w-1024px block" >Loading...</span> -->
 </template>
 
 <style scoped>
@@ -156,14 +158,11 @@ onMounted(() => {
     width: 100%;
   }
 }
-
-.main-area .article {
-  border-radius: 4px 4px 0 0;
-}
 .article {
   position: relative;
   padding-top: 2.667rem;
   z-index: 1;
+  border-radius: 4px 4px 0 0;
 }
 
 @media screen and (max-width: 1024px) {

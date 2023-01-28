@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 defineProps({
   commented: {
     type: Number,
@@ -7,6 +7,7 @@ defineProps({
     type: Number,
   },
 })
+const { immerseState, immerseToggle } = useImmerse()
 </script>
 
 <template>
@@ -103,28 +104,29 @@ defineProps({
         />
       </symbol>
     </svg>
-    <div :badge="liked" class="panel-btn with-badge">
-      <svg class="sprite-icon icon-zan" data-v-0f838daa=""><use xlink:href="#icon-zan" data-v-0f838daa="" /></svg>
+    <div v-show="!immerseState" :badge="liked" class="panel-btn with-badge">
+      <svg class="sprite-icon icon-zan"><use xlink:href="#icon-zan" /></svg>
     </div>
-    <div :badge="commented" class="panel-btn with-badge">
-      <svg class="sprite-icon icon-comment" data-v-0f838daa=""><use xlink:href="#icon-comment" data-v-0f838daa="" /></svg>
+    <div v-show="!immerseState" :badge="commented" class="panel-btn with-badge">
+      <svg class="sprite-icon icon-comment"><use xlink:href="#icon-comment" /></svg>
     </div>
-    <div class="panel-btn">
-      <svg class="sprite-icon icon-collect" data-v-0f838daa=""><use xlink:href="#icon-collect" data-v-0f838daa="" /></svg>
+    <div v-show="!immerseState" class="panel-btn">
+      <svg class="sprite-icon icon-collect"><use xlink:href="#icon-collect" /></svg>
       <div class="collect-popover" />
     </div>
-    <div class="share-btn panel-btn">
-      <svg data-v-0f838daa="" class="sprite-icon icon-share"><use data-v-0f838daa="" xlink:href="#icon-share" /></svg>
+    <div v-show="!immerseState" class="share-btn panel-btn">
+      <svg class="sprite-icon icon-share"><use xlink:href="#icon-share" /></svg>
       <div class="share-popup">
         <ul />
       </div>
     </div>
     <div class="divider" />
-    <div class="panel-btn">
-      <svg data-v-0f838daa="" class="sprite-icon icon-report"><use data-v-0f838daa="" xlink:href="#icon-report" /></svg>
+    <div v-show="!immerseState" class="panel-btn">
+      <svg class="sprite-icon icon-report"><use xlink:href="#icon-report" /></svg>
     </div>
-    <span class="tooltip"><span class="byte-tooltip__wrapper"><div class="panel-btn">
-      <svg class="sprite-icon icon-immerse" data-v-0f838daa=""><use xlink:href="#icon-immerse" data-v-0f838daa="" /></svg></div></span>
+    <span>
+      <span class="byte-tooltip__wrapper"><div class="panel-btn" :class="immerseState ? 'active tooltip block' : 'tooltip block'" @click="immerseToggle">
+        <svg class="sprite-icon icon-immerse"><use xlink:href="#icon-immerse" /></svg></div></span>
     </span>
   </div>
 </template>
@@ -165,16 +167,11 @@ defineProps({
   text-align: center;
   font-size: 1.67rem;
 }
-
 .divider {
   width: 32px;
   background: #e4e6eb;
   height: 1px;
   margin: 0 auto 1.667rem;
-}
-.tooltip {
-  display: block;
-  font-size: 0;
 }
 .panel-btn .sprite-icon {
   color: #8a919f;
@@ -187,10 +184,10 @@ defineProps({
   vertical-align: middle;
   transition: all 0.15s linear;
 }
-svg:not(:root) {
-  overflow: hidden;
-}
-svg{
+svg {
   display: inline;
+}
+.panel-btn:not(.share-btn).active .sprite-icon {
+  color: #1e80ff;
 }
 </style>
