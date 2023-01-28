@@ -1,40 +1,5 @@
 import { useGraphql } from '~~/composables/useGraphql'
-interface IAuthor {
-  name: string
-  motto: string
-  avatar: string
-  rank: Number
-  liked: Number
-  viewed: Number
-}
-
-interface ITagItem {
-  tag: string
-}
-
-interface IType {
-  type: string
-}
-
-interface IColumn {
-  column: string
-}
-export interface IArticle {
-  id: string
-  title: string
-  viewed: number
-  liked: number
-  shared: number
-  commented: number
-  content: string
-  cover: string
-  createdAt: string
-  updatedAt: string
-  authorId: IAuthor
-  tagIds: { data: ITagItem[] }
-  typeId: IType
-  columId: IColumn
-}
+import type { IArticle } from '~~/types/IArticle'
 export default defineEventHandler(async (event): Promise<IArticle> => {
   const id = event.context.params.id
   const reqQuery = `query{
@@ -80,6 +45,14 @@ export default defineEventHandler(async (event): Promise<IArticle> => {
             data{
               attributes{
                 column
+                articles{
+                  data{
+                    id
+                    attributes{
+                      title
+                    }
+                  }
+                }
               }
             }
           }

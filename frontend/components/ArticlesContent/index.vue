@@ -2,7 +2,7 @@
 <script setup lang="ts">
 import { Viewer } from '@bytemd/vue-next'
 import 'highlight.js/styles/atom-one-dark.css'
-import type { IArticle } from '@/server/api/articles/[id]'
+import type { IArticle } from '~~/types/IArticle'
 const props = defineProps({
   article: {
     type: Object as () => IArticle,
