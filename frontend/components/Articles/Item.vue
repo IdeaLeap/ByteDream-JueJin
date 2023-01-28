@@ -1,18 +1,19 @@
 <script setup lang="ts">
 const props = defineProps({
-  uname: String,
+  name: String,
   duration: String,
   title: String,
-  desc: String,
+  summary: String,
   tags: {
     type: Array,
-    default: () => [],
+    default: (): string[] => [],
   },
   topicHeat: {
     type: Array,
     default: (): number[] => [0, 0, 0],
   },
   postID: String,
+  cover: String,
 })
 const enteredtopicHeat: (string | number)[] = props.topicHeat.map((item) => {
   const value = item as number
@@ -22,10 +23,10 @@ const enteredtopicHeat: (string | number)[] = props.topicHeat.map((item) => {
 
 <template>
   <li class="focus:text-slate-500 flex justify-between items-center py-4 transition-all bg-white hover:bg-gray-50 b-b b-grey all-cursor-pointer">
-    <NuxtLink class="flex-auto pl-5 truncate" :to="`/${uname}`" style="flex: 1">
+    <NuxtLink class="flex-auto pl-5 truncate" :to="`/${name}`" style="flex: 1">
       <div class="flex items-center all-px-4 pr-4" style="font-size: 13px;">
-        <span class="border-r-1 pl-0">{{ uname }}</span>
-        <span class="text-gray-500 border-r-1">{{ duration }}前</span>
+        <span class="border-r-1 pl-0">{{ name }}</span>
+        <span class="text-gray-500 border-r-1">{{ duration }}</span>
         <div class="flex">
           <div v-for="(tag, index) in tags" :key="index" class="al-px-0 px-0 text-gray-500 items-center flex">
             <span class="px-0 text-gray-500">{{ tag }}</span>
@@ -38,7 +39,7 @@ const enteredtopicHeat: (string | number)[] = props.topicHeat.map((item) => {
           {{ title }}
         </div>
         <div class="truncate pt-4 text-slate-500" style="font-size: 13px;">
-          {{ desc }}
+          {{ summary }}
         </div>
       </div>
       <div class="flex all-flex all-items-center all-text-slate-700" style="font-size: 13px;">
@@ -58,7 +59,8 @@ const enteredtopicHeat: (string | number)[] = props.topicHeat.map((item) => {
     </NuxtLink>
     <div class="px-4">
       <nuxt-img
-        src="/og-image.png"
+        :src="cover"
+        :alt="summary"
         width="120"
         height="80"
         loading="lazy"

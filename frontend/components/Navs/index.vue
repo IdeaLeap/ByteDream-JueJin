@@ -1,6 +1,14 @@
 <script setup>
+import { reactive } from 'vue'
 const runtimeConfig = useRuntimeConfig()
 const { data: NavList } = await useFetch('/api/global/navs')
+// button按钮
+const list = reactive({
+  showList: false,
+})
+const onClick = () => {
+  list.showList = !list.showList
+}
 </script>
 
 <template>
@@ -13,7 +21,19 @@ const { data: NavList } = await useFetch('/api/global/navs')
           </a>
           <nav class="nav-list">
             <ul>
-              <li v-for="item in NavList" :key="item.nav">
+              <li>
+                <button class="button" @click="onClick()">
+                  首页
+                </button>
+                <ul v-show="list.showList" class="list">
+                  <li v-for="item in NavList" :key="item.nav">
+                    <NuxtLink to="{{ item.url }}">
+                      {{ item.nav }}
+                    </NuxtLink>
+                  </li>
+                </ul>
+              </li>
+              <li v-for="item in NavList" :key="item.nav" class="main-nav-list">
                 <NuxtLink to="{{ item.url }}">
                   <a>{{ item.nav }}</a>
                 </NuxtLink>
@@ -31,12 +51,36 @@ const { data: NavList } = await useFetch('/api/global/navs')
 </template>
 
 <style scoped>
-div {
-  display: block;
+/* 弹出菜单 */
+.button{
+  display: none;
+  font-size: 17px;
+  color: #1e80ff;
 }
+.list{
+  position: absolute;
+  flex-direction:column;
+  top: 50px;
+  left: -34px;
+  z-index: 3;
+  background-color: #ffffff;
+  width: 120px;
+  /* height: 550px; */
+  border: 1px solid #f1f1f1;
+  /* display: none!important; */
+}
+.list li{
+  display: block;
+  text-align: center;
+  margin: auto;
+  width: 30px!important;
+}
+/* .list li:hover{
+  border-bottom: 3px solid #1e80ff;
+} */
 .switchThemes{
   position: absolute;
-  right: 80px;
+  right: 30px;
   border: 1px solid #1e80ff;
   border-radius: 4px;
   background: #1e80ffb8;
@@ -47,7 +91,7 @@ div {
   background-color: #ffffff;
   position: fixed;
   width: 100%;
-  z-index: 1;
+  z-index: 999;
 }
 
 .container {
@@ -62,8 +106,8 @@ div {
   display: block;
   position: absolute;
   width: 50px;
-  left: 640px;
-  top: 3px;
+  left: 845px;
+  top: 4px;
   font-size: 12px;
   background: #ee502f;
   border-radius: 4px;
@@ -72,6 +116,7 @@ div {
 }
 
 .nav-list ul li {
+  position: relative;
   color: #515767;
   font-size: 1.167rem;
   justify-content: center;
@@ -99,23 +144,28 @@ div {
 .nav-list ul li:hover {
   color: black;
 }
-
+.main-nav-list:nth-child(2){
+  color: #1e80ff!important;
+}
+@media screen and (min-width:1190px){
+  .list{
+    display: none!important;
+  }
+}
 @media screen and (max-width:1190px) {
   .container{
     padding-left: 0;
   }
-  .nav-list ul li:nth-child(n+2) {
+  .main-nav-list {
     display: none;
   }
 
   .nav-list span {
     display: none;
   }
-}
-
-@media screen and (max-width:640px) {
-  .nav-list ul li:nth-child(n+2) {
-    display: none;
+  .button{
+    display: block;
+    margin-left: 10px;
   }
 }
 </style>
