@@ -33,9 +33,10 @@ onUnmounted(() => {
     <ArticlesNavigation />
     <ul v-if="!isLoading">
       <ArticlesItem
-        v-for="item in artlistData" :key="item.id" :name="item.name" :duration="item.duration"
-        :title="item.title" :summary="item.summary" :tags="item.tagIds" :topic-heat="item.topicHeat"
-        :cover="item.cover"
+        v-for="item in artlistData" :id="item.id" :key="item.id" :author-id="item.authorId"
+        :created-at="item.createdAt" :title="item.title" :summary="item.summary"
+        :viewed="item.viewed" :liked="item.liked" :commented="item.commented" :cover="item.cover"
+        :tag-ids="item.tagIds"
       />
     </ul>
     <ArticlesSkeleton v-else />
