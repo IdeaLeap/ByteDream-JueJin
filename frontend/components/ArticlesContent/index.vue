@@ -48,7 +48,10 @@ const plugins = [
   gfm(),
   highlight(),
   math(),
-  medium(),
+  medium(
+    {
+      background: 'rgba(0, 0, 0, 0.7)',
+    }),
   mermaid(),
 ]
 
@@ -122,10 +125,7 @@ const { immerseState } = useImmerse()
 
       <div itemprop="articleBody" class="article-content">
         <div class="markdown-body cache">
-          <Viewer
-            v-if="isRender"
-            id="markdown-body" :value="articleHtmlContent" :plugins="plugins" @change="handleChange"
-          />
+          <Viewer v-if="isRender" id="markdown-body" :value="articleHtmlContent" :plugins="plugins" @change="handleChange" />
         </div>
       </div>
     </article>
@@ -263,5 +263,9 @@ const { immerseState } = useImmerse()
   overflow-x: hidden;
   color: #333;
   overflow-x: hidden;
+}
+.medium-zoom-image,
+.medium-zoom-overlay {
+  z-index: 10000;
 }
 </style>

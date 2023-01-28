@@ -91,3 +91,8 @@
 	opacity: 0;
 	transform: scale(0.99);
 }
+
+.medium-zoom-image,
+.medium-zoom-overlay {
+  z-index: 10000;
+}
