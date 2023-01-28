@@ -18,7 +18,7 @@ const { data: ArticleList } = await useFetch(`/api/articles/tags?tags=${tags}`)
       <div class="block-body">
         <div v-for="item in ArticleList" :key="item.name" class="entry-list">
           <nuxt-link
-            to="/article/id" target="_blank" rel="" st:name="link" title="{{ item.title }}"
+            :to="`/article/${item.id}`" target="_blank" rel="" st:name="link" title="{{ item.title }}"
             class="item"
           >
             <div class="entry-title">
