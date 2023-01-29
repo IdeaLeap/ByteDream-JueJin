@@ -5,8 +5,9 @@ defineProps({
     required: true,
   },
 })
-tags = ['前端']
-const { data: ArticleList } = await useFetch(`/api/articles/tags?tags=${tags}&authorId=${item.authorId}`)
+const tags = ['前端']
+const authorId = '5'
+const { data: ArticleList } = await useFetch(`/api/articles/tags?tags=${JSON.stringify(tags)}&authorId=${authorId}`)
 </script>
 
 <template>

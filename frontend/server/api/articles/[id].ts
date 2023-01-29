@@ -1,4 +1,4 @@
-import { useGraphql } from '~~/composables/useGraphql'
+import { useGraphql } from '~~/utils/useGraphql'
 import type { IArticle } from '~~/types/IArticle'
 export default defineEventHandler(async (event): Promise<IArticle> => {
   const id = event.context.params.id
