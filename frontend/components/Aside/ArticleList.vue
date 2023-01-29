@@ -27,13 +27,13 @@ const { data: ArticleList } = await useFetch(`/api/articles/tags?tags=${JSON.str
             </div>
             <div class="entry-meta-box">
               <div class="entry-meta">
-                {{ item.liked }}
+                {{ item.liked }}{{ item.liked > 1 ? '赞' : '赞' }}
               </div>
               <div class="entry-meta">
                 &nbsp;·&nbsp;
               </div>
               <div class="entry-meta">
-                {{ item.commented }}
+                {{ item.commented }}{{ item.commented > 1 ? '评论' : '评论' }}
               </div>
             </div>
           </nuxt-link>
