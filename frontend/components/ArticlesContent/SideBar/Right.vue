@@ -11,7 +11,7 @@ const props = defineProps({
     type: Object,
   },
 })
-
+// console.log(props)
 /**
  *  @description: 获取目录
  *
@@ -143,7 +143,7 @@ onMounted(() => {
 
 onUnmounted(() => {
   window.removeEventListener('scroll', throttledScrollHandler)
-  window.addEventListener('scroll', scrollFixedCatalogue)
+  window.removeEventListener('scroll', scrollFixedCatalogue)
 })
 const { immerseState } = useImmerse()
 </script>
@@ -162,7 +162,7 @@ const { immerseState } = useImmerse()
             <ul class="catalog-list" style="margin-top: 0px">
               <li v-for="(item, index) in Catalogue" :key="index" :class="[{ active: index === isActive }, catalogueClass(item.level)]" @click="activeSelect(index)">
                 <div class="a-container">
-                  <a :href="`#heading-${index}`" :title="item.text" class="catalog-aTag"> {{ item.text }} </a>
+                  <a :href="`#heading-${index}`" :title="item.text" class="catalog-aTag hover:bg-[#F7F8FA]"> {{ item.text }} </a>
                 </div>
               </li>
             </ul>
@@ -296,5 +296,6 @@ const { immerseState } = useImmerse()
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  border-radius: 4px;
 }
 </style>
