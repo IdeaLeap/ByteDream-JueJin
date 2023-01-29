@@ -1,4 +1,4 @@
-import { useGraphql } from '~~/composables/useGraphql'
+import { useGraphql } from '~~/utils/useGraphql'
 import { useTime } from '~~/composables/useTime'
 interface IAuthor {
   name: string

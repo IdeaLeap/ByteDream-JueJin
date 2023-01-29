@@ -1,4 +1,4 @@
-import { useGraphql } from '~~/composables/useGraphql'
+import { useGraphql } from '~~/utils/useGraphql'
 interface IGadget {
   title: string
   subscribe: string

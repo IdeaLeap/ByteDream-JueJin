@@ -40,23 +40,31 @@ const removeStrapiWrapper = (data: any) => {
 }
 
 export async function useGraphql(query: any) {
-  const runtimeConfig = useRuntimeConfig()
-  const data = JSON.stringify({
-    query,
-  })
-  const config = {
-    method: 'post',
-    url: runtimeConfig.public.graphql_url,
-    headers: {
-      'Content-Type': 'application/json',
-      'Accept': '*/*',
-      'Connection': 'keep-alive',
-    },
-    data,
+  try {
+    const runtimeConfig = useRuntimeConfig()
+    const data = JSON.stringify({
+      query,
+    })
+    const config = {
+      method: 'post',
+      url: runtimeConfig.public.graphql_url,
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': '*/*',
+        'Connection': 'keep-alive',
+      },
+      data,
+    }
+
+    const res = await axios(config)
+
+    return removeStrapiWrapper(res.data)
   }
-
-  const res = await axios(config)
-
-  return removeStrapiWrapper(res.data)
+  catch (err: any) {
+    console.error('API请求错误')
+    console.error('状态码', err.response.status)
+    console.error('请求数据', err.config.data)
+    console.error('错误说明', err.response.data)
+  }
 }
 
