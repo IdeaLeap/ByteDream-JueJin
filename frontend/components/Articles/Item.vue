@@ -11,27 +11,27 @@ const format = (num: number) => {
 </script>
 
 <template>
-  <li v-for="artItem in artlistItem" :key="artItem.id" class="flex justify-between items-center py-4 transition-all bg-white hover:bg-[#FAFAFA] b-b b-grey all-cursor-pointer">
+  <li v-for="artItem in artlistItem" :key="artItem.id" class="flex justify-between items-center py-4 transition-all bg-white hover:bg-jj_hover_bg b-b b-grey all-cursor-pointer">
     <NuxtLink class="flex-1 pl-5 truncate" :to="`/article/${artItem.id}`">
       <div class="flex items-center pr-4 text-[13px]">
-        <span class="text-[#4E5968] px-3 border-r-1 pl-0">{{ artItem.authorId.name }}</span>
-        <span class="text-[#86909c] px-3 border-r-1">{{ formatTime(artItem.createdAt) }}</span>
+        <span class="text-jj_sec-app px-3 border-r-1 pl-0">{{ artItem.authorId.name }}</span>
+        <span class="text-jj_thirdly px-3 border-r-1">{{ formatTime(artItem.createdAt) }}</span>
         <div class="flex px-3">
           <div v-for="(item, index) of artItem.tagIds.data" :key="item.tag" class="items-center flex">
-            <span class="px-0 text-[#86909c]">{{ item.tag }}</span>
+            <span class="px-0 text-jj_thirdly">{{ item.tag }}</span>
             <div v-if="index !== artItem.tagIds.data.length - 1" class="i-carbon-circle-solid px-2 text-[0.15rem]" />
           </div>
         </div>
       </div>
       <div class="py-4">
-        <div class="truncate text-[#1d2129] text-[16px] title font-semibold tracking-wide">
+        <div class="truncate text-jj_primary text-[16px] title font-semibold tracking-wide">
           {{ artItem.title }}
         </div>
-        <div class="truncate pt-4 text-[#86909c] text-[13px]">
+        <div class="truncate pt-4 text-jj_thirdly text-[13px]">
           {{ artItem.summary }}
         </div>
       </div>
-      <div class="flex all-flex all-items-center all-text-[#4e5969] all-text-[13px]">
+      <div class="flex all-flex all-items-center all-text-jj_sec_app all-text-[13px]">
         <div>
           <div class="i-carbon-view" />
           <span class="pl-2">{{ artItem.viewed ? format(artItem.viewed) : '观看' }}</span>

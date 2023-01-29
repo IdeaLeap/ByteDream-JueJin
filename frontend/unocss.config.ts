@@ -40,6 +40,11 @@ export default defineConfig({
       dark_bg: 'var(--dark-bg)',
       link: 'var(--link)',
       nav_icon_color: 'var(--jjext-color-navbar-icon)',
+      jj_sec_app: 'var(--jjext-color-secondary-app)', // #4e5969
+      jj_thirdly: 'var(--jjext-color-thirdly)', // #86909c
+      jj_primary: 'var(--jjext-color-primary)',
+      jj_hover_bg: 'var(--jjext-color-hover-bg)',
+      jj_link: 'var(--link)',
     },
   },
 })
