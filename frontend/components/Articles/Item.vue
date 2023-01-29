@@ -1,66 +1,56 @@
 <script setup lang="ts">
-const props = defineProps({
-  name: String,
-  duration: String,
-  title: String,
-  summary: String,
-  tags: {
-    type: Array,
-    default: (): string[] => [],
+import type { IArticleItem } from '~~/types/IArticleItem'
+defineProps({
+  artlistItem: {
+    type: Array<IArticleItem>,
   },
-  topicHeat: {
-    type: Array,
-    default: (): number[] => [0, 0, 0],
-  },
-  postID: String,
-  cover: String,
 })
-const enteredtopicHeat: (string | number)[] = props.topicHeat.map((item) => {
-  const value = item as number
-  return value > 10000 ? `${(value / 10000).toFixed(1)}w` : value
-})
+const format = (num: number) => {
+  return num > 10000 ? `${(num / 10000).toFixed(1)}w` : num
+}
 </script>
 
 <template>
-  <li class="focus:text-slate-500 flex justify-between items-center py-4 transition-all bg-white hover:bg-gray-50 b-b b-grey all-cursor-pointer">
-    <NuxtLink class="flex-auto pl-5 truncate" :to="`/${name}`" style="flex: 1">
-      <div class="flex items-center all-px-4 pr-4" style="font-size: 13px;">
-        <span class="border-r-1 pl-0">{{ name }}</span>
-        <span class="text-gray-500 border-r-1">{{ duration }}</span>
-        <div class="flex">
-          <div v-for="(tag, index) in tags" :key="index" class="al-px-0 px-0 text-gray-500 items-center flex">
-            <span class="px-0 text-gray-500">{{ tag }}</span>
-            <div v-if="index !== tags.length - 1" style="font-size: 0.15rem;" class="i-carbon-circle-solid px-2" />
+  <li v-for="artItem in artlistItem" :key="artItem.id" class="flex justify-between items-center py-4 transition-all bg-white hover:bg-jj_hover_bg b-b b-grey all-cursor-pointer">
+    <NuxtLink class="flex-1 pl-5 truncate" :to="`/article/${artItem.id}`">
+      <div class="flex items-center pr-4 text-[13px]">
+        <span class="text-jj_sec-app px-3 border-r-1 pl-0">{{ artItem.authorId.name }}</span>
+        <span class="text-jj_thirdly px-3 border-r-1">{{ formatTime(artItem.createdAt) }}</span>
+        <div class="flex px-3">
+          <div v-for="(item, index) of artItem.tagIds.data" :key="item.tag" class="items-center flex">
+            <span class="px-0 text-jj_thirdly">{{ item.tag }}</span>
+            <div v-if="index !== artItem.tagIds.data.length - 1" class="i-carbon-circle-solid px-2 text-[0.15rem]" />
           </div>
         </div>
       </div>
       <div class="py-4">
-        <div class="truncate title font-semibold tracking-wide" style="font-size: 16px;">
-          {{ title }}
+        <div class="truncate text-jj_primary text-[16px] title font-semibold tracking-wide">
+          {{ artItem.title }}
         </div>
-        <div class="truncate pt-4 text-slate-500" style="font-size: 13px;">
-          {{ summary }}
+        <div class="truncate pt-4 text-jj_thirdly text-[13px]">
+          {{ artItem.summary }}
         </div>
       </div>
-      <div class="flex all-flex all-items-center all-text-slate-700" style="font-size: 13px;">
+      <div class="flex all-flex all-items-center all-text-jj_sec_app all-text-[13px]">
         <div>
           <div class="i-carbon-view" />
-          <span class="pl-2">{{ enteredtopicHeat[0] ? enteredtopicHeat[0] : '观看' }}</span>
+          <span class="pl-2">{{ artItem.viewed ? format(artItem.viewed) : '观看' }}</span>
         </div>
         <div class="mx-7">
           <div class="i-carbon-thumbs-up" />
-          <span class="pl-2">{{ enteredtopicHeat[1] ? enteredtopicHeat[1] : '点赞' }}</span>
+          <span class="pl-2">{{ artItem.liked[1] ? format(artItem.liked) : '点赞' }}</span>
         </div>
         <div>
           <div class="i-carbon-chat" />
-          <span class="pl-2">{{ enteredtopicHeat[2] ? enteredtopicHeat[2] : '评论' }}</span>
+          <span class="pl-2">{{ artItem.commented[2] ? format(artItem.commented) : '评论' }}</span>
         </div>
       </div>
     </NuxtLink>
     <div class="px-4">
       <nuxt-img
-        :src="cover"
-        :alt="summary"
+        v-if="artItem.cover"
+        :src="artItem.cover"
+        :alt="artItem.summary"
         width="120"
         height="80"
         loading="lazy"
@@ -74,6 +64,6 @@ const enteredtopicHeat: (string | number)[] = props.topicHeat.map((item) => {
 
 <style scoped>
 a:visited .title {
-  color: gray;
+  color: #909090;
 }
 </style>
