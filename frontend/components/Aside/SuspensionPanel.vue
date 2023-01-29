@@ -9,10 +9,10 @@ const to_top = () => {
 </script>
 
 <template>
-  <div display="block" class="p-5 flex flex-col">
+  <div class="suspension_panel_container">
     <div
       v-if="y > 900"
-      class="my-2 bg-light-50 p-4 rounded-full shadow hover:shadow-md"
+      class="to_top_btn hover:shadow-md"
       @click="to_top"
     >
       <div>
@@ -32,7 +32,7 @@ const to_top = () => {
         </svg>
       </div>
     </div>
-    <div class="my-3 bg-light-50 p-4 rounded-full shadow hover:shadow-md">
+    <div class="to_top_btn hover:shadow-md">
       <div>
         <svg
           width="16"
@@ -54,4 +54,12 @@ const to_top = () => {
 </template>
 
 <style scoped>
+.suspension_panel_container {
+  @apply block
+  @apply p-5 flex flex-col
+}
+
+.to_top_btn {
+  @apply my-2 bg-light-50 p-4 rounded-full shadow
+}
 </style>
