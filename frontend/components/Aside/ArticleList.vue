@@ -6,7 +6,7 @@ defineProps({
   },
 })
 tags = ['前端']
-const { data: ArticleList } = await useFetch(`/api/articles/tags?tags=${tags}`)
+const { data: ArticleList } = await useFetch(`/api/articles/tags?tags=${tags}&authorId=${item.authorId}`)
 </script>
 
 <template>
