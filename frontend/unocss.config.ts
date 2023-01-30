@@ -31,7 +31,7 @@ export default defineConfig({
 
   ],
   transformers: [
-    transformerDirectives(),
+    transformerDirectives({ enforce: 'pre' }),
     transformerVariantGroup(),
   ],
   theme: {
