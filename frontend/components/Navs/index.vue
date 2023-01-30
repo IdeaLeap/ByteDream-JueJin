@@ -106,12 +106,12 @@ const onClick = () => {
   display: block;
   position: absolute;
   width: 55px;
-  left: 1310px;
-  top: 14px;
+  left: 843px;
+  top: 6px;
   font-size: 12px;
-  zoom: 0.65;
   background: #ee502f;
   border-radius: 10px;
+  transform: scale(.65);
   color: #ffffff;
   text-align: center;
 }
