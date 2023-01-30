@@ -11,7 +11,7 @@ const format = (num: number) => {
 </script>
 
 <template>
-  <li v-for="artItem in artlistItem" :key="artItem.id" class="flex justify-between items-center py-4 transition-all bg-white hover:bg-jj_hover_bg b-b b-grey all-cursor-pointer">
+  <li v-for="artItem in artlistItem" :key="artItem.id" class="flex justify-between items-center py-4 transition-all bg-white hover:bg-[#FAFAFA] b-b b-grey all-cursor-pointer">
     <NuxtLink class="flex-1 pl-5 truncate" :to="`/article/${artItem.id}`">
       <div class="flex items-center pr-4 text-[13px]">
         <span class="text-jj_sec-app px-3 border-r-1 pl-0">{{ artItem.authorId.name }}</span>
