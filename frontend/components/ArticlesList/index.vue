@@ -36,10 +36,10 @@ onUnmounted(() => {
 
 <template>
   <div class="pb-5 box-border w-full">
-    <ArticlesNavigation />
+    <ArticlesListNavigation />
     <ul v-if="!isLoading">
-      <ArticlesItem :artlist-item="artlistData" />
+      <ArticlesListItem :artlist-item="artlistData" />
     </ul>
-    <ArticlesSkeleton v-else />
+    <ArticlesListSkeleton v-else />
   </div>
 </template>
