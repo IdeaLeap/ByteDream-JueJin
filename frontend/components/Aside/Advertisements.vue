@@ -41,9 +41,7 @@ const turn_off = (i: number) => {
 }
 
 .ad_close {
-  @apply my-2 mx-1 absolute text-[#909090]
-  @apply opacity-50 text-[1.5rem] font-[1500]
-  @apply opacity-0
+  @apply my-2 mx-1 absolute text-[#909090] opacity-50 text-[1.5rem] font-[1500] opacity-0
 }
 
 .txt_container {
@@ -51,7 +49,6 @@ const turn_off = (i: number) => {
 }
 
 .txt {
-  @apply text-light-50 px-1.5 bg-[rgba(0,0,0,.2)]
-  @apply rounded-md border-white border-1
+  @apply text-light-50 px-1.5 bg-[rgba(0,0,0,.2)] rounded-md border-white border-1
 }
 </style>
