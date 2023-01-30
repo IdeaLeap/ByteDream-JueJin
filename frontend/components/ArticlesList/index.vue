@@ -44,7 +44,6 @@ onUnmounted(() => {
     <ul v-if="!isLoading && !isEmpty">
       <ArticlesListItem :artlist-item="artlistData" />
     </ul>
-    <ArticlesListEmpty v-else-if="isEmpty" />
     <ArticlesListSkeleton v-else />
   </div>
 </template>
