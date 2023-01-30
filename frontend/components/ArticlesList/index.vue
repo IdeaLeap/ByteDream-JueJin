@@ -2,6 +2,7 @@
 const route = useRoute()
 let pagenum = 1
 const isLoading = useState('isLoading', () => false)
+const isEmpty = useState('isEmpty', () => false)
 const artlistData = useArtlist([])
 const addArtListItem = () => {
   if (useScrollBottom()) {
@@ -17,10 +18,13 @@ watchEffect(() => {
   if (!artlistData.value.length) {
     isLoading.value = true
     useFetchPostData(route.path, route.query?.sort).then((data) => {
-      if (!data.length)
+      if (!data.length) {
+        isEmpty.value = true
         return
+      }
       artlistData.value = data
       isLoading.value = false
+      isEmpty.value = false
     })
   }
 }, { flush: 'post' })
@@ -37,9 +41,10 @@ onUnmounted(() => {
 <template>
   <div class="pb-5 box-border w-full">
     <ArticlesListNavigation />
-    <ul v-if="!isLoading">
+    <ul v-if="!isLoading && !isEmpty">
       <ArticlesListItem :artlist-item="artlistData" />
     </ul>
+    <ArticlesListEmpty v-else-if="isEmpty" />
     <ArticlesListSkeleton v-else />
   </div>
 </template>

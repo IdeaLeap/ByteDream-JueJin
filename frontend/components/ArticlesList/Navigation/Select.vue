@@ -2,7 +2,9 @@
 const isShow = useState<boolean>('isShow', () => false)
 const iptValue = useState<string>('iptValue', () => '3天内')
 const artlistPath = useArtlistPath()
+const artlistData = useArtlist([])
 const iptValueHandler = (time: string) => {
+  artlistData.value = []
   isShow.value = false
   iptValue.value = time
 }
