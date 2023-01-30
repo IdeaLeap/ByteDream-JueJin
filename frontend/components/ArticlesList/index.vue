@@ -39,7 +39,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="pb-5 box-border w-full">
+  <div class="bg-white pb-5 box-border w-full">
     <ArticlesListNavigation />
     <ul v-if="!isLoading && !isEmpty">
       <ArticlesListItem :artlist-item="artlistData" />
