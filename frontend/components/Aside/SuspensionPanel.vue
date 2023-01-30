@@ -11,7 +11,7 @@ const to_top = () => {
 <template>
   <div class="suspension_panel_container">
     <div
-      v-if="y > 900"
+      v-if="y > 300"
       class="to_top_btn hover:shadow-md"
       @click="to_top"
     >
@@ -60,6 +60,7 @@ const to_top = () => {
 }
 
 .to_top_btn {
-  @apply my-2 bg-light-50 p-4 rounded-full shadow
+  @apply my-2 bg-jj_font_white p-4 rounded-full shadow
+  @apply dark:bg-dark_bg dark:shadow-light-50
 }
 </style>

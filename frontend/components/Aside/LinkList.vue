@@ -30,7 +30,8 @@ defineProps({
 
 <style scoped>
 .linklist_container {
-  @apply bg-[#ffffff] rounded-sm shadow-[0_2px_2px_0_rgba(0,0,0,0.05)]
+  @apply bg-jj_font_white rounded-sm shadow-[0_2px_2px_0_rgba(0,0,0,0.05)]
+  @apply dark:bg-dark_bg
 }
 
 .linklist_ul {
@@ -40,10 +41,12 @@ defineProps({
 .linklist_link {
   @apply flex flex-row justify-start
   @apply items-center gap-3 hover:bg-[#fbfbfb] p-3
+  @apply dark:hover:bg-[#1a1c1e]
 }
 
 .linklist_txt {
-  @apply text-lg text-[#333333]
+  @apply text-lg text-jj_font_black
+  @apply dark:text-jj_font_white
 }
 
 .linklist_icon {

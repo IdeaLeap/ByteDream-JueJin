@@ -28,7 +28,8 @@ if (process.server)
 
 <style scoped>
 .sign_container {
-  @apply bg-light-50 p-5 py-6
+  @apply bg-jj_font_white p-5 py-6
+  @apply dark:bg-dark_bg
 }
 
 .sign_container_container {
@@ -41,6 +42,7 @@ if (process.server)
 
 .sign_dayparts{
   @apply text-black font-bold text-2xl
+  @apply dark:text-jj_font_white
 }
 
 .sign_txt {
@@ -49,9 +51,11 @@ if (process.server)
 
 .sign_btn {
   @apply bg-[#f4f9ff] border-[#8dbfff] hover:bg-[#e8f2ff] border-solid border-1 rounded-2 h-13
+  @apply dark:bg-[#171d23] dark:border-[#102a4c] dark:hover:bg-[#161f2b]
 }
 
 .sign_btn_txt {
   @apply text-lg text-[#1e80ff] px-5 py-1
+  @apply dark:text-[#357bba]
 }
 </style>
