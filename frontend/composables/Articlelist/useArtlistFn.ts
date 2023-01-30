@@ -1,5 +1,5 @@
 import type { IArticleItem } from '~~/types/IArticleItem'
-export function formatTime(createdAt: string): string {
+export const formatTime = (createdAt: string): string => {
   const created = new Date(createdAt)
   const now = new Date()
   const duration = (now.getTime() - created.getTime()) / 1000 / 60
