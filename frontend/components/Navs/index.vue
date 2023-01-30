@@ -105,12 +105,13 @@ const onClick = () => {
 .nav-list span {
   display: block;
   position: absolute;
-  width: 50px;
-  left: 845px;
-  top: 4px;
+  width: 55px;
+  left: 1310px;
+  top: 14px;
   font-size: 12px;
+  zoom: 0.65;
   background: #ee502f;
-  border-radius: 4px;
+  border-radius: 10px;
   color: #ffffff;
   text-align: center;
 }
