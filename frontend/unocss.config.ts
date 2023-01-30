@@ -44,6 +44,9 @@ export default defineConfig({
       jj_thirdly: 'var(--jjext-color-thirdly)', // #86909c
       jj_primary: 'var(--jjext-color-primary)', // #1d2129
       jj_hover_bg: 'var(--jjext-color-hover-bg)', // #e8f3ff
+      jj_bg: 'var(--jjext-color-background)', // #f2f3f5
+      jj_font_white: 'var(--jjext-color-font-white)', // #ffffff
+      jj_font_black: 'var(--jjext-color-font-1)', // #252933
     },
   },
 })
