@@ -1,8 +1,8 @@
 <script setup lang="ts">
 const route = useRoute()
-let pagenum = 0
+let pagenum = 1
 const isLoading = useState('isLoading', () => false)
-const artlistData = useArtlist(await useFetchPostData())
+const artlistData = useArtlist([])
 const addArtListItem = () => {
   if (useScrollBottom()) {
     pagenum++
@@ -11,12 +11,18 @@ const addArtListItem = () => {
     })
   }
 }
+
 watchEffect(() => {
-  isLoading.value = true
-  useFetchPostData(route.path, route.query?.sort).then((data) => {
-    artlistData.value = data
-    isLoading.value = false
-  })
+  pagenum = 1
+  if (!artlistData.value.length) {
+    isLoading.value = true
+    useFetchPostData(route.path, route.query?.sort).then((data) => {
+      if (!data.length)
+        return
+      artlistData.value = data
+      isLoading.value = false
+    })
+  }
 }, { flush: 'post' })
 onMounted(() => {
   const EmployeeWindow = window as any

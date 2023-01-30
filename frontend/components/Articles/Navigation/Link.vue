@@ -1,5 +1,9 @@
 <script setup lang="ts">
 const artlistPath = useArtlistPath()
+const atrtlistData = useArtlist([])
+const initArtlistData = () => {
+  atrtlistData.value = []
+}
 </script>
 
 <template>
@@ -8,7 +12,8 @@ const artlistPath = useArtlistPath()
       :to="`${artlistPath === '' ? '/' : artlistPath}`"
       :class="`${
         $route.query.sort ? 'text-gray-500' : 'text-link'
-      } border-r-1 focus:text-link hover:text-link`"
+      } border-r-1 focus:text-link hover:text-link pl-0`"
+      @click="initArtlistData()"
     >
       推荐
     </NuxtLink>
@@ -17,6 +22,7 @@ const artlistPath = useArtlistPath()
       :class="`${
         $route.query.sort === 'newest' ? 'text-link' : 'text-gray-500'
       } border-r-1 focus:text-link hover:text-link`"
+      @click="initArtlistData()"
     >
       最新
     </NuxtLink>
@@ -25,6 +31,7 @@ const artlistPath = useArtlistPath()
       :class="`${
         ($route.query.sort && $route.query.sort?.indexOf('hottest') !== -1) ? 'text-link' : 'text-gray-500'
       } focus:text-link hover:text-link`"
+      @click="initArtlistData()"
     >
       热榜
     </NuxtLink>

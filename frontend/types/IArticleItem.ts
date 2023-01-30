@@ -17,6 +17,7 @@ interface IArticleItem {
   createdAt: string
   authorId: IAuthor
   tagIds: { data: ITagItem[] }
+  error?: boolean
 }
 export {
   IArticleItem,

@@ -11,8 +11,8 @@ const format = (num: number) => {
 </script>
 
 <template>
-  <li v-for="artItem in artlistItem" :key="artItem.id" class="flex justify-between items-center py-4 transition-all bg-white hover:bg-[#FAFAFA] b-b b-grey all-cursor-pointer">
-    <NuxtLink class="flex-1 pl-5 truncate" :to="`/article/${artItem.id}`">
+  <li v-for="artItem in artlistItem" :key="artItem.id" class="f-c-c py-4 transition-all bg-white hover:bg-[#FAFAFA] b-b b-grey all-cursor-pointer">
+    <NuxtLink class="flex-1 pl-[1.67rem] truncate" :to="`/article/${artItem.id}`">
       <div class="flex items-center pr-4 text-[13px]">
         <span class="text-jj_sec-app px-3 border-r-1 pl-0">{{ artItem.authorId.name }}</span>
         <span class="text-jj_thirdly px-3 border-r-1">{{ formatTime(artItem.createdAt) }}</span>
@@ -46,7 +46,7 @@ const format = (num: number) => {
         </div>
       </div>
     </NuxtLink>
-    <div class="px-4">
+    <div class="px-[1.67rem]">
       <nuxt-img
         v-if="artItem.cover"
         :src="artItem.cover"
