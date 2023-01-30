@@ -36,7 +36,7 @@ const props = defineProps({
   border-radius: 0 0 4px 4px;
   padding-bottom: 3.33rem;
 }
-.main-area > {
+.main-area {
   border-radius: 4px;
   background-color: #fff;
   padding-left: 2.67rem;

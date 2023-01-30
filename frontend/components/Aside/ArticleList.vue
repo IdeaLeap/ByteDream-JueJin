@@ -5,6 +5,9 @@ defineProps({
     required: true,
   },
 })
+const tags = ['前端']
+const authorId = '5'
+const { data: ArticleList } = await useFetch(`/api/articles/tags?tags=${JSON.stringify(tags)}&authorId=${authorId}`)
 </script>
 
 <template>
@@ -14,23 +17,23 @@ defineProps({
         相关文章
       </div>
       <div class="block-body">
-        <div v-for="item in articleList" :key="item.name" class="entry-list">
+        <div v-for="item in ArticleList" :key="item.name" class="entry-list">
           <nuxt-link
-            href="/post/7181618141456236601" target="_blank" rel="" st:name="link" title="把ChatGPT配置到微信群里，可以对AI提问了！"
+            :to="`/article/${item.id}`" target="_blank" rel="" st:name="link" title="{{ item.title }}"
             class="item"
           >
             <div class="entry-title">
-              把ChatGPT配置到微信群里，可以对AI提问了！
+              {{ item.title }}
             </div>
             <div class="entry-meta-box">
               <div class="entry-meta">
-                30点赞
+                {{ item.liked }}{{ item.liked > 1 ? '赞' : '赞' }}
               </div>
               <div class="entry-meta">
                 &nbsp;·&nbsp;
               </div>
               <div class="entry-meta">
-                11评论
+                {{ item.commented }}{{ item.commented > 1 ? '评论' : '评论' }}
               </div>
             </div>
           </nuxt-link>

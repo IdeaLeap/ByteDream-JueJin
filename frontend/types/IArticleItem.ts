@@ -17,18 +17,8 @@ interface IArticleItem {
   createdAt: string
   authorId: IAuthor
   tagIds: { data: ITagItem[] }
-}
-interface IPanel {
-  id: string
-  title: string
-  topicHeat: number[]
-  summary: string
-  cover: string
-  duration: string
-  tagIds: string[]
-  name: string
+  error?: boolean
 }
 export {
   IArticleItem,
-  IPanel,
 }

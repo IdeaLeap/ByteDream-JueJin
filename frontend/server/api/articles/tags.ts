@@ -1,4 +1,4 @@
-import { useGraphql } from '~~/composables/useGraphql'
+import { useGraphql } from '~~/utils/useGraphql'
 interface ITagItem {
   tag: string
 }
@@ -19,8 +19,9 @@ export default defineEventHandler(async (event): Promise<ITagItem[] | IArticleIt
       }
     }
   }`
-  if (JSON.stringify(query) !== '{}' && !!query.tags) {
+  if (JSON.stringify(query) !== '{}' && !!query.tags && !!query.authorId) {
     const tags = JSON.parse(query.tags as string)
+    const authorId = query.authorId
     let tagQuery = ''
     for (let i = 0; i < tags.length; i++)
       tagQuery += `{ tagIds: { tag: { eq: "${tags[i]}" } } },`
@@ -28,6 +29,7 @@ export default defineEventHandler(async (event): Promise<ITagItem[] | IArticleIt
       articles(
         filters:{
           or: [${tagQuery}]
+          authorId: {id:{eq:"${authorId}"}}
         }
       ){
         data{

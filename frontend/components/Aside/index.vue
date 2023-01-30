@@ -5,11 +5,11 @@ const { data: GlobalData } = await useFetch('/api/global')
 <template>
   <div class="index-aside">
     <AsideSign class="mb-5" />
-    <AsideAdvertisements class="mb-5" :ads="GlobalData.ads" />
+    <AsideAdvertisements :ads="GlobalData.ads" />
     <AsideGadgets class="mb-5" :gadgets="GlobalData.gadgets" />
     <AsideAuthorList class="sidebar-block mb-5" />
     <AsideLinkList class="mb-5" :links="GlobalData.links" />
-    <!-- <AsideArticleList class="sidebar-block mb-5" /> -->
+    <AsideArticleList class="sidebar-block mb-5" />
     <AsideFooters class="mb-5" />
     <AsideSuspensionPanel class="fixed right-3 bottom-1" />
   </div>

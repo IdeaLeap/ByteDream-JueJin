@@ -2,7 +2,9 @@
 const isShow = useState<boolean>('isShow', () => false)
 const iptValue = useState<string>('iptValue', () => '3天内')
 const artlistPath = useArtlistPath()
+const artlistData = useArtlist([])
 const iptValueHandler = (time: string) => {
+  artlistData.value = []
   isShow.value = false
   iptValue.value = time
 }
@@ -10,7 +12,7 @@ const iptValueHandler = (time: string) => {
 
 <template>
   <div v-if="$route.query.sort && $route.query.sort?.indexOf('hottest') !== -1" class="dorp-down-area">
-    <div class="drop-down dorp-down">
+    <div class="drop-down">
       <div class="dropdown-toggle flex items-center justify-between" @click="isShow = !isShow">
         {{ iptValue }}
         <div class="text-[#b2bac2]" i-carbon:caret-up :class="!isShow ? 'toggled' : ''" style="transition: all 0.5s" />
