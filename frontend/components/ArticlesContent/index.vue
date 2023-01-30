@@ -14,7 +14,7 @@ const props = defineProps({
     },
   },
 })
-
+console.log(props.article.columId)
 const breaks = (await import('@bytemd/plugin-breaks')).default
 const gemoji = (await import('@bytemd/plugin-gemoji')).default
 const gfm = (await import('@bytemd/plugin-gfm')).default
@@ -32,31 +32,29 @@ const plugins = [
       if (typeof file.value != 'object')
         return
       const $style = document.createElement('style')
-      try {
-        $style.innerHTML = themes[file.value.frontmatter.theme]?.style ?? themes.juejin.style
+      const theme = themes[file.value.frontmatter?.theme]?.style
+      if (theme)
+        $style.innerHTML = theme
+      else $style.innerHTML = themes.juejin.style
+      const markdownBody = document.querySelector('.markdown-body')
+      markdownBody?.insertBefore($style, markdownBody.firstChild)
+      return () => {
+        $style.remove()
       }
-      catch (e) {
-        $style.innerHTML = themes.juejin.style
-      }
-      document.querySelector('.markdown-body')?.appendChild($style)
-      // return () => {
-      //   $style.remove()
-      // }
     },
   },
   gemoji(),
   gfm(),
   highlight(),
   math(),
-  medium(
-    {
-      background: 'rgba(0, 0, 0, 0.7)',
-    }),
+  medium({ background: 'rgba(0, 0, 0, 0.7)' }),
   mermaid(),
 ]
 
 const isRender = useState('isRender', () => false)
-const article = useState('article', () => { return { content: '' } }) // 文章数据
+const article = useState('article', () => {
+  return { content: '' }
+}) // 文章数据
 const articleHtmlContent = ref<string>('') // md字符串渲染在view组件中
 article.value = props.article
 
@@ -121,7 +119,7 @@ const { immerseState } = useImmerse()
           </div>
         </div>
       </div>
-      <nuxt-img loading="eager" :src="article?.cover" class="lazy article-hero" />
+      <nuxt-img v-if="article?.cover" loading="eager" :src="article?.cover" class="lazy article-hero" />
 
       <div itemprop="articleBody" class="article-content">
         <div class="markdown-body cache">
