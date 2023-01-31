@@ -1,4 +1,4 @@
-const themes = (await import('~~/assets/themes')).themes
+import { themes } from '~~/assets/themes'
 export default function themeStyle() {
   return {
     viewerEffect({ file }: any) {

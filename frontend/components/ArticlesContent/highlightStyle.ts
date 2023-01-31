@@ -1,4 +1,5 @@
-const highlight = (await import('~~/assets/highlight')).highlight
+import { highlight } from '~~/assets/highlight'
+
 export default function highlightStyle() {
   return {
     viewerEffect({ file }: any) {
@@ -9,8 +10,8 @@ export default function highlightStyle() {
       const hlStyle = highlight[hl]
       if (hlStyle) { $style.innerHTML = hlStyle }
       else {
-        $style.innerHTML = highlight['atom-one-dark']
-        hl = 'atom-one-dark'
+        $style.innerHTML = highlight.default
+        hl = 'default'
       }
       const markdownBody = document.querySelector('.markdown-body')
       markdownBody?.insertBefore($style, markdownBody.firstChild)
