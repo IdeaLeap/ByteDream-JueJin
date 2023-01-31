@@ -25,5 +25,3 @@ const format = (num: number) => {
     </div>
   </div>
 </template>
-
-<style scoped></style>

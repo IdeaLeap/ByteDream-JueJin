@@ -6,16 +6,19 @@ defineProps({
 </script>
 
 <template>
-  <NuxtLink v-if="id" class="flex-1 pl-[1.67rem] truncate" :to="`/article/${id}`">
+  <NuxtLink v-if="id" class="link" :to="`/article/${id}`">
     <slot />
   </NuxtLink>
-  <NuxtLink v-if="url" class="flex-1 pl-[1.67rem] truncate" :to="`/article/${url}`">
+  <NuxtLink v-if="url" class="link" :to="`/article/${url}`">
     <slot />
   </NuxtLink>
 </template>
 
 <style scoped>
-  a:visited {
-    color: #909090;
-  }
+a:visited {
+  color: #909090;
+}
+.link {
+  @apply flex-1 pl-[1.67rem] truncate
+}
 </style>

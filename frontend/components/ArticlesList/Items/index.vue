@@ -11,7 +11,7 @@ defineProps({
   <li
     v-for="artItem in artlistItem"
     :key="artItem.id"
-    class="f-c-c py-4 transition-all hover:bg-[#FAFAFA] b-b b-grey all-cursor-pointer"
+    class="container"
   >
     <ArticlesListItemsLink :id="artItem.id">
       <ArticlesListItemsTopbar
@@ -35,3 +35,9 @@ defineProps({
     />
   </li>
 </template>
+
+<style scoped>
+.container {
+  @apply f-c-c py-4 transition-all hover:bg-[#FAFAFA] b-b b-grey all-cursor-pointer
+}
+</style>

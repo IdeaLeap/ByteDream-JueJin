@@ -51,76 +51,73 @@ const iptValueHandler = (time: string) => {
 </template>
 
 <style scoped>
-  .dorp-down-area {
-    position: relative;
-    z-index: 9;
-  }
-  .dorp-down-area .drop-down {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    transform: translateY(-50%);
-  }
-  .drop-down {
-    position: relative;
-    color: #909097;
-    min-width: 4rem;
-  }
-  li {
-    list-style: none;
-  }
-  .dropdown-toggle {
-    box-sizing: border-box;
-    min-width: 7rem;
-    font-size: 1rem;
-    border-radius: 2px;
-    padding: 2px 10px;
-    font-weight: 400;
-    border: 1px solid #ebebeb;
-  }
-  .dropdown-toggle:hover {
-    background-color: #fafafb;
-    cursor: pointer;
-  }
-  .toggled {
-    transform: rotate(-180deg);
-    transition: all 0.5s;
-  }
-
-  .dropdown-menu {
-    box-sizing: border-box;
-    position: absolute;
-    top: 105%;
-    left: 0;
-    z-index: 1000;
-    min-width: 7rem;
-    font-size: 1rem;
-    list-style: none;
-    text-align: left;
-    border-radius: 0.17rem;
-    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 5%);
-    border: 1px solid #ebebeb;
-    background-color: #fff;
-  }
-
-  .dropdown-menu li {
-    overflow: hidden;
-    width: 100%;
-  }
-
-  .dropdown-menu li a {
-    display: block;
-    clear: both;
-    padding: 0.83rem;
-    line-height: 1.17;
-    color: #909097;
-  }
-  .dropdown-menu li a:hover {
-    background-color: #fafafb;
-  }
-  a {
-    text-decoration: none;
-    cursor: pointer;
-    color: #909090;
-  }
+.dorp-down-area {
+  position: relative;
+  z-index: 9;
+}
+.dorp-down-area .drop-down {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+.drop-down {
+  position: relative;
+  color: #909097;
+  min-width: 4rem;
+}
+li {
+  list-style: none;
+}
+.dropdown-toggle {
+  box-sizing: border-box;
+  min-width: 7rem;
+  font-size: 1rem;
+  border-radius: 2px;
+  padding: 2px 10px;
+  font-weight: 400;
+  border: 1px solid #ebebeb;
+}
+.dropdown-toggle:hover {
+  background-color: #fafafb;
+  cursor: pointer;
+}
+.toggled {
+  transform: rotate(-180deg);
+  transition: all 0.5s;
+}
+.dropdown-menu {
+  box-sizing: border-box;
+  position: absolute;
+  top: 105%;
+  left: 0;
+  z-index: 1000;
+  min-width: 7rem;
+  font-size: 1rem;
+  list-style: none;
+  text-align: left;
+  border-radius: 0.17rem;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 5%);
+  border: 1px solid #ebebeb;
+  background-color: #fff;
+}
+.dropdown-menu li {
+  overflow: hidden;
+  width: 100%;
+}
+.dropdown-menu li a {
+  display: block;
+  clear: both;
+  padding: 0.83rem;
+  line-height: 1.17;
+  color: #909097;
+}
+.dropdown-menu li a:hover {
+  background-color: #fafafb;
+}
+a {
+  text-decoration: none;
+  cursor: pointer;
+  color: #909090;
+}
 </style>

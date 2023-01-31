@@ -12,7 +12,6 @@ const addArtListItem = () => {
     })
   }
 }
-
 watchEffect(() => {
   if (!artlistData.value.length) {
     isLoading.value = true
