@@ -25,22 +25,22 @@ const iptValueHandler = (time: string) => {
         <div class="text-[#b2bac2]" i-carbon:caret-up :class="!isShow ? 'toggled' : ''" style="transition: all 0.5s" />
       </div>
       <ul v-if="isShow" class="dropdown-menu">
-        <li class="route-active">
+        <li>
           <NuxtLink :to="`${artlistPath}?sort=three_days_hottest`" @click="iptValueHandler('3天内')">
             3天内
           </NuxtLink>
         </li>
-        <li class="router-link-exact-active route-active">
+        <li>
           <NuxtLink :to="`${artlistPath}?sort=weekly_hottest`" aria-current="page" @click="iptValueHandler('7天内')">
             7天内
           </NuxtLink>
         </li>
-        <li class="route-active">
+        <li>
           <NuxtLink :to="`${artlistPath}?sort=monthly_hottest`" @click="iptValueHandler('30天内')">
             30天内
           </NuxtLink>
         </li>
-        <li class="route-active">
+        <li>
           <NuxtLink :to="`${artlistPath}?sort=hottest`" @click="iptValueHandler('全部')">
             全部
           </NuxtLink>
