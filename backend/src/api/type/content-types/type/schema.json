@@ -4,7 +4,8 @@
   "info": {
     "singularName": "type",
     "pluralName": "types",
-    "displayName": "type"
+    "displayName": "type",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -21,6 +22,15 @@
       "relation": "oneToMany",
       "target": "api::article.article",
       "mappedBy": "typeId"
+    },
+    "tags": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::tag.tag",
+      "mappedBy": "type"
+    },
+    "alias": {
+      "type": "string"
     }
   }
 }

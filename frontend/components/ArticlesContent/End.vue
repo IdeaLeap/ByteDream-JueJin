@@ -16,14 +16,14 @@ const props = defineProps({
         <div class="tag-list-title">
           分类：
         </div>
-        <a href="/frontend" target="_blank" rel="" class="item category-item"><span class="tag-title">{{ props.type.type }}</span></a>
+        <a href="/frontend" target="_blank" rel="" class="item category-item"><span class="tag-title">{{ props.type.alias }}</span></a>
       </div>
       <div class="tag-list">
         <div class="tag-list-title">
           标签：
         </div>
         <div class="tag-list-container">
-          <a href="/tag/%E5%89%8D%E7%AB%AF" target="_blank" rel="" class="item tag-item"><span v-for="(item, index) in props.tag.data" :key="index" class="tag-title">{{ item.tag }}</span></a>
+          <a href="/tag/%E5%89%8D%E7%AB%AF" target="_blank" rel="" class="item tag-item"><span v-for="(item, index) in props.tag.data" :key="index" class="tag-title">{{ item.alias }}</span></a>
         </div>
       </div>
     </div>
