@@ -16,15 +16,7 @@ interface IArticleItem {
   authorId: IAuthor
   tagIds: { data: ITagItem[] }
 }
-interface IArticleAd {
-  title: string
-  author: string
-  summary: string
-  cover: string
-  url: string
-}
 export {
   IArticleItem,
-  IArticleAd,
   ITagItem,
 }

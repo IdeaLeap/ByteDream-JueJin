@@ -1,4 +1,4 @@
-import type { IArticleAd, IArticleItem } from '~~/types/IArticleItem'
+import type { IArticleItem } from '~~/types/IArticleItem'
 export const formatTime = (createdAt: string): string => {
   const created = new Date(createdAt)
   const now = new Date()
@@ -22,10 +22,6 @@ export const useArtlistPath = (path?: string | undefined) => useState('artlistPa
     return ''
   return path
 })
-export const useFetchArtlistAd = async (): Promise<IArticleAd> => {
-  const { data } = await useFetch('/api/global')
-  return data.value
-}
 export const useFetchPostData = async (
   type?: string,
   sort: any = 'recommended',

@@ -4,25 +4,10 @@ defineProps({
   artlistItem: {
     type: Array<IArticleItem>,
   },
-  artlistAd: {
-    type: Object,
-    required: true,
-  },
 })
 </script>
 
 <template>
-  <li>
-    <ArticlesListItemsLink :url="artlistAd.url">
-      <ArticlesListItemsTopbar
-        :name="artlistAd.author"
-      />
-      <ArticlesListItemsMainbar
-        :title="artlistAd.title"
-        :summary="artlistAd.summary"
-      />
-    </ArticlesListItemsLink>
-  </li>
   <li
     v-for="artItem in artlistItem"
     :key="artItem.id"

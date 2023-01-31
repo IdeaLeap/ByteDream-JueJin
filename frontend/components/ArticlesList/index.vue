@@ -4,7 +4,6 @@ let pagenum = 1
 const isLoading = useState('isLoading', () => false)
 const isEmpty = useState('isEmpty', () => false)
 const artlistData = useArtlist([])
-const artlistAd = await useFetchArtlistAd()
 const addArtListItem = () => {
   if (useScrollBottom()) {
     pagenum++
@@ -43,7 +42,7 @@ onUnmounted(() => {
   <div class="bg-white pb-5 box-border w-full">
     <ArticlesListNavigation />
     <ul v-if="!isLoading && !isEmpty">
-      <ArticlesListItems :artlist-item="artlistData" :artlist-ad="artlistAd" />
+      <ArticlesListItems :artlist-item="artlistData" />
     </ul>
     <ArticlesListSkeleton v-else />
   </div>
