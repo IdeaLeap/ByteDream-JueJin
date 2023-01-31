@@ -29,7 +29,7 @@ if (process.server)
 <style scoped>
 .sign_container {
   @apply bg-jj_font_white p-5 py-6
-  @apply dark:bg-dark_bg
+  @apply dark:bg-jj_bg_gray
 }
 
 .sign_container_container {
