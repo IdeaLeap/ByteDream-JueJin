@@ -1,8 +1,15 @@
 <script setup lang="ts">
+const route = useRoute()
 const isShow = useState<boolean>('isShow', () => false)
 const iptValue = useState<string>('iptValue', () => '3天内')
 const artlistPath = useArtlistPath()
 const artlistData = useArtlist([])
+const routeMap = {
+  three_days_hottest: '3天内',
+  weekly_hottest: '7天内',
+  monthly_hottest: '30天内',
+  hottest: '全部',
+}
 const iptValueHandler = (time: string) => {
   artlistData.value = []
   isShow.value = false
@@ -11,10 +18,10 @@ const iptValueHandler = (time: string) => {
 </script>
 
 <template>
-  <div v-if="$route.query.sort && $route.query.sort?.indexOf('hottest') !== -1" class="dorp-down-area">
+  <div v-if="route.query.sort && route.query.sort?.indexOf('hottest') !== -1" class="dorp-down-area">
     <div class="drop-down">
       <div class="dropdown-toggle flex items-center justify-between" @click="isShow = !isShow">
-        {{ iptValue }}
+        {{ routeMap[route.query.sort as string] }}
         <div class="text-[#b2bac2]" i-carbon:caret-up :class="!isShow ? 'toggled' : ''" style="transition: all 0.5s" />
       </div>
       <ul v-if="isShow" class="dropdown-menu">

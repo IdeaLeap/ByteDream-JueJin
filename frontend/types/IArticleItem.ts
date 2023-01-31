@@ -1,11 +1,9 @@
 interface IAuthor {
   name: string
 }
-
 interface ITagItem {
   tag: string
 }
-
 interface IArticleItem {
   id: string
   title: string
@@ -17,8 +15,8 @@ interface IArticleItem {
   createdAt: string
   authorId: IAuthor
   tagIds: { data: ITagItem[] }
-  error?: boolean
 }
 export {
   IArticleItem,
+  ITagItem,
 }
