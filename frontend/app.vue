@@ -60,7 +60,7 @@ body,
 }
 
 html.dark {
-  background: #222;
+  background: #18181c;
   color: white;
 }
 html.light {

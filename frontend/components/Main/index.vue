@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <div class="container">
+  <div class="container main_container">
     <div class="mt-5.17rem ">
       <Types class="left-0" />
       <div class="timeline-container mt-0 relative 0.33rem">
@@ -15,12 +15,9 @@
 </template>
 
 <style scoped>
-.container {
-  display: block;
-  /* background-color: red; */
-  position: relative;
-  margin: 0 auto;
-  width: 100%;
-  max-width: 960px;
+.main_container {
+  @apply my-0 mx-auto
+  @apply block relative w-[100%] max-w-[960px]
+  @apply dark:bg-dark_bg
 }
 </style>

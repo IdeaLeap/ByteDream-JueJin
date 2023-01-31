@@ -35,6 +35,7 @@ defineProps({
   @apply block
   @apply bg-light-50 p-4 rounded-sm
   @apply shadow-[0_2px_2px_0_rgba(0,0,0,0.05)]
+  @apply dark:bg-dark_bg
 }
 
 .gadgets_qrcode_container {
@@ -46,10 +47,11 @@ defineProps({
 }
 
 .gadgets_txt {
-  @apply text-black text-lg
+  @apply text-jj_font_dark text-lg
+  @apply dark:text-jj_font_white
 }
 
 .gadgets_subtitle {
-  @apply text-[#8a919f] text-m
+  @apply text-jj_thirdly text-m
 }
 </style>

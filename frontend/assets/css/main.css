@@ -18,14 +18,7 @@
   --jjext-color-thirdly-bg: #f4f5f5;
   --jjext-color-hover-bg: #e8f3ff;
   --jjext-color-comment-bg: rgba(244, 245, 245, 0.5);
-  --jjext-hover-bg: linear-gradient(
-    90deg,
-    rgba(232, 243, 255, 0) 0%,
-    rgba(232, 243, 255, 0.8) 25.09%,
-    #e8f3ff 50.16%,
-    rgba(232, 243, 255, 0.8) 75.47%,
-    rgba(232, 243, 255, 0) 100%
-  );
+  --jjext-hover-bg: linear-gradient( 90deg, rgba(232, 243, 255, 0) 0%, rgba(232, 243, 255, 0.8) 25.09%, #e8f3ff 50.16%, rgba(232, 243, 255, 0.8) 75.47%, rgba(232, 243, 255, 0) 100% );
   --jjext-color-mask: rgba(0, 0, 0, 0.4);
   --jjext-color-quick-nav-text: #ffffff;
   --jjext-color-nav-bg: rgba(255, 255, 255, 0.13);
