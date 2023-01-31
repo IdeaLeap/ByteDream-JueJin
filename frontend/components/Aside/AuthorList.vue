@@ -47,7 +47,7 @@ const { data: AuthorList } = await useFetch('/api/authors/list', { server: false
 .user-block-header {
   padding: 1rem 1.3rem;
   border-bottom: 1px solid hsla(0, 0%, 59.2%, .1);
-  @apply dark:text-light-50 dark:border-blue-500
+  @apply dark:text-jj_font_white dark:border-nav_icon_color
 }
 
 .recommend-author-block .item .link {
@@ -77,7 +77,7 @@ const { data: AuthorList } = await useFetch('/api/authors/list', { server: false
   overflow: hidden;
   text-overflow: ellipsis;
   margin-bottom: 3px;
-  @apply dark:text-light-50
+  @apply dark:text-jj_font_white
 }
 
 .rank {
@@ -118,6 +118,6 @@ const { data: AuthorList } = await useFetch('/api/authors/list', { server: false
 
 .recommend-author-block {
   background-color: #fff;
-  @apply dark:bg-zinc-800
+  @apply dark:bg-jj_bg_gray
 }
 </style>
