@@ -30,7 +30,8 @@
       "mappedBy": "type"
     },
     "alias": {
-      "type": "string"
+      "type": "string",
+      "required": true
     }
   }
 }
