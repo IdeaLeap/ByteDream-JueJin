@@ -47,6 +47,7 @@ export default defineConfig({
       jj_bg: 'var(--jjext-color-background)', // #f2f3f5
       jj_font_white: 'var(--jjext-color-font-white)', // #ffffff
       jj_font_black: 'var(--jjext-color-font-1)', // #252933
+      jj_bg_gray: 'var(--jjext-color-bg-gray)', // #27272a
     },
   },
 })
