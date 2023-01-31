@@ -3,6 +3,7 @@ interface IAuthor {
 }
 interface ITagItem {
   tag: string
+  alias: string
 }
 interface IArticleItem {
   id: string

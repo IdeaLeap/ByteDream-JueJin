@@ -16,7 +16,7 @@ defineProps({
     <span class="text-jj_thirdly px-3 border-r-1">{{ duration }}</span>
     <div class="flex px-3">
       <div v-for="(item, index) of tags" :key="item.tag" class="items-center flex">
-        <span class="px-0 text-jj_thirdly">{{ item.tag }}</span>
+        <span class="px-0 text-jj_thirdly">{{ item.alias }}</span>
         <div v-if="index !== tags.length - 1" class="i-carbon-circle-solid px-2 text-[0.15rem]" />
       </div>
     </div>

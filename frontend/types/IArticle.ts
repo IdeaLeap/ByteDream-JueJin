@@ -9,6 +9,7 @@ interface IAuthor {
 
 interface ITagItem {
   tag: string
+  alias: string
 }
 
 interface IType {

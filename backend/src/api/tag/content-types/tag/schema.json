@@ -22,6 +22,17 @@
       "relation": "manyToMany",
       "target": "api::article.article",
       "mappedBy": "tagIds"
+    },
+    "type": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::type.type",
+      "inversedBy": "tags"
+    },
+    "alias": {
+      "type": "string",
+      "required": true,
+      "unique": false
     }
   }
 }
