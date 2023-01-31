@@ -20,10 +20,10 @@ const turn_off = (i: number) => {
         <div class="ad_container group">
           <nuxt-img class="ad" :src="i.img" />
           <div i-carbon-close class="ad_close group-hover:opacity-100" @click="turn_off(parseInt(index))" />
-        </div>
-        <div class="txt_container">
-          <div class="txt">
-            广告
+          <div class="txt_container">
+            <div class="txt">
+              广告
+            </div>
           </div>
         </div>
       </div>
@@ -41,18 +41,17 @@ const turn_off = (i: number) => {
 }
 
 .ad_close {
-  @apply my-2 mx-1 absolute text-[#909090]
-  @apply opacity-50 text-[1.5rem] font-[1500]
-  @apply opacity-0
+  @apply my-2 mx-1 absolute
+  @apply text-jj_thirdly opacity-50 text-[1.5rem]
+  @apply font-[1500] opacity-0
 }
 
 .txt_container {
-  @apply font-[20px]
+  @apply absolute translate-y-[14.3rem] translate-x-[-0.7rem]
 }
 
 .txt {
-  @apply absolute translate-y-[-3.5rem] translate-x-[16.5rem]
-  @apply text-light-50 px-1.5 bg-[rgba(0,0,0,.2)]
+  @apply text-jj_font_white px-1.5 bg-[rgba(0,0,0,.2)]
   @apply rounded-md border-white border-1
 }
 </style>

@@ -1,8 +1,9 @@
 <script setup lang="ts">
 const route = useRoute()
-let pagenum = 0
+let pagenum = 1
 const isLoading = useState('isLoading', () => false)
-const artlistData = useArtlist(await useFetchPostData())
+const isEmpty = useState('isEmpty', () => false)
+const artlistData = useArtlist([])
 const addArtListItem = () => {
   if (useScrollBottom()) {
     pagenum++
@@ -11,12 +12,21 @@ const addArtListItem = () => {
     })
   }
 }
+
 watchEffect(() => {
-  isLoading.value = true
-  useFetchPostData(route.path, route.query?.sort).then((data) => {
-    artlistData.value = data
-    isLoading.value = false
-  })
+  pagenum = 1
+  if (!artlistData.value.length) {
+    isLoading.value = true
+    useFetchPostData(route.path, route.query?.sort).then((data) => {
+      if (!data.length) {
+        isEmpty.value = true
+        return
+      }
+      artlistData.value = data
+      isLoading.value = false
+      isEmpty.value = false
+    })
+  }
 }, { flush: 'post' })
 onMounted(() => {
   const EmployeeWindow = window as any
@@ -30,10 +40,11 @@ onUnmounted(() => {
 
 <template>
   <div class="pb-5 box-border w-full">
-    <ArticlesNavigation />
-    <ul v-if="!isLoading">
-      <ArticlesItem :artlist-item="artlistData" />
+    <ArticlesListNavigation />
+    <ul v-if="!isLoading && !isEmpty">
+      <ArticlesListItem :artlist-item="artlistData" />
     </ul>
-    <ArticlesSkeleton v-else />
+    <ArticlesListEmpty v-else-if="isEmpty" />
+    <ArticlesListSkeleton v-else />
   </div>
 </template>

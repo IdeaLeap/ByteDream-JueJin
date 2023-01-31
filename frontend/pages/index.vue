@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="root_class">
     <Suspense>
       <Main />
       <template #fallback>
@@ -11,3 +11,9 @@
   </div>
 </template>
 
+<style scoped>
+.root_class {
+  @apply bg-[#f4f5f5]
+  @apply dark:bg-dark_bg
+}
+</style>
