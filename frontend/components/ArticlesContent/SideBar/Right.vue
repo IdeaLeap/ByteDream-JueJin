@@ -11,7 +11,6 @@ const props = defineProps({
     type: Object,
   },
 })
-// console.log(props)
 /**
  *  @description: 获取目录
  *
