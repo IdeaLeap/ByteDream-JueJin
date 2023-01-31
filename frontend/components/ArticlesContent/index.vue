@@ -1,7 +1,6 @@
 <!-- eslint-disable no-console -->
 <script setup lang="ts">
 import { Viewer } from '@bytemd/vue-next'
-import 'highlight.js/styles/atom-one-dark.css'
 import type { IArticle } from '~~/types/IArticle'
 const props = defineProps({
   article: {
@@ -23,33 +22,10 @@ const math = (await import('@bytemd/plugin-math-ssr')).default
 const medium = (await import('@bytemd/plugin-medium-zoom')).default
 const mermaid = (await import('@bytemd/plugin-mermaid')).default
 const frontmatter = (await import('@bytemd/plugin-frontmatter')).default
-const themes = (await import('~~/assets/themes')).themes
-const plugins = [
-  breaks(),
-  frontmatter(),
-  {
-    viewerEffect({ file }: any) {
-      if (typeof file.value != 'object')
-        return
-      const $style = document.createElement('style')
-      const theme = themes[file.value.frontmatter?.theme]?.style
-      if (theme)
-        $style.innerHTML = theme
-      else $style.innerHTML = themes.juejin.style
-      const markdownBody = document.querySelector('.markdown-body')
-      markdownBody?.insertBefore($style, markdownBody.firstChild)
-      return () => {
-        $style.remove()
-      }
-    },
-  },
-  gemoji(),
-  gfm(),
-  highlight(),
-  math(),
-  medium({ background: 'rgba(0, 0, 0, 0.7)' }),
-  mermaid(),
-]
+const themeStyle = (await import('./themeStyle')).default
+const highlightStyle = (await import('./highlightStyle')).default
+
+const plugins = [breaks(), frontmatter(), highlightStyle(), themeStyle(), gemoji(), gfm(), highlight(), math(), medium({ background: 'rgba(0, 0, 0, 0.7)' }), mermaid()]
 
 const isRender = useState('isRender', () => false)
 const article = useState('article', () => {

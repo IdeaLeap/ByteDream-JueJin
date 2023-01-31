@@ -35,7 +35,7 @@ defineProps({
   @apply block
   @apply bg-light-50 p-4 rounded-sm
   @apply shadow-[0_2px_2px_0_rgba(0,0,0,0.05)]
-  @apply dark:bg-dark_bg
+  @apply dark:bg-jj_bg_gray
 }
 
 .gadgets_qrcode_container {
