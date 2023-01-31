@@ -1,20 +1,19 @@
 <script setup lang="ts">
 const route = useRoute()
-let pagenum = 1
+const pagenum = usePagenum()
 const isLoading = useState('isLoading', () => false)
 const isEmpty = useState('isEmpty', () => false)
 const artlistData = useArtlist([])
 const addArtListItem = () => {
   if (useScrollBottom()) {
-    pagenum++
-    useFetchPostData(route.path, route.query?.sort, pagenum).then((data) => {
+    pagenum.value++
+    useFetchPostData(route.path, route.query?.sort, pagenum.value).then((data) => {
       artlistData.value.push(...data)
     })
   }
 }
 
 watchEffect(() => {
-  pagenum = 1
   if (!artlistData.value.length) {
     isLoading.value = true
     useFetchPostData(route.path, route.query?.sort).then((data) => {
@@ -39,12 +38,11 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="pb-5 box-border w-full">
+  <div class="bg-white pb-5 box-border w-full">
     <ArticlesListNavigation />
     <ul v-if="!isLoading && !isEmpty">
-      <ArticlesListItem :artlist-item="artlistData" />
+      <ArticlesListItems :artlist-item="artlistData" />
     </ul>
-    <ArticlesListEmpty v-else-if="isEmpty" />
     <ArticlesListSkeleton v-else />
   </div>
 </template>

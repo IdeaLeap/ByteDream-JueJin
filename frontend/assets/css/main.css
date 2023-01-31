@@ -81,16 +81,15 @@
   --jjext-color-bg-gray:#27272a;
 }
 
-
 .page-enter-active,
 .page-leave-active {
-	transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .page-enter-from,
 .page-leave-to {
-	opacity: 0;
-	transform: scale(0.99);
+  opacity: 0;
+  transform: scale(0.99);
 }
 
 .medium-zoom-image,
