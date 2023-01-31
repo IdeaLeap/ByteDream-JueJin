@@ -29,24 +29,9 @@ defineProps({
         :commented="artItem.commented"
       />
     </ArticlesListItemsLink>
-    <div class="px-[1.67rem]">
-      <nuxt-img
-        v-if="artItem.cover"
-        :src="artItem.cover"
-        :alt="artItem.summary"
-        width="120"
-        height="80"
-        loading="lazy"
-        fit="cover"
-        quality="80"
-        format="webp"
-      />
-    </div>
+    <ArticlesListItemsImg
+      :cover="artItem.cover"
+      :summary="artItem.summary"
+    />
   </li>
 </template>
-
-<style scoped>
-  a:visited .title {
-    color: #909090;
-  }
-</style>

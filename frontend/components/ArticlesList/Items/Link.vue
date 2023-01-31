@@ -13,3 +13,9 @@ defineProps({
     <slot />
   </NuxtLink>
 </template>
+
+<style scoped>
+  a:visited {
+    color: #909090;
+  }
+</style>

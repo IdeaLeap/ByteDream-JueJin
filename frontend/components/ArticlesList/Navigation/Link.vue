@@ -1,8 +1,10 @@
 <script setup lang="ts">
 const artlistPath = useArtlistPath()
 const atrtlistData = useArtlist([])
+const pagenum = usePagenum()
 const initArtlistData = () => {
   atrtlistData.value = []
+  pagenum.value = 1
 }
 </script>
 

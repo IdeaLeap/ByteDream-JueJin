@@ -1,20 +1,19 @@
 <script setup lang="ts">
 const route = useRoute()
-let pagenum = 1
+const pagenum = usePagenum()
 const isLoading = useState('isLoading', () => false)
 const isEmpty = useState('isEmpty', () => false)
 const artlistData = useArtlist([])
 const addArtListItem = () => {
   if (useScrollBottom()) {
-    pagenum++
-    useFetchPostData(route.path, route.query?.sort, pagenum).then((data) => {
+    pagenum.value++
+    useFetchPostData(route.path, route.query?.sort, pagenum.value).then((data) => {
       artlistData.value.push(...data)
     })
   }
 }
 
 watchEffect(() => {
-  pagenum = 1
   if (!artlistData.value.length) {
     isLoading.value = true
     useFetchPostData(route.path, route.query?.sort).then((data) => {
