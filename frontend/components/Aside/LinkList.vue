@@ -31,7 +31,7 @@ defineProps({
 <style scoped>
 .linklist_container {
   @apply bg-jj_font_white rounded-sm shadow-[0_2px_2px_0_rgba(0,0,0,0.05)]
-  @apply dark:bg-dark_bg
+  @apply dark:bg-jj_bg_gray
 }
 
 .linklist_ul {
