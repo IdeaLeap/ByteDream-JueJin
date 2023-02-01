@@ -13,6 +13,7 @@ const props = defineProps({
     },
   },
 })
+
 const breaks = (await import('@bytemd/plugin-breaks')).default
 const gemoji = (await import('@bytemd/plugin-gemoji')).default
 const gfm = (await import('@bytemd/plugin-gfm')).default
@@ -70,6 +71,7 @@ const { immerseState } = useImmerse()
       <h1 class="mt-0 mr-0 mb-1.667rem ml-0 text-2.667rem fw-600 color-[#252933] lh-1.31em">
         {{ article.title }}
       </h1>
+
       <div class="flex items-center mb-1.667rem text-0">
         <NuxtLink target="_blank" to="#" class="avatar-link" rel>
           <nuxt-img class="bg-center w-3.333rem h-3.333rem mr-1rem bg-cover rd-50% bg-repeat inline-block relative" :src="article.authorId.avatar" loading="eager" />
@@ -81,7 +83,7 @@ const { immerseState } = useImmerse()
                 {{ article.authorId.name }}
               </span>
               <span v-show="!immerseState" blank="true" class="ml-0.33rem inline-flex items-center v-middle">
-                <nuxt-img class="w-35px h-16px" src="https://lf3-cdn-tos.bytescm.com/obj/static/xitu_juejin_web/img/lv-3.7938ebc.png" loading="eager" />
+                <img class="w-35px h-16px" :src="`/_nuxt/assets/icon/rank/${props.article.authorId.rank}.png`" loading="eager">
               </span>
             </NuxtLink>
           </div>
@@ -94,6 +96,7 @@ const { immerseState } = useImmerse()
           </div>
         </div>
       </div>
+
       <nuxt-img v-if="article?.cover" loading="eager" :src="article?.cover" class="object-cover relative w-100%" />
 
       <div itemprop="articleBody" class="article-content">
