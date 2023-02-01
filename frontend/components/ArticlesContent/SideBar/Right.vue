@@ -148,7 +148,7 @@ const { immerseState } = useImmerse()
 <template>
   <div class="sidebar hidden lg:block lg:w-4/12">
     <ArticlesContentSideBarAuthor v-show="!immerseState" :author="props.author" />
-    <!-- <AsideArticleList /> -->
+    <ArticlesContentSideBarArticleList class="sidebar-block" />
     <div class="sticky-block-box">
       <div class="sidebar-block catalog-block catalog-block pure isExpand" style="">
         <nav class="article-catalog">
@@ -186,6 +186,7 @@ const { immerseState } = useImmerse()
 .sidebar-block {
   position: relative;
   margin-bottom: 1.5rem;
+  background-color: #fff;
 }
 
 .sidebar .sidebar-block {
