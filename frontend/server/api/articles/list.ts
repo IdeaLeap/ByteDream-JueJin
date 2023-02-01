@@ -81,6 +81,7 @@ export default defineEventHandler(async (event): Promise<IArticleItem[]> => {
             data{
               attributes{
                 tag
+                alias
               }
             }
           }
