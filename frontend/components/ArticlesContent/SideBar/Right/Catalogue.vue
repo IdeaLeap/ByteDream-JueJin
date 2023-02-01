@@ -1,4 +1,3 @@
-<!-- eslint-disable no-console -->
 <script setup>
 import { getProcessor } from 'bytemd'
 import { visit } from 'unist-util-visit'
@@ -6,9 +5,6 @@ const props = defineProps({
   content: {
     type: String,
     default: '',
-  },
-  author: {
-    type: Object,
   },
 })
 /**
@@ -142,42 +138,31 @@ onUnmounted(() => {
   window.removeEventListener('scroll', throttledScrollHandler)
   window.removeEventListener('scroll', scrollFixedCatalogue)
 })
-const { immerseState } = useImmerse()
 </script>
 
 <template>
-  <div class="sidebar hidden lg:block lg:w-4/12">
-    <ArticlesContentSideBarAuthor v-show="!immerseState" :author="props.author" />
-    <ArticlesContentSideBarArticleList class="sidebar-block" />
-    <div class="sticky-block-box">
-      <div class="sidebar-block catalog-block catalog-block pure isExpand" style="">
-        <nav class="article-catalog">
-          <div class="catalog-title">
-            目录
-          </div>
-          <div class="catalog-body">
-            <ul class="catalog-list" style="margin-top: 0px">
-              <li v-for="(item, index) in Catalogue" :key="index" :class="[{ active: index === isActive }, catalogueClass(item.level)]" @click="activeSelect(index)">
-                <div class="a-container">
-                  <a :href="`#heading-${index}`" :title="item.text" class="catalog-aTag hover:bg-[#F7F8FA]"> {{ item.text }} </a>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </nav>
-      </div>
+  <div class="sticky-block-box">
+    <div class="sidebar-block catalog-block catalog-block pure isExpand" style="">
+      <nav class="article-catalog">
+        <div class="catalog-title">
+          目录
+        </div>
+        <div class="catalog-body">
+          <ul class="catalog-list" style="margin-top: 0px">
+            <li v-for="(item, index) in Catalogue" :key="index" :class="[{ active: index === isActive }, catalogueClass(item.level)]" @click="activeSelect(index)">
+              <div class="a-container">
+                <a :href="`#heading-${index}`" :title="item.text" class="catalog-aTag hover:bg-[#F7F8FA]"> {{ item.text }} </a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
     </div>
   </div>
 </template>
 
 <style scoped>
-.sidebar {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 25rem;
-}
-.sidebar.sticky .sticky-block-box {
+.sticky .sticky-block-box {
   position: fixed;
   top: 1.767rem;
   width: inherit;
@@ -189,7 +174,7 @@ const { immerseState } = useImmerse()
   background-color: #fff;
 }
 
-.sidebar .sidebar-block {
+ .sidebar-block {
   margin-bottom: 20px;
 }
 
