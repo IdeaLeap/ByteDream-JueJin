@@ -14,6 +14,7 @@ interface ITagItem {
 
 interface IType {
   type: string
+  alias: string
 }
 
 interface IColumnArticleItem {

@@ -39,6 +39,7 @@ export default defineEventHandler(async (event): Promise<IArticle> => {
             data{
               attributes{
                 type
+                alias
               }
             }
           }
