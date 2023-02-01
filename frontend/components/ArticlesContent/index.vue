@@ -53,7 +53,6 @@ function transformToId() {
     }
   }
 }
-
 onMounted(() => {
   if (article.value)
     handleChange(article.value.content)

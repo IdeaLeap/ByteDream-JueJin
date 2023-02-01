@@ -6,6 +6,7 @@
   "files.associations": {
     "*.css": "postcss"
   },
+  "css.lint.unknownAtRules": "ignore",
   // "editor.formatOnSave": true,
   // "editor.defaultFormatter": "esbenp.prettier-vscode",
   // "prettier.requireConfig": true,
