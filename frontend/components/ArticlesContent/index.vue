@@ -13,7 +13,6 @@ const props = defineProps({
     },
   },
 })
-console.log(props.article.columId)
 const breaks = (await import('@bytemd/plugin-breaks')).default
 const gemoji = (await import('@bytemd/plugin-gemoji')).default
 const gfm = (await import('@bytemd/plugin-gfm')).default
@@ -67,38 +66,38 @@ const { immerseState } = useImmerse()
 
 <template>
   <div class="main-area article-area" mb-1.5rem>
-    <article class="article">
-      <h1 class="article-title">
+    <article class="relative pt-2.667rem z-1 rd-t-4px rd-b-0 ">
+      <h1 class="mt-0 mr-0 mb-1.667rem ml-0 text-2.667rem fw-600 color-[#252933] lh-1.31em">
         {{ article.title }}
       </h1>
-      <div class="author-info-block">
+      <div class="flex items-center mb-1.667rem text-0">
         <NuxtLink target="_blank" to="#" class="avatar-link" rel>
-          <nuxt-img class="avatar" :src="article.authorId.avatar" loading="eager" />
+          <nuxt-img class="bg-center w-3.333rem h-3.333rem mr-1rem bg-cover rd-50% bg-repeat inline-block relative" :src="article.authorId.avatar" loading="eager" />
         </NuxtLink>
-        <div class="author-info-box">
-          <div class="author-name">
-            <NuxtLink class="username ellipsis" to="#" target="_blank">
-              <span class="name" max-w-128px>
+        <div class="min-w-0 flex-1 min-h-43px">
+          <div class="h-2rem flex items-center">
+            <NuxtLink class="text-1.333rem fw-500 color-[#515767] lh-2rem flex items-center truncate" to="#" target="_blank">
+              <span class="inline-block v-top truncate max-w-128px">
                 {{ article.authorId.name }}
               </span>
-              <span v-show="!immerseState" blank="true" class="rank">
-                <nuxt-img class="avatar" src="https://lf3-cdn-tos.bytescm.com/obj/static/xitu_juejin_web/img/lv-3.7938ebc.png" loading="eager" />
+              <span v-show="!immerseState" blank="true" class="ml-0.33rem inline-flex items-center v-middle">
+                <nuxt-img class="w-35px h-16px" src="https://lf3-cdn-tos.bytescm.com/obj/static/xitu_juejin_web/img/lv-3.7938ebc.png" loading="eager" />
               </span>
             </NuxtLink>
           </div>
 
-          <div v-show="!immerseState" class="meta-box">
-            <time :datetime="article.updatedAt" :title="article.updatedAt" class="time">
+          <div v-show="!immerseState" class="text-1.167rem color-[#8a919f] lh-22px mt-2px">
+            <time :datetime="article.updatedAt" :title="article.updatedAt" class="tracking-1px">
               {{ useDateFormat(article.updatedAt, 'YYYY-MM-DD HH:mm:ss').value }}
             </time>
-            <span class="views-count"> ·&nbsp;&nbsp;{{ article.viewed }} </span>
+            <span class="views-count"> ·&nbsp;&nbsp;阅读 {{ article.viewed }} </span>
           </div>
         </div>
       </div>
-      <nuxt-img v-if="article?.cover" loading="eager" :src="article?.cover" class="lazy article-hero" />
+      <nuxt-img v-if="article?.cover" loading="eager" :src="article?.cover" class="object-cover relative w-100%" />
 
       <div itemprop="articleBody" class="article-content">
-        <div class="markdown-body cache">
+        <div class="break-all lh-1.75em; fw-400 text-15px color-[#333]; overflow-x-hidden cache">
           <Viewer v-if="isRender" id="markdown-body" :value="articleHtmlContent" :plugins="plugins" @change="handleChange" />
         </div>
       </div>
@@ -124,7 +123,7 @@ const { immerseState } = useImmerse()
   }
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1000px) {
   .article-area {
     margin-bottom: 0;
   }
@@ -132,114 +131,11 @@ const { immerseState } = useImmerse()
     width: 100%;
   }
 }
-.article {
-  position: relative;
-  padding-top: 2.667rem;
-  z-index: 1;
-  border-radius: 4px 4px 0 0;
-}
-
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1000px) {
   .main-area {
     border: none;
     padding-left: 2rem;
     padding-right: 2rem;
   }
-}
-.article-title {
-  margin: 0 0 1.667rem;
-  font-size: 2.667rem;
-  font-weight: 600;
-  line-height: 1.31;
-  color: #252933;
-}
-.author-info-block {
-  display: flex;
-  align-items: center;
-  margin-bottom: 1.667rem;
-  font-size: 0;
-}
-.avatar {
-  margin-right: 1rem;
-  width: 3.333rem;
-  height: 3.333rem;
-  border-radius: 50%;
-  display: inline-block;
-  position: relative;
-  background-position: 50%;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-.author-info-box {
-  min-width: 0;
-  flex-grow: 1;
-  flex: 1;
-  min-height: 43px;
-}
-.author-name {
-  height: 2rem;
-  display: flex;
-  align-items: center;
-}
-.username {
-  font-size: 1.333rem;
-  font-weight: 500;
-  color: #515767;
-  line-height: 2rem;
-  display: flex;
-  align-items: center;
-}
-.ellipsis {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.lazy {
-  position: relative;
-  object-fit: cover;
-}
-.name {
-  display: inline-block;
-  vertical-align: top;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-.rank {
-  display: inline-flex;
-  align-items: center;
-  margin-left: 0.33rem;
-  vertical-align: middle;
-}
-.rank img {
-  width: 35px;
-  height: 16px;
-}
-.meta-box {
-  font-size: 1.167rem;
-  color: #8a919f;
-  margin-top: 2px;
-  line-height: 22px;
-}
-.time {
-  letter-spacing: 1px;
-}
-
-.article-hero {
-  width: 100%;
-}
-
-.markdown-body {
-  word-break: break-word;
-  line-height: 1.75;
-  font-weight: 400;
-  font-size: 15px;
-  overflow-x: hidden;
-  color: #333;
-  overflow-x: hidden;
-}
-.medium-zoom-image,
-.medium-zoom-overlay {
-  z-index: 10000;
 }
 </style>

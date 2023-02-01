@@ -34,12 +34,11 @@ getProcessor({
             tree.children
               .filter(v => v.type === 'element')
               .forEach((node) => {
-                const selectedVal1 = 'theme'
-                const selectedVal2 = 'highlight'
-                const isSelected1 = node.children.filter(item => item.value?.includes(selectedVal1))
-                const isSelected2 = node.children.filter(item => item.value?.includes(selectedVal2))
+                // 过滤掉主题和高亮
+                const removeTheme = node.children.filter(item => item.value?.includes('theme'))
+                const removeHl = node.children.filter(item => item.value?.includes('highlight'))
 
-                if (node.tagName[0] === 'h' && !!node.children.length && isSelected1.length === 0 && isSelected2.length === 0) {
+                if (node.tagName[0] === 'h' && !!node.children.length && removeTheme.length === 0 && removeHl.length === 0) {
                   const i = Number(node.tagName[1])
                   items.push({
                     level: i,
@@ -92,15 +91,14 @@ const onScroll = () => {
     }
   })
   const scrollTop = document.documentElement.scrollTop - 80
-  // console.log(scrollTop)
-  // console.log(itemOffsetTop.value)
-  let num = 0
   for (let n = 0; n < itemOffsetTop.value.length; n++) {
     if (scrollTop >= itemOffsetTop.value[n].top)
-      num = itemOffsetTop.value[n].key
+      isActive.value = itemOffsetTop.value[n].key
   }
 
-  isActive.value = num
+  window.scrollTo({
+    left: 0,
+  })
 }
 const throttledScrollHandler = useThrottleFn(() => {
   onScroll()
@@ -118,7 +116,7 @@ const scrollFixedCatalogue = () => {
   if (scrollTop > catalogue.offsetTop)
     sideBar.classList.add('sticky')
 
-  if (sideBar.classList.contains('sticky') && (scrollTop - headerHeight) < firtstCatalogueTop.value)
+  if (sideBar.classList.contains('sticky') && scrollTop - headerHeight < firtstCatalogueTop.value)
     sideBar.classList.remove('sticky')
 }
 
