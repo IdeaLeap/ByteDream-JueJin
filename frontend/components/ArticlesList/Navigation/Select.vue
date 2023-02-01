@@ -68,6 +68,7 @@ const iptValueHandler = (time: string) => {
 }
 li {
   list-style: none;
+  @apply dark:bg-jj_bg_gray
 }
 .dropdown-toggle {
   box-sizing: border-box;
@@ -79,8 +80,8 @@ li {
   border: 1px solid #ebebeb;
 }
 .dropdown-toggle:hover {
-  background-color: #fafafb;
   cursor: pointer;
+  @apply bg-[#fafafb] dark:hover-bg-[#111]
 }
 .toggled {
   transform: rotate(-180deg);
@@ -100,6 +101,7 @@ li {
   box-shadow: 0 1px 2px 0 rgb(0 0 0 / 5%);
   border: 1px solid #ebebeb;
   background-color: #fff;
+  @apply b-[#333]
 }
 .dropdown-menu li {
   overflow: hidden;
@@ -114,6 +116,7 @@ li {
 }
 .dropdown-menu li a:hover {
   background-color: #fafafb;
+  @apply bg-[#fafafb] dark:hover-bg-[#111]
 }
 a {
   text-decoration: none;
