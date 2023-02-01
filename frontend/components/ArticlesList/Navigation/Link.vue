@@ -9,7 +9,7 @@ const initArtlistData = () => {
 </script>
 
 <template>
-  <div all-px-5 all-my-4 flex all-cursor-pointer>
+  <div class="all-px-5 all-my-4 flex all-cursor-pointer">
     <NuxtLink
       :to="`${artlistPath === '' ? '/' : artlistPath}`"
       :class="`${

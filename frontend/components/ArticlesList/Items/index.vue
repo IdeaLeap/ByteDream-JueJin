@@ -38,6 +38,6 @@ defineProps({
 
 <style scoped>
 .container {
-  @apply f-c-c py-4 transition-all hover:bg-[#FAFAFA] b-b b-grey all-cursor-pointer
+  @apply dark:bg-jj_bg_gray dark:b-[#333] dark:hover:bg-[#111] f-c-c py-4 transition-all hover:bg-[#FAFAFA] b-b b-grey all-cursor-pointer
 }
 </style>
