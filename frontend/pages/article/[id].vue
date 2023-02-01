@@ -12,7 +12,7 @@ const { data: articleData } = await useFetch(url)
         <ArticlesContentSideBarLeft :commented="articleData.article.commented" :liked="articleData.article.liked" />
         <ArticlesContent :article="articleData.article" />
         <ClientOnly>
-          <ArticlesContentSideBarRight :content="articleData.article.content" :author="articleData.article.authorId" />
+          <ArticlesContentSideBarRight :related-articles="articleData.article.columId.articles.data" :content="articleData.article.content" :author="articleData.article.authorId" />
         </ClientOnly>
       </div>
     </main>
