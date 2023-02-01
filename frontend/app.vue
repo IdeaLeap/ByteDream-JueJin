@@ -58,12 +58,4 @@ body,
   margin: 0;
   padding: 0;
 }
-
-html.dark {
-  background: #18181c;
-  color: white;
-}
-html.light {
-  background-color: #F4F5F5;
-}
 </style>

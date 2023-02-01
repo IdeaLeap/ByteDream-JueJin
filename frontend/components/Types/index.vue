@@ -7,7 +7,7 @@ const { data: TypeList } = await useFetch('/api/global/types')
   <div class="view-nav">
     <div class="flex list-none ma pr-114">
       <li v-for="item in TypeList" :key="item.type" class="navList">
-        {{ item.type }}
+        {{ item.alias }}
       </li>
     </div>
   </div>
