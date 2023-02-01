@@ -1,9 +1,5 @@
 import { useGraphql } from '~~/utils/useGraphql'
-interface INavItem {
-  name: string
-  url: string
-  badge?: string
-}
+import type { INavItem } from '~~/types/INav'
 export default defineEventHandler(async (): Promise<INavItem[]> => {
   const reqQuery = `query{
     global{

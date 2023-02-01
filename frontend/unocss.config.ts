@@ -10,8 +10,6 @@ import {
 } from 'unocss'
 export default defineConfig({
   shortcuts: [
-    ['btn', 'px-4 py-1 rounded inline-block bg-teal-600 text-white cursor-pointer hover:bg-teal-700 disabled:cursor-default disabled:bg-gray-600 disabled:opacity-50'],
-    ['icon-btn', 'inline-block cursor-pointer select-none opacity-75 transition duration-200 ease-in-out hover:opacity-100 hover:text-teal-600'],
     ['f-c-c', 'flex justify-center items-center'],
   ],
   presets: [
@@ -48,6 +46,15 @@ export default defineConfig({
       jj_font_white: 'var(--jjext-color-font-white)', // #ffffff
       jj_font_black: 'var(--jjext-color-font-1)', // #252933
       jj_bg_gray: 'var(--jjext-color-bg-gray)', // #27272a
+      jj_navigation: 'var(--juejin-navigation)',
+    },
+    breakpoints: {
+      xs: '320px',
+      sm: '640px',
+      md: '768px',
+      lg: '1024px',
+      xl: '1280px',
+      xxl: '1536px',
     },
   },
 })
