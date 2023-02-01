@@ -1,5 +1,5 @@
 <template>
-  <div class="all-py-5 all-px-7">
+  <div class="container">
     <div class="skeleton w-2/5">
       <div />
     </div>
@@ -9,19 +9,24 @@
     <div class="skeleton w-4/5">
       <div />
     </div>
-    <div class="skeleton w-3/5">
+    <div class="skeleton mb-5 w-3/5">
       <div />
     </div>
   </div>
 </template>
 
 <style scoped>
+.container {
+  @apply p-5 dark:bg-jj_bg_gray
+}
 .skeleton {
   display: inline-block;
   position: relative;
   overflow: hidden;
   vertical-align: middle;
   height: 1.35rem;
+  border-radius: 4px;
+  margin: 7px 5px;
 }
 
 .skeleton div {
@@ -29,6 +34,7 @@
   height: 100%;
   border-radius: 2px;
   background-color: #E5E7EC;
+  @apply dark:bg-[#555]
 }
 
 .skeleton::after {

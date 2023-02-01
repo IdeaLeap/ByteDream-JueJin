@@ -9,12 +9,12 @@ const initArtlistData = () => {
 </script>
 
 <template>
-  <div all-px-5 all-my-4 flex all-cursor-pointer>
+  <div class="all-px-5 all-my-4 flex all-cursor-pointer">
     <NuxtLink
       :to="`${artlistPath === '' ? '/' : artlistPath}`"
       :class="`${
         $route.query.sort ? 'text-gray-500' : 'text-link'
-      } border-r-1 focus:text-link hover:text-link pl-0`"
+      } border-r-1 text_style pl-0`"
       @click="initArtlistData()"
     >
       推荐
@@ -23,7 +23,7 @@ const initArtlistData = () => {
       :to="`${artlistPath}?sort=newest`"
       :class="`${
         $route.query.sort === 'newest' ? 'text-link' : 'text-gray-500'
-      } border-r-1 focus:text-link hover:text-link`"
+      } border-r-1 text_style`"
       @click="initArtlistData()"
     >
       最新
@@ -32,10 +32,16 @@ const initArtlistData = () => {
       :to="`${artlistPath}?sort=three_days_hottest`"
       :class="`${
         ($route.query.sort && $route.query.sort?.indexOf('hottest') !== -1) ? 'text-link' : 'text-gray-500'
-      } focus:text-link hover:text-link`"
+      } text_style`"
       @click="initArtlistData()"
     >
       热榜
     </NuxtLink>
   </div>
 </template>
+
+<style scoped>
+.text_style {
+  @apply focus:text-link hover:text-link
+}
+</style>

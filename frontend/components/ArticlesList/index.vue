@@ -12,7 +12,6 @@ const addArtListItem = () => {
     })
   }
 }
-
 watchEffect(() => {
   if (!artlistData.value.length) {
     isLoading.value = true
@@ -38,7 +37,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="bg-white pb-5 box-border w-full">
+  <div class="bg-white box-border w-full">
     <ArticlesListNavigation />
     <ul v-if="!isLoading && !isEmpty">
       <ArticlesListItems :artlist-item="artlistData" />
