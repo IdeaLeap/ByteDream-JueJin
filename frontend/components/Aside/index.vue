@@ -9,8 +9,8 @@ const { data: GlobalData } = await useFetch('/api/global')
     <AsideGadgets class="mb-5" :gadgets="GlobalData.gadgets" />
     <AsideAuthorList class="sidebar-block mb-5" />
     <AsideLinkList class="mb-5" :links="GlobalData.links" />
-    <!--    <AsideArticleList class="sidebar-block mb-5" /> -->
-    <AsideFooters class="mb-5" />
+    <!-- <AsideArticleList class="sidebar-block mb-5" /> -->
+    <AsideFooters class="mb-5" :footers="GlobalData.footers" />
     <AsideSuspensionPanel class="fixed right-3 bottom-1" />
   </div>
 </template>
