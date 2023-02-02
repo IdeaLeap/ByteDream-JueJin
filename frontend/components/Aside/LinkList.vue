@@ -41,7 +41,7 @@ defineProps({
 .linklist_link {
   @apply flex flex-row justify-start
   @apply items-center gap-3 hover:bg-[#fbfbfb] p-3
-  @apply dark:hover:bg-[#1a1c1e]
+  @apply hover:bg-jj-hover
 }
 
 .linklist_txt {
