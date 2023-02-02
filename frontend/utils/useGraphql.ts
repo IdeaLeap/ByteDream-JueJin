@@ -57,7 +57,8 @@ export async function useGraphql(query: any) {
     }
 
     const res = await axios(config)
-
+    if ('errors' in res.data)
+      throw new Error(res.data)
     return removeStrapiWrapper(res.data)
   }
   catch (err: any) {
