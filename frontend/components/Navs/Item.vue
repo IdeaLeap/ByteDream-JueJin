@@ -29,7 +29,7 @@ defineProps({
     @apply opacity-100;
 }
 .nav-item::after {
-  @apply absolute left-2/3 top-2;
+  @apply absolute left-2/3 top-0.5 md:(top-2);
   @apply bg-red-500 text-white;
   @apply rounded-full px-1.5 py-0.4 whitespace-nowrap;
   @apply transform-gpu scale-60 origin-top-left;
