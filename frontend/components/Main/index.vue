@@ -18,6 +18,5 @@
 .main_container {
   @apply my-0 mx-auto
   @apply block relative w-[100%] max-w-[960px]
-  @apply dark:bg-dark_bg
 }
 </style>
