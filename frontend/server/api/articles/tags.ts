@@ -1,6 +1,7 @@
 import { useGraphql } from '~~/utils/useGraphql'
 interface ITagItem {
   tag: string
+  alias: string
 }
 interface IArticleItem {
   id: string
@@ -15,6 +16,7 @@ export default defineEventHandler(async (event): Promise<ITagItem[] | IArticleIt
       data{
         attributes{
           tag
+          alias
         }
       }
     }
@@ -24,7 +26,7 @@ export default defineEventHandler(async (event): Promise<ITagItem[] | IArticleIt
     const authorId = query.authorId
     let tagQuery = ''
     for (let i = 0; i < tags.length; i++)
-      tagQuery += `{ tagIds: { tag: { eq: "${tags[i]}" } } },`
+      tagQuery += `{ tagIds: { tag: { eq: "${tags[i].tag}" } } },`
     reqQuery = `query {
       articles(
         filters:{

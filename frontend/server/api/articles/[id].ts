@@ -5,6 +5,7 @@ export default defineEventHandler(async (event): Promise<IArticle> => {
   const reqQuery = `query{
     article(id : ${id}){
       data{
+        id
         attributes{
           title
           viewed
@@ -17,6 +18,7 @@ export default defineEventHandler(async (event): Promise<IArticle> => {
           updatedAt
           authorId{
             data{
+              id
               attributes{
                 name
                 motto
