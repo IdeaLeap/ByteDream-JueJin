@@ -37,7 +37,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="bg-white box-border">
+  <div class="bg-white dark:bg-jj_bg_gray">
     <ArticlesListNavigation />
     <ArticlesListSkeleton v-if="isLoading && isEmpty" />
     <ul v-else>

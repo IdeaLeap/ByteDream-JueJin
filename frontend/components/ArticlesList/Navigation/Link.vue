@@ -3,7 +3,7 @@ const artlistPath = useArtlistPath()
 </script>
 
 <template>
-  <div class="all-px-5 all-my-4 flex all-cursor-pointer">
+  <div class="all-px-5 all-my-4 flex">
     <NuxtLink
       :to="`${artlistPath === '' ? '/' : artlistPath}`"
       :class="`${

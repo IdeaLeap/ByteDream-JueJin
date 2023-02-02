@@ -20,6 +20,6 @@ defineProps({
 
 <style scoped>
 .cover {
-  @apply mx-[1.67rem] mb-[-2rem] w-[120px] h-[80px];
+  @apply mx-[1.67rem] mb-[-2rem] w-[120px] h-[80px]
 }
 </style>
