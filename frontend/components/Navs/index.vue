@@ -5,6 +5,7 @@ const route = useRoute()
 const activeNav = computed(() => {
   return NavList.value.find(item => item.url === route.fullPath) || NavList[0]
 })
+const [isMobileNavShown, toggleMobileNavShown] = useToggle()
 </script>
 
 <template>
@@ -14,11 +15,15 @@ const activeNav = computed(() => {
         <NuxtLink to="/" class="logo h-full">
           <Logo />
         </NuxtLink>
-        <div class="mobile-nav">
-          {{ activeNav?.nav }}
-          <div i-carbon:caret-up />
+        <div class="nav-wrapper">
+          <div class="mobile-nav" @click="toggleMobileNavShown()">
+            <span class="mobile-nav-active">{{ activeNav?.nav }}</span>
+            <div i-carbon:caret-up class="mobile-nav-icon" />
+          </div>
+          <div class="nav-item-wrapper" :class=" isMobileNavShown ? 'mobile-nav-item-wrapper' : '' " @click="toggleMobileNavShown()">
+            <NavsItem v-for="item in NavList" :key="item.nav" :nav="item" class="mx-4" :class=" isMobileNavShown ? 'mobile-nav-item' : '' " />
+          </div>
         </div>
-        <NavsItem v-for="item in NavList" :key="item.nav" :nav="item" class="nav-item-wrapper h-full" />
       </nav>
       <UnoDarkToggle />
     </header>
@@ -33,14 +38,15 @@ const activeNav = computed(() => {
 .main-header {
     transition: all .2s;
     transform: translate3d(0,-100%,0);
-    @apply flex items-center fixed top-0 left-0 right-0 justify-around;
+    @apply flex items-center fixed top-0 left-0 right-0;
+    @apply space-between md:justify-around;
 }
 .main-header {
-    @apply bg-jj_navigation border-b-1 border-[#f1f1f1] h-[5rem] z-99;
+    @apply bg-jj_navigation border-b-1 h-[5rem] z-99 border-gray-100 dark:border-[#494949];
 }
 
 .logo{
-  @apply flex items-center mr-4 ml-6 h-[2.2rem] w-auto inline-block;
+  @apply flex items-center mr-4 ml-6 w-auto inline-block;
 
 }
 .nav-list{
@@ -48,22 +54,37 @@ const activeNav = computed(() => {
 }
 
 .nav-item-wrapper{
-  @apply mx-4;
+  @apply hidden md:(flex h-full);
+  @apply lt-md:(absolute top-4rem left-2rem p-2 h-auto border-1 border-gray-200 dark:border-[#494949] rounded-md shadow-xl shadow-black/10 dark:shadow-white/10 transform-gpu -translate-x-1/2 bg-white dark:bg-[#121212]);
 }
 .mobile-nav{
-  display: none;
+  @apply f-c-c md:hidden;
+  cursor: pointer;
+  color: #1e80ff;
+  font-size: 1.33rem;
+  width: 5.66rem;
 }
-@screen md{
-  .mobile-nav{
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    color: #1e80ff;
-    font-size: 1.33rem;
-    justify-content: center;
-  }
-  .nav-item-wrapper{
-    display:none;
-  }
+
+.mobile-nav-icon {
+  color: #515767;
+  transform: rotate(180deg);
+  transition: transform .2s ease-in-out;
+}
+
+.mobile-nav-active{
+  margin-right: .333rem;
+}
+
+.mobile-nav-item-wrapper {
+  @apply lt-md:(block);
+
+}
+
+.mobile-nav-item{
+  @apply lt-md:(px-13 h-4rem);
+}
+
+.nav-wrapper{
+  @apply relative h-full flex items-center;
 }
 </style>
