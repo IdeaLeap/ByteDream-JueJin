@@ -26,7 +26,7 @@ const hideHandler = () => {
 <template>
   <li :id="`artlist_${uid}`" class="list_container">
     <NuxtLink :to="`article/${uid}`" class="link_container">
-      <div class="flex-1 truncate">
+      <div class="left">
         <ArticlesListItemTopbar
           :name="name"
           :duration="formatTime(createdAt)"
@@ -46,10 +46,13 @@ const hideHandler = () => {
 
 <style scoped>
 .list_container {
-  position: relative;
+  @apply relative;
 }
 .list_container:hover .icon {
-  display: block;
+  @apply block;
+}
+.left {
+  @apply flex-1 truncate;
 }
 .link_container {
   @apply dark:bg-jj_bg_gray transition dark:b-[#333] dark:hover:bg-[#111] f-c-c py-4 transition-all hover:bg-[#FAFAFA] b-b b-grey all-cursor-pointer flex-1 pl-[1.67rem] truncate;

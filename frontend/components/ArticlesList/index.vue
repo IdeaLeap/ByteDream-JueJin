@@ -39,7 +39,8 @@ onUnmounted(() => {
 <template>
   <div class="bg-white box-border">
     <ArticlesListNavigation />
-    <ul v-if="!isLoading && !isEmpty">
+    <ArticlesListSkeleton v-if="isLoading || isEmpty" />
+    <ul v-else>
       <ArticlesListItem
         v-for="item in artlistData"
         :key="item.id"
@@ -56,6 +57,5 @@ onUnmounted(() => {
         :artlist-item="artlistData"
       />
     </ul>
-    <ArticlesListSkeleton v-else />
   </div>
 </template>
