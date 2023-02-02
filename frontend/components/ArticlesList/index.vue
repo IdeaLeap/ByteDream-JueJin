@@ -37,10 +37,24 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="bg-white box-border w-full">
+  <div class="bg-white box-border">
     <ArticlesListNavigation />
     <ul v-if="!isLoading && !isEmpty">
-      <ArticlesListItems :artlist-item="artlistData" />
+      <ArticlesListItem
+        v-for="item in artlistData"
+        :key="item.id"
+        :uid="item.id"
+        :title="item.title"
+        :viewed="item.viewed"
+        :liked="item.liked"
+        :commented="item.commented"
+        :summary="item.summary"
+        :cover="item.cover"
+        :created-at="item.createdAt"
+        :name="item.authorId.name"
+        :tags="item.tagIds.data"
+        :artlist-item="artlistData"
+      />
     </ul>
     <ArticlesListSkeleton v-else />
   </div>
