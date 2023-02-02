@@ -47,6 +47,14 @@ export default defineConfig({
       jj_font_black: 'var(--jjext-color-font-1)', // #252933
       jj_bg_gray: 'var(--jjext-color-bg-gray)', // #27272a
       jj_navigation: 'var(--juejin-navigation)',
+      jj: {
+        article: 'var(--juejin-background-article)',
+        main: 'var(--juejin-background-main)',
+        font: 'var(--juejin-h1-font-color)',
+        span: 'var(--juejin-span-font-color)',
+        p: 'var(--juejin-p-font-color)',
+        light: 'var(--jjext-color-font-white)',
+      },
     },
     breakpoints: {
       xs: '320px',

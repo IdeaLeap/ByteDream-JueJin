@@ -66,8 +66,8 @@ const { immerseState } = useImmerse()
 
 <template>
   <div class="main-area article-area" mb-1.5rem>
-    <article class="relative pt-2.667rem z-1 rd-t-4px rd-b-0 ">
-      <h1 class="mt-0 mr-0 mb-1.667rem ml-0 text-2.667rem fw-600 color-[#252933] lh-1.31em">
+    <article class="relative pt-2.667rem z-1 rd-t-4px rd-b-0 bg-jj-article">
+      <h1 class="mt-0 mr-0 mb-1.667rem ml-0 text-2.667rem fw-600 color-[#252933] lh-1.31em text-jj-font">
         {{ article.title }}
       </h1>
 
@@ -78,7 +78,7 @@ const { immerseState } = useImmerse()
         <div class="min-w-0 flex-1 min-h-43px">
           <div class="h-2rem flex items-center">
             <NuxtLink class="text-1.333rem fw-500 color-[#515767] lh-2rem flex items-center truncate" to="#" target="_blank">
-              <span class="inline-block v-top truncate max-w-128px">
+              <span class="inline-block v-top truncate max-w-128px text-jj-span">
                 {{ article.authorId.name }}
               </span>
               <span v-show="!immerseState" blank="true" class="ml-0.33rem inline-flex items-center v-middle">
@@ -99,7 +99,7 @@ const { immerseState } = useImmerse()
       <nuxt-img v-if="article?.cover" loading="eager" :src="article?.cover" class="object-cover relative w-100%" />
 
       <div itemprop="articleBody" class="article-content">
-        <div class="break-all lh-1.75em; fw-400 text-15px color-[#333]; overflow-x-hidden cache">
+        <div class="break-all lh-1.75em; fw-400 text-15px color-[#333]; overflow-x-hidden cache bg-jj-light">
           <Viewer v-if="isRender" id="markdown-body" :value="articleHtmlContent" :plugins="plugins" @change="handleChange" />
         </div>
       </div>
@@ -118,6 +118,7 @@ const { immerseState } = useImmerse()
   position: relative;
   width: 820px;
   max-width: 100%;
+  @apply bg-jj-article
 }
 @media screen and (max-width: 1140px) {
   .main-area {

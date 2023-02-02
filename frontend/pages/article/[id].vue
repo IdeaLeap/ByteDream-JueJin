@@ -20,6 +20,9 @@ const { data: articleData } = await useFetch(url)
 </template>
 
 <style scoped>
+.view-container{
+  @apply bg-jj-main
+}
 @media screen and (max-width: 1320px) and (min-width: 1140px) {
   .view-container {
     width: 1320px;
