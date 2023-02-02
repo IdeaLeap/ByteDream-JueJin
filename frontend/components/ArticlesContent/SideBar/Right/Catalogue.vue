@@ -6,6 +6,9 @@ const props = defineProps({
     type: String,
     default: '',
   },
+  column: {
+    type: Object,
+  },
 })
 /**
  *  @description: 获取目录
@@ -104,7 +107,7 @@ const throttledScrollHandler = useThrottleFn(() => {
  * @description: 目录固定
  */
 const firtstCatalogueTop = ref(0)
-const headerHeight = document.querySelector('.header').clientHeight
+const headerHeight = document.querySelector('.main-header ').clientHeight
 const scrollFixedCatalogue = () => {
   const scrollTop = document.documentElement.scrollTop
   const sideBar = document.querySelector('.sidebar')
@@ -158,6 +161,7 @@ onUnmounted(() => {
         </div>
       </nav>
     </div>
+    <ArticlesContentSideBarRightColumn :column="column" />
   </div>
 </template>
 
@@ -170,11 +174,7 @@ onUnmounted(() => {
 }
 .sidebar-block {
   position: relative;
-  margin-bottom: 1.5rem;
-  background-color: #fff;
-}
-
- .sidebar-block {
+  /* margin-bottom: 1.5rem; */
   margin-bottom: 20px;
 }
 
