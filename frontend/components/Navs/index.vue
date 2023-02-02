@@ -42,7 +42,7 @@ const [isMobileNavShown, toggleMobileNavShown] = useToggle()
     @apply space-between md:justify-around;
 }
 .main-header {
-    @apply bg-jj_navigation border-b-1 border-[#f1f1f1] h-[5rem] z-99;
+    @apply bg-jj_navigation border-b-1 h-[5rem] z-99 border-gray-100 dark:border-[#494949];
 }
 
 .logo{
