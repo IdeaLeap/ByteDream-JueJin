@@ -1,4 +1,3 @@
-<!-- eslint-disable no-console -->
 <script setup>
 import { getProcessor } from 'bytemd'
 import { visit } from 'unist-util-visit'
@@ -7,11 +6,7 @@ const props = defineProps({
     type: String,
     default: '',
   },
-  author: {
-    type: Object,
-  },
 })
-
 /**
  *  @description: 获取目录
  *
@@ -35,12 +30,11 @@ getProcessor({
             tree.children
               .filter(v => v.type === 'element')
               .forEach((node) => {
-                const selectedVal1 = 'theme'
-                const selectedVal2 = 'highlight'
-                const isSelected1 = node.children.filter(item => item.value?.includes(selectedVal1))
-                const isSelected2 = node.children.filter(item => item.value?.includes(selectedVal2))
+                // 过滤掉主题和高亮
+                const removeTheme = node.children.filter(item => item.value?.includes('theme'))
+                const removeHl = node.children.filter(item => item.value?.includes('highlight'))
 
-                if (node.tagName[0] === 'h' && !!node.children.length && isSelected1.length === 0 && isSelected2.length === 0) {
+                if (node.tagName[0] === 'h' && !!node.children.length && removeTheme.length === 0 && removeHl.length === 0) {
                   const i = Number(node.tagName[1])
                   items.push({
                     level: i,
@@ -93,15 +87,14 @@ const onScroll = () => {
     }
   })
   const scrollTop = document.documentElement.scrollTop - 80
-  // console.log(scrollTop)
-  // console.log(itemOffsetTop.value)
-  let num = 0
   for (let n = 0; n < itemOffsetTop.value.length; n++) {
     if (scrollTop >= itemOffsetTop.value[n].top)
-      num = itemOffsetTop.value[n].key
+      isActive.value = itemOffsetTop.value[n].key
   }
 
-  isActive.value = num
+  window.scrollTo({
+    left: 0,
+  })
 }
 const throttledScrollHandler = useThrottleFn(() => {
   onScroll()
@@ -119,7 +112,7 @@ const scrollFixedCatalogue = () => {
   if (scrollTop > catalogue.offsetTop)
     sideBar.classList.add('sticky')
 
-  if (sideBar.classList.contains('sticky') && (scrollTop - headerHeight) < firtstCatalogueTop.value)
+  if (sideBar.classList.contains('sticky') && scrollTop - headerHeight < firtstCatalogueTop.value)
     sideBar.classList.remove('sticky')
 }
 
@@ -143,44 +136,33 @@ onMounted(() => {
 
 onUnmounted(() => {
   window.removeEventListener('scroll', throttledScrollHandler)
-  window.addEventListener('scroll', scrollFixedCatalogue)
+  window.removeEventListener('scroll', scrollFixedCatalogue)
 })
-const { immerseState } = useImmerse()
 </script>
 
 <template>
-  <div class="sidebar hidden lg:block lg:w-4/12">
-    <ArticlesContentSideBarAuthor v-show="!immerseState" :author="props.author" />
-    <!-- <AsideArticleList /> -->
-    <div class="sticky-block-box">
-      <div class="sidebar-block catalog-block catalog-block pure isExpand" style="">
-        <nav class="article-catalog">
-          <div class="catalog-title">
-            目录
-          </div>
-          <div class="catalog-body">
-            <ul class="catalog-list" style="margin-top: 0px">
-              <li v-for="(item, index) in Catalogue" :key="index" :class="[{ active: index === isActive }, catalogueClass(item.level)]" @click="activeSelect(index)">
-                <div class="a-container">
-                  <a :href="`#heading-${index}`" :title="item.text" class="catalog-aTag"> {{ item.text }} </a>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </nav>
-      </div>
+  <div class="sticky-block-box">
+    <div class="sidebar-block catalog-block catalog-block pure isExpand" style="">
+      <nav class="article-catalog">
+        <div class="catalog-title">
+          目录
+        </div>
+        <div class="catalog-body">
+          <ul class="catalog-list" style="margin-top: 0px">
+            <li v-for="(item, index) in Catalogue" :key="index" :class="[{ active: index === isActive }, catalogueClass(item.level)]" @click="activeSelect(index)">
+              <div class="a-container">
+                <a :href="`#heading-${index}`" :title="item.text" class="catalog-aTag hover:bg-[#F7F8FA]"> {{ item.text }} </a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
     </div>
   </div>
 </template>
 
 <style scoped>
-.sidebar {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 25rem;
-}
-.sidebar.sticky .sticky-block-box {
+.sticky .sticky-block-box {
   position: fixed;
   top: 1.767rem;
   width: inherit;
@@ -189,9 +171,10 @@ const { immerseState } = useImmerse()
 .sidebar-block {
   position: relative;
   margin-bottom: 1.5rem;
+  background-color: #fff;
 }
 
-.sidebar .sidebar-block {
+ .sidebar-block {
   margin-bottom: 20px;
 }
 
@@ -296,5 +279,6 @@ const { immerseState } = useImmerse()
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  border-radius: 4px;
 }
 </style>

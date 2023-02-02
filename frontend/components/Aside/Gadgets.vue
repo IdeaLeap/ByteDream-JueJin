@@ -8,9 +8,9 @@ defineProps({
 </script>
 
 <template>
-  <div display="block" class="bg-light-50 p-4 rounded-sm shadow-[0_2px_2px_0_rgba(0,0,0,0.05)]">
-    <nuxt-link class="" :href="gadgets.url">
-      <div class="flex flex-row items-center gap-5">
+  <div class="gadgets_container">
+    <nuxt-link :href="gadgets.url">
+      <div class="gadgets_qrcode_container">
         <div class="items-end">
           <nuxt-img
             :src="gadgets.qrcode"
@@ -19,9 +19,9 @@ defineProps({
             class="max-h-15 max-w-15"
           />
         </div>
-        <div class="flex flex-col gap-3">
-          <span class="text-black text-lg">{{ gadgets.title }}</span>
-          <div class="text-[#8a919f] text-m">
+        <div class="gadgets_txt_container">
+          <span class="gadgets_txt">{{ gadgets.title }}</span>
+          <div class="gadgets_subtitle">
             {{ gadgets.subtitle }}
           </div>
         </div>
@@ -30,4 +30,28 @@ defineProps({
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.gadgets_container {
+  @apply block
+  @apply bg-light-50 p-4 rounded-sm
+  @apply shadow-[0_2px_2px_0_rgba(0,0,0,0.05)]
+  @apply dark:bg-jj_bg_gray
+}
+
+.gadgets_qrcode_container {
+  @apply flex flex-row items-center gap-5
+}
+
+.gadgets_txt_container {
+  @apply flex flex-col gap-3
+}
+
+.gadgets_txt {
+  @apply text-jj_font_dark text-lg
+  @apply dark:text-jj_font_white
+}
+
+.gadgets_subtitle {
+  @apply text-jj_thirdly text-m
+}
+</style>

@@ -5,9 +5,6 @@ defineProps({
     required: true,
   },
 })
-const tags = ['前端']
-const authorId = '5'
-const { data: ArticleList } = await useFetch(`/api/articles/tags?tags=${JSON.stringify(tags)}&authorId=${authorId}`)
 </script>
 
 <template>
@@ -17,16 +14,17 @@ const { data: ArticleList } = await useFetch(`/api/articles/tags?tags=${JSON.str
         相关文章
       </div>
       <div class="block-body">
-        <div v-for="item in ArticleList" :key="item.name" class="entry-list">
+        <div class="entry-list">
           <nuxt-link
-            :to="`/article/${item.id}`" target="_blank" rel="" st:name="link" title="{{ item.title }}"
-            class="item"
+            v-for="item in articleList" :key="item.id" :to="`/article/${item.id}`" target="_blank" rel=""
+            st:name="link"
+            :title="item.title" class="item"
           >
             <div class="entry-title">
               {{ item.title }}
             </div>
             <div class="entry-meta-box">
-              <div class="entry-meta">
+              <!-- <div class="entry-meta">
                 {{ item.liked }}{{ item.liked > 1 ? '赞' : '赞' }}
               </div>
               <div class="entry-meta">
@@ -34,7 +32,7 @@ const { data: ArticleList } = await useFetch(`/api/articles/tags?tags=${JSON.str
               </div>
               <div class="entry-meta">
                 {{ item.commented }}{{ item.commented > 1 ? '评论' : '评论' }}
-              </div>
+              </div> -->
             </div>
           </nuxt-link>
         </div>
@@ -53,6 +51,10 @@ const { data: ArticleList } = await useFetch(`/api/articles/tags?tags=${JSON.str
   font-weight: 500;
   border-bottom: 1px solid #e4e6eb;
   @apply dark:text-jj_font_white dark:border-b-nav_icon_color
+}
+.sidebar .sidebar-block{
+    margin-bottom: 20px;
+    border-radius: 4px;
 }
 
 .entry-list {
