@@ -10,7 +10,9 @@ defineProps({
 <template>
   <div>
     <div class="sidebar-block related-entry-sidebar-block shadow dark:bg-jj_bg_gray" st:block="relatedEntrySidebarBlock">
-      <div class="block-title">相关文章</div>
+      <div class="block-title">
+        相关文章
+      </div>
       <div class="block-body">
         <div class="entry-list">
           <nuxt-link v-for="item in articleList" :key="item.id" :to="`/article/${item.id}`" target="_blank" rel="" st:name="link" :title="item.title" class="item">

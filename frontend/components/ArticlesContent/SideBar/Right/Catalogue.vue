@@ -161,7 +161,7 @@ onUnmounted(() => {
         </div>
       </nav>
     </div>
-  <ArticlesContentSideBarRightColumn :column="column" />
+    <ArticlesContentSideBarRightColumn :column="column" />
   </div>
 </template>
 
