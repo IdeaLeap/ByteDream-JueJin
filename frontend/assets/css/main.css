@@ -172,7 +172,12 @@ html.light{
   --juejin-layer-loading-start: #e4e6eb;
   --juejin-layer-loading-end: rgba(228,230,235,0.5);
   --juejin-font-priv-hint: #916be1;
-  --juejin-background-jscore-radar: #232323
+  --juejin-background-jscore-radar: #232323;
+  --juejin-background-article: #ffffff;
+  --juejin-background-main: #fff;
+  --juejin-h1-font-color: #252933;
+  --juejin-span-font-color: #515767;
+  --juejin-p-font-color: #000000;
 }
 
 html.dark{
@@ -267,7 +272,12 @@ html.dark{
   --juejin-layer-loading-start: #fff;
   --juejin-layer-loading-end: hsla(0,0%,100%,0.2);
   --juejin-font-priv-hint: #916be1;
-  --juejin-background-jscore-radar: #232323
+  --juejin-background-jscore-radar: #232323;
+  --juejin-background-article: #27272a;
+  --juejin-background-main: #181818;
+  --juejin-h1-font-color: #ffffff;
+  --juejin-span-font-color: #f7f8fa;
+  --juejin-p-font-color: #f4f4f5;
 }
 
 .page-enter-active,
