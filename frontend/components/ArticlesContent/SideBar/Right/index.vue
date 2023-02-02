@@ -7,7 +7,7 @@ const props = defineProps({
   author: {
     type: Object,
   },
-  relatedArticles: {
+  column: {
     type: Array,
   },
 })
@@ -17,8 +17,8 @@ const { immerseState } = useImmerse()
 <template>
   <div class="sidebar hidden lg:block lg:w-4/12">
     <ArticlesContentSideBarRightAuthor v-show="!immerseState" :author="props.author" />
-    <ArticlesContentSideBarRightRelatedArticles v-show="!immerseState" class="sidebar-block" :article-list="props.relatedArticles" />
-    <ArticlesContentSideBarRightCatalogue class="sidebar-block" :content="props.content" />
+    <!-- <ArticlesContentSideBarRightRelatedArticles v-show="!immerseState" class="sidebar-block"  /> -->
+    <ArticlesContentSideBarRightCatalogue class="sidebar-block" :content="props.content" :column="column" />
   </div>
 </template>
 
@@ -26,7 +26,6 @@ const { immerseState } = useImmerse()
 .sidebar-block {
   position: relative;
   margin-bottom: 1.5rem;
-  background-color: #fff;
 }
 .sidebar .sidebar-block {
   margin-bottom: 20px;
