@@ -1,19 +1,12 @@
 <script setup lang="ts">
 const route = useRoute()
 const isShow = useState('isShow', () => false)
-const iptValue = useState<string>('iptValue', () => '3天内')
 const artlistPath = useArtlistPath()
-const artlistData = useArtlist([])
 const routeMap = {
   three_days_hottest: '3天内',
   weekly_hottest: '7天内',
   monthly_hottest: '30天内',
   hottest: '全部',
-}
-const iptValueHandler = (time: string) => {
-  artlistData.value = []
-  isShow.value = false
-  iptValue.value = time
 }
 </script>
 
@@ -25,24 +18,9 @@ const iptValueHandler = (time: string) => {
         <div class="text-[#b2bac2]" i-carbon:caret-up :class="!isShow ? 'toggled' : ''" style="transition: all 0.5s" />
       </div>
       <ul v-if="isShow" class="dropdown-menu">
-        <li>
-          <NuxtLink :to="`${artlistPath}?sort=three_days_hottest`" @click="iptValueHandler('3天内')">
-            3天内
-          </NuxtLink>
-        </li>
-        <li>
-          <NuxtLink :to="`${artlistPath}?sort=weekly_hottest`" aria-current="page" @click="iptValueHandler('7天内')">
-            7天内
-          </NuxtLink>
-        </li>
-        <li>
-          <NuxtLink :to="`${artlistPath}?sort=monthly_hottest`" @click="iptValueHandler('30天内')">
-            30天内
-          </NuxtLink>
-        </li>
-        <li>
-          <NuxtLink :to="`${artlistPath}?sort=hottest`" @click="iptValueHandler('全部')">
-            全部
+        <li v-for="(item, key) in routeMap" :key="item">
+          <NuxtLink :to="`${artlistPath}?sort=${key}`" @click="isShow = false">
+            {{ item }}
           </NuxtLink>
         </li>
       </ul>
