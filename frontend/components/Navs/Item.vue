@@ -19,6 +19,7 @@ defineProps({
 
 <style scoped>
 .nav-item {
+  line-height: 1;
   @apply h-full flex items-center text-[15px] border-b-2 border-transparent;
   @apply relative opacity-85 whitespace-nowrap;
   @apply text-black dark:text-[#e8ecfa];
@@ -29,9 +30,9 @@ defineProps({
     @apply opacity-100;
 }
 .nav-item::after {
-  @apply absolute left-2/3 top-2;
+  @apply absolute left-2/3 top-[0.3rem] md:(top-[0.8rem]);
   @apply bg-red-500 text-white;
-  @apply rounded-full px-1.5 py-0.4 whitespace-nowrap;
+  @apply rounded-full px-1.5 py-0.5 whitespace-nowrap;
   @apply transform-gpu scale-60 origin-top-left;
   content: attr(data-badge);
 }
