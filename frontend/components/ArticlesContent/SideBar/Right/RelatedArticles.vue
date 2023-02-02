@@ -10,16 +10,10 @@ defineProps({
 <template>
   <div>
     <div class="sidebar-block related-entry-sidebar-block shadow dark:bg-jj_bg_gray" st:block="relatedEntrySidebarBlock">
-      <div class="block-title">
-        相关文章
-      </div>
+      <div class="block-title">相关文章</div>
       <div class="block-body">
         <div class="entry-list">
-          <nuxt-link
-            v-for="item in articleList" :key="item.id" :to="`/article/${item.id}`" target="_blank" rel=""
-            st:name="link"
-            :title="item.title" class="item"
-          >
+          <nuxt-link v-for="item in articleList" :key="item.id" :to="`/article/${item.id}`" target="_blank" rel="" st:name="link" :title="item.title" class="item">
             <div class="entry-title">
               {{ item.title }}
             </div>
@@ -50,24 +44,25 @@ defineProps({
   color: #1d2129;
   font-weight: 500;
   border-bottom: 1px solid #e4e6eb;
-  @apply dark:text-jj_font_white dark:border-b-nav_icon_color
+  @apply dark:text-jj_font_white dark:border-b-nav_icon_color;
 }
-.sidebar .sidebar-block{
-    margin-bottom: 20px;
-    border-radius: 4px;
+.sidebar .sidebar-block {
+  margin-bottom: 20px;
+  border-radius: 4px;
+  background-color: #fff;
 }
 
 .entry-list {
-  padding: .667rem 0 1.333rem;
+  padding: 0.667rem 0 1.333rem;
 }
 
 .item {
   display: block;
-  padding: .667rem 1.667rem;
+  padding: 0.667rem 1.667rem;
 }
 
 .item .entry-title:hover {
-  color: #1E80FF;
+  color: #1e80ff;
 }
 
 nuxt-link,
@@ -88,7 +83,7 @@ nuxt-link {
 }
 
 nuxt-link:link {
-  color: #FF0000;
+  color: #ff0000;
   text-decoration: none;
 }
 
@@ -97,7 +92,7 @@ nuxt-link:link {
   font-size: 1.167rem;
   font-weight: 400;
   color: #252933;
-  @apply dark:text-jj_font_white
+  @apply dark:text-jj_font_white;
 }
 
 .entry-meta-box {
