@@ -8,19 +8,21 @@ const activeNav = computed(() => {
 </script>
 
 <template>
-  <header class="main-header visible flex items-center justify-between h-full">
-    <nav class="nav-list h-full">
-      <NuxtLink to="/" class="logo h-full">
-        <Logo />
-      </NuxtLink>
-      <div class="mobile-nav">
-        {{ activeNav?.nav }}
-        <div i-carbon:caret-up />
-      </div>
-      <NavsItem v-for="item in NavList" :key="item.nav" :nav="item" class="nav-item-wrapper h-full" />
-    </nav>
-    <UnoDarkToggle />
-  </header>
+  <div class="main-header-wrapper">
+    <header class="main-header visible flex items-center justify-between h-full">
+      <nav class="nav-list h-full">
+        <NuxtLink to="/" class="logo h-full">
+          <Logo />
+        </NuxtLink>
+        <div class="mobile-nav">
+          {{ activeNav?.nav }}
+          <div i-carbon:caret-up />
+        </div>
+        <NavsItem v-for="item in NavList" :key="item.nav" :nav="item" class="nav-item-wrapper h-full" />
+      </nav>
+      <UnoDarkToggle />
+    </header>
+  </div>
 </template>
 
 <style scoped>

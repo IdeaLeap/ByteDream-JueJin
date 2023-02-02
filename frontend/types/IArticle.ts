@@ -1,4 +1,5 @@
 interface IAuthor {
+  id: string
   name: string
   motto: string
   avatar: string

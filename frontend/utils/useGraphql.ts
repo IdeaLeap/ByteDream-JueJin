@@ -58,14 +58,14 @@ export async function useGraphql(query: any) {
 
     const res = await axios(config)
     if ('errors' in res.data)
-      throw new Error(res.data)
+      throw res
     return removeStrapiWrapper(res.data)
   }
   catch (err: any) {
     console.error('API请求错误')
-    console.error('状态码', err.response.status)
-    console.error('请求数据', err.config.data)
-    console.error('错误说明', err.response.data)
+    console.error('状态码', err?.response.status)
+    console.error('请求数据', err?.config.data)
+    console.error('错误说明', err?.response.data)
   }
 }
 

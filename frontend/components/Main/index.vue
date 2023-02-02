@@ -2,7 +2,7 @@
 
 <template>
   <div class="container main_container">
-    <div class="pt-10.53rem">
+    <div class="pt-5.17rem">
       <Types class="left-0" />
       <div class="timeline-container mt-0 relative 0.33rem">
         <ArticlesList class="mr-21.667rem w-full mlg:w-700px" />
