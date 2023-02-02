@@ -21,6 +21,6 @@
   "devDependencies": {
     "husky": "^8.0.3",
     "nuxt": "^3.0.0",
-    "turbo": "^1.7.0"
+    "turbo": "^1.7.2"
   }
 }
