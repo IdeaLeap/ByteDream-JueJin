@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="skeleton_container">
     <div class="skeleton w-2/5">
       <div />
     </div>
@@ -16,7 +16,7 @@
 </template>
 
 <style scoped>
-.container {
+.skeleton_container {
   @apply p-5 dark:bg-jj_bg_gray
 }
 .skeleton {

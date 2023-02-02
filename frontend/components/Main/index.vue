@@ -4,11 +4,11 @@
 
 <template>
   <div class="container main_container">
-    <div class="mt-5.17rem ">
+    <div class="pt-10.53rem">
       <Types class="left-0" />
       <div class="timeline-container mt-0 relative 0.33rem">
-        <ArticlesList class="mr-21.667rem w-full lg:w-700px" />
-        <Aside class="absolute display-none top-0 right-0 lg:display-block" />
+        <ArticlesList class="mr-21.667rem w-full mlg:w-700px" />
+        <Aside class="absolute display-none top-0 right-0 mlg:display-block" />
       </div>
     </div>
   </div>

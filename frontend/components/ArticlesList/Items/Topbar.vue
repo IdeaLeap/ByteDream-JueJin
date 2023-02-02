@@ -25,7 +25,8 @@ defineProps({
 
 <style scoped>
 .name {
-  @apply text-jj_sec-app px-3 border-r-1 pl-0
+  color: text-jj_font_black;
+  @apply dark:text-jj_font_white px-3 border-r-1 pl-0
 }
 .duration {
   @apply text-jj_thirdly px-3 border-r-1
