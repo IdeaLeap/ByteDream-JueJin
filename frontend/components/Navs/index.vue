@@ -46,7 +46,7 @@ const [isMobileNavShown, toggleMobileNavShown] = useToggle()
 }
 
 .logo{
-  @apply flex items-center mr-4 ml-6 h-[2.2rem] w-auto inline-block;
+  @apply flex items-center mr-4 ml-6 w-auto inline-block;
 
 }
 .nav-list{
