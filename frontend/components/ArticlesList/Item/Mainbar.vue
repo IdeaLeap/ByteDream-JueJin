@@ -6,7 +6,7 @@ defineProps({
 </script>
 
 <template>
-  <div class="py-4">
+  <div class="mainbar">
     <div class="title">
       {{ title }}
     </div>
@@ -17,6 +17,9 @@ defineProps({
 </template>
 
 <style scoped>
+.mainbar {
+  @apply py-4;
+}
 .title {
   @apply truncate text_jj_font_black dark:text-jj_font_white text-[16px] title font-semibold tracking-wide
 }
