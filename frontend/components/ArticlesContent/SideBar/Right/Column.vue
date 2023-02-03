@@ -30,7 +30,9 @@ const handleClick = () => {
 <template>
   <nav v-if="hasColumn" class="next-article">
     <div class="next-article-header">
-      <div class="next-article-title">下一篇</div>
+      <div class="next-article-title">
+        下一篇
+      </div>
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" :class="isActive ? 'list-icon active' : 'list-icon'" @click="handleClick">
         <path
           fill-rule="evenodd"
@@ -39,7 +41,7 @@ const handleClick = () => {
         />
       </svg>
     </div>
-    <hr class="next-article-hr" />
+    <hr class="next-article-hr">
     <div class="article-content">
       <a :href="nextArticle.id" :title="nextArticle.title" class="article"> {{ nextArticle.title }} </a>
     </div>

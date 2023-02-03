@@ -141,22 +141,22 @@ onUnmounted(() => {
 </script>
 
 <template>
-    <div class="sidebar-block catalog-block catalog-block pure isExpand" style="">
-      <nav class="article-catalog">
-        <div class="catalog-title">
-          目录
-        </div>
-        <div class="catalog-body">
-          <ul class="catalog-list" style="margin-top: 0px">
-            <li v-for="(item, index) in Catalogue" :key="index" :class="[{ active: index === isActive }, catalogueClass(item.level)]" @click="activeSelect(index)">
-              <div class="a-container">
-                <a :href="`#heading-${index}`" :title="item.text" class="catalog-aTag hover:bg-[#F7F8FA]"> {{ item.text }} </a>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </nav>
-    </div>
+  <div class="sidebar-block catalog-block catalog-block pure isExpand" style="">
+    <nav class="article-catalog">
+      <div class="catalog-title">
+        目录
+      </div>
+      <div class="catalog-body">
+        <ul class="catalog-list" style="margin-top: 0px">
+          <li v-for="(item, index) in Catalogue" :key="index" :class="[{ active: index === isActive }, catalogueClass(item.level)]" @click="activeSelect(index)">
+            <div class="a-container">
+              <a :href="`#heading-${index}`" :title="item.text" class="catalog-aTag hover:bg-[#F7F8FA]"> {{ item.text }} </a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
 </template>
 
 <style scoped>
