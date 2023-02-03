@@ -178,6 +178,7 @@ html.light{
   --juejin-h1-font-color: #252933;
   --juejin-span-font-color: #515767;
   --juejin-p-font-color: #000000;
+  --jjext-color-bg-hover:#FAFAFA;
 }
 
 html.dark{
@@ -278,6 +279,7 @@ html.dark{
   --juejin-h1-font-color: #ffffff;
   --juejin-span-font-color: #f7f8fa;
   --juejin-p-font-color: #f4f4f5;
+  --jjext-color-bg-hover:#333;
 }
 
 .page-enter-active,
