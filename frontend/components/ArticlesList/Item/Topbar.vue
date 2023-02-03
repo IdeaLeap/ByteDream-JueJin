@@ -13,7 +13,7 @@ defineProps({
 <template>
   <div class="topbar">
     <div class="author_id">
-      {{ name }}
+      <span class="name">{{ name }}</span>
       <ArticlesListItemAuthorInfo
         :name="name"
         :duration="duration"
@@ -38,10 +38,13 @@ defineProps({
   @apply transition text-jj-font px-3 border-r-1 pl-0 hover:text-[#1E80FF]
 }
 .author_info {
-  @apply display-none
+  @apply scale-0 delay-150 transition-all
 }
-.author_id:hover .author_info {
-  @apply display-block
+.author_info:hover {
+  @apply scale-100;
+}
+.name:hover+.author_info {
+  @apply scale-100
 }
 .duration {
   @apply text-jj-thirdly px-3 border-r-1
