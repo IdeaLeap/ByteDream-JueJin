@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const route = useRoute()
-let pagenum = 0
+let pagenum = 1
 const isLoading = useState('isLoading', () => false)
 const isEmpty = useState('isEmpty', () => false)
 const artlistData = useArtlist([])
@@ -13,7 +13,7 @@ const addArtListItem = () => {
   }
 }
 watch(route, () => {
-  pagenum = 0
+  pagenum = 1
   artlistData.value = []
   isLoading.value = true
   useFetchPostData(route.path, route.query?.sort).then((data) => {
@@ -42,18 +42,9 @@ onUnmounted(() => {
     <ArticlesListSkeleton v-if="isLoading && isEmpty" />
     <ul v-else>
       <ArticlesListItem
-        v-for="item in artlistData"
-        :key="item.id"
-        :uid="item.id"
-        :title="item.title"
-        :viewed="item.viewed"
-        :liked="item.liked"
-        :commented="item.commented"
-        :summary="item.summary"
-        :cover="item.cover"
-        :created-at="item.createdAt"
-        :name="item.authorId.name"
-        :tags="item.tagIds.data"
+        v-for="item in artlistData" :key="item.id" :uid="item.id" :title="item.title"
+        :viewed="item.viewed" :liked="item.liked" :commented="item.commented" :summary="item.summary"
+        :cover="item.cover" :created-at="item.createdAt" :name="item.authorId.name" :tags="item.tagIds.data"
         :artlist-item="artlistData"
       />
     </ul>
