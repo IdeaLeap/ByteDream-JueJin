@@ -56,13 +56,18 @@ export default defineConfig({
         span: 'var(--juejin-span-font-color)',
         p: 'var(--juejin-p-font-color)',
         light: 'var(--jjext-color-font-white)',
-        hover: 'var(--jjext-color-bg-hover)',
+        hover: 'var(--juejin-color-bg-hover)',
         brand: {
           font: {
             normal: 'var(--juejin-font-brand1-normal)',
           },
           normal: 'var(--juejin-brand-1-normal)',
         },
+        sidebar: 'var(--juejin-color-bg-sidebar)',
+        content: 'var(--juejin-color-text-content)',
+        container: 'var(--juejin-color-text-container)',
+        containerhover: 'var(--juejin-color-container-hover)',
+        border: 'var(--juejin-article-list-border)',
       },
     },
     breakpoints: {

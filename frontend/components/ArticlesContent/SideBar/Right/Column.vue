@@ -64,13 +64,13 @@ const handleClick = () => {
 
 <style scoped>
 .next-article {
-  @apply bg-#fff rd-4px max-h-130px relative;
+  @apply bg-#fff rd-4px max-h-130px relative bg-jj-sidebar;
 }
 .next-article-header {
   @apply flex justify-between;
 }
 .next-article-title {
-  @apply fw-500 text-16px c-#1d2129 lh-2rem my-0 mx-1.667rem pt-1.333rem pb-12px;
+  @apply fw-500 text-16px c-#1d2129 lh-2rem my-0 mx-1.667rem pt-1.333rem pb-12px text-jj-content;
 }
 .list-icon {
   @apply inline-block box-content w-16px h-24px py-4px px-6px my-12px mx-10px;
@@ -88,20 +88,20 @@ const handleClick = () => {
   @apply pb-1.667rem p-0;
 }
 .article {
-  @apply text-14px c-#515767 lh-22px pt-12px px-1.667rem pb-0 overflow-hidden text-ellipsis;
+  @apply text-14px c-#515767 lh-22px pt-12px px-1.667rem pb-0 overflow-hidden text-ellipsis text-jj-span;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
 }
 .next-article-list {
-  @apply absolute bottom-100% right-17px border-1px border-solid border-#e4e6eb p-0;
+  @apply absolute bottom-100% right-17px border-1px border-solid border-jj-border p-0;
   box-shadow: 0 8px 24px rgb(81 87 103 / 16%);
 }
 .article-list {
-  @apply bg-#fff rd-4px w-300px;
+  @apply bg-#fff rd-4px w-300px bg-jj-sidebar;
 }
 .list-title {
-  @apply text-16px c-#1d2129 lh-2rem fw-500 my-0 mx-1.667rem pt-20px pb-8px px-0;
+  @apply text-16px c-#1d2129 lh-2rem fw-500 my-0 mx-1.667rem pt-20px pb-8px px-0 text-jj-content;
 }
 .list-body {
   @apply relative max-h-300px w-300px ml--24px overflow-auto pt-0 pr-20px pb-12px pl-0;

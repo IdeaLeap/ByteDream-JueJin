@@ -174,11 +174,16 @@ html.light{
   --juejin-font-priv-hint: #916be1;
   --juejin-background-jscore-radar: #232323;
   --juejin-background-article: #ffffff;
-  --juejin-background-main: #fff;
+  --juejin-background-main: #f4f5f5;
   --juejin-h1-font-color: #252933;
   --juejin-span-font-color: #515767;
   --juejin-p-font-color: #000000;
-  --jjext-color-bg-hover:#FAFAFA;
+  --juejin-color-bg-hover:#FAFAFA;
+  --juejin-color-bg-sidebar:#fff;
+  --juejin-color-text-content:#1D2129;
+  --juejin-color-text-container:#333333;
+  --juejin-color-container-hover:#F7F8FA;
+  --juejin-article-list-border:#e4e6eb;
 }
 
 html.dark{
@@ -275,11 +280,16 @@ html.dark{
   --juejin-font-priv-hint: #916be1;
   --juejin-background-jscore-radar: #232323;
   --juejin-background-article: #27272a;
-  --juejin-background-main: #181818;
+  --juejin-background-main: #18181c;
   --juejin-h1-font-color: #ffffff;
   --juejin-span-font-color: #f7f8fa;
   --juejin-p-font-color: #f4f4f5;
-  --jjext-color-bg-hover:#333;
+  --juejin-color-bg-hover:#333;
+  --juejin-color-bg-sidebar:#27272a;
+  --juejin-color-text-content:#ffffff;
+  --juejin-color-text-container:#ffffff;
+  --juejin-color-container-hover:#333;
+  --juejin-article-list-border:#212123;
 }
 
 .page-enter-active,

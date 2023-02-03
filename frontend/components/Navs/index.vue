@@ -6,11 +6,12 @@ const activeNav = computed(() => {
   return NavList.value.find(item => item.url === route.fullPath) || NavList[0]
 })
 const [isMobileNavShown, toggleMobileNavShown] = useToggle()
+const isNavShown = inject('isNavShown')
 </script>
 
 <template>
   <div class="main-header-wrapper">
-    <header class="main-header visible flex items-center justify-between h-full">
+    <header class="main-header flex items-center justify-between h-full" :class="{ 'nav-shown': isNavShown }">
       <nav class="nav-list h-full">
         <NuxtLink to="/" class="logo h-full">
           <Logo />
@@ -20,8 +21,8 @@ const [isMobileNavShown, toggleMobileNavShown] = useToggle()
             <span class="mobile-nav-active">{{ activeNav?.nav }}</span>
             <div i-carbon:caret-up class="mobile-nav-icon" />
           </div>
-          <div class="nav-item-wrapper" :class=" isMobileNavShown ? 'mobile-nav-item-wrapper' : '' " @click="toggleMobileNavShown()">
-            <NavsItem v-for="item in NavList" :key="item.nav" :nav="item" class="mx-4" :class=" isMobileNavShown ? 'mobile-nav-item' : '' " />
+          <div class="nav-item-wrapper" :class="{ 'mobile-nav-item-wrapper': isMobileNavShown }" @click="toggleMobileNavShown()">
+            <NavsItem v-for="item in NavList" :key="item.nav" :nav="item" class="mx-4" :class="{ 'mobile-nav-item': isMobileNavShown }" />
           </div>
         </div>
       </nav>
@@ -31,7 +32,7 @@ const [isMobileNavShown, toggleMobileNavShown] = useToggle()
 </template>
 
 <style scoped>
-.main-header.visible{
+.main-header.nav-shown{
     transform: translateZ(0);
 }
 

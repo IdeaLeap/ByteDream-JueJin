@@ -1,7 +1,13 @@
 import { useGraphql } from '~~/utils/useGraphql'
 import { useTime } from '~~/composables/useTime'
 interface IAuthor {
+  id: string
   name: string
+  motto: string
+  avatar: string
+  rank: Number
+  liked: Number
+  viewed: Number
 }
 
 interface ITagItem {
@@ -72,8 +78,14 @@ export default defineEventHandler(async (event): Promise<IArticleItem[]> => {
           createdAt
           authorId{
             data{
+              id
               attributes{
                 name
+                motto
+                avatar
+                rank
+                liked
+                viewed
               }
             }
           }
