@@ -58,7 +58,10 @@ export default defineConfig({
         light: 'var(--jjext-color-font-white)',
         hover: 'var(--jjext-color-bg-hover)',
         brand: {
-          normal: 'var(--juejin-font-brand1-normal)',
+          font: {
+            normal: 'var(--juejin-font-brand1-normal)',
+          },
+          normal: 'var(--juejin-brand-1-normal)',
         },
       },
     },

@@ -59,6 +59,6 @@ const hideHandler = () => {
 }
 
 .icon {
-  @apply i-carbon-close display-none cursor-pointer text-[16px] text-jj-fourthly hover:text-[#1E80FF] transition absolute top-[1rem] right-[1.67rem]
+  @apply i-carbon-close display-none cursor-pointer text-[16px] text-jj-fourthly hover:text-primary transition absolute top-[1rem] right-[1.67rem]
 }
 </style>

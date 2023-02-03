@@ -36,10 +36,10 @@ defineProps({
   @apply transition text-jj-font px-3 border-r-1 pl-0 hover:text-[#1E80FF]
 }
 .author_info {
-  display: none;
+  /* display: none; */
 }
 .author_id:hover .author_info {
-  display: block;
+  display: none;
 }
 .duration {
   @apply text-jj-thirdly px-3 border-r-1

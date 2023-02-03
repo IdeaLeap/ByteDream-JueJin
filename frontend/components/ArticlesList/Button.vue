@@ -12,26 +12,16 @@ defineProps({
 
 <style scoped>
 .primary_button {
-  padding: .5rem 4rem;
-  margin: 1rem;
-  font-size: 1.167rem;
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-  white-space: nowrap;
-  height: 100%;
-  color: var(--juejin-font-white);
-  background-color: var(--juejin-brand-1-normal);
-  border-radius: 3px;
   transition: background-color .1s linear .05s;
+  @apply px-[4rem] py-[0.5rem] m-[1rem] text-[1.167rem] text-white rounded h-full bg-jj-brand-normal rounded-[3px]
 }
 .plain_button {
-  color: #2885FF;
-  background-color: #F4F9FF;
+  @apply text-[#2885FF] bg-[#F4F9FF]
 }
 .primary_button:hover {
-  background-color: #388EFF;
+  @apply bg-[#388EFF]
 }
 .plain_button:hover {
-  background-color: #E8F2FF;
+  @apply bg-[#E8F2FF]
 }
 </style>

@@ -30,7 +30,8 @@ defineProps({
 
 <style scoped>
 .author_panel {
-  @apply bg-white dark:bg-jj-article dark:text-white absolute -top-[7rem] left-[-1.67rem] bg-white
+  box-shadow: 0 8px 24px rgb(81 87 103 / 16%);
+  @apply bg-white dark:shadow-jj_author_info dark:bg-jj-article dark:text-white absolute top-[-9.5rem] left-0 mlg:left-[-1.67rem] bg-white
 }
 .author {
   @apply flex m-[1rem] mb-0
@@ -43,14 +44,9 @@ defineProps({
 }
 .author_panel::after {
   content: '';
-  position: absolute;
   transform: translate(-50%, 100%);
-  bottom: 0;
-  left: 50%;
-  width: 0;
-  height: 0;
-  border: 4px solid transparent;
-  border-top-color:white;
-  @apply dark:border-t-jj_bg_gray
+  border: 10px solid transparent;
+  border-top-color: white;
+  @apply dark:border-t-jj_bg_gray border-t-white absolute bottom-0 left-1/2 w-0 h-0
 }
 </style>
