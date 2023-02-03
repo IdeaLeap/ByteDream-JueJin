@@ -2,7 +2,7 @@
 const props = defineProps({
   content: String,
   author: Object,
-  column: Array,
+  column: Object,
 })
 const { immerseState } = useImmerse()
 </script>
