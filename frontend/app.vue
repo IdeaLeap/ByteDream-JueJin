@@ -39,6 +39,31 @@ useHead({
     { name: 'baidu-site-verification', content: '' },
   ],
 })
+
+// 自动隐藏导航栏
+const isNavShown = ref(true)
+provide('isNavShown', isNavShown)
+if (process.client) {
+  const { directions, isScrolling, arrivedState } = useScroll(document)
+  const checkHeaderStatus = useDebounceFn(
+    (top, bottom, topArrived) => {
+      if (topArrived) {
+        isNavShown.value = true
+        return
+      }
+      if (top)
+        isNavShown.value = true
+
+      else if (bottom)
+        isNavShown.value = false
+    },
+    100,
+  )
+  watch(directions, () => {
+    if (isScrolling.value)
+      checkHeaderStatus(directions.top, directions.bottom, arrivedState.top)
+  })
+}
 </script>
 
 <template>
