@@ -55,7 +55,7 @@ const hideHandler = () => {
   @apply flex-1 truncate
 }
 .link_container {
-  @apply  transition dark:b-[#333] dark:hover:bg-[#111] f-c-c py-4 transition-all hover:bg-[#FAFAFA] b-b b-grey all-cursor-pointer flex-1 pl-[1.67rem] truncate
+  @apply  transition dark:b-[#333] hover:bg-jj-hover f-c-c py-4 transition-all b-b b-grey all-cursor-pointer flex-1 pl-[1.67rem] truncate
 }
 
 .icon {
