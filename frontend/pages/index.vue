@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <div class="root_class">
+  <div class="root">
     <Suspense>
       <Main pb-8rem />
       <template #fallback>
@@ -16,7 +16,7 @@
 </template>
 
 <style scoped>
-.root_class {
+.root {
   @apply bg-jj-main;
 }
 </style>
