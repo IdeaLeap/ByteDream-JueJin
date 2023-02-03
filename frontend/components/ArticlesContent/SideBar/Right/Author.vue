@@ -7,10 +7,10 @@ const props = defineProps({
 </script>
 
 <template>
-  <div class="sidebar-block author-block pure mb-20px">
+  <div class="sidebar-block author-block pure mb-20px bg-jj-sidebar">
     <a href="#" target="_blank" rel class="user-item item pb-1.416rem"><img :src="props.author.avatar" alt="" class="lazy avatar" loading="lazy">
       <div class="info-box">
-        <a href="#" target="_blank" rel class="username flex items-center"><span class="name" style="max-width: 128px"> {{ props.author.name }} </span>
+        <a href="#" target="_blank" rel class="username flex items-center"><span class="name text-jj-font" style="max-width: 128px"> {{ props.author.name }} </span>
         </a>
         <div :title="props.author.motto" class="position">
           {{ props.author.motto }}
@@ -26,7 +26,7 @@ const props = defineProps({
 }
 .author-block {
   border-radius: 4px;
-  background: #fff;
+  /* background: #fff; */
   padding: 1.667rem;
 }
 .item {
