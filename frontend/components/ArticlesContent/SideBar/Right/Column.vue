@@ -1,33 +1,36 @@
-<!-- eslint-disable no-console -->
 <script setup>
 const props = defineProps({
-  column: {
-    type: Array,
-    required: true,
-  },
+  column: Object,
 })
+
+const route = useRoute()
+const currentId = ref(route.params.id)
+const nextArticle = ref({})
+
+let allColumnList
+const getNextArticle = () => {
+  const currentIndex = allColumnList.findIndex(item => item.id === currentId.value)
+  const allColumnListlength = allColumnList.length
+  nextArticle.value = allColumnList[(currentIndex + 1) % allColumnListlength]
+}
+
+const hasColumn = ref(false)
+if (props.column.articles !== undefined) {
+  hasColumn.value = true
+  allColumnList = props.column.articles.data
+  getNextArticle()
+}
+
 const isActive = ref(false)
 const handleClick = () => {
   isActive.value = !isActive.value
 }
-
-const allColumnList = props.column.articles.data
-const route = useRoute()
-const currentId = ref(route.params.id)
-const nextArticle = ref({})
-onMounted(() => {
-  const currentIndex = allColumnList.findIndex(item => item.id === currentId.value)
-  const allColumnListlength = allColumnList.length
-  nextArticle.value = allColumnList[(currentIndex + 1) % allColumnListlength]
-})
 </script>
 
 <template>
-  <nav class="next-article">
+  <nav v-if="hasColumn" class="next-article">
     <div class="next-article-header">
-      <div class="next-article-title">
-        下一篇
-      </div>
+      <div class="next-article-title">下一篇</div>
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" :class="isActive ? 'list-icon active' : 'list-icon'" @click="handleClick">
         <path
           fill-rule="evenodd"
@@ -36,11 +39,11 @@ onMounted(() => {
         />
       </svg>
     </div>
-    <hr class="next-article-hr">
+    <hr class="next-article-hr" />
     <div class="article-content">
       <a :href="nextArticle.id" :title="nextArticle.title" class="article"> {{ nextArticle.title }} </a>
     </div>
-    <nav v-show="isActive" class="article-list next-article-list">
+    <nav v-if="isActive" class="article-list next-article-list">
       <div class="list-title">
         {{ props.column.column }}
       </div>

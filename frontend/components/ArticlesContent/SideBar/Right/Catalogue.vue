@@ -6,9 +6,6 @@ const props = defineProps({
     type: String,
     default: '',
   },
-  column: {
-    type: Object,
-  },
 })
 /**
  *  @description: 获取目录
@@ -144,7 +141,6 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="sticky-block-box">
     <div class="sidebar-block catalog-block catalog-block pure isExpand" style="">
       <nav class="article-catalog">
         <div class="catalog-title">
@@ -161,17 +157,9 @@ onUnmounted(() => {
         </div>
       </nav>
     </div>
-    <ArticlesContentSideBarRightColumn :column="column" />
-  </div>
 </template>
 
 <style scoped>
-.sticky .sticky-block-box {
-  position: fixed;
-  top: 1.767rem;
-  width: inherit;
-  transition: top 0.2s;
-}
 .sidebar-block {
   position: relative;
   /* margin-bottom: 1.5rem; */
