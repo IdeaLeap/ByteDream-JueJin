@@ -14,8 +14,12 @@ defineProps({
     fit="fill"
     quality="80"
     format="webp"
-    class="mx-[1.67rem] mb-[-2rem] w-[120px] h-[80px]"
+    class="cover"
   />
 </template>
 
-<style scoped></style>
+<style scoped>
+.cover {
+  @apply mx-[1.67rem] mb-[-2rem] w-[120px] h-[80px]
+}
+</style>
