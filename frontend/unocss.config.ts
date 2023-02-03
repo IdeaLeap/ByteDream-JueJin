@@ -54,6 +54,7 @@ export default defineConfig({
         span: 'var(--juejin-span-font-color)',
         p: 'var(--juejin-p-font-color)',
         light: 'var(--jjext-color-font-white)',
+        hover: 'var(--jjext-color-bg-hover)',
       },
     },
     breakpoints: {
