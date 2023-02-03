@@ -13,7 +13,6 @@
 
 <style scoped>
 .root_class {
-  @apply bg-[#f4f5f5]
-  @apply dark:bg-dark_bg
+  @apply bg-jj-main;
 }
 </style>
