@@ -1,7 +1,11 @@
+<script setup>
+
+</script>
+
 <template>
-  <div class="root_class">
+  <div class="root">
     <Suspense>
-      <Main />
+      <Main pb-8rem />
       <template #fallback>
         <div op50 italic>
           <span animate-pulse>Loading...</span>
@@ -12,8 +16,7 @@
 </template>
 
 <style scoped>
-.root_class {
-  @apply bg-[#f4f5f5]
-  @apply dark:bg-dark_bg
+.root {
+  @apply bg-jj-main;
 }
 </style>
