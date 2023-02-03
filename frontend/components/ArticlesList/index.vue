@@ -54,7 +54,6 @@ onUnmounted(() => {
         :created-at="item.createdAt"
         :name="item.authorId.name"
         :tags="item.tagIds.data"
-        :artlist-item="artlistData"
       />
     </ul>
   </div>
