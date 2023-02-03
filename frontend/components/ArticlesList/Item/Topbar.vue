@@ -12,7 +12,14 @@ defineProps({
 
 <template>
   <div class="topbar">
-    <span class="author_id">{{ name }}</span>
+    <div class="author_id">
+      {{ name }}
+      <ArticlesListItemAuthorInfo
+        :name="name"
+        :duration="duration"
+        class="author_info"
+      />
+    </div>
     <span class="duration">{{ duration }}</span>
     <div class="tag_container">
       <div v-for="(item, index) of tags" :key="item.tag" class="tag">
@@ -21,11 +28,6 @@ defineProps({
       </div>
     </div>
   </div>
-  <ArticlesListItemAuthorInfo
-    :name="name"
-    :duration="duration"
-    class="author_info"
-  />
 </template>
 
 <style scoped>
@@ -36,10 +38,10 @@ defineProps({
   @apply transition text-jj-font px-3 border-r-1 pl-0 hover:text-[#1E80FF]
 }
 .author_info {
-  /* display: none; */
+  @apply display-none
 }
 .author_id:hover .author_info {
-  display: none;
+  @apply display-block
 }
 .duration {
   @apply text-jj-thirdly px-3 border-r-1
