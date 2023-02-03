@@ -11,7 +11,7 @@ defineProps({
 </script>
 
 <template>
-  <div class="flex items-center pr-4 text-[13px]">
+  <div class="topbar">
     <span class="name">{{ name }}</span>
     <span class="duration">{{ duration }}</span>
     <div class="tag_container">
@@ -24,8 +24,11 @@ defineProps({
 </template>
 
 <style scoped>
+.topbar {
+  @apply flex items-center pr-4 text-[13px]
+}
 .name {
-  @apply text-jj_font_black dark:text-jj_font_white px-3 border-r-1 pl-0
+  @apply text-jj_font_black dark:text-jj_font_white px-3 border-r-1 pl-0 hover:text-[#1E80FF]
 }
 .duration {
   @apply text-jj_thirdly px-3 border-r-1

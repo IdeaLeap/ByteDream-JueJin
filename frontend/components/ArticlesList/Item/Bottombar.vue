@@ -10,18 +10,30 @@ const format = (num: number) => {
 </script>
 
 <template>
-  <div class="flex all-flex all-items-center all-text-jj_sec_app all-text-[13px]">
+  <div class="bottombar">
     <div>
       <div class="i-carbon-view" />
-      <span class="pl-2">{{ viewed ? format(viewed) : '观看' }}</span>
+      <span class="heat">{{ viewed ? format(viewed) : '观看' }}</span>
     </div>
-    <div class="mx-7">
+    <div class="mid">
       <div class="i-carbon-thumbs-up" />
-      <span class="pl-2">{{ liked ? format(liked) : '点赞' }}</span>
+      <span class="heat">{{ liked ? format(liked) : '点赞' }}</span>
     </div>
     <div>
       <div class="i-carbon-chat" />
-      <span class="pl-2">{{ commented ? format(commented) : '评论' }}</span>
+      <span class="heat">{{ commented ? format(commented) : '评论' }}</span>
     </div>
   </div>
 </template>
+
+<style scoped>
+.bottombar {
+  @apply flex all-flex all-items-center all-text-jj_sec_app all-text-[13px]
+}
+.mid {
+  @apply mx-7
+}
+.heat {
+  @apply pl-2
+}
+</style>
