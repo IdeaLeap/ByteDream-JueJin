@@ -30,7 +30,7 @@ defineProps({
 
 <style scoped>
 .author_panel {
-  @apply bg-white dark:bg-jj_bg_gray dark:text-white absolute -top-[7rem] left-[-1.67rem] bg-white
+  @apply bg-white dark:bg-jj-article dark:text-white absolute -top-[7rem] left-[-1.67rem] bg-white
 }
 .author {
   @apply flex m-[1rem] mb-0

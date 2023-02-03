@@ -53,6 +53,6 @@ onUnmounted(() => {
 
 <style scoped>
 .articlelist {
-  @apply bg-white dark:bg-jj_bg_gray
+  @apply bg-jj-article
 }
 </style>

@@ -48,6 +48,8 @@ export default defineConfig({
       jj_bg_gray: 'var(--jjext-color-bg-gray)', // #27272a
       jj_navigation: 'var(--juejin-navigation)',
       jj: {
+        thirdly: 'var(--jjext-color-thirdly)', // #86909c
+        fourthly: '--jjext-color-fourthly',
         article: 'var(--juejin-background-article)',
         main: 'var(--juejin-background-main)',
         font: 'var(--juejin-h1-font-color)',
@@ -55,6 +57,9 @@ export default defineConfig({
         p: 'var(--juejin-p-font-color)',
         light: 'var(--jjext-color-font-white)',
         hover: 'var(--jjext-color-bg-hover)',
+        brand: {
+          normal: 'var(--juejin-font-brand1-normal)',
+        },
       },
     },
     breakpoints: {

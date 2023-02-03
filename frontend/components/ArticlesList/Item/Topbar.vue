@@ -33,7 +33,7 @@ defineProps({
   @apply flex items-center pr-4 text-[13px]
 }
 .author_id {
-  @apply transition text-jj_font_black dark:text-jj_font_white px-3 border-r-1 pl-0 hover:text-[#1E80FF]
+  @apply transition text-jj-font px-3 border-r-1 pl-0 hover:text-[#1E80FF]
 }
 .author_info {
   display: none;
@@ -42,7 +42,7 @@ defineProps({
   display: block;
 }
 .duration {
-  @apply text-jj_thirdly px-3 border-r-1
+  @apply text-jj-thirdly px-3 border-r-1
 }
 .tag_container {
   @apply flex px-3
@@ -51,7 +51,7 @@ defineProps({
   @apply items-center flex
 }
 .tag_content {
-  @apply transition px-0 text-jj_thirdly hover:text-[#1E80FF]
+  @apply transition px-0 text-jj-thirdly hover:text-primary
 }
 .tag_icon {
   @apply i-carbon-circle-solid px-2 text-[0.15rem]
