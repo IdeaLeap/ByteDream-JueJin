@@ -43,7 +43,7 @@ const handleClick = () => {
     </div>
     <hr class="next-article-hr">
     <div class="article-content">
-      <a :href="nextArticle.id" :title="nextArticle.title" class="article"> {{ nextArticle.title }} </a>
+      <a :href="`/article/${nextArticle.id}`" target="_blank" :title="nextArticle.title" class="article"> {{ nextArticle.title }} </a>
     </div>
     <nav v-if="isActive" class="article-list next-article-list">
       <div class="list-title">
@@ -52,7 +52,7 @@ const handleClick = () => {
       <div class="list-body">
         <ul class="list-ul">
           <li v-for="item in allColumnList" :key="item.id" class="list-li">
-            <a :href="item.id" target="_blank" :title="item.title" :class="item.id === currentId ? 'list-item active' : 'list-item'">
+            <a :href="`/article/${item.id}`" target="_blank" :title="item.title" :class="item.id === currentId ? 'list-item active' : 'list-item'">
               {{ item.title }}
             </a>
           </li>
