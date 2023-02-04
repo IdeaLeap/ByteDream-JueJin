@@ -19,7 +19,7 @@ const turn_off = (i: number) => {
       <div v-if="is_show_list[index]">
         <div class="ad_container group">
           <nuxt-img class="ad" :src="i.img" />
-          <div i-carbon-close class="ad_close group-hover:opacity-100" @click="turn_off(parseInt(index))" />
+          <div i-carbon-close class="ad_close group-hover:opacity-50" @click="turn_off(parseInt(index))" />
           <div class="txt_container">
             <div class="txt">
               广告
@@ -42,12 +42,13 @@ const turn_off = (i: number) => {
 
 .ad_close {
   @apply my-2 mx-1 absolute
-  @apply text-jj_thirdly opacity-50 text-[1.5rem]
-  @apply font-[1500] opacity-0
+  @apply text-jj_thirdly opacity-0 text-[1.5rem]
+  @apply font-[1500] hover:opacity-100
 }
 
 .txt_container {
   @apply absolute translate-y-[14.3rem] translate-x-[-0.7rem]
+  @apply cursor-pointer select-none
 }
 
 .txt {
