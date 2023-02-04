@@ -2,30 +2,28 @@
 const route = useRoute()
 let pagenum = 1
 const isLoading = useState('isLoading', () => false)
-const isEmpty = useState('isEmpty', () => false)
 const artlistData = useArtlist(await useFetchPostData())
-const addArtListItem = () => {
+const isEmpty = useState('isEmpty', () => true)
+const addArtListItem = async () => {
   if (useScrollBottom()) {
     pagenum++
-    useFetchPostData(route.path, route.query?.sort, pagenum).then((data) => {
-      artlistData.value.push(...data)
-    })
+    const artlistVal = await useFetchPostData(route.path, route.query?.sort, pagenum)
+    artlistData.value.push(...artlistVal)
   }
 }
 const { data } = await useFetch('/api/global')
 const articleAds = data.value.articleAds
-watch(route, () => {
+watch(route, async () => {
   pagenum = 1
   isLoading.value = true
-  useFetchPostData(route.path, route.query?.sort).then((data) => {
-    if (!data.length) {
-      isEmpty.value = true
-      return
-    }
-    artlistData.value = data
-    isEmpty.value = false
-    isLoading.value = false
-  })
+  const artlistVal = await useFetchPostData(route.path, route.query?.sort)
+  if (!artlistVal?.length) {
+    isEmpty.value = true
+    return
+  }
+  artlistData.value = artlistVal
+  isLoading.value = false
+  isEmpty.value = false
 }, { deep: true })
 const bottomHandler = useThrottle(addArtListItem)
 onBeforeMount(() => {
@@ -41,8 +39,7 @@ onUnmounted(() => {
 <template>
   <div class="articlelist">
     <ArticlesListNavigation />
-    <!-- <ArticlesListItemAd /> -->
-    <ArticlesListUiSkeleton v-if="isLoading || isEmpty" />
+    <ArticlesListUiSkeleton v-if="isEmpty || isLoading" />
     <ul v-else>
       <ArticlesListItemAds
         :title="articleAds.title"
