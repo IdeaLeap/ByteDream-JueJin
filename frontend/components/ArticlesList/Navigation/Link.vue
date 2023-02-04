@@ -3,12 +3,12 @@ const artlistPath = useArtlistPath()
 </script>
 
 <template>
-  <div class="all-px-5 all-my-4 flex">
+  <div class="link">
     <NuxtLink
       :to="`${artlistPath === '' ? '/' : artlistPath}`"
       :class="`${
         $route.query.sort ? 'text-gray-500' : 'text-link'
-      } border-r-1 text_style pl-0`"
+      } br text_style pl-0`"
     >
       推荐
     </NuxtLink>
@@ -16,7 +16,7 @@ const artlistPath = useArtlistPath()
       :to="`${artlistPath}?sort=newest`"
       :class="`${
         $route.query.sort === 'newest' ? 'text-link' : 'text-gray-500'
-      } border-r-1 text_style`"
+      } br text_style`"
     >
       最新
     </NuxtLink>
@@ -32,7 +32,13 @@ const artlistPath = useArtlistPath()
 </template>
 
 <style scoped>
+.link {
+  @apply all-px-5 all-my-4 flex
+}
 .text_style {
   @apply focus:text-link hover:text-link
+}
+.br {
+  @apply border-r-1
 }
 </style>
