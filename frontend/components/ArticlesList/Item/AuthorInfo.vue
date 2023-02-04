@@ -45,7 +45,7 @@ defineProps({
 }
 .author_panel::after {
   border: 10px solid transparent;
-  @apply w-0 h-0 border-[10px]
+  @apply w-0 h-0 border-[10px] border-t-white
   @apply absolute bottom-0 left-1/2 content-none -translate-x-1/2 translate-y-full
   @apply dark:border-t-jj_bg_gray
 }

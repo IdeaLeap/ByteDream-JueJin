@@ -38,7 +38,7 @@ defineProps({
   @apply transition text-jj-font px-3 border-r-1 pl-0 hover:text-[#1E80FF]
 }
 .author_info {
-  @apply scale-0 delay-150 transition-all
+  @apply scale-0 delay-150 transition-all text-black
 }
 .author_info:hover {
   @apply scale-100;
