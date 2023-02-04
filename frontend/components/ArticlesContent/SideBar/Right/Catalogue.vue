@@ -74,7 +74,7 @@ const catalogueClass = (level) => {
 /**
  * @description: 目录滚动定位事件
  */
-const headerHeight = document.querySelector('.main-header').clientHeight
+let headerHeight
 const itemOffsetTop = ref([])
 const onScroll = () => {
   itemOffsetTop.value = []
@@ -97,9 +97,6 @@ const onScroll = () => {
     left: 0,
   })
 }
-// const throttledScrollHandler = useThrottleFn(() => {
-//   onScroll()
-// }, 300)
 
 /**
  * @description: 目录固定
@@ -126,8 +123,10 @@ watch(isNavShown, (val) => {
     catalogue.style.top = '1.767rem'
 })
 onMounted(() => {
+  headerHeight = document.querySelector('.main-header').clientHeight
   window.addEventListener('scroll', onScroll)
   window.addEventListener('scroll', scrollFixedCatalogue)
+
   const route = useRoute()
   setTimeout(() => {
     if (route.hash) {

@@ -1,10 +1,19 @@
+import { serve } from 'esbuild';
 <script setup>
-defineProps({
-  articleList: {
-    type: Array,
-    required: true,
+const props = defineProps({
+  author: {
+    type: Object,
+  },
+  tags: {
+    type: Object,
   },
 })
+const { data: ArticleList } = await useFetch(`/api/articles/tags?tags=${JSON.stringify(props.tags.data)}&authorId=${props.author.id}`)
+const route = useRoute()
+const id = ref(route.params.id)
+// 过滤掉当前文章
+
+const articleList = ArticleList.value.filter(item => item.id !== id.value)
 </script>
 
 <template>
