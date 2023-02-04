@@ -13,7 +13,8 @@ defineProps({
 <style scoped>
 .primary_button {
   transition: background-color .1s linear .05s;
-  @apply px-[4rem] py-[0.5rem] m-[1rem] text-[1.167rem] text-white rounded h-full bg-jj-brand-normal rounded-[3px]
+  @apply px-[4rem] py-[0.5rem] m-[1rem] text-[1.167rem] text-white h-full bg-jj-brand-normal rounded-[4px]
+  @apply border border-solid border-jj-stroke-normal
 }
 .plain_button {
   @apply text-[#2885FF] bg-[#F4F9FF]

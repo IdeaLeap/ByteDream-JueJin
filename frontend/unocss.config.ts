@@ -68,6 +68,9 @@ export default defineConfig({
         container: 'var(--juejin-color-text-container)',
         containerhover: 'var(--juejin-color-container-hover)',
         border: 'var(--juejin-article-list-border)',
+        stroke: {
+          normal: 'var(--juejin-brand-stroke1-normal)',
+        },
       },
     },
     breakpoints: {

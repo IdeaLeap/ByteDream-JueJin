@@ -11,7 +11,10 @@ const { uid } = defineProps({
     type: String,
     required: true,
   },
-  name: String,
+  authorId: {
+    type: Object,
+    required: true,
+  },
   tags: Array,
   index: Number,
 })
@@ -27,15 +30,24 @@ const hideHandler = () => {
   <li :id="`artlist_${uid}`" class="list_container">
     <NuxtLink :to="`article/${uid}`" class="link_container">
       <div class="left">
-        <ArticlesListItemTopbar
-          :name="name"
+        <ArticlesListItemBarTop
+          :author-id="authorId"
           :duration="formatTime(createdAt)"
           :tags="tags"
         />
-        <ArticlesListItemMainbar :title="title" :summary="summary" />
-        <ArticlesListItemBottombar :viewed="viewed" :liked="liked" :commented="commented" />
+        <ArticlesListItemBarCenter :title="title" :summary="summary" />
+        <ArticlesListItemBarBottom :viewed="viewed" :liked="liked" :commented="commented" />
       </div>
-      <ArticlesListItemImg :cover="cover" :summary="summary" />
+      <nuxt-img
+        v-if="cover"
+        :src="cover"
+        :alt="summary"
+        loading="lazy"
+        fit="fill"
+        quality="80"
+        format="webp"
+        class="cover"
+      />
     </NuxtLink>
     <div
       class="icon"
@@ -60,5 +72,8 @@ const hideHandler = () => {
 }
 .icon {
   @apply i-carbon-close display-none cursor-pointer text-[16px] text-jj-fourthly hover:text-primary transition absolute top-[1rem] right-[1.67rem]
+}
+.cover {
+  @apply mx-[1.67rem] mb-[-2rem] w-[120px] h-[80px]
 }
 </style>

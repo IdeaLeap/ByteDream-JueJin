@@ -42,7 +42,7 @@ onUnmounted(() => {
 <template>
   <div class="articlelist">
     <ArticlesListNavigation />
-    <ArticlesListSkeleton v-if="isLoading || isEmpty" />
+    <ArticlesListUiSkeleton v-if="isLoading || isEmpty" />
     <ul v-else>
       <ArticlesListItem
         v-for="item in artlistData"
@@ -55,7 +55,7 @@ onUnmounted(() => {
         :summary="item.summary"
         :cover="item.cover"
         :created-at="item.createdAt"
-        :name="item.authorId.name"
+        :author-id="item.authorId"
         :tags="item.tagIds.data"
       />
     </ul>

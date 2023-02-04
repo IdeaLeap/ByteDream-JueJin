@@ -1,10 +1,13 @@
 <script setup lang="ts">
 import type { ITagItem } from '~~/types/IArticleItem'
 defineProps({
-  name: String,
   duration: String,
   tags: {
     type: Array<ITagItem>,
+    required: true,
+  },
+  authorId: {
+    type: Object,
     required: true,
   },
 })
@@ -13,10 +16,12 @@ defineProps({
 <template>
   <div class="topbar">
     <div class="author_id">
-      <span class="name">{{ name }}</span>
+      <span class="name">{{ authorId.name }}</span>
       <ArticlesListItemAuthorInfo
-        :name="name"
-        :duration="duration"
+        :name="authorId.name"
+        :motto="authorId.motto"
+        :avatar="authorId.avatar"
+        :rank="authorId.rank"
         class="author_info"
       />
     </div>

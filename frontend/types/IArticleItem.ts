@@ -1,5 +1,11 @@
 interface IAuthor {
+  id: string
   name: string
+  motto: string
+  avatar: string
+  rank: Number
+  liked: Number
+  viewed: Number
 }
 interface ITagItem {
   tag: string

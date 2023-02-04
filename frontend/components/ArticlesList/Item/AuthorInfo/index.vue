@@ -1,7 +1,9 @@
 <script setup lang="ts">
 defineProps({
   name: String,
-  duration: String,
+  motto: String,
+  avatar: String,
+  rank: Number,
 })
 </script>
 
@@ -9,22 +11,20 @@ defineProps({
   <div class="author_panel">
     <div class="author">
       <nuxt-img
-        src="/og-image.png" :alt="name" loading="lazy" width="50" height="50" fit="fill" quality="80"
+        :src="avatar" :alt="name" loading="lazy" width="50" height="50" fit="fill" quality="80"
         format="webp" class="rounded-full"
       />
       <div class="info">
-        <div>{{ name }}</div>
-        <div class="text-jj_thirdly">
-          {{ duration }}
+        <div class="name">
+          <span>{{ name }}</span>
+          <img :src="`/lv-${rank}.png`" alt="等级">
+        </div>
+        <div class="text-[#8f969c]">
+          {{ motto }}
         </div>
       </div>
     </div>
-    <div class="btn_group">
-      <ArticlesListButton>关注</ArticlesListButton>
-      <ArticlesListButton plain>
-        私信
-      </ArticlesListButton>
-    </div>
+    <ArticlesListItemAuthorInfoBtns />
   </div>
 </template>
 
@@ -35,13 +35,16 @@ defineProps({
   @apply dark:shadow-jj_author_info dark:bg-jj-article dark:text-white
 }
 .author {
-  @apply flex m-[1rem] mb-0
+  @apply flex items-center m-[1rem] mb-0
 }
 .author .info {
   @apply pl-[1rem] flex flex-col justify-center
 }
-.btn_group {
-  @apply f-c-c
+.name {
+  @apply text-[1rem] flex items-center
+}
+.name img {
+  @apply w-[3rem] m-l-[1rem]
 }
 .author_panel::after {
   border: 10px solid transparent;
