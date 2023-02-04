@@ -1,4 +1,3 @@
-<!-- eslint-disable no-console -->
 <script setup lang="ts">
 const route = useRoute()
 let pagenum = 1
@@ -13,6 +12,8 @@ const addArtListItem = () => {
     })
   }
 }
+const { data } = await useFetch('/api/global')
+const articleAds = data.value.articleAds
 watch(route, () => {
   pagenum = 1
   isLoading.value = true
@@ -28,12 +29,10 @@ watch(route, () => {
 }, { deep: true })
 const bottomHandler = useThrottle(addArtListItem)
 onBeforeMount(() => {
-  console.log('onMounted')
   const EmployeeWindow = window as any
   EmployeeWindow.addEventListener('scroll', bottomHandler)
 })
 onUnmounted(() => {
-  console.log('onUnmounted')
   const EmployeeWindow = window as any
   EmployeeWindow.removeEventListener('scroll', bottomHandler)
 })
@@ -42,8 +41,16 @@ onUnmounted(() => {
 <template>
   <div class="articlelist">
     <ArticlesListNavigation />
+    <!-- <ArticlesListItemAd /> -->
     <ArticlesListUiSkeleton v-if="isLoading || isEmpty" />
     <ul v-else>
+      <ArticlesListItemAds
+        :title="articleAds.title"
+        :author="articleAds.author"
+        :summary="articleAds.summary"
+        :cover="articleAds.cover"
+        :url="articleAds.url"
+      />
       <ArticlesListItem
         v-for="item in artlistData"
         :key="item.id"

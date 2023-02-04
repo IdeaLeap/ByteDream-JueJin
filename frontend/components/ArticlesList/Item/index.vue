@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ITagItem } from '~~/types/IArticleItem'
 const { uid } = defineProps({
   uid: String,
   title: String,
@@ -28,12 +29,12 @@ const hideHandler = () => {
 
 <template>
   <li :id="`artlist_${uid}`" class="list_container">
-    <NuxtLink :to="`article/${uid}`" class="link_container">
+    <ArticlesListItemLink :to="`article/${uid}`">
       <div class="left">
         <ArticlesListItemBarTop
           :author-id="authorId"
           :duration="formatTime(createdAt)"
-          :tags="tags"
+          :tags="tags as ITagItem[]"
         />
         <ArticlesListItemBarCenter :title="title" :summary="summary" />
         <ArticlesListItemBarBottom :viewed="viewed" :liked="liked" :commented="commented" />
@@ -48,7 +49,7 @@ const hideHandler = () => {
         format="webp"
         class="cover"
       />
-    </NuxtLink>
+    </ArticlesListItemLink>
     <div
       class="icon"
       @click="hideHandler"
@@ -65,10 +66,6 @@ const hideHandler = () => {
 }
 .left {
   @apply flex-1 truncate
-}
-.link_container {
-  @apply transition hover:bg-jj-hover f-c-c py-4 transition-all b-b b-grey all-cursor-pointer flex-1 pl-[1.67rem] truncate
-  @apply dark:b-[#333]
 }
 .icon {
   @apply i-carbon-close display-none cursor-pointer text-[16px] text-jj-fourthly hover:text-primary transition absolute top-[1rem] right-[1.67rem]

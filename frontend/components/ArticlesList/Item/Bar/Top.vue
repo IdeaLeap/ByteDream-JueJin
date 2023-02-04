@@ -4,20 +4,23 @@ defineProps({
   duration: String,
   tags: {
     type: Array<ITagItem>,
-    required: true,
+    default: [],
   },
   authorId: {
     type: Object,
-    required: true,
+    default: () => {},
   },
+  name: String,
 })
 </script>
 
 <template>
   <div class="topbar">
     <div class="author_id">
-      <span class="name">{{ authorId.name }}</span>
+      <span v-if="name" class="name">{{ name }}</span>
+      <span v-else class="name">{{ authorId.name }}</span>
       <ArticlesListItemAuthorInfo
+        v-if="authorId"
         :name="authorId.name"
         :motto="authorId.motto"
         :avatar="authorId.avatar"
@@ -25,7 +28,7 @@ defineProps({
         class="author_info"
       />
     </div>
-    <span class="duration">{{ duration }}</span>
+    <span :class="`duration ${tags.length ? 'duration-r' : ''}`">{{ duration }}</span>
     <div class="tag_container">
       <div v-for="(item, index) of tags" :key="item.tag" class="tag">
         <span class="tag_content">{{ item.tag }}</span>
@@ -52,7 +55,10 @@ defineProps({
   @apply scale-100
 }
 .duration {
-  @apply text-jj-thirdly px-3 border-r-1
+  @apply text-jj-thirdly px-3
+}
+.duration-r {
+  @apply border-r-1
 }
 .tag_container {
   @apply flex px-3
