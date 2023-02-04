@@ -150,7 +150,7 @@ onUnmounted(() => {
         <ul class="catalog-list" style="margin-top: 0px">
           <li v-for="(item, index) in Catalogue" :key="index" :class="[{ active: index === isActive }, catalogueClass(item.level)]" @click="activeSelect(index)">
             <div class="a-container">
-              <a :href="`#heading-${index}`" :title="item.text" class="catalog-aTag hover:bg-[#F7F8FA]"> {{ item.text }} </a>
+              <a :href="`#heading-${index}`" :title="item.text" class="catalog-aTag hover:bg-jj-containerhover"> {{ item.text }} </a>
             </div>
           </li>
         </ul>
@@ -178,9 +178,10 @@ onUnmounted(() => {
 }
 
 .article-catalog {
-  background: #fff;
+  /* background: #fff; */
   border-radius: 4px;
   padding: 0;
+  @apply bg-jj-sidebar
 }
 
 .catalog-title {
@@ -191,6 +192,7 @@ onUnmounted(() => {
   line-height: 2rem;
   color: #1d2129;
   border-bottom: 1px solid #e4e6eb;
+  @apply text-jj-content;
 }
 
 .catalog-block.isExpand .article-catalog .catalog-body {
@@ -218,6 +220,7 @@ onUnmounted(() => {
   line-height: 22px;
   color: #333;
   list-style: none;
+  @apply text-jj-container;
 }
 
 .catalog-list .item.d1 {

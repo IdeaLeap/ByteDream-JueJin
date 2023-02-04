@@ -48,13 +48,26 @@ export default defineConfig({
       jj_bg_gray: 'var(--jjext-color-bg-gray)', // #27272a
       jj_navigation: 'var(--juejin-navigation)',
       jj: {
+        thirdly: 'var(--jjext-color-thirdly)', // #86909c
+        fourthly: '--jjext-color-fourthly',
         article: 'var(--juejin-background-article)',
         main: 'var(--juejin-background-main)',
         font: 'var(--juejin-h1-font-color)',
         span: 'var(--juejin-span-font-color)',
         p: 'var(--juejin-p-font-color)',
         light: 'var(--jjext-color-font-white)',
-        hover: 'var(--jjext-color-bg-hover)',
+        hover: 'var(--juejin-color-bg-hover)',
+        brand: {
+          font: {
+            normal: 'var(--juejin-font-brand1-normal)',
+          },
+          normal: 'var(--juejin-brand-1-normal)',
+        },
+        sidebar: 'var(--juejin-color-bg-sidebar)',
+        content: 'var(--juejin-color-text-content)',
+        container: 'var(--juejin-color-text-container)',
+        containerhover: 'var(--juejin-color-container-hover)',
+        border: 'var(--juejin-article-list-border)',
       },
     },
     breakpoints: {

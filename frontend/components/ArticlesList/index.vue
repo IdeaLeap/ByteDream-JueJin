@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const route = useRoute()
-let pagenum = 0
+let pagenum = 1
 const isLoading = useState('isLoading', () => false)
 const isEmpty = useState('isEmpty', () => false)
 const artlistData = useArtlist([])
@@ -13,7 +13,7 @@ const addArtListItem = () => {
   }
 }
 watch(route, () => {
-  pagenum = 0
+  pagenum = 1
   artlistData.value = []
   isLoading.value = true
   useFetchPostData(route.path, route.query?.sort).then((data) => {
@@ -37,7 +37,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="bg-white dark:bg-jj_bg_gray">
+  <div class="articlelist">
     <ArticlesListNavigation />
     <ArticlesListSkeleton v-if="isLoading && isEmpty" />
     <ul v-else>
@@ -58,3 +58,9 @@ onUnmounted(() => {
     </ul>
   </div>
 </template>
+
+<style scoped>
+.articlelist {
+  @apply bg-jj-article
+}
+</style>

@@ -42,11 +42,13 @@ li {
   @apply box-border min-w-[7rem] text-[1rem] rounded-[2px] px-[10px] py-[2px] border border-solid border-[#ebebeb]
 }
 .dropdown-toggle:hover {
-  @apply bg-[#fafafb] dark:hover-bg-[#111] cursor-pointer
+  @apply bg-[#fafafb] cursor-pointer
+  @apply dark:hover-bg-[#111]
 }
 .dropdown-menu {
   box-shadow: 0 1px 2px 0 rgb(0 0 0 / 5%);
-  @apply dark:b-[#333] text-left bg-white border border-[#ebebeb] absolute box-border top-[105%] left-0 z-1000 min-w-[7rem] text-[1rem] rounded-[0.17rem]
+  @apply text-left bg-white border border-[#ebebeb] absolute box-border top-[105%] left-0 z-1000 min-w-[7rem] text-[1rem] rounded-[0.17rem]
+  @apply dark:b-[#333]
 }
 .dropdown-menu li {
   @apply overflow-hidden w-full
@@ -58,6 +60,7 @@ li {
   @apply rotate-180
 }
 .dropdown-menu li a:hover {
-  @apply bg-[#fafafb] dark:hover-bg-[#111]
+  @apply bg-[#fafafb]
+  @apply dark:hover-bg-[#111]
 }
 </style>
