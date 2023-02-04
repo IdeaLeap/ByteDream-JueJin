@@ -5,7 +5,9 @@ const { data: AuthorList } = await useFetch('/api/authors/list')
 <template>
   <div>
     <div v-if="!!AuthorList" class="recommend-author-block sticky-author-block">
-      <div class="user-block-header">🎖️作者榜</div>
+      <div class="user-block-header">
+        🎖️作者榜
+      </div>
       <div class="user-list">
         <div v-for="item in AuthorList" :key="item.uid" class="item">
           <nuxt-link target="_blank" rel="" class="link">
