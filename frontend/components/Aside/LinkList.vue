@@ -18,9 +18,9 @@ defineProps({
             class="linklist_link"
           >
             <nuxt-img :src="i.icon" class="linklist_icon" />
-            <div class="linklist_txt">
+            <span class="linklist_txt">
               {{ i.title }}
-            </div>
+            </span>
           </nuxt-link>
         </li>
       </ul>
@@ -35,7 +35,7 @@ defineProps({
 }
 
 .linklist_ul {
-  @apply flex flex-col gap-3 items-center px-2.5
+  @apply flex flex-col gap-3 items-center
 }
 
 .linklist_link {
@@ -50,6 +50,6 @@ defineProps({
 }
 
 .linklist_icon {
-  @apply w-12 h-12
+  @apply w-12 h-12 mr-2 ml-2
 }
 </style>
