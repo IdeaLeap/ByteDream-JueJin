@@ -21,8 +21,9 @@ const turn_off = (i: number) => {
           <nuxt-img class="ad" :src="i.img" />
           <div i-carbon-close class="ad_close group-hover:opacity-50" @click="turn_off(parseInt(index))" />
           <div class="txt_container">
-            <div class="txt">
-              广告
+            <div class="txt group/txt">
+              <span class="hidden group-hover/txt:inline">投放 </span>
+              <span>广告</span>
             </div>
           </div>
         </div>
@@ -33,7 +34,7 @@ const turn_off = (i: number) => {
 
 <style scoped>
 .ad_container {
-  @apply flex flex-row justify-end gap-2
+  @apply flex flex-row justify-end gap-2 cursor-pointer
 }
 
 .ad {
@@ -42,8 +43,8 @@ const turn_off = (i: number) => {
 
 .ad_close {
   @apply my-2 mx-1 absolute
-  @apply text-jj_thirdly opacity-0 text-[1.5rem]
-  @apply font-[1500] hover:opacity-100
+  @apply text-link opacity-0 text-[1.5rem]
+  @apply font-[1500] hover:opacity-100 cursor-pointer
 }
 
 .txt_container {
