@@ -10,7 +10,7 @@ const isNavShown = inject('isNavShown')
       <NuxtLink class="type-list-item" to="/">
         综合
       </NuxtLink>
-      <NuxtLink v-for="item in typeList" :key="item.type" class="type-list-item">
+      <NuxtLink v-for="item in typeList" :key="item.type" class="type-list-item" :to="`/${item.type}`">
         {{ item.alias }}
       </NuxtLink>
     </div>
