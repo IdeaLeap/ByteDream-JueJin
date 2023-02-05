@@ -55,12 +55,13 @@ const articleList = ArticleList.value.filter(item => item.id !== id.value)
   color: #1d2129;
   font-weight: 500;
   border-bottom: 1px solid #e4e6eb;
-  @apply dark:text-jj_font_white dark:border-b-nav_icon_color;
+  @apply text-jj-content border-b-jj-border-bottom-normal;
 }
 .sidebar .sidebar-block {
   margin-bottom: 20px;
   border-radius: 4px;
-  background-color: #fff;
+  /* background-color: #fff; */
+  @apply bg-jj-article
 }
 
 .entry-list {
