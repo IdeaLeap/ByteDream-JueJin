@@ -16,7 +16,7 @@ defineProps({
 
 <template>
   <div class="topbar">
-    <div class="author_id">
+    <div class="author-id">
       <span v-if="name" class="name">{{ name }}</span>
       <span v-else class="name">{{ authorId.name }}</span>
       <ArticlesListItemAuthorInfo
@@ -42,7 +42,7 @@ defineProps({
 .topbar {
   @apply flex items-center pr-4 text-[13px]
 }
-.author_id {
+.author-id {
   @apply transition text-jj-font-normal px-3 border-r-1 pl-0 hover:text-jj-brand-normal
 }
 .author-info {
