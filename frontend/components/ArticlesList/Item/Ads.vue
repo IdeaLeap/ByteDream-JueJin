@@ -11,7 +11,7 @@ defineProps({
 <template>
   <li>
     <ArticlesListItemLink :to="url">
-      <div class="flex-1">
+      <div class="overflow-hidden flex-1">
         <ArticlesListItemBarTop
           :name="author"
           duration="2天前"

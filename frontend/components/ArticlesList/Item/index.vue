@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ITagItem } from '~~/types/IArticleItem'
+import type { ITagItem } from '~~/types/IArticleItem'
 const { uid } = defineProps({
   uid: String,
   title: String,
@@ -16,7 +16,7 @@ const { uid } = defineProps({
     type: Object,
     required: true,
   },
-  tags: Array,
+  tags: Array<ITagItem>,
   index: Number,
 })
 const hideHandler = () => {
@@ -34,7 +34,7 @@ const hideHandler = () => {
         <ArticlesListItemBarTop
           :author-id="authorId"
           :duration="formatTime(createdAt)"
-          :tags="tags as ITagItem[]"
+          :tags="tags"
         />
         <ArticlesListItemBarCenter :title="title" :summary="summary" />
         <ArticlesListItemBarBottom :viewed="viewed" :liked="liked" :commented="commented" />
