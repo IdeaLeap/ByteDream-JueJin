@@ -13,6 +13,7 @@ const isNavShown = inject('isNavShown')
       <NuxtLink v-for="item in typeList" :key="item.type" class="type-list-item" :to="`/${item.type}`">
         {{ item.alias }}
       </NuxtLink>
+      <!-- <span class="type-manage type-list-item">标签管理</span> -->
     </div>
   </div>
 </template>
@@ -49,8 +50,9 @@ const isNavShown = inject('isNavShown')
 
 .type-list{
   line-height: 1;
-  @apply list-none ma max-w-[60rem] h-full;
+  @apply list-none ma max-w-[960px] h-full;
   @apply overflow-x-auto flex items-center;
+  @apply relative;
 }
 
 .type-list::-webkit-scrollbar {
@@ -59,5 +61,9 @@ const isNavShown = inject('isNavShown')
 
 .type-list-item.router-link-exact-active {
     @apply opacity-100 text-primary;
+}
+
+.type-manage{
+  @apply absolute right-0 top-0;
 }
 </style>
