@@ -38,10 +38,11 @@ const props = defineProps({
 }
 .main-area {
   border-radius: 4px;
-  background-color: #fff;
+  /* background-color: #fff; */
   padding-left: 2.67rem;
   padding-right: 2.67rem;
   box-sizing: border-box;
+  @apply bg-jj_font_white
 }
 .tag-list-box {
   display: flex;
@@ -68,11 +69,11 @@ const props = defineProps({
   flex-shrink: 0;
   margin-right: 8px;
   font-size: 14px;
-  color: #515767;
+  /* color: #515767; */
+  @apply text-jj-gray-text-normal
 }
 .tag-list-box .tag-list .item.category-item {
-  background-color: #f2f3f5;
-  color: #515767;
+  @apply text-jj-gray-text-normal bg-jj_bg
 }
 .tag-list-box .tag-list .item {
   display: flex;
@@ -92,8 +93,9 @@ const props = defineProps({
   flex-wrap: wrap;
 }
 .tag-list-box .tag-list .item.tag-item {
-  background-color: #eaf2ff;
-  color: #1e80ff;
+  /* background-color: #eaf2ff; */
+  /* color: #1e80ff; */
+  @apply bg-jj-brand-light-normal text-jj-brand-font-normal
 }
 .tag-list-box .tag-list .item {
   display: flex;
@@ -104,9 +106,10 @@ const props = defineProps({
   transition: background-color 0.15s linear;
 }
 .tag-list-box .tag-list .item.tag-item:hover {
-  background-color: rgba(30, 128, 255, 0.16);
+  /* background-color: rgba(30, 128, 255, 0.16); */
+  @apply bg-jj-tag-normal
 }
 .tag-list-box .tag-list .item.category-item:hover {
-  background-color: #e4e6eb;
+  @apply bg-jj-border-normal
 }
 </style>

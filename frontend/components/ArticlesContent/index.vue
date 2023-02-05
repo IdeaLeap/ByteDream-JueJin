@@ -67,7 +67,7 @@ const { immerseState } = useImmerse()
 <template>
   <div class="main-area article-area" mb-1.5rem>
     <article class="relative pt-2.667rem z-1 rd-t-4px rd-b-0 bg-jj-article">
-      <h1 class="mt-0 mr-0 mb-1.667rem ml-0 text-2.667rem fw-600 color-[#252933] lh-1.31em text-jj-font">
+      <h1 class="mt-0 mr-0 mb-1.667rem ml-0 text-2.667rem fw-600 lh-1.31em text-jj-font-normal">
         {{ article.title }}
       </h1>
 
@@ -111,7 +111,7 @@ const { immerseState } = useImmerse()
 <style scoped>
 .main-area {
   border-radius: 4px;
-  background-color: #fff;
+  /* background-color: #fff; */
   padding-left: 2.67rem;
   padding-right: 2.67rem;
   box-sizing: border-box;

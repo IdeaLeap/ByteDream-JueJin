@@ -133,20 +133,20 @@ const { immerseState, immerseToggle } = useImmerse()
   @apply fixed top-140px ml--7rem z-2;
 }
 .panel-btn.with-badge:after {
-  @apply absolute top-0 left-75% h-17px lh-17px px-5px rd-9px text-11px text-center whitespace-nowrap bg-#c2c8d1 text-#fff;
+  @apply absolute top-0 left-75% h-17px lh-17px px-5px rd-9px text-11px text-center whitespace-nowrap bg-jj-gray-panel-normal text-jj_font_white;
   content: attr(badge);
 }
 .panel-btn {
-  @apply relative mb-1.667rem w-4rem h-4rem bg-#fff bg-center bg-no-repeat rd-50%  cursor-pointer text-center text-size-1.67rem;
+  @apply relative mb-1.667rem w-4rem h-4rem bg-jj_font_white bg-center bg-no-repeat rd-50%  cursor-pointer text-center text-size-1.67rem;
   background-position: 50%;
   box-shadow: 0 2px 4px 0 rgb(0 0 0 / 4%);
 }
 .divider {
-  @apply w-32px h-1px bg-#e4e6eb mx-auto mb-1.667rem;
+  @apply w-32px h-1px bg-jj-gray-divider-normal mx-auto mb-1.667rem;
 }
 .panel-btn .sprite-icon {
-  @apply c-#8a919f h-100%;
-  @apply hover:c-#515767;
+  @apply c-jj-font-entry-normal h-100%;
+  @apply hover:c-jj-gray-text-normal;
 }
 .sprite-icon {
   @apply w-1em h-1em fill-current vertical-middle;
@@ -156,7 +156,8 @@ svg {
   display: inline;
 }
 .panel-btn:not(.share-btn).active .sprite-icon {
-  color: #1e80ff;
+  /* color: #1e80ff; */
+  @apply text-jj-blue-normal
 }
 .tooltip {
   @apply relative inline-block;

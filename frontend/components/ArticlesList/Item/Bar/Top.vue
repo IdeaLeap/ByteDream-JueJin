@@ -43,7 +43,7 @@ defineProps({
   @apply flex items-center pr-4 text-[13px]
 }
 .author_id {
-  @apply transition text-jj-font px-3 border-r-1 pl-0 hover:text-[#1E80FF]
+  @apply transition text-jj-font-normal px-3 border-r-1 pl-0 hover:text-jj-brand-normal
 }
 .author_info {
   @apply scale-0 delay-150 transition-all text-black
