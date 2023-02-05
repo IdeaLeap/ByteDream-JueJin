@@ -21,7 +21,7 @@ defineProps<{
   @apply py-3
 }
 .title {
-  @apply truncate text-jj-font text-[16px] title font-semibold tracking-wide
+  @apply truncate text-jj-font-normal text-[16px] title font-semibold tracking-wide
 }
 .summary {
   @apply truncate pt-3 text-jj_thirdly text-[13px]

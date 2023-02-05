@@ -12,7 +12,7 @@ const props = defineProps({
       <img :src="props.author.avatar" alt="" class="lazy avatar" loading="lazy">
       <div class="info-box">
         <div class="username flex items-center">
-          <span class="name text-jj-font" style="max-width: 128px"> {{ props.author.name }} </span>
+          <span class="name text-jj-font-normal" style="max-width: 128px"> {{ props.author.name }} </span>
         </div>
         <div :title="props.author.motto" class="position">
           {{ props.author.motto }}
@@ -39,7 +39,8 @@ a {
   text-decoration: none;
   cursor: pointer;
   background-color: transparent;
-  color: #909090;
+  /* color: #909090; */
+  @apply text-jj-gray-normal
 }
 .user-item .avatar {
   flex: 0 0 auto;
@@ -84,11 +85,12 @@ img {
   font-size: 1.333rem;
   font-weight: 500;
   line-height: 2rem;
-  color: #252933;
+  /* color: #252933; */
   white-space: pre-wrap;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  @apply text-jj_font_black
 }
 .username .name {
   display: inline-block;
@@ -101,20 +103,22 @@ img {
   font-size: 1.333rem;
   font-weight: 500;
   line-height: 2rem;
-  color: #252933;
+  /* color: #252933; */
   white-space: pre-wrap;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  @apply text-jj_font_black
 }
 .user-item .info-box .position {
   margin-top: 4px;
   font-size: 1.167rem;
-  color: #515767;
+  /* color: #515767; */
   font-weight: 400;
   line-height: 22px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  @apply text-jj-gray-text-normal
 }
 </style>
