@@ -283,5 +283,6 @@ onUnmounted(() => {
   overflow: hidden;
   text-overflow: ellipsis;
   border-radius: 4px;
+  @apply text-jj-container
 }
 </style>
