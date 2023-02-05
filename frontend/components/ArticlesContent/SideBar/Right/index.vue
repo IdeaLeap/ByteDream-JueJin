@@ -1,19 +1,17 @@
 <script setup>
-const props = defineProps({
-  content: String,
-  author: Object,
-  column: Object,
+defineProps({
+  article: Object,
 })
 const { immerseState } = useImmerse()
 </script>
 
 <template>
   <div class="sidebar hidden lg:block lg:w-4/12">
-    <ArticlesContentSideBarRightAuthor v-show="!immerseState" :author="props.author" />
-    <!-- <ArticlesContentSideBarRightRelatedArticles v-show="!immerseState" class="sidebar-block"  /> -->
+    <ArticlesContentSideBarRightAuthor v-show="!immerseState" :author="article.authorId" />
+    <ArticlesContentSideBarRightRelatedArticles v-show="!immerseState" class="sidebar-block" :author="article.authorId" :tags="article.tagIds" />
     <div class="sticky-block-box">
-      <ArticlesContentSideBarRightCatalogue class="sidebar-block" :content="props.content" />
-      <ArticlesContentSideBarRightColumn :column="column" />
+      <ArticlesContentSideBarRightCatalogue class="sidebar-block" :content="article.content" />
+      <ArticlesContentSideBarRightColumn :column="article.columId" />
     </div>
   </div>
 </template>

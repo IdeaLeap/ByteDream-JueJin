@@ -34,18 +34,16 @@ const isNavShown = inject('isNavShown')
 <style scoped>
 .main-header.nav-shown{
     transform: translateZ(0);
+    /* @apply -translate-y-5rem; */
 }
 
 .main-header {
-    transition: all .2s;
     transform: translate3d(0,-100%,0);
+    transition: all .2s;
     @apply flex items-center fixed top-0 left-0 right-0;
     @apply space-between md:justify-around;
+    @apply bg-jj_navigation border-b-1 h-[5rem] lt-sm:(h-[4.333rem]) z-99 border-gray-100 dark:border-[#494949];
 }
-.main-header {
-    @apply bg-jj_navigation border-b-1 h-[5rem] z-99 border-gray-100 dark:border-[#494949];
-}
-
 .logo{
   @apply flex items-center mr-4 ml-6 w-auto inline-block;
 

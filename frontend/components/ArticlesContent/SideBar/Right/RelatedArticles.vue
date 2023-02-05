@@ -1,10 +1,19 @@
+import { serve } from 'esbuild';
 <script setup>
-defineProps({
-  articleList: {
-    type: Array,
-    required: true,
+const props = defineProps({
+  author: {
+    type: Object,
+  },
+  tags: {
+    type: Object,
   },
 })
+const { data: ArticleList } = await useFetch(`/api/articles/tags?tags=${JSON.stringify(props.tags.data)}&authorId=${props.author.id}`)
+const route = useRoute()
+const id = ref(route.params.id)
+// 过滤掉当前文章
+
+const articleList = ArticleList.value.filter(item => item.id !== id.value)
 </script>
 
 <template>
@@ -46,12 +55,13 @@ defineProps({
   color: #1d2129;
   font-weight: 500;
   border-bottom: 1px solid #e4e6eb;
-  @apply dark:text-jj_font_white dark:border-b-nav_icon_color;
+  @apply text-jj-content border-b-jj-border-bottom-normal;
 }
 .sidebar .sidebar-block {
   margin-bottom: 20px;
   border-radius: 4px;
-  background-color: #fff;
+  /* background-color: #fff; */
+  @apply bg-jj-article
 }
 
 .entry-list {

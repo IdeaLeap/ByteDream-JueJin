@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const { data: AuthorList } = await useFetch('/api/authors/list', { server: false })
+const { data: AuthorList } = await useFetch('/api/authors/list')
 </script>
 
 <template>
@@ -14,17 +14,14 @@ const { data: AuthorList } = await useFetch('/api/authors/list', { server: false
             <nuxt-img :src="item.avatar" :alt="`${item.name}的头像`" class="lazy avatar" loading="lazy" />
 
             <div class="user-info">
-              <nuxt-link target="_blank" rel="" class="username username">
-                <span class="name" style="max-width: 128px;">
+              <div class="username username">
+                <span class="name" style="max-width: 128px">
                   {{ item.name }}
                 </span>
                 <span blank="true" class="rank">
-                  <nuxt-img
-                    src="https://lf3-cdn-tos.bytescm.com/obj/static/xitu_juejin_web/img/lv-4.a78c420.png"
-                    :alt="`lv-${item.rank}`" title="创作等级"
-                  />
+                  <nuxt-img src="https://lf3-cdn-tos.bytescm.com/obj/static/xitu_juejin_web/img/lv-4.a78c420.png" :alt="`lv-${item.rank}`" title="创作等级" />
                 </span>
-              </nuxt-link>
+              </div>
               <div class="position">
                 {{ item.motto }}
               </div>
@@ -43,11 +40,11 @@ const { data: AuthorList } = await useFetch('/api/authors/list', { server: false
   </div>
 </template>
 
-<style  scoped>
+<style scoped>
 .user-block-header {
   padding: 1rem 1.3rem;
-  border-bottom: 1px solid hsla(0, 0%, 59.2%, .1);
-  @apply dark:text-jj_font_white dark:border-nav_icon_color
+  border-bottom: 1px solid hsla(0, 0%, 59.2%, 0.1);
+  @apply dark:text-jj_font_white dark:border-nav_icon_color;
 }
 
 .recommend-author-block .item .link {
@@ -62,7 +59,7 @@ const { data: AuthorList } = await useFetch('/api/authors/list', { server: false
   width: 3.8rem;
   height: 3.8rem;
   border-radius: 50%;
-  margin-right: .5rem;
+  margin-right: 0.5rem;
 }
 
 .recommend-author-block .item .link .user-info {
@@ -77,13 +74,13 @@ const { data: AuthorList } = await useFetch('/api/authors/list', { server: false
   overflow: hidden;
   text-overflow: ellipsis;
   margin-bottom: 3px;
-  @apply dark:text-jj_font_white
+  @apply dark:text-jj_font_white;
 }
 
 .rank {
   display: inline-flex;
   align-items: center;
-  margin-left: .33rem;
+  margin-left: 0.33rem;
   vertical-align: middle;
 }
 
@@ -105,7 +102,7 @@ const { data: AuthorList } = await useFetch('/api/authors/list', { server: false
 .recommend-author-block .item .more {
   padding: 1rem 0;
   text-align: center;
-  border-top: 1px solid hsla(0, 0%, 59.2%, .1);
+  border-top: 1px solid hsla(0, 0%, 59.2%, 0.1);
 }
 
 .recommend-author-block .item .more .icon {
@@ -113,11 +110,11 @@ const { data: AuthorList } = await useFetch('/api/authors/list', { server: false
 }
 
 .recommend-author-block .item .link:hover {
-  background-color: hsla(0, 0%, 84.7%, .1);
+  background-color: hsla(0, 0%, 84.7%, 0.1);
 }
 
 .recommend-author-block {
   background-color: #fff;
-  @apply dark:bg-jj_bg_gray
+  @apply dark:bg-jj_bg_gray;
 }
 </style>

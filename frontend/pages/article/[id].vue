@@ -11,16 +11,14 @@ const { data: articleData } = await useFetch(url)
       <div class="view column-view mt-1.767rem" pb-8rem>
         <ArticlesContentSideBarLeft :commented="articleData.article.commented" :liked="articleData.article.liked" />
         <ArticlesContent :article="articleData.article" />
-        <ClientOnly>
-          <ArticlesContentSideBarRight :column="articleData.article.columId" :content="articleData.article.content" :author="articleData.article.authorId" />
-        </ClientOnly>
+        <ArticlesContentSideBarRight :article="articleData.article" />
       </div>
     </main>
   </div>
 </template>
 
 <style scoped>
-.view-container{
+.view-container {
   @apply bg-jj-main
 }
 @media screen and (max-width: 1320px) and (min-width: 1140px) {

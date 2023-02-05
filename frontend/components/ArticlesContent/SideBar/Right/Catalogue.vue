@@ -72,8 +72,9 @@ const catalogueClass = (level) => {
 }
 
 /**
- * @description: 目录滚动事件
+ * @description: 目录滚动定位事件
  */
+let headerHeight
 const itemOffsetTop = ref([])
 const onScroll = () => {
   itemOffsetTop.value = []
@@ -86,7 +87,7 @@ const onScroll = () => {
       })
     }
   })
-  const scrollTop = document.documentElement.scrollTop - 80
+  const scrollTop = document.documentElement.scrollTop - headerHeight + 20
   for (let n = 0; n < itemOffsetTop.value.length; n++) {
     if (scrollTop >= itemOffsetTop.value[n].top)
       isActive.value = itemOffsetTop.value[n].key
@@ -96,29 +97,36 @@ const onScroll = () => {
     left: 0,
   })
 }
-const throttledScrollHandler = useThrottleFn(() => {
-  onScroll()
-}, 300)
 
 /**
  * @description: 目录固定
  */
+const isNavShown = inject('isNavShown')
 const firtstCatalogueTop = ref(0)
-const headerHeight = document.querySelector('.main-header ').clientHeight
+let catalogue
+let currentTop
 const scrollFixedCatalogue = () => {
   const scrollTop = document.documentElement.scrollTop
   const sideBar = document.querySelector('.sidebar')
-  const catalogue = document.querySelector('.sticky-block-box')
-  if (scrollTop > catalogue.offsetTop)
+  catalogue = document.querySelector('.sticky-block-box')
+  currentTop = parseFloat(window.getComputedStyle(catalogue).top)
+  if (scrollTop - headerHeight > catalogue.offsetTop)
     sideBar.classList.add('sticky')
-
-  if (sideBar.classList.contains('sticky') && scrollTop - headerHeight < firtstCatalogueTop.value)
+  if (scrollTop <= firtstCatalogueTop.value)
     sideBar.classList.remove('sticky')
 }
 
+watch(isNavShown, (val) => {
+  if (val)
+    catalogue.style.top = `${currentTop + headerHeight}px`
+  else
+    catalogue.style.top = '1.767rem'
+})
 onMounted(() => {
-  window.addEventListener('scroll', throttledScrollHandler)
+  headerHeight = document.querySelector('.main-header').clientHeight
+  window.addEventListener('scroll', onScroll)
   window.addEventListener('scroll', scrollFixedCatalogue)
+
   const route = useRoute()
   setTimeout(() => {
     if (route.hash) {
@@ -135,7 +143,7 @@ onMounted(() => {
 })
 
 onUnmounted(() => {
-  window.removeEventListener('scroll', throttledScrollHandler)
+  window.removeEventListener('scroll', onScroll)
   window.removeEventListener('scroll', scrollFixedCatalogue)
 })
 </script>
@@ -150,7 +158,7 @@ onUnmounted(() => {
         <ul class="catalog-list" style="margin-top: 0px">
           <li v-for="(item, index) in Catalogue" :key="index" :class="[{ active: index === isActive }, catalogueClass(item.level)]" @click="activeSelect(index)">
             <div class="a-container">
-              <a :href="`#heading-${index}`" :title="item.text" class="catalog-aTag hover:bg-jj-containerhover"> {{ item.text }} </a>
+              <a :href="`#heading-${index}`" :title="item.text" class="catalog-aTag hover:bg-jj-container-hover-normal"> {{ item.text }} </a>
             </div>
           </li>
         </ul>
@@ -160,6 +168,10 @@ onUnmounted(() => {
 </template>
 
 <style scoped>
+#heading-3 {
+  position: relative;
+  top: -50px;
+}
 .sidebar-block {
   position: relative;
   /* margin-bottom: 1.5rem; */
@@ -181,7 +193,7 @@ onUnmounted(() => {
   /* background: #fff; */
   border-radius: 4px;
   padding: 0;
-  @apply bg-jj-sidebar
+  @apply bg-jj-sidebar;
 }
 
 .catalog-title {
@@ -192,7 +204,7 @@ onUnmounted(() => {
   line-height: 2rem;
   color: #1d2129;
   border-bottom: 1px solid #e4e6eb;
-  @apply text-jj-content;
+  @apply text-jj-content border-b-jj-border-bottom-normal;
 }
 
 .catalog-block.isExpand .article-catalog .catalog-body {
@@ -220,7 +232,7 @@ onUnmounted(() => {
   line-height: 22px;
   color: #333;
   list-style: none;
-  @apply text-jj-container;
+  @apply text-jj-container-normal;
 }
 
 .catalog-list .item.d1 {
@@ -271,5 +283,6 @@ onUnmounted(() => {
   overflow: hidden;
   text-overflow: ellipsis;
   border-radius: 4px;
+  @apply text-jj-container-normal
 }
 </style>

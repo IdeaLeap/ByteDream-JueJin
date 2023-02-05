@@ -3,7 +3,7 @@ const route = useRoute()
 let pagenum = 1
 const isLoading = useState('isLoading', () => false)
 const isEmpty = useState('isEmpty', () => false)
-const artlistData = useArtlist([])
+const artlistData = useArtlist(await useFetchPostData())
 const addArtListItem = () => {
   if (useScrollBottom()) {
     pagenum++
@@ -12,9 +12,10 @@ const addArtListItem = () => {
     })
   }
 }
+const { data } = await useFetch('/api/global')
+const articleAds = data.value.articleAds
 watch(route, () => {
   pagenum = 1
-  artlistData.value = []
   isLoading.value = true
   useFetchPostData(route.path, route.query?.sort).then((data) => {
     if (!data.length) {
@@ -25,22 +26,31 @@ watch(route, () => {
     isEmpty.value = false
     isLoading.value = false
   })
-}, { deep: true, immediate: true })
-onMounted(() => {
+}, { deep: true })
+const bottomHandler = useThrottle(addArtListItem)
+onBeforeMount(() => {
   const EmployeeWindow = window as any
-  EmployeeWindow.addEventListener('scroll', useThrottle(addArtListItem))
+  EmployeeWindow.addEventListener('scroll', bottomHandler)
 })
 onUnmounted(() => {
   const EmployeeWindow = window as any
-  EmployeeWindow.removeEventListener('scroll', useThrottle(addArtListItem)) // 页面离开后销毁监听事件
+  EmployeeWindow.removeEventListener('scroll', bottomHandler)
 })
 </script>
 
 <template>
   <div class="articlelist">
     <ArticlesListNavigation />
-    <ArticlesListSkeleton v-if="isLoading && isEmpty" />
+    <!-- <ArticlesListItemAd /> -->
+    <ArticlesListUiSkeleton v-if="isLoading || isEmpty" />
     <ul v-else>
+      <ArticlesListItemAds
+        :title="articleAds.title"
+        :author="articleAds.author"
+        :summary="articleAds.summary"
+        :cover="articleAds.cover"
+        :url="articleAds.url"
+      />
       <ArticlesListItem
         v-for="item in artlistData"
         :key="item.id"
@@ -52,7 +62,7 @@ onUnmounted(() => {
         :summary="item.summary"
         :cover="item.cover"
         :created-at="item.createdAt"
-        :name="item.authorId.name"
+        :author-id="item.authorId"
         :tags="item.tagIds.data"
       />
     </ul>
