@@ -5,7 +5,7 @@ defineProps({
 </script>
 
 <template>
-  <NuxtLink :to="to" class="link_container">
+  <NuxtLink :to="to" class="link_container" target="_blank">
     <slot />
   </NuxtLink>
 </template>
