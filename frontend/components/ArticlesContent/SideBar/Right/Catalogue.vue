@@ -202,8 +202,8 @@ onUnmounted(() => {
   margin: 0 1.667rem;
   font-size: 16px;
   line-height: 2rem;
-  color: #1d2129;
-  border-bottom: 1px solid #e4e6eb;
+  /* color: #1d2129; */
+  border-bottom: 1px solid;
   @apply text-jj-content border-b-jj-border-bottom-normal;
 }
 
@@ -230,18 +230,20 @@ onUnmounted(() => {
   font-size: 1.167rem;
   font-weight: 400;
   line-height: 22px;
-  color: #333;
+  /* color: #333; */
   list-style: none;
-  @apply text-jj-container-normal;
+  @apply text-jj-container-normal
 }
 
 .catalog-list .item.d1 {
   font-weight: 400;
-  color: #000;
+  /* color: #000; */
+  @apply text-jj-black-normal
 }
 
 .catalog-list .item.active > .a-container {
-  color: #007fff;
+  /* color: #007fff; */
+  @apply text-jj-link-normal
 }
 
 .catalog-list .item.active > .a-container:before {
@@ -252,8 +254,9 @@ onUnmounted(() => {
   margin-top: 7px;
   width: 4px;
   height: 16px;
-  background: #1e80ff;
+  /* background: #1e80ff; */
   border-radius: 0 4px 4px 0;
+  @apply bg-jj-blue-normal
 }
 .catalog-list .item.d1 > .a-container {
   margin: 0;
