@@ -6,8 +6,11 @@
     "lint:fix": {},
     "lint:strict": {},
     "typecheck": {},
-    "dev": {},
+    "dev": {
+      "persistent": true
+    },
     "start": {},
-    "generate": {}
+    "generate": {},
+    "sentry":{}
   }
 }
