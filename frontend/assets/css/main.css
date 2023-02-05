@@ -184,6 +184,7 @@ html.light{
   --juejin-color-text-container:#333333;
   --juejin-color-container-hover:#F7F8FA;
   --juejin-article-list-border:#e4e6eb;
+  --juejin-border-bottom:#e4e6eb;
 }
 
 html.dark{
@@ -290,6 +291,7 @@ html.dark{
   --juejin-color-text-container:#ffffff;
   --juejin-color-container-hover:#333;
   --juejin-article-list-border:#212123;
+  --juejin-border-bottom:#1e80ff;
 }
 
 .page-enter-active,
