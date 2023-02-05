@@ -4,14 +4,7 @@
 
 <template>
   <div class="root">
-    <Suspense>
-      <Main pb-8rem />
-      <template #fallback>
-        <div op50 italic>
-          <span animate-pulse>Loading...</span>
-        </div>
-      </template>
-    </Suspense>
+    <Main pb-8rem />
   </div>
 </template>
 

@@ -1,16 +1,23 @@
-<script setup>
-const { data: GlobalData } = await useFetch('/api/global')
+<script setup lang="ts">
+import type { PropType } from 'vue'
+import type { IGlobal } from '~~/types/IGlobal'
+const props = defineProps({
+  globalData: {
+    type: Object as PropType<IGlobal>,
+    required: true,
+  },
+})
 </script>
 
 <template>
   <div class="index-aside">
     <AsideSign class="mb-5" />
-    <AsideAdvertisements :ads="GlobalData.ads" />
-    <AsideGadgets class="mb-5" :gadgets="GlobalData.gadgets" />
+    <AsideAdvertisements :ads="globalData.ads" />
+    <AsideGadgets class="mb-5" :gadgets="globalData.gadgets" />
     <AsideAuthorList class="sidebar-block mb-5" />
-    <AsideLinkList class="mb-5" :links="GlobalData.links" />
+    <AsideLinkList class="mb-5" :links="globalData.links" />
     <!-- <AsideArticleList class="sidebar-block mb-5" /> -->
-    <AsideFooters class="mb-5" :footers="GlobalData.footers" />
+    <AsideFooters class="mb-5" :footers="globalData.footers" />
     <AsideSuspensionPanel class="fixed right-3 bottom-1" />
   </div>
 </template>

@@ -26,9 +26,10 @@ export const useFetchPostData = async (
   type?: string,
   sort: any = 'recommended',
   pagenum = 1,
+  tag?: string,
 ): Promise<IArticleItem[]> => {
   type = type || '/'
-  const { data } = await useFetch(`/api/articles/list?sort=${sort}&type=${type.replace('/', '')}&pageNum=${pagenum}`)
+  const { data } = await useFetch(`/api/articles/list?sort=${sort}&type=${type.replace('/', '')}&pageNum=${pagenum}&tag=${tag || ''}`)
   // 数据内容
   return data.value
 }

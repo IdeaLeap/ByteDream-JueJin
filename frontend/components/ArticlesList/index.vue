@@ -1,23 +1,29 @@
 <script setup lang="ts">
+import type { PropType } from 'vue'
+import type { IArticleAd } from '~~/types/IGlobal'
+const props = defineProps({
+  articleAds: {
+    type: Object as PropType<IArticleAd>,
+    required: false,
+  },
+})
 const route = useRoute()
-let pagenum = 1
+let pageNum = 1
 const isLoading = useState('isLoading', () => false)
 const isEmpty = useState('isEmpty', () => false)
 const artlistData = useArtlist(await useFetchPostData())
 const addArtListItem = () => {
   if (useScrollBottom()) {
-    pagenum++
-    useFetchPostData(route.path, route.query?.sort, pagenum).then((data) => {
+    pageNum++
+    useFetchPostData(route.params?.type as string, route.query?.sort, pageNum, route.params?.tag as string).then((data) => {
       artlistData.value.push(...data)
     })
   }
 }
-const { data } = await useFetch('/api/global')
-const articleAds = data.value.articleAds
 watch(route, () => {
-  pagenum = 1
+  pageNum = 1
   isLoading.value = true
-  useFetchPostData(route.path, route.query?.sort).then((data) => {
+  useFetchPostData(route.params?.type as string, route.query?.sort, pageNum, route.params?.tag as string).then((data) => {
     if (!data.length) {
       isEmpty.value = true
       return
@@ -45,11 +51,11 @@ onUnmounted(() => {
     <ArticlesListUiSkeleton v-if="isLoading || isEmpty" />
     <ul v-else>
       <ArticlesListItemAds
-        :title="articleAds.title"
-        :author="articleAds.author"
-        :summary="articleAds.summary"
-        :cover="articleAds.cover"
-        :url="articleAds.url"
+        :title="articleAds?.title"
+        :author="articleAds?.author"
+        :summary="articleAds?.summary"
+        :cover="articleAds?.cover"
+        :url="articleAds?.url"
       />
       <ArticlesListItem
         v-for="item in artlistData"
