@@ -1,18 +1,19 @@
 <script setup lang="ts">
+const artlistData = useArtlist(await useFetchPostData())
+const { data } = await useFetch('/api/global')
 const route = useRoute()
 let pagenum = 1
 const isLoading = useState('isLoading', () => false)
-const artlistData = useArtlist(await useFetchPostData())
-const isEmpty = useState('isEmpty', () => true)
+const isEmpty = useState('isEmpty', () => false)
+const articleAds = data.value.articleAds
 const addArtListItem = async () => {
   if (useScrollBottom()) {
-    pagenum++
-    const artlistVal = await useFetchPostData(route.path, route.query?.sort, pagenum)
+    const artlistVal = await useFetchPostData(route.path, route.query?.sort, pagenum++)
     artlistData.value.push(...artlistVal)
   }
 }
-const { data } = await useFetch('/api/global')
-const articleAds = data.value.articleAds
+
+const bottomHandler = useThrottle(addArtListItem)
 watch(route, async () => {
   pagenum = 1
   isLoading.value = true
@@ -25,7 +26,6 @@ watch(route, async () => {
   isLoading.value = false
   isEmpty.value = false
 }, { deep: true })
-const bottomHandler = useThrottle(addArtListItem)
 onBeforeMount(() => {
   const EmployeeWindow = window as any
   EmployeeWindow.addEventListener('scroll', bottomHandler)
