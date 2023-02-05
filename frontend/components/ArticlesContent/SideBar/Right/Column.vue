@@ -94,7 +94,7 @@ const handleClick = () => {
   -webkit-line-clamp: 2;
 }
 .next-article-list {
-  @apply absolute bottom-100% right-17px border-1px border-solid border-jj-border p-0;
+  @apply absolute bottom-100% right-17px border-1px border-solid border-jj-border-normal p-0;
   box-shadow: 0 8px 24px rgb(81 87 103 / 16%);
 }
 .article-list {

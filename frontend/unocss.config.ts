@@ -65,9 +65,18 @@ export default defineConfig({
         },
         sidebar: 'var(--juejin-color-bg-sidebar)',
         content: 'var(--juejin-color-text-content)',
-        container: 'var(--juejin-color-text-container)',
-        containerhover: 'var(--juejin-color-container-hover)',
-        border: 'var(--juejin-article-list-border)',
+        container: {
+          normal: 'var(--juejin-color-text-container)',
+          hover: {
+            normal: 'var(--juejin-color-container-hover)',
+          },
+        },
+        border: {
+          normal: 'var(--juejin-article-list-border)',
+          bottom: {
+            normal: 'var(--juejin-border-bottom)',
+          },
+        },
         stroke: {
           normal: 'var(--juejin-brand-stroke1-normal)',
         },
