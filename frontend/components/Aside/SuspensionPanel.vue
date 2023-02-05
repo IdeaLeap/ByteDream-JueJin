@@ -15,7 +15,9 @@ const to_top = () => {
       class="to_top_btn hover:shadow-md"
       @click="to_top"
     >
-      <div>
+      <div
+        title="回到顶部"
+      >
         <svg
           width="16"
           height="16"
@@ -33,7 +35,9 @@ const to_top = () => {
       </div>
     </div>
     <div class="to_top_btn hover:shadow-md">
-      <div>
+      <div
+        title="建议反馈"
+      >
         <svg
           width="16"
           height="16"
@@ -55,7 +59,7 @@ const to_top = () => {
 
 <style scoped>
 .suspension_panel_container {
-  @apply block
+  @apply block cursor-pointer
   @apply p-5 flex flex-col
 }
 
