@@ -3,7 +3,7 @@ const runtimeConfig = useRuntimeConfig()
 const { data: NavList } = await useFetch('/api/global/navs')
 const route = useRoute()
 const activeNav = computed(() => {
-  return NavList.value.find(item => item.url === route.path) || NavList[0]
+  return NavList.value.find(item => item.url === route.path) || NavList.value[0]
 })
 const [isMobileNavShown, toggleMobileNavShown] = useToggle()
 const isNavShown = inject('isNavShown')

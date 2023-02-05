@@ -1,17 +1,9 @@
 <script setup lang="ts">
-import type { PropType } from 'vue'
-import type { IArticleAd } from '~~/types/IGlobal'
-const props = defineProps({
-  articleAds: {
-    type: Object as PropType<IArticleAd>,
-    required: false,
-  },
-})
 const route = useRoute()
 let pageNum = 1
 const isLoading = useState('isLoading', () => false)
 const isEmpty = useState('isEmpty', () => false)
-const artlistData = useArtlist(await useFetchPostData())
+const artlistData = ref(await useFetchPostData(route.params?.type as string, route.query?.sort, pageNum, route.params?.tag as string))
 const addArtListItem = () => {
   if (useScrollBottom()) {
     pageNum++
@@ -20,7 +12,8 @@ const addArtListItem = () => {
     })
   }
 }
-watch(route, () => {
+const { data: articleAds } = await useFetch('/api/global/ad')
+watch(() => route, () => {
   pageNum = 1
   isLoading.value = true
   useFetchPostData(route.params?.type as string, route.query?.sort, pageNum, route.params?.tag as string).then((data) => {
@@ -48,7 +41,7 @@ onUnmounted(() => {
   <div class="articlelist">
     <ArticlesListNavigation />
     <!-- <ArticlesListItemAd /> -->
-    <ArticlesListUiSkeleton v-if="isLoading || isEmpty" />
+    <ArticlesListUiSkeleton v-if="isLoading || isEmpty || artlistData.length === 0" />
     <ul v-else>
       <ArticlesListItemAds
         :title="articleAds?.title"

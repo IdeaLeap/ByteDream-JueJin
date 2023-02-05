@@ -31,5 +31,4 @@ export interface IGlobal {
   links: ILinksItem[]
   ads: IAdsItem[]
   footers: IFootersItem[]
-  articleAds: IArticleAd
 }
