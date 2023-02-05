@@ -1,9 +1,9 @@
 <script setup lang="ts">
-defineProps({
-  viewed: Number,
-  liked: Number,
-  commented: Number,
-})
+defineProps<{
+  viewed: number
+  liked: number
+  commented: number
+}>()
 const format = (num: number) => {
   return num > 10000 ? `${(num / 10000).toFixed(1)}w` : num
 }
