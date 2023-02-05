@@ -60,7 +60,7 @@ const to_top = () => {
 }
 
 .to_top_btn {
-  @apply my-2 bg-jj_font_white p-4 rounded-full shadow
-  @apply dark:bg-dark_bg dark:shadow-light-50
+  @apply my-2 bg-jj_font_white p-4 rounded-full shadow-[0_2px_8px_rgba(50,50,50,0.04)]
+  @apply dark:bg-dark_bg dark:drop-shadow-[0_2px_8px_rgba(255,255,255,0.15)]
 }
 </style>
