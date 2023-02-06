@@ -125,11 +125,11 @@ watch(isNavShown, (val) => {
 onMounted(() => {
   headerHeight = document.querySelector('.main-header').clientHeight
   const route = useRoute()
-
+  window.addEventListener('scroll', onScroll)
+  window.addEventListener('scroll', scrollFixedCatalogue)
   setTimeout(() => {
     window.scroll(0, 0)
-    window.addEventListener('scroll', onScroll)
-    window.addEventListener('scroll', scrollFixedCatalogue)
+    firtstCatalogueTop.value = document.querySelector('.sticky-block-box').offsetTop
     if (route.hash) {
       const hashIndex = route.hash.slice(9)
       if (hashIndex !== -1) {
@@ -139,7 +139,6 @@ onMounted(() => {
         a.click()
       }
     }
-    firtstCatalogueTop.value = document.querySelector('.sticky-block-box').offsetTop
   }, 1)
 })
 

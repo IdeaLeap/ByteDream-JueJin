@@ -14,7 +14,7 @@ import themeStyle from './themeStyle'
 import highlightStyle from './highlightStyle'
 import type { IArticle } from '~~/types/IArticle'
 
-const props = defineProps({
+defineProps({
   article: {
     type: Object as () => IArticle,
     required: true,
@@ -38,9 +38,6 @@ function transformToId() {
   }
 }
 
-const route = useRoute()
-const url = ref(`/api/articles/${route.params.id}`)
-const { data: articleData } = await useFetch(url)
 onMounted(() => {
   transformToId()
 })
@@ -82,7 +79,7 @@ const { immerseState } = useImmerse()
 
     <div itemprop="articleBody" class="article-content">
       <div class="break-all lh-1.75em; fw-400 text-15px color-[#333]; overflow-x-hidden cache bg-jj-light">
-        <Viewer id="markdown-body" :value="articleData.article.content" :plugins="plugins" />
+        <Viewer id="markdown-body" :value="article.content" :plugins="plugins" />
       </div>
     </div>
   </article>
