@@ -1,5 +1,8 @@
 <script setup lang="ts">
+import { useWindowScroll } from '@vueuse/core'
 const { data: GlobalData } = await useFetch('/api/global')
+const { x, y } = useWindowScroll()
+const isNavShown = inject('isNavShown')
 </script>
 
 <template>
@@ -12,6 +15,12 @@ const { data: GlobalData } = await useFetch('/api/global')
     <!-- <AsideArticleList class="sidebar-block mb-5" /> -->
     <AsideFooters class="mb-5" :footers="GlobalData.footers" />
     <AsideSuspensionPanel class="fixed right-3 bottom-1" />
+    <transition>
+      <div v-show="y > 1370" class="hover-ads" :class="{ 'ads-nav-shown': isNavShown }">
+        <AsideAdvertisements :ads="GlobalData.ads" />
+        <AsideGadgets class="mb-5" :gadgets="GlobalData.gadgets" />
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -28,5 +37,22 @@ const { data: GlobalData } = await useFetch('/api/global')
 
 .index-aside {
   width: 20rem;
+}
+
+.hover-ads {
+  @apply fixed top-20 w-20rem transition-all duration-200
+}
+
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.2s ease;
+}
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
+}
+
+.ads-nav-shown {
+  @apply top-40 transition-all duration-200
 }
 </style>
