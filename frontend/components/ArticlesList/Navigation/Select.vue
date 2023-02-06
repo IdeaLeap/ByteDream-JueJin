@@ -33,34 +33,34 @@ const routeMap = {
   @apply z-9 relative
 }
 .dorp-down-area .drop-down {
-  @apply absolute top-1/2 left-0 text-[#909097] min-w-[4rem] -translate-y-1/2
+  @apply absolute top-1/2 left-0 text-jj-gray-drop-normal min-w-[4rem] -translate-y-1/2
 }
 li {
   @apply dark:bg-jj_bg_gray
 }
 .dropdown-toggle {
-  @apply box-border min-w-[7rem] text-[1rem] rounded-[2px] px-[10px] py-[2px] border border-solid border-[#ebebeb]
+  @apply box-border min-w-[7rem] text-[1rem] rounded-[2px] px-[10px] py-[2px] border border-solid border-jj-border-dropdown-normal
 }
 .dropdown-toggle:hover {
-  @apply bg-[#fafafb] cursor-pointer
-  @apply dark:hover-bg-[#111]
+  @apply bg-jj-dropdown-normal cursor-pointer
+  @apply dark:hover-bg-jj-black-dropdown-normal
 }
 .dropdown-menu {
   box-shadow: 0 1px 2px 0 rgb(0 0 0 / 5%);
   @apply text-left bg-white border border-[#ebebeb] absolute box-border top-[105%] left-0 z-1000 min-w-[7rem] text-[1rem] rounded-[0.17rem]
-  @apply dark:b-[#333]
+  @apply dark:b-jj-gray-container-normal
 }
 .dropdown-menu li {
   @apply overflow-hidden w-full
 }
 .dropdown-menu li a {
-  @apply block p-[0.83rem] text-[#909097] clear-both line-[1.7]
+  @apply block p-[0.83rem] text-jj-gray-drop-normal clear-both line-[1.7]
 }
 .toggled {
   @apply rotate-180
 }
 .dropdown-menu li a:hover {
-  @apply bg-[#fafafb]
-  @apply dark:hover-bg-[#111]
+  @apply bg-jj-dropdown-normal
+  @apply dark:hover-bg-jj-black-dropdown-normal
 }
 </style>

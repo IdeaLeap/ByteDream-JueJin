@@ -87,6 +87,9 @@ export default defineConfig({
           catalog: {
             normal: 'var(--jjext-color-gray-1-1)', // #e4e6eb
           },
+          dropdown: {
+            normal: '--jjext-color-border-drop-down', // #ebebeb
+          },
         },
         stroke: {
           normal: 'var(--juejin-brand-stroke1-normal)', // rgba(30,128,255,0.3)
@@ -102,11 +105,20 @@ export default defineConfig({
           divider: {
             normal: 'var(--jjext-color-gray-1-1)', // #e4e6eb
           },
+          container: {
+            normal: 'var(--jjext-color-link-continer)', // #333
+          },
+          drop: {
+            normal: 'var(--jjext-color-drop-down)', // #909097
+          },
         },
         black: {
           normal: 'var(--juejin-p-font-color)', // #000
           tooltip: {
-            normal: 'var(--jjext-color-popover)',
+            normal: 'var(--jjext-color-popover)', // rgba(0, 0, 0, 0.8)
+          },
+          dropdown: {
+            normal: 'var(--jjext-color-hover-drop-down)', // #111
           },
         },
         link: {
@@ -123,6 +135,27 @@ export default defineConfig({
         },
         tag: {
           normal: 'var(--jjext-color-tag-list)', // rgba(30, 128, 255, 0.16)
+        },
+        dropdown: {
+          normal: 'var(--jjext-color-background-drop-down)', // #fafafb
+        },
+        button: {
+          normal: 'var(--jjext-color-button-text)', // #2885FF
+          background: {
+            normal: 'var(--jjext-color-button-background)', // #F4F9FF
+          },
+          primary: {
+            normal: 'var(--jjext-color-button-primary-hover)', // #388EFF
+          },
+          plain: {
+            normal: 'var(--jjext-color-button-plain-hover)', // #E8F2FF
+          },
+        },
+        skeleton: {
+          normal: 'var(--jjext-color-skeleton-1)', // #E5E7EC
+          background: {
+            normal: 'var(--jjext-color-skeleton-2)', // #555
+          },
         },
       },
     },

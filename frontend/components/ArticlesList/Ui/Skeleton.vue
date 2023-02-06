@@ -24,8 +24,8 @@
   @apply align-middle relative inline-block overflow-hidden rounded-[4px] mx-[5px] my-[7px] h-[1.35rem]
 }
 .skeleton div {
-  @apply w-full h-full bg-[#E5E7EC] rounded-[2px]
-  @apply dark:bg-[#555]
+  @apply w-full h-full bg-jj-skeleton-normal rounded-[2px]
+  @apply dark:bg-jj-skeleton-background-normal
 }
 .skeleton::after {
   animation: shan .75s ease 0s infinite;

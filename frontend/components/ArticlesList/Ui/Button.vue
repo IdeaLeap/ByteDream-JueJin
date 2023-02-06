@@ -17,12 +17,12 @@ defineProps({
   @apply border border-solid border-jj-stroke-normal
 }
 .plain_button {
-  @apply text-[#2885FF] bg-[#F4F9FF]
+  @apply text-jj-button-normal bg-jj-button-background-normal
 }
 .primary_button:hover {
-  @apply bg-[#388EFF]
+  @apply bg-jj-button-primary-normal
 }
 .plain_button:hover {
-  @apply bg-[#E8F2FF]
+  @apply bg-jj-button-plain-normal
 }
 </style>

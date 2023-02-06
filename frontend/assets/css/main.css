@@ -82,6 +82,17 @@
   --jjext-color-popover: rgba(0, 0, 0, 0.8);
   --jjext-color-bg-gray:#27272a;
   --jjext-color-link-red:#ff0000;
+  --jjext-color-link-continer:#333;
+  --jjext-color-drop-down:#909097;
+  --jjext-color-border-drop-down:#ebebeb;
+  --jjext-color-hover-drop-down:#111;
+  --jjext-color-background-drop-down:#fafafb;
+  --jjext-color-button-text:#2885FF;
+  --jjext-color-button-background:#F4F9FF;
+  --jjext-color-button-primary-hover:#388EFF;
+  --jjext-color-button-plain-hover:#E8F2FF;
+  --jjext-color-skeleton-1:#E5E7EC;
+  --jjext-color-skeleton-2:#555;
 }
 
 html.light{
