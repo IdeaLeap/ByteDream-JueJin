@@ -53,36 +53,39 @@ export default defineConfig({
         article: 'var(--juejin-background-article)', // #ffffff
         main: 'var(--juejin-background-main)', // #f4f5f5
         font: {
-          normal: 'var(--juejin-h1-font-color)', // #252933
+          normal: 'var(--juejin-h1-font-color)', // #252933 #ffffff
           entry: {
             normal: 'var(--jjext-color-font-3)', // #8a919f
           },
         },
-        span: 'var(--juejin-span-font-color)', // #515767
-        p: 'var(--juejin-p-font-color)', // #000000
+        span: 'var(--juejin-span-font-color)', // #515767 #f7f8fa
+        p: 'var(--juejin-p-font-color)', // #000000 #f4f4f5
         light: 'var(--jjext-color-font-white)', // #fff
-        hover: 'var(--juejin-color-bg-hover)', // #FAFAFA
+        hover: 'var(--juejin-color-bg-hover)', // #FAFAFA #333
         brand: {
           font: {
-            normal: 'var(--juejin-font-brand1-normal)', // #1e80ff
+            normal: 'var(--juejin-font-brand1-normal)', // #1e80ff #4495ff
           },
-          normal: 'var(--juejin-brand-1-normal)', // #1e80ff
+          normal: 'var(--juejin-brand-1-normal)', // #1e80ff #2986ff
           light: {
             normal: 'var(--jjext-color-brand-5-light)', // #eaf2ff
           },
         },
-        sidebar: 'var(--juejin-color-bg-sidebar)', // #fff
-        content: 'var(--juejin-color-text-content)', // #1D2129
+        sidebar: 'var(--juejin-color-bg-sidebar)', // #fff #27272a
+        content: 'var(--juejin-color-text-content)', // #1D2129 #ffffff
         container: {
-          normal: 'var(--juejin-color-text-container)', // #333333
+          normal: 'var(--juejin-color-text-container)', // #333333 #ffffff
           hover: {
-            normal: 'var(--juejin-color-container-hover)', // #F7F8FA
+            normal: 'var(--juejin-color-container-hover)', // #F7F8FA #333
           },
         },
         border: {
-          normal: 'var(--juejin-article-list-border)', // #e4e6eb
+          normal: 'var(--juejin-article-list-border)', // #e4e6eb #212123
           bottom: {
-            normal: 'var(--juejin-border-bottom)', // #e4e6eb
+            normal: 'var(--juejin-border-bottom)', // #e4e6eb #1e80ff
+          },
+          catalog: {
+            normal: 'var(--jjext-color-gray-1-1)', // #e4e6eb
           },
         },
         stroke: {
@@ -102,6 +105,9 @@ export default defineConfig({
         },
         black: {
           normal: 'var(--juejin-p-font-color)', // #000
+          tooltip: {
+            normal: 'var(--jjext-color-popover)',
+          },
         },
         link: {
           normal: 'var(--link)', // #007fff
