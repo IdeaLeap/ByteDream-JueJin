@@ -43,9 +43,12 @@ const isNavShown = inject('isNavShown')
   @apply fixed top-20 w-20rem transition-all duration-200
 }
 
-.v-enter-active,
+.v-enter-active {
+  transition: opacity 0.2s ease-in-out ;
+}
 .v-leave-active {
-  transition: opacity 0.2s ease;
+  transform: translateY(-5rem);
+  transition: opacity 0.2s ease-in-out ;
 }
 .v-enter-from,
 .v-leave-to {
