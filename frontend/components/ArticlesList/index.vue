@@ -1,22 +1,17 @@
 <script setup lang="ts">
 const artlist = useArtlist(await useFetchPostData())
-const articleAds = (await useFetch('/api/global')).data.value.articleAds
+const { data: articleAds } = (await useFetch('/api/global/ad'))
 const isLoading = useState('isLoading', () => true)
 const route = useRoute()
 let pagenum = 1
 const addArtListItem = useThrottle(async () => {
-  useScrollBottom() && artlist.value.push(...(await useFetchPostData(route.path, route.query?.sort, ++pagenum)))
+  useScrollBottom() && artlist.value.push(...(await useFetchPostData(route?.params, route.query?.sort, ++pagenum)))
 })
 provide('artlist', artlist)
 provide('ads', articleAds)
 watch(route, async (r) => {
-  const paths = route.path.split('/')
-  const params = {
-    type: paths[1],
-    tag: paths[2],
-  }
   artlist.value = []
-  artlist.value = await useFetchPostData(params, route.query?.sort, pagenum = 1)
+  artlist.value = await useFetchPostData(route?.params, route.query?.sort, pagenum = 1)
 }, { deep: true, immediate: true })
 onMounted(() => {
   (window as any).addEventListener('scroll', addArtListItem)
