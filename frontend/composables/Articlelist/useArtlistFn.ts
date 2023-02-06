@@ -28,7 +28,7 @@ export const useFetchPostData = async (
   sort: any = 'recommended',
   pagenum = 1,
 ): Promise<IArticleItem[]> => {
-  const url = `/api/articles/list?sort=${sort}&type=${params?.type}&pageNum=${pagenum}&tag=${params?.tag || ''}`
+  const url = `/api/articles/list?sort=${sort}&type=${params?.type || ''}&pageNum=${pagenum}&tag=${params?.tag || ''}`
   const { data } = await useFetch(url)
   // 数据内容
   return data.value

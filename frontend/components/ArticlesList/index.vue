@@ -1,18 +1,18 @@
 <script setup lang="ts">
 const route = useRoute()
-const articleList = ref(await useFetchPostData(route?.params?.all))
+const articleList = ref(await useFetchPostData(route?.params))
 const { data: articleAds } = (await useFetch('/api/global/ad'))
 const isLoading = useState('isLoading', () => true)
 
 let pagenum = 1
 const addArtListItem = useThrottle(async () => {
-  useScrollBottom() && articleList.value.push(...(await useFetchPostData(route?.params?.all, route.query?.sort, ++pagenum)))
+  useScrollBottom() && articleList.value.push(...(await useFetchPostData(route?.params, route.query?.sort, ++pagenum)))
 })
 
 watch(() => route, async () => {
   // 目前仅在query改变生效
   articleList.value = []
-  articleList.value = await useFetchPostData(route?.params?.all, route.query?.sort, pagenum = 1)
+  articleList.value = await useFetchPostData(route?.params, route.query?.sort, pagenum = 1)
 }, { deep: true })
 onMounted(() => {
   (window as any).addEventListener('scroll', addArtListItem)

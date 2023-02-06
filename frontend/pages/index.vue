@@ -4,7 +4,7 @@
 
 <template>
   <div class="root">
-    <Main pb-8rem />
+    <Main />
   </div>
 </template>
 
