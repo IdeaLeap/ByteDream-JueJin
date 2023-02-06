@@ -1,6 +1,6 @@
 <script setup>
-const routeData = usePath(useRoute())
-const { data: tagList } = await useFetch(`/api/global/tags?type=${routeData.type}`)
+const route = useRoute()
+const { data: tagList } = await useFetch(`/api/global/tags?type=${route?.params?.all?.type}`)
 const isFold = useFold(false)
 const maxLength = 9
 </script>
@@ -10,12 +10,12 @@ const maxLength = 9
     <nav v-if="tagList.length > 0" class="tag-nav tag-navigator">
       <ul class="nav-list tag-list">
         <li class="nav-items tag active">
-          <NuxtLink :to="`/${routeData.type}`" class="nav-item">
+          <NuxtLink :to="`/${route?.params?.all?.type}`" class="nav-item">
             综合
           </NuxtLink>
         </li>
         <li v-for="(item, index) in tagList" :key="item.id" class="nav-items tag " :class="{ '!hidden': (index >= maxLength && !isFold) }">
-          <NuxtLink :to="`/${routeData.type}/${item.tag}`" class="nav-item">
+          <NuxtLink :to="`/${route?.params?.all?.type}/${item.tag}`" class="nav-item">
             {{ item.alias }}
           </NuxtLink>
         </li>

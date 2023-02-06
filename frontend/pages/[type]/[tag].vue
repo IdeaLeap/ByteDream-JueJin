@@ -1,9 +1,10 @@
 <script setup>
-const route = useRoute()
+
 </script>
 
 <template>
   <div class="root">
+    {{ useRoute() }}
     <Main pb-8rem />
   </div>
 </template>

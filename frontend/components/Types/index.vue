@@ -1,5 +1,5 @@
 <script setup>
-const routeData = usePath(useRoute())
+const route = useRoute()
 const runtimeConfig = useRuntimeConfig()
 const { data: typeList } = await useFetch('/api/global/types')
 const isNavShown = inject('isNavShown')
@@ -12,7 +12,7 @@ const isNavShown = inject('isNavShown')
         综合
       </NuxtLink>
       <div v-for="item in typeList" :key="item.type" class="list-item-wrapper">
-        <NuxtLink class="type-list-item" :to="`/${item.type}`" :class="{ 'router-link-exact-active': routeData.type === item.type }">
+        <NuxtLink class="type-list-item" :to="`/${item.type}`" :class="{ 'router-link-exact-active': route?.params?.all?.type === item.type }">
           {{ item.alias }}
         </NuxtLink>
         <div v-if="item.tags.data.length > 0" class="category-popover">

@@ -22,43 +22,14 @@ export const useArtlistPath = (path?: string | undefined) => useState('artlistPa
     return ''
   return path
 })
-export const usePath = (route?: any): any => {
-  if (!('all' in route.params)) {
-    return {
-      type: '',
-      tag: '',
-    }
-  }
-  if (route.params?.all.length === 2) {
-    return {
-      type: route.params.all[0],
-      tag: route.params.all[1],
-    }
-  }
-
-  if (route.params?.all.length === 1) {
-    return {
-      type: route.params.all[0],
-      tag: '',
-    }
-  }
-
-  if (route.params?.all.length === 0) {
-    return {
-      type: '',
-      tag: '',
-    }
-  }
-}
 
 export const useFetchPostData = async (
-  type?: string,
+  params?: any,
   sort: any = 'recommended',
   pagenum = 1,
-  tag?: string,
 ): Promise<IArticleItem[]> => {
-  type = type || '/'
-  const { data } = await useFetch(`/api/articles/list?sort=${sort}&type=${type.replace('/', '')}&pageNum=${pagenum}&tag=${tag || ''}`)
+  const url = `/api/articles/list?sort=${sort}&type=${params?.type}&pageNum=${pagenum}&tag=${params?.tag || ''}`
+  const { data } = await useFetch(url)
   // 数据内容
   return data.value
 }
