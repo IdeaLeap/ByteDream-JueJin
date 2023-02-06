@@ -124,11 +124,12 @@ watch(isNavShown, (val) => {
 })
 onMounted(() => {
   headerHeight = document.querySelector('.main-header').clientHeight
+  const route = useRoute()
   window.addEventListener('scroll', onScroll)
   window.addEventListener('scroll', scrollFixedCatalogue)
-
-  const route = useRoute()
   setTimeout(() => {
+    window.scroll(0, 0)
+    firtstCatalogueTop.value = document.querySelector('.sticky-block-box').offsetTop
     if (route.hash) {
       const hashIndex = route.hash.slice(9)
       if (hashIndex !== -1) {
@@ -139,7 +140,6 @@ onMounted(() => {
       }
     }
   }, 1)
-  firtstCatalogueTop.value = document.querySelector('.sticky-block-box').offsetTop
 })
 
 onUnmounted(() => {
@@ -149,7 +149,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="sidebar-block catalog-block catalog-block pure isExpand" style="">
+  <div class="sidebar-block catalog-block catalog-block pure isExpand">
     <nav class="article-catalog">
       <div class="catalog-title">
         目录
@@ -172,6 +172,7 @@ onUnmounted(() => {
   position: relative;
   top: -50px;
 }
+
 .sidebar-block {
   position: relative;
   /* margin-bottom: 1.5rem; */
@@ -185,6 +186,7 @@ onUnmounted(() => {
 .catalog-block {
   transition: all 0.2s linear;
 }
+
 .catalog-block.isExpand .article-catalog {
   height: 100%;
 }
@@ -232,18 +234,18 @@ onUnmounted(() => {
   line-height: 22px;
   /* color: #333; */
   list-style: none;
-  @apply text-jj-container-normal
+  @apply text-jj-container-normal;
 }
 
 .catalog-list .item.d1 {
   font-weight: 400;
   /* color: #000; */
-  @apply text-jj-black-normal
+  @apply text-jj-black-normal;
 }
 
 .catalog-list .item.active > .a-container {
   /* color: #007fff; */
-  @apply text-jj-link-normal
+  @apply text-jj-link-normal;
 }
 
 .catalog-list .item.active > .a-container:before {
@@ -256,18 +258,22 @@ onUnmounted(() => {
   height: 16px;
   /* background: #1e80ff; */
   border-radius: 0 4px 4px 0;
-  @apply bg-jj-blue-normal
+  @apply bg-jj-blue-normal;
 }
+
 .catalog-list .item.d1 > .a-container {
   margin: 0;
   padding: 0 0 0 11px;
 }
+
 .catalog-list .item.d2 > .a-container {
   padding-left: 26px;
 }
+
 .catalog-list .item.d3 > .a-container {
   padding-left: 41px;
 }
+
 .catalog-list .item .a-container {
   display: block;
   position: relative;
@@ -286,6 +292,6 @@ onUnmounted(() => {
   overflow: hidden;
   text-overflow: ellipsis;
   border-radius: 4px;
-  @apply text-jj-container-normal
+  @apply text-jj-container-normal;
 }
 </style>

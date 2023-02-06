@@ -54,13 +54,15 @@ export default defineEventHandler(async (event): Promise<IArticleItem[]> => {
       break
   }
   const type = query.type || ''// all、others
+  const tag = query.tag || ''// all、others
   const pageNum = query.pageNum || '1'// 1 to ∞
   const reqQuery = `query{
     articles(
       filters: { 
         and:[
           ${strategy[0]},
-          {typeId: { type: { ${type ? `eq: "${type}"` : ''} } }}
+          {typeId: { type: { ${type ? `eq: "${type}"` : ''} } }},
+          {tagIds: { tag: { ${tag ? `eq: "${tag}"` : ''} } }}
         ]
       }
       ${strategy[1]}
