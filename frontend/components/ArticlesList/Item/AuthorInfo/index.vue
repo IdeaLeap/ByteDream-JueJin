@@ -1,10 +1,10 @@
 <script setup lang="ts">
-defineProps({
-  name: String,
-  motto: String,
-  avatar: String,
-  rank: Number,
-})
+defineProps<{
+  name: string
+  motto: string
+  avatar: string
+  rank: number
+}>()
 </script>
 
 <template>
@@ -17,7 +17,7 @@ defineProps({
       <div class="info">
         <div class="name">
           <span>{{ name }}</span>
-          <img :src="`/lv-${rank}.png`" alt="等级">
+          <img :src="`https://pan.marlene.top/d/share/jj/${rank}.png`" alt="等级">
         </div>
         <div class="text-[#8f969c]">
           {{ motto }}
