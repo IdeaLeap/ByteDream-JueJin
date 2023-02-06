@@ -4,8 +4,7 @@
 
 <template>
   <div class="root">
-    {{ useRoute() }}
-    <Main pb-8rem />
+    <Main />
   </div>
 </template>
 
