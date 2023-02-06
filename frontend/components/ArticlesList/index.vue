@@ -2,7 +2,7 @@
 const artlist = useArtlist(await useFetchPostData())
 const articleAds = (await useFetch('/api/global')).data.value.articleAds
 const isLoading = useState('isLoading', () => true)
-const route = useRoute()
+
 let pagenum = 1
 const addArtListItem = useThrottle(async () => {
   useScrollBottom() && artlist.value.push(...(await useFetchPostData(route.path, route.query?.sort, ++pagenum)))
