@@ -29,7 +29,7 @@ const hideHandler = () => {
 
 <template>
   <li :id="`artlist_${uid}`" class="list_container">
-    <ArticlesListItemLink :to="`article/${uid}`">
+    <ArticlesListItemLink :to="`/article/${uid}`">
       <div class="left">
         <ArticlesListItemBarTop
           :author-id="authorId"

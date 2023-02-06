@@ -22,13 +22,14 @@ export const useArtlistPath = (path?: string | undefined) => useState('artlistPa
     return ''
   return path
 })
+
 export const useFetchPostData = async (
-  type?: string,
+  params?: any,
   sort: any = 'recommended',
   pagenum = 1,
 ): Promise<IArticleItem[]> => {
-  type = type || '/'
-  const { data } = await useFetch(`/api/articles/list?sort=${sort}&type=${type.replace('/', '')}&pageNum=${pagenum}`)
+  const url = `/api/articles/list?sort=${sort}&type=${params?.type || ''}&pageNum=${pagenum}&tag=${params?.tag || ''}`
+  const { data } = await useFetch(url)
   // 数据内容
   return data.value
 }

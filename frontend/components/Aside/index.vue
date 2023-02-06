@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 const { data: GlobalData } = await useFetch('/api/global')
 </script>
 
