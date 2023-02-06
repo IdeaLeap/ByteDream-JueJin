@@ -4,25 +4,25 @@ const ad = inject<IArticleAd>('ads')
 </script>
 
 <template>
-  <li v-if="ad">
-    <ArticlesListUiLink :to="ad.url">
+  <li>
+    <ArticlesListUiLink :to="ad?.url">
       <div class="overflow-hidden flex-1">
         <ArticlesListItemBarTop
-          :name="ad.author"
+          :name="ad?.author"
           duration="2天前"
         />
         <div>
           <div class="title">
-            {{ ad.title }}
+            {{ ad?.title }}
           </div>
           <div class="summary">
-            {{ ad.summary }}
+            {{ ad?.summary }}
           </div>
         </div>
       </div>
       <ArticlesListUiImg
-        :src="ad.cover"
-        :alt="ad.summary"
+        :src="ad?.cover"
+        :alt="ad?.summary"
       />
     </ArticlesListUiLink>
   </li>
