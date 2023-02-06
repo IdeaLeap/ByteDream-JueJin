@@ -130,7 +130,7 @@ export default defineConfig({
         blue: {
           normal: 'var(--jjext-color-brand)', // #1e80ff
           fill: {
-            narmal: 'var(--juejin-color-fill)', // #3686ff
+            narmal: 'var(--jjext-color-fill)', // #3686ff
           },
         },
         tag: {

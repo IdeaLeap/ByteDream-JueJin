@@ -93,6 +93,7 @@
   --jjext-color-button-plain-hover:#E8F2FF;
   --jjext-color-skeleton-1:#E5E7EC;
   --jjext-color-skeleton-2:#555;
+  --jjext-color-fill:#3686ff;
 }
 
 html.light{
@@ -199,7 +200,6 @@ html.light{
   --juejin-color-container-hover:#F7F8FA;
   --juejin-article-list-border:#e4e6eb;
   --juejin-border-bottom:#e4e6eb;
-  --juejin-color-fill:#3686ff;
 }
 
 html.dark{
