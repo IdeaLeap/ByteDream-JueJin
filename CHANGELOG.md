@@ -1,5 +1,76 @@
 # Changelog
 
+## [1.4.0](https://github.com/MarleneJiang/ByteDream-JueJin/compare/v1.3.0...v1.4.0) (2023-02-06)
+
+
+### Features
+
+* articles 添加author id字段 ([b2b56e3](https://github.com/MarleneJiang/ByteDream-JueJin/commit/b2b56e344552c673803c27c5f0ba051618a55f9f))
+* async await ([6850ae1](https://github.com/MarleneJiang/ByteDream-JueJin/commit/6850ae175cd397d069aecc305071513b5cdf71d8))
+* then to async await ([f64a0a8](https://github.com/MarleneJiang/ByteDream-JueJin/commit/f64a0a884f3fdf6b6d780c95358bca957f4deff4))
+* update ([8876f99](https://github.com/MarleneJiang/ByteDream-JueJin/commit/8876f992725afcffbc4e7f63fc4d76e6ed5e9a34))
+* update database ([3cc73c4](https://github.com/MarleneJiang/ByteDream-JueJin/commit/3cc73c417b17699c4a31d27596908119f0b31f4b))
+* 二级标签栏 ([f3803ba](https://github.com/MarleneJiang/ByteDream-JueJin/commit/f3803ba2395f411902c3e6a0b291e265f5c6d717))
+* 优化articleAds ([3e273a5](https://github.com/MarleneJiang/ByteDream-JueJin/commit/3e273a54011e2c58ec53d4eebb31e432c896c7e8))
+* 优化tags接口 ([86a6146](https://github.com/MarleneJiang/ByteDream-JueJin/commit/86a6146010561789cad8f8db86e8a190476685f8))
+* 优化接口debug ([7ef76b7](https://github.com/MarleneJiang/ByteDream-JueJin/commit/7ef76b736742f2ba0461b58217c527d2cff07d58))
+* 修改部分样式 ([83562de](https://github.com/MarleneJiang/ByteDream-JueJin/commit/83562ded15c4964ac03c8cb10050d9939b6b4618))
+* 分类栏重构 ([ae0ba58](https://github.com/MarleneJiang/ByteDream-JueJin/commit/ae0ba58f1f70fd6b861de05539a4193980bfff54))
+* 列表作者信息更新 ([7b883c0](https://github.com/MarleneJiang/ByteDream-JueJin/commit/7b883c0a4e35984fdf8a9b858ade02831b24e64b))
+* 导航栏自适应 ([faaf421](https://github.com/MarleneJiang/ByteDream-JueJin/commit/faaf421101460b426a89bf1e2e7abf0dad91c04b))
+* 导航栏隐藏 ([c2afd64](https://github.com/MarleneJiang/ByteDream-JueJin/commit/c2afd6470a446ac3bdb006c38576ad3b4ab79c66))
+* 文章列表接口新增作者信息 ([02aac99](https://github.com/MarleneJiang/ByteDream-JueJin/commit/02aac99637fae636b0e4951a3a1ff0ee2102f4b4))
+* 文章列表添加广告栏 ([c3b35a6](https://github.com/MarleneJiang/ByteDream-JueJin/commit/c3b35a6c362a4ca228267a648958918e03e749f6))
+* 文章详情页新增tooltip ([75bae90](https://github.com/MarleneJiang/ByteDream-JueJin/commit/75bae9076807d925c5409bdc9f7d31af82c63c8f))
+* 新增专栏 ([4377994](https://github.com/MarleneJiang/ByteDream-JueJin/commit/43779947635e86f38ef2ca3674a7057e6922be9d))
+* 新增了点击签到按钮签到（假） ([008eab2](https://github.com/MarleneJiang/ByteDream-JueJin/commit/008eab24ba6942b753c3d089687cf02c941d727b))
+* 新增标签栏路由 ([c31cd8b](https://github.com/MarleneJiang/ByteDream-JueJin/commit/c31cd8ba162c0c6af049226917918167bc2c204e))
+* 构建sourcemap ([177525d](https://github.com/MarleneJiang/ByteDream-JueJin/commit/177525d08aa1829d3f29f724cb24f9faa46a5907))
+* 添加.sentryclirc ([b97efb4](https://github.com/MarleneJiang/ByteDream-JueJin/commit/b97efb4512ce907bb904c83d9d4ce0689b3a943f))
+* 添加sentry ([5df26a1](https://github.com/MarleneJiang/ByteDream-JueJin/commit/5df26a1493052ae6cf2cf19196245c576a244461))
+* 添加sentry完成 ([75db683](https://github.com/MarleneJiang/ByteDream-JueJin/commit/75db683958fa4b78499c92f5decfb249dbde897a))
+* 添加删除按钮 ([b26d7e6](https://github.com/MarleneJiang/ByteDream-JueJin/commit/b26d7e60074cd1584373a0c2c4352b30f0d587c9))
+* 简化了一些代码 ([ee95c79](https://github.com/MarleneJiang/ByteDream-JueJin/commit/ee95c79ab7c76f5984fc534abd56ac236f5c283d))
+
+
+### Bug Fixes
+
+* border顔色 ([c885632](https://github.com/MarleneJiang/ByteDream-JueJin/commit/c885632c78dd01ec44deffdb31269566a796f89b))
+* fixed ([0f13ea7](https://github.com/MarleneJiang/ByteDream-JueJin/commit/0f13ea7d68bdecc3bf727c41a28ce36a147e823e))
+* fixed ([de7c339](https://github.com/MarleneJiang/ByteDream-JueJin/commit/de7c33980c53428931f9b695a567f168e34b5c0e))
+* route错误 ([cf078ab](https://github.com/MarleneJiang/ByteDream-JueJin/commit/cf078ab48a55014075260c20c0583314866274df))
+* 一些冲突 ([2801e4f](https://github.com/MarleneJiang/ByteDream-JueJin/commit/2801e4f3f3348a6bb712b399b05ec0fdc3ce431d))
+* 作者信息展示无法显示 ([65d8e67](https://github.com/MarleneJiang/ByteDream-JueJin/commit/65d8e67a01d7acbacdf2981d4ea2dbec8bdb2eab))
+* 作者等级图片 ([f8025d0](https://github.com/MarleneJiang/ByteDream-JueJin/commit/f8025d0a9194fb9269efcfc3fb00c6ae53101f58))
+* 作者面板无法显示问题 ([857d2bf](https://github.com/MarleneJiang/ByteDream-JueJin/commit/857d2bf91f8461026320c98df5e9e3ede26532c0))
+* 修复api报错 ([3c40ea8](https://github.com/MarleneJiang/ByteDream-JueJin/commit/3c40ea8e0a8722d9d0b5156e6ab2e4b14df03e45))
+* 修复eslint ([c98763f](https://github.com/MarleneJiang/ByteDream-JueJin/commit/c98763f84d158427841e3f7445fa1b10ece7b649))
+* 修复eslint报错 ([adaa0a3](https://github.com/MarleneJiang/ByteDream-JueJin/commit/adaa0a3c7888c8b6b88c164e41176d615acfb051))
+* 修复eslint报错 ([97f547e](https://github.com/MarleneJiang/ByteDream-JueJin/commit/97f547e2ed3d2cb1d60d5af94e972155a0dbe228))
+* 修复global接口 ([4de8cc3](https://github.com/MarleneJiang/ByteDream-JueJin/commit/4de8cc3ec9bf18defad0cce36848d1fc923f3058))
+* 修复专栏为空时报错 ([34cf1b4](https://github.com/MarleneJiang/ByteDream-JueJin/commit/34cf1b45aeeccda22401cd3a3fdfe58342fe85aa))
+* 修复专栏跳转bug ([5d9de39](https://github.com/MarleneJiang/ByteDream-JueJin/commit/5d9de39d308acd3af19c27d27fe124d13270fe83))
+* 修复加载页面卡顿问题 + 文章内容优化 ([5dec77d](https://github.com/MarleneJiang/ByteDream-JueJin/commit/5dec77d11d3dd3190b4812820d61c7b294b19881))
+* 修复导航栏选项 ([3cfcc58](https://github.com/MarleneJiang/ByteDream-JueJin/commit/3cfcc588d015351b63e4e986cb7bba519a9ee3e0))
+* 修复控制台告警 ([74e106c](https://github.com/MarleneJiang/ByteDream-JueJin/commit/74e106c66de323b4c79c4a57bb2ef5d2dabe3994))
+* 修复目录滚动抖动 ([b56169b](https://github.com/MarleneJiang/ByteDream-JueJin/commit/b56169b0f38eeb86ebb8b8571c39a9eeb1077d36))
+* 修复顶部高度占位 ([dc0dfe9](https://github.com/MarleneJiang/ByteDream-JueJin/commit/dc0dfe9fce14017bb1b53678b5cd4d2130bf4140))
+* 冗余代码修改 ([7b2457b](https://github.com/MarleneJiang/ByteDream-JueJin/commit/7b2457bf63ba96b354825f669c6466842ff33829))
+* 去除冗余代码 ([1a3a3f1](https://github.com/MarleneJiang/ByteDream-JueJin/commit/1a3a3f1ed5934e6b3c0d923a1e8ffcb4d9e412f9))
+* 增加hover框 ([f63d11c](https://github.com/MarleneJiang/ByteDream-JueJin/commit/f63d11cb50abf8551082d9201c5256ae039c998c))
+* 数据闪烁问题 ([a83eb4b](https://github.com/MarleneJiang/ByteDream-JueJin/commit/a83eb4b9fa66ad5413db9d48fc04ac6a01da7e09))
+* 文章列表跳转新标签页 ([575cb21](https://github.com/MarleneJiang/ByteDream-JueJin/commit/575cb21b7f502fe71f81c5821bb5866af8ce1cfc))
+* 更正className ([46cfb06](https://github.com/MarleneJiang/ByteDream-JueJin/commit/46cfb065ea41344a6fdcac928826b2a98f5a6e33))
+* 标签跳转 ([a438b31](https://github.com/MarleneJiang/ByteDream-JueJin/commit/a438b3126c9fd259b4bdda45f784da60325ca631))
+* 样式微调 ([78aaa01](https://github.com/MarleneJiang/ByteDream-JueJin/commit/78aaa0123bebb897865b501fd5c1d263468e3dc7))
+* 类名重复导致的宽度不一样 ([5dd00bd](https://github.com/MarleneJiang/ByteDream-JueJin/commit/5dd00bda45036cc14b798b7d2a5c434861056be9))
+* 触底刷新请求问题 ([0d95c58](https://github.com/MarleneJiang/ByteDream-JueJin/commit/0d95c58b47c1733253b977f87d017b3c22945708))
+
+
+### Performance Improvements
+
+* watchEffect改为watch，减少api请求 ([ffe90d8](https://github.com/MarleneJiang/ByteDream-JueJin/commit/ffe90d827e73f097019e4e7ef34f191cfb7a92ae))
+
 ## [1.3.0](https://github.com/MarleneJiang/ByteDream-JueJin/compare/v1.2.0...v1.3.0) (2023-02-01)
 
 
