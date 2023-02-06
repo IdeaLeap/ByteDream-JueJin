@@ -11,7 +11,7 @@ const hideHandler = (id: string) => {
 
 <template>
   <li v-for="art in artlist" :id="`artlist_${art.id}`" :key="art.id" class="list_container">
-    <ArticlesListUiLink :to="`article/${art.id}`">
+    <ArticlesListUiLink :to="`/article/${art.id}`">
       <div class="left">
         <ArticlesListItemBarTop
           :author-id="art.authorId"
