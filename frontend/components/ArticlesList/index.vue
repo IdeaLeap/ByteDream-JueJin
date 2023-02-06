@@ -1,13 +1,14 @@
 <script setup lang="ts">
 const route = useRoute()
+const routeData = usePath(route)
 let pageNum = 1
 const isLoading = useState('isLoading', () => false)
 const isEmpty = useState('isEmpty', () => false)
-const artlistData = ref(await useFetchPostData(route.params?.type as string, route.query?.sort, pageNum, route.params?.tag as string))
+const artlistData = ref(await useFetchPostData(routeData.type as string, route.query?.sort, pageNum, routeData.tag as string))
 const addArtListItem = () => {
   if (useScrollBottom()) {
     pageNum++
-    useFetchPostData(route.params?.type as string, route.query?.sort, pageNum, route.params?.tag as string).then((data) => {
+    useFetchPostData(routeData.type as string, route.query?.sort, pageNum, routeData.tag as string).then((data) => {
       artlistData.value.push(...data)
     })
   }
@@ -16,7 +17,9 @@ const { data: articleAds } = await useFetch('/api/global/ad')
 watch(() => route, () => {
   pageNum = 1
   isLoading.value = true
-  useFetchPostData(route.params?.type as string, route.query?.sort, pageNum, route.params?.tag as string).then((data) => {
+  const route = useRoute()
+  const routeData = usePath(route)
+  useFetchPostData(routeData.type as string, route.query?.sort, pageNum, routeData.tag as string).then((data) => {
     if (!data.length) {
       isEmpty.value = true
       return

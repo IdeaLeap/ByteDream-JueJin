@@ -5,7 +5,7 @@ const artlistPath = useArtlistPath()
 <template>
   <div class="link">
     <NuxtLink
-      :to="`${artlistPath === '' ? '/' : artlistPath}`"
+      :to="`${artlistPath}?`"
       :class="`${
         $route.query.sort ? 'text-gray-500' : 'text-link'
       } br text_style pl-0`"

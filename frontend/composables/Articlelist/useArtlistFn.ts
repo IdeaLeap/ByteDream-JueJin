@@ -22,6 +22,35 @@ export const useArtlistPath = (path?: string | undefined) => useState('artlistPa
     return ''
   return path
 })
+export const usePath = (route?: any): any => {
+  if (!('all' in route.params)) {
+    return {
+      type: '',
+      tag: '',
+    }
+  }
+  if (route.params?.all.length === 2) {
+    return {
+      type: route.params.all[0],
+      tag: route.params.all[1],
+    }
+  }
+
+  if (route.params?.all.length === 1) {
+    return {
+      type: route.params.all[0],
+      tag: '',
+    }
+  }
+
+  if (route.params?.all.length === 0) {
+    return {
+      type: '',
+      tag: '',
+    }
+  }
+}
+
 export const useFetchPostData = async (
   type?: string,
   sort: any = 'recommended',
