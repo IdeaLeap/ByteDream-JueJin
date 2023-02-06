@@ -42,7 +42,7 @@ const articleList = ArticleList.value.filter(item => item.id !== id.value)
   margin: 0 1.667rem;
   font-size: 16px;
   line-height: 2rem;
-  color: #1d2129;
+  /* color: #1d2129; */
   font-weight: 500;
   border-bottom: 1px solid;
   @apply text-jj-content border-b-jj-border-bottom-normal;
