@@ -19,12 +19,12 @@
   @apply border border-solid border-jj-stroke-normal
 }
 .plain {
-  @apply text-[#2885FF] bg-[#F4F9FF]
+  @apply text-jj-button-normal bg-jj-button-background-normal
 }
 .primary:hover {
-  @apply bg-[#388EFF]
+  @apply bg-jj-button-primary-normal
 }
 .plain:hover {
-  @apply bg-[#E8F2FF]
+  @apply bg-jj-button-plain-normal
 }
 </style>

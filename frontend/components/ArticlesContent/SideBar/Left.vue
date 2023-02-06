@@ -163,8 +163,8 @@ svg {
   @apply relative inline-block;
 }
 .tooltip .tooltiptext {
-  @apply absolute z-1 bottom-113% ml--25% w-70px h-45px lh-45px  text-#fff text-center rd-6px opacity-0 invisible;
-  background-color: rgba(0, 0, 0, 0.8);
+  @apply absolute z-1 bottom-113% ml--25% w-70px h-45px lh-45px  text-#fff text-center rd-6px opacity-0 invisible bg-jj-black-tooltip-normal;
+  /* background-color: rgba(0, 0, 0, 0.8); */
   transition: visibility 0s linear 0.3s, opacity 0.3s linear;
 }
 .tooltip:hover .tooltiptext {
