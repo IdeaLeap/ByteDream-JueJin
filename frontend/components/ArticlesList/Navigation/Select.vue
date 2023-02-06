@@ -13,9 +13,9 @@ const routeMap = {
 <template>
   <div v-if="route.query.sort && route.query.sort?.indexOf('hottest') !== -1" class="dorp-down-area">
     <div class="drop-down">
-      <div class="dropdown-toggle flex items-center justify-between" @click="isShow = !isShow">
+      <div class="dropdown-toggle" @click="isShow = !isShow">
         {{ routeMap[route.query.sort as string] }}
-        <div class="text-[#b2bac2]" i-carbon:caret-up :class="!isShow ? 'toggled' : ''" style="transition: all 0.5s" />
+        <div class="icon" i-carbon:caret-up :class="!isShow ? 'toggled' : ''" />
       </div>
       <ul v-if="isShow" class="dropdown-menu">
         <li v-for="(item, key) in routeMap" :key="item">
@@ -39,11 +39,14 @@ li {
   @apply dark:bg-jj_bg_gray
 }
 .dropdown-toggle {
-  @apply box-border min-w-[7rem] text-[1rem] rounded-[2px] px-[10px] py-[2px] border border-solid border-jj-border-dropdown-normal
+  @apply flex items-center justify-between box-border min-w-[7rem] text-[1rem] rounded-[2px] px-[10px] py-[2px] border border-solid border-jj-border-dropdown-normal
 }
 .dropdown-toggle:hover {
   @apply bg-jj-dropdown-normal cursor-pointer
   @apply dark:hover-bg-jj-black-dropdown-normal
+}
+.icon {
+  @apply text-[#b2bac2] transition-all
 }
 .dropdown-menu {
   box-shadow: 0 1px 2px 0 rgb(0 0 0 / 5%);

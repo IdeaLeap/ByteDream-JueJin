@@ -1,47 +1,34 @@
 <script setup lang="ts">
-defineProps({
-  title: String,
-  author: String,
-  summary: String,
-  cover: String,
-  url: String,
-})
+import type { IArticleAd } from '~~/types/IArticleItem'
+const ad = inject<IArticleAd>('ads')
 </script>
 
 <template>
   <li>
-    <ArticlesListItemLink :to="url">
+    <ArticlesListUiLink :to="ad?.url">
       <div class="overflow-hidden flex-1">
         <ArticlesListItemBarTop
-          :name="author"
+          :name="ad?.author"
           duration="2天前"
         />
         <div>
           <div class="title">
-            {{ title }}
+            {{ ad?.title }}
           </div>
           <div class="summary">
-            {{ summary }}
+            {{ ad?.summary }}
           </div>
         </div>
       </div>
-      <nuxt-img
-        :src="cover"
-        :alt="summary"
-        loading="lazy"
-        fit="fill"
-        quality="80"
-        format="webp"
-        class="cover"
+      <ArticlesListUiImg
+        :src="ad?.cover"
+        :alt="ad?.summary"
       />
-    </ArticlesListItemLink>
+    </ArticlesListUiLink>
   </li>
 </template>
 
 <style scoped>
-.cover {
-  @apply mx-[1.67rem] mb-[-2rem] w-[120px] h-[80px]
-}
 .title {
   @apply truncate  my-3 text-jj-font-normal text-[16px] title font-semibold tracking-wide
 }

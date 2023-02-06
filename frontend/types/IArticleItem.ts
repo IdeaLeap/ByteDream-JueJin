@@ -7,6 +7,13 @@ interface IAuthor {
   liked: Number
   viewed: Number
 }
+interface IArticleAd {
+  title: string
+  author: string
+  summary: string
+  cover: string
+  url: string
+}
 interface ITagItem {
   tag: string
   alias: string
@@ -26,4 +33,5 @@ interface IArticleItem {
 export {
   IArticleItem,
   ITagItem,
+  IArticleAd,
 }

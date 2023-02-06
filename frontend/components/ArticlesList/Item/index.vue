@@ -1,26 +1,8 @@
 <script setup lang="ts">
-import type { ITagItem } from '~~/types/IArticleItem'
-const { uid } = defineProps({
-  uid: String,
-  title: String,
-  viewed: Number,
-  liked: Number,
-  commented: Number,
-  summary: String,
-  cover: String,
-  createdAt: {
-    type: String,
-    required: true,
-  },
-  authorId: {
-    type: Object,
-    required: true,
-  },
-  tags: Array<ITagItem>,
-  index: Number,
-})
-const hideHandler = () => {
-  const lis = document.getElementById(`artlist_${uid}`)
+import type { IArticleItem } from '~~/types/IArticleItem'
+const artlist = inject<IArticleItem[]>('artlist')
+const hideHandler = (id: string) => {
+  const lis = document.getElementById(`artlist_${id}`)
   if (lis === null)
     return
   lis.style.display = 'none'
@@ -28,31 +10,32 @@ const hideHandler = () => {
 </script>
 
 <template>
-  <li :id="`artlist_${uid}`" class="list_container">
-    <ArticlesListItemLink :to="`/article/${uid}`">
+  <li v-for="art in artlist" :id="`artlist_${art.id}`" :key="art.id" class="list_container">
+    <ArticlesListUiLink :to="`article/${art.id}`">
       <div class="left">
         <ArticlesListItemBarTop
-          :author-id="authorId"
-          :duration="formatTime(createdAt)"
-          :tags="tags"
+          :author-id="art.authorId"
+          :duration="formatTime(art.createdAt)"
+          :tags="art.tagIds.data"
         />
-        <ArticlesListItemBarCenter :title="title" :summary="summary" />
-        <ArticlesListItemBarBottom :viewed="viewed" :liked="liked" :commented="commented" />
+        <ArticlesListItemBarCenter
+          :title="art.title" :summary="art.summary"
+        />
+        <ArticlesListItemBarBottom
+          :viewed="art.viewed"
+          :liked="art.liked"
+          :commented="art.commented"
+        />
       </div>
-      <nuxt-img
-        v-if="cover"
-        :src="cover"
-        :alt="summary"
-        loading="lazy"
-        fit="fill"
-        quality="80"
-        format="webp"
-        class="cover"
+      <ArticlesListUiImg
+        v-if="art.cover"
+        :src="art.cover"
+        :alt="art.summary"
       />
-    </ArticlesListItemLink>
+    </ArticlesListUiLink>
     <div
       class="icon"
-      @click="hideHandler"
+      @click="hideHandler(art.id)"
     />
   </li>
 </template>
@@ -69,8 +52,5 @@ const hideHandler = () => {
 }
 .icon {
   @apply i-carbon-close display-none cursor-pointer text-[16px] text-jj-fourthly hover:text-primary transition absolute top-[1rem] right-[1.67rem]
-}
-.cover {
-  @apply mx-[1.67rem] mb-[-2rem] w-[120px] h-[80px]
 }
 </style>
