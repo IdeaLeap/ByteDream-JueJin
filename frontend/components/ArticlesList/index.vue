@@ -1,15 +1,17 @@
 <script setup lang="ts">
-const articleList = useArtlist(await useFetchPostData())
+const artlist = useArtlist(await useFetchPostData())
 const articleAds = (await useFetch('/api/global')).data.value.articleAds
 const isLoading = useState('isLoading', () => true)
 const route = useRoute()
 let pagenum = 1
 const addArtListItem = useThrottle(async () => {
-  useScrollBottom() && articleList.value.push(...(await useFetchPostData(route.path, route.query?.sort, ++pagenum)))
+  useScrollBottom() && artlist.value.push(...(await useFetchPostData(route.path, route.query?.sort, ++pagenum)))
 })
+provide('artlist', artlist)
+provide('ads', articleAds)
 watch(route, async () => {
-  articleList.value = []
-  articleList.value = await useFetchPostData(route.path, route.query?.sort, pagenum = 1)
+  artlist.value = []
+  artlist.value = await useFetchPostData(route.path, route.query?.sort, pagenum = 1)
 }, { deep: true })
 onMounted(() => {
   (window as any).addEventListener('scroll', addArtListItem)
@@ -23,20 +25,11 @@ onUnmounted(() => {
 <template>
   <div class="articlelist">
     <ArticlesListNavigation />
-    <ArticlesListUiSkeleton v-if="isLoading || !articleList.length" />
+    <ArticlesListUiSkeleton v-if="isLoading || !artlist.length" />
     <ul v-else>
       <ClientOnly>
-        <ArticlesListItemAds
-          :title="articleAds.title" :author="articleAds.author"
-          :summary="articleAds.summary" :cover="articleAds.cover" :url="articleAds.url"
-        />
-        <ArticlesListItem
-          v-for="item in articleList"
-          :key="item.id" :uid="item.id" :title="item.title"
-          :viewed="item.viewed" :liked="item.liked" :commented="item.commented"
-          :summary="item.summary" :cover="item.cover" :created-at="item.createdAt"
-          :author-id="item.authorId" :tags="item.tagIds.data"
-        />
+        <ArticlesListItemAds />
+        <ArticlesListItem />
       </ClientOnly>
     </ul>
   </div>
