@@ -88,7 +88,7 @@ export default defineConfig({
             normal: 'var(--jjext-color-gray-1-1)', // #e4e6eb
           },
           dropdown: {
-            normal: '--jjext-color-border-drop-down', // #ebebeb
+            normal: 'var(--jjext-color-border-drop-down)', // #ebebeb
           },
           more: {
             normal: 'var(--jjext-color-more-list-border)', // #ddd
@@ -199,7 +199,13 @@ export default defineConfig({
             normal: 'var(--juejin-text-navs-item)', // #000000 //#e8ecfa
           },
           after: {
-            normal: 'var(--juejin-background-navs-item-after)', // #EF4444
+            normal: 'var(--juejin-color-navs-item-after)', // #EF4444
+          },
+        },
+        types: {
+          normal: 'var(--juejin-color-types-list)', // #71777c
+          tag: {
+            normal: 'var(--juejin-color-types-list-tag)', // #8a9aa9
           },
         },
       },

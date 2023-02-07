@@ -55,11 +55,12 @@ const isNavShown = inject('isNavShown')
   @apply bg-jj_navigation w-full fixed top-[5rem] lt-sm:(top-[4.333rem]) shadow-sm shadow-black/5 dark:shadow-white/5 h-[3.833rem] z-1;
 }
 .type-list-item{
-  @apply h-full w-auto float-left cursor-pointer whitespace-nowrap flex items-center p-x-[1rem] color-[#71777c] text-[1.16rem];
+  @apply h-full w-auto float-left cursor-pointer whitespace-nowrap flex items-center p-x-[1rem] text-jj-types-normal text-[1.16rem];
   @apply cursor-pointer;
 }
 .type-list-item:hover{
-  color: #1e80ff;
+  /* color: #1e80ff; */
+  @apply text-jj-blue-normal
 }
 
 .type-list{
@@ -90,15 +91,15 @@ const isNavShown = inject('isNavShown')
   @apply scale-100;
 }
 .category-popover {
-  @apply scale-0 transition-100 delay-150 transition-all;
+  @apply scale-0 transition-100 delay-150 transition-all bg-jj-light border-jj-border-dropdown-normal;
   position: fixed;
   top: 3.833rem;
   padding: 1.17rem 1.17rem .17rem;
   max-height: 16.67rem;
   font-weight: 400;
   line-height: 1.2;
-  background-color: #fff;
-  border: 1px solid #ebebeb;
+  /* background-color: #fff; */
+  /* border: 1px solid #ebebeb; */
   box-shadow: 0 1px 5px 0 rgb(0 0 0 / 15%);
   box-sizing: border-box;
   border-radius: 2px;
@@ -114,13 +115,14 @@ const isNavShown = inject('isNavShown')
     justify-content: center;
     align-items: center;
     height: 2rem;
-    background-color: #f4f5f5;
+    /* background-color: #f4f5f5; */
     border-radius: 1rem;
     font-size: 1.1rem;
-    color: #71777d;
+    /* color: #71777d; */
     padding: 0 .83rem;
     margin-right: 1rem;
     margin-bottom: 1rem;
+    @apply bg-jj-main text-jj-types-normal
 }
 .tag:hover{
   @apply text-link;

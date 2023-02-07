@@ -96,7 +96,9 @@
   --jjext-color-fill:#3686ff;
   --jjext-color-more-list:#9aa3ab;
   --jjext-color-more-list-border:#ddd;
-  --juejin-background-navs-item-after:#EF4444;
+  --juejin-color-navs-item-after:#EF4444;
+  --juejin-color-types-list:#71777c;
+  --juejin-color-types-list-tag:#8a9aa9;
 }
 
 html.light{
