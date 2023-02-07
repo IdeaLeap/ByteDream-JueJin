@@ -12,7 +12,7 @@ defineProps({
     <ul class="more-list">
       <li v-for="i in footers" :key="i" class="item">
         <span>{{ i.describe }}</span>
-        <NuxtLink v-if="i.footer && i.url " :to="i.url" target="_blank" rel="nofollow">
+        <NuxtLink v-if="i.footer " :to="i.url" target="_blank" rel="nofollow">
           <NuxtImg
             v-if="i.icon"
             :src="i.icon"
