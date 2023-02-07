@@ -1,5 +1,6 @@
 <script setup lang="ts">
-const artlist = useArtlist(await useFetchPostData())
+const initialArtlist = await useFetchPostData()
+const artlist = useState('artlist', () => initialArtlist)
 const articleAds = (await useFetch('/api/global')).data.value.articleAds
 const isLoading = useState(() => true)
 const route = useRoute()
