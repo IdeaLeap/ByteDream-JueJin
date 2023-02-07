@@ -76,7 +76,11 @@ const catalogueClass = (level) => {
  */
 let headerHeight
 const itemOffsetTop = ref([])
+const navRef = ref(null)
+const liRef = ref([])
+
 const onScroll = () => {
+  const navMid = navRef.value.clientHeight / 2
   itemOffsetTop.value = []
   Catalogue.value.forEach((val, i) => {
     const firstHead = document.querySelector(`#heading-${i}`)
@@ -92,6 +96,14 @@ const onScroll = () => {
     if (scrollTop >= itemOffsetTop.value[n].top)
       isActive.value = itemOffsetTop.value[n].key
   }
+  const activeELe = liRef.value[isActive.value]?.offsetTop
+  navMid > activeELe
+    ? navRef.value.scrollTo({
+      top: 0,
+    })
+    : navRef.value.scrollTo({
+      top: activeELe - navMid,
+    })
 
   window.scrollTo({
     left: 0,
@@ -117,10 +129,7 @@ const scrollFixedCatalogue = () => {
 }
 
 watch(isNavShown, (val) => {
-  if (val)
-    catalogue.style.top = `${currentTop + headerHeight}px`
-  else
-    catalogue.style.top = '1.767rem'
+  val ? catalogue.style.top = `${currentTop + headerHeight}px` : catalogue.style.top = '1.767rem'
 })
 onMounted(() => {
   headerHeight = document.querySelector('.main-header').clientHeight
@@ -154,9 +163,9 @@ onUnmounted(() => {
       <div class="catalog-title">
         目录
       </div>
-      <div class="catalog-body">
+      <div ref="navRef" class="catalog-body">
         <ul class="catalog-list" style="margin-top: 0px">
-          <li v-for="(item, index) in Catalogue" :key="index" :class="[{ active: index === isActive }, catalogueClass(item.level)]" @click="activeSelect(index)">
+          <li v-for="(item, index) in Catalogue" ref="liRef" :key="index" :class="[{ active: index === isActive }, catalogueClass(item.level)]" @click="activeSelect(index)">
             <div class="a-container">
               <a :href="`#heading-${index}`" :title="item.text" class="catalog-aTag hover:bg-jj-container-hover-normal"> {{ item.text }} </a>
             </div>
