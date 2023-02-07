@@ -1,7 +1,6 @@
 <script setup lang="ts">
 const route = useRoute()
 const isShow = useState('isShow', () => false)
-const artlistPath = useArtlistPath()
 const routeMap = {
   three_days_hottest: '3天内',
   weekly_hottest: '7天内',
@@ -19,7 +18,7 @@ const routeMap = {
       </div>
       <ul v-if="isShow" class="dropdown-menu">
         <li v-for="(item, key) in routeMap" :key="item">
-          <NuxtLink :to="`${artlistPath}?sort=${key}`" @click="isShow = false">
+          <NuxtLink :to="`?sort=${key}`" @click="isShow = false">
             {{ item }}
           </NuxtLink>
         </li>
