@@ -50,8 +50,8 @@ export default defineConfig({
       jj: {
         thirdly: 'var(--jjext-color-thirdly)', // #86909c
         fourthly: 'var(--jjext-color-fourthly)', // #c9cdd4
-        article: 'var(--juejin-background-article)', // #ffffff
-        main: 'var(--juejin-background-main)', // #f4f5f5
+        article: 'var(--juejin-background-article)', // #ffffff //#27272a
+        main: 'var(--juejin-background-main)', // #f4f5f5 //#18181c
         font: {
           normal: 'var(--juejin-h1-font-color)', // #252933 #ffffff
           entry: {
@@ -125,7 +125,7 @@ export default defineConfig({
           },
         },
         black: {
-          normal: 'var(--juejin-p-font-color)', // #000
+          normal: 'var(--juejin-p-font-color)', // #000 //#f4f4f5
           tooltip: {
             normal: 'var(--jjext-color-popover)', // rgba(0, 0, 0, 0.8)
           },
@@ -206,6 +206,9 @@ export default defineConfig({
           normal: 'var(--juejin-color-types-list)', // #71777c
           tag: {
             normal: 'var(--juejin-color-types-list-tag)', // #8a9aa9
+          },
+          background: {
+            normal: 'var(--juejin-color-types-tag-background)', // #f4f5f5
           },
         },
       },
