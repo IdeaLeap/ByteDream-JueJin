@@ -31,7 +31,7 @@ defineProps({
     <span :class="`duration ${tags.length ? 'duration-r' : ''}`">{{ duration }}</span>
     <div class="tag-container">
       <div v-for="(item, index) of tags" :key="item.tag" class="tag">
-        <span class="tag-content">{{ item.tag }}</span>
+        <span class="tag-content">{{ item.alias }}</span>
         <div v-if="index !== tags.length - 1" class="tag-icon" />
       </div>
     </div>
