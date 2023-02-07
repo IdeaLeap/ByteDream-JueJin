@@ -8,21 +8,23 @@ const hideHandler = (id: string) => {
 </script>
 
 <template>
-  <li v-for="art in artlist" :key="art.id" class="list_container">
-    <ArticlesListUiLink :to="`/article/${art.id}`">
-      <div class="left">
-        <ArticlesListItemBarTop
-          :author-id="art.authorId"
-          :duration="formatTime(art.createdAt)"
-          :tags="art.tagIds.data"
-        />
-        <ArticlesListItemBarCenter :title="art.title" :summary="art.summary" />
-        <ArticlesListItemBarBottom :viewed="art.viewed" :liked="art.liked" :commented="art.commented" />
-      </div>
-      <ArticlesListUiImg v-if="art.cover" :src="art.cover" :alt="art.summary" />
-    </ArticlesListUiLink>
-    <div class="icon" @click="hideHandler(art.id)" />
-  </li>
+  <ClientOnly>
+    <li v-for="art in artlist" :key="art.id" class="list_container">
+      <ArticlesListUiLink :to="`/article/${art.id}`">
+        <div class="left">
+          <ArticlesListItemBarTop
+            :author-id="art.authorId"
+            :duration="formatTime(art.createdAt)"
+            :tags="art.tagIds.data"
+          />
+          <ArticlesListItemBarCenter :title="art.title" :summary="art.summary" />
+          <ArticlesListItemBarBottom :viewed="art.viewed" :liked="art.liked" :commented="art.commented" />
+        </div>
+        <ArticlesListUiImg v-if="art.cover" :src="art.cover" :alt="art.summary" />
+      </ArticlesListUiLink>
+      <div class="icon" @click="hideHandler(art.id)" />
+    </li>
+  </ClientOnly>
 </template>
 
 <style scoped>

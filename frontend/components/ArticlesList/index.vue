@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const artlist = useArtlist(await useFetchPostData())
 const articleAds = (await useFetch('/api/global')).data.value.articleAds
-const isLoading = useState('isLoading', () => true)
+const isLoading = useState(() => true)
 const route = useRoute()
 let pagenum = 1
 const addArtListItem = useThrottle(async () => {
@@ -32,10 +32,8 @@ onUnmounted(() => {
     <ArticlesListNavigation />
     <ArticlesListUiSkeleton v-if="isLoading || !artlist.length" />
     <ul v-else>
-      <ClientOnly>
-        <ArticlesListItemAds />
-        <ArticlesListItem />
-      </ClientOnly>
+      <ArticlesListItemAds />
+      <ArticlesListItem />
     </ul>
   </div>
 </template>

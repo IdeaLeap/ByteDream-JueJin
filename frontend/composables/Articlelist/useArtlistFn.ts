@@ -16,13 +16,7 @@ export const formatTime = (createdAt: string): string => {
     ans = `${(duration / 60 / 24 / 30 / 365).toFixed(0)}年前`
   return ans
 }
-export const useArtlist = (data: IArticleItem[]) => useState('artlist', () => [...data] as IArticleItem[])
-export const useArtlistPath = (path?: string | undefined) => useState('artlistPath', () => {
-  if (path === undefined)
-    return ''
-  return path
-})
-
+export const useArtlist = (data: IArticleItem[]) => useState<IArticleItem[]>('artlist', () => [...data])
 export const useFetchPostData = async (
   params?: any,
   sort: any = 'recommended',
