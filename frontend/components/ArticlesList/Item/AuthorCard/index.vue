@@ -8,8 +8,8 @@ defineProps<{
 </script>
 
 <template>
-  <div class="author_panel">
-    <div class="author">
+  <div class="author_card">
+    <div class="about">
       <ArticlesListUiImg :src="avatar" :alt="name" avatar />
       <div class="info">
         <div class="name">
@@ -26,15 +26,15 @@ defineProps<{
 </template>
 
 <style scoped>
-.author_panel {
+.author_card {
   box-shadow: 0 8px 24px rgb(81 87 103 / 16%);
-  @apply bg-white absolute top-[-11rem] left-0 mlg:left-[-1.67rem]
+  @apply bg-white absolute top-[-10rem] left-0 mlg:left-[-1.67rem]
   @apply dark:shadow-jj_author_info dark:bg-jj-article dark:text-white
 }
-.author {
+.about {
   @apply flex items-center m-[1rem] mb-0
 }
-.author .info {
+.about .info {
   @apply pl-[1rem] flex flex-col justify-center
 }
 .name {
@@ -43,7 +43,7 @@ defineProps<{
 .name img {
   @apply w-[3rem] m-l-[1rem]
 }
-.author_panel::after {
+.author_card::after {
   border: 10px solid transparent;
   @apply w-0 h-0 border-[10px] border-t-white
   @apply absolute bottom-0 left-1/2 content-none -translate-x-1/2 translate-y-full

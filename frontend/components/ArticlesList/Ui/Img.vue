@@ -24,6 +24,6 @@ defineProps({
   @apply mx-[1.67rem] mb-[-2rem] w-[120px] h-[80px]
 }
 .avatar {
-  @apply w-20 h-20 rounded-full
+  @apply w-17 h-17 rounded-full
 }
 </style>
