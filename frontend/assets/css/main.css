@@ -94,6 +94,8 @@
   --jjext-color-skeleton-1:#E5E7EC;
   --jjext-color-skeleton-2:#555;
   --jjext-color-fill:#3686ff;
+  --jjext-color-more-list:#9aa3ab;
+  --jjext-color-more-list-border:#ddd;
 }
 
 html.light{
@@ -190,6 +192,8 @@ html.light{
   --juejin-background-jscore-radar: #232323;
   --juejin-background-article: #ffffff;
   --juejin-background-main: #f4f5f5;
+  --juejin-background-sign-button:#f4f9ff;
+  --juejin-background-signed-button:#f4f9ff;
   --juejin-h1-font-color: #252933;
   --juejin-span-font-color: #515767;
   --juejin-p-font-color: #000000;
@@ -200,6 +204,12 @@ html.light{
   --juejin-color-container-hover:#F7F8FA;
   --juejin-article-list-border:#e4e6eb;
   --juejin-border-bottom:#e4e6eb;
+  --juejin-border-sign:#8dbfff;
+  --juejin-hover-sign:#e8f2ff;
+  --juejin-text-sign:#1e80ff;
+  --juejin-text-signed:#abcdff;
+  --juejin-border-signed:#b3d5ff;
+  --juejin-text-signe-dayparts:#1e80ff;
 }
 
 html.dark{
@@ -297,6 +307,8 @@ html.dark{
   --juejin-background-jscore-radar: #232323;
   --juejin-background-article: #27272a;
   --juejin-background-main: #18181c;
+  --juejin-background-sign-button:#171d23;
+  --juejin-background-signed-button:#315078;
   --juejin-h1-font-color: #ffffff;
   --juejin-span-font-color: #f7f8fa;
   --juejin-p-font-color: #f4f4f5;
@@ -307,6 +319,12 @@ html.dark{
   --juejin-color-container-hover:#333;
   --juejin-article-list-border:#212123;
   --juejin-border-bottom:#1e80ff;
+  --juejin-border-sign:#2F5D99;
+  --juejin-hover-sign:#315078;
+  --juejin-text-sign:#388EFF;
+  --juejin-text-signed:#85BAFF;
+  --juejin-border-signed:#2F5D99;
+  --juejin-text-signe-dayparts:#6BABFF;
 }
 
 .page-enter-active,

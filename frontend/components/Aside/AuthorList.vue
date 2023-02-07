@@ -69,12 +69,12 @@ const { data: AuthorList } = await useFetch('/api/authors/list')
 .recommend-author-block .item .link .username {
   font-size: 1.16rem;
   font-weight: 400;
-  color: #333;
+  /* color: #333; */
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   margin-bottom: 3px;
-  @apply dark:text-jj_font_white;
+  @apply text-jj-container-normal;
 }
 
 .rank {
@@ -91,12 +91,13 @@ const { data: AuthorList } = await useFetch('/api/authors/list')
 
 .recommend-author-block .item .link .description,
 .recommend-author-block .item .link .position {
-  color: #909090;
+  /* color: #909090; */
   font-size: 1rem;
   margin-bottom: 3px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  @apply text-jj-gray-normal
 }
 
 .recommend-author-block .item .more {
@@ -114,7 +115,6 @@ const { data: AuthorList } = await useFetch('/api/authors/list')
 }
 
 .recommend-author-block {
-  background-color: #fff;
-  @apply dark:bg-jj_bg_gray;
+  @apply bg-jj-sidebar
 }
 </style>

@@ -88,7 +88,7 @@ nuxt-link {
 
 nuxt-link:link {
   text-decoration: none;
-  @apply text-jj-link-red
+  @apply text-jj-link-red-normal
 }
 
 .entry-title {
@@ -96,7 +96,7 @@ nuxt-link:link {
   font-size: 1.167rem;
   font-weight: 400;
   /* color: #252933; */
-  @apply  text-jj-font-normal;
+  @apply text-jj-font-normal;
 }
 
 .entry-meta-box {
