@@ -18,7 +18,7 @@ const articleList = ArticleList.value.filter(item => item.id !== id.value)
 
 <template>
   <div>
-    <div class="sidebar-block related-entry-sidebar-block shadow dark:bg-jj_bg_gray" st:block="relatedEntrySidebarBlock">
+    <div v-if="articleList.length > 0" class="sidebar-block related-entry-sidebar-block shadow dark:bg-jj_bg_gray" st:block="relatedEntrySidebarBlock">
       <div class="block-title">
         相关文章
       </div>

@@ -78,9 +78,15 @@ const { immerseState } = useImmerse()
     <nuxt-img v-if="article?.cover" loading="eager" :src="article?.cover" class="object-cover relative w-100%" />
 
     <div itemprop="articleBody" class="article-content">
-      <div class="break-all lh-1.75em; fw-400 text-15px color-[#333]; overflow-x-hidden cache bg-jj-light">
+      <div class="break-all lh-1.75em; fw-400 text-15px ; overflow-x-hidden cache">
         <Viewer id="markdown-body" :value="article.content" :plugins="plugins" />
       </div>
     </div>
   </article>
 </template>
+
+<style scoped>
+#markdown-body {
+  @apply text-jj-font-normal
+}
+</style>
