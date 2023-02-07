@@ -117,28 +117,41 @@ const isNavShown = inject('isNavShown')
 const firtstCatalogueTop = ref(0)
 let catalogue
 let currentTop
+let sideBar
+const { immerseState, immerseToggle } = useImmerse()
 const scrollFixedCatalogue = () => {
   const scrollTop = document.documentElement.scrollTop
-  const sideBar = document.querySelector('.sidebar')
+  sideBar = document.querySelector('.sidebar')
   catalogue = document.querySelector('.sticky-block-box')
   currentTop = parseFloat(window.getComputedStyle(catalogue).top)
   if (scrollTop - headerHeight > catalogue.offsetTop)
     sideBar.classList.add('sticky')
-  if (scrollTop <= firtstCatalogueTop.value)
+  if (scrollTop <= firtstCatalogueTop.value && !immerseState.value)
     sideBar.classList.remove('sticky')
 }
 
-watch(isNavShown, (val) => {
-  val ? catalogue.style.top = `${currentTop + headerHeight}px` : catalogue.style.top = '1.767rem'
+let originTop
+watch([isNavShown], (val) => {
+  // 写在一起会有卡顿
+  val[0] ? catalogue.style.top = `${currentTop + headerHeight}px` : catalogue.style.top = '1.767rem'
+})
+watch([immerseState], (val) => {
+  if (val[0]) {
+    sideBar.classList.add('sticky')
+  }
+  else {
+    firtstCatalogueTop.value = originTop
+    scrollFixedCatalogue()
+  }
 })
 onMounted(() => {
   headerHeight = document.querySelector('.main-header').clientHeight
   const route = useRoute()
-  window.addEventListener('scroll', onScroll)
-  window.addEventListener('scroll', scrollFixedCatalogue)
+
   setTimeout(() => {
     window.scroll(0, 0)
-    firtstCatalogueTop.value = document.querySelector('.sticky-block-box').offsetTop
+    window.addEventListener('scroll', onScroll)
+    window.addEventListener('scroll', scrollFixedCatalogue)
     if (route.hash) {
       const hashIndex = route.hash.slice(9)
       if (hashIndex !== -1) {
@@ -148,6 +161,8 @@ onMounted(() => {
         a.click()
       }
     }
+    originTop = document.querySelector('.sticky-block-box').offsetTop
+    firtstCatalogueTop.value = originTop
   }, 1)
 })
 
@@ -301,6 +316,5 @@ onUnmounted(() => {
   overflow: hidden;
   text-overflow: ellipsis;
   border-radius: 4px;
-  @apply text-jj-container-normal;
 }
 </style>
