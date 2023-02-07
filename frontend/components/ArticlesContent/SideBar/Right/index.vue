@@ -32,7 +32,7 @@ const { immerseState } = useImmerse()
 }
 .sticky .sticky-block-box {
   position: fixed;
-  top: 1.767rem;
+  top: 6.766999999999999rem;
   width: inherit;
   transition: top 0.2s;
 }

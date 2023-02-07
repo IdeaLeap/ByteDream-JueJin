@@ -37,6 +37,7 @@ const format = (num: number) => {
   @apply pl-2
 }
 .bottombar_item {
-  @apply text-jj_sec_app text-[13px] transition hover:text-primary
+  @apply text-jj_sec_app text-[13px] transition
+  @apply hover:text-primary
 }
 </style>

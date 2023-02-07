@@ -2,11 +2,12 @@
 defineProps<{
   title: string
   summary: string
+  ad?: boolean
 }>()
 </script>
 
 <template>
-  <div class="mainbar">
+  <div :class="`${ad ? 'pt-3' : 'py-3'}`">
     <div class="title">
       {{ title }}
     </div>
@@ -17,9 +18,6 @@ defineProps<{
 </template>
 
 <style scoped>
-.mainbar {
-  @apply py-3
-}
 .title {
   @apply truncate text-jj-font-normal text-[16px] title font-semibold tracking-wide
 }
