@@ -22,7 +22,7 @@ const { immerseState, immerseToggle } = useImmerse()
     <div v-show="!immerseState" class="share-btn panel-btn">
       <svg class="sprite-icon icon-share"><use xlink:href="#icon-share" /></svg>
     </div>
-    <div class="divider" v-show="!immerseState" />
+    <div v-show="!immerseState" class="divider" />
     <div v-show="!immerseState" class="panel-btn">
       <svg class="sprite-icon icon-report"><use xlink:href="#icon-report" /></svg>
     </div>

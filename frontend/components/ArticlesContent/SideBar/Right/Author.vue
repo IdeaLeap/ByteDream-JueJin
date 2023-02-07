@@ -9,7 +9,7 @@ defineProps({
 <template>
   <div class="sidebar-block author-block pure mb-20px bg-jj-sidebar">
     <NuxtLink href="#" target="_blank" rel class="user-item item pb-1.416rem">
-      <img :src="author.avatar" alt="avatar" class="lazy avatar" loading="lazy" />
+      <img :src="author.avatar" alt="avatar" class="lazy avatar" loading="lazy">
       <div class="info-box">
         <div class="username flex items-center">
           <span class="name text-jj-font-normal" style="max-width: 128px"> {{ author.name }} </span>
