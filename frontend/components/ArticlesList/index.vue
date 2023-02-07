@@ -32,9 +32,8 @@ onUnmounted(() => {
   <div class="bg-jj-article">
     <ArticlesListNavigation />
     <ArticlesListUiSkeleton v-if="isLoading || !artlist.length" />
-    <ul v-else>
-      <ArticlesListItemAds />
+    <ClientOnly v-else>
       <ArticlesListItem />
-    </ul>
+    </ClientOnly>
   </div>
 </template>
