@@ -1,6 +1,6 @@
 <script setup lang="ts">
-const initialArtlist = await useFetchPostData()
-const artlist = useState('artlist', () => initialArtlist)
+import type { IArticleItem } from '~~/types/IArticleItem'
+const artlist = ref<IArticleItem[]>([])
 const articleAds = (await useFetch('/api/global')).data.value.articleAds
 const isLoading = useState(() => true)
 const route = useRoute()
@@ -10,7 +10,7 @@ const addArtListItem = useThrottle(async () => {
 })
 provide('artlist', artlist)
 provide('ads', articleAds)
-watch(route, async (r) => {
+watch(route, async () => {
   const paths = route.path.split('/')
   const params = {
     type: paths[1],
@@ -29,7 +29,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="articlelist">
+  <div class="bg-jj-article">
     <ArticlesListNavigation />
     <ArticlesListUiSkeleton v-if="isLoading || !artlist.length" />
     <ul v-else>
@@ -38,9 +38,3 @@ onUnmounted(() => {
     </ul>
   </div>
 </template>
-
-<style scoped>
-.articlelist {
-  @apply bg-jj-article
-}
-</style>

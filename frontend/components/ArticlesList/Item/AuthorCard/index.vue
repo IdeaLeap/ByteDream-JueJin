@@ -29,7 +29,7 @@ defineProps<{
 .author_card {
   box-shadow: 0 8px 24px rgb(81 87 103 / 16%);
   @apply bg-white absolute top-[-10rem] left-0 mlg:left-[-1.67rem]
-  @apply dark:shadow-jj_author_info dark:bg-jj-article dark:text-white
+  @apply dark:bg-jj-article dark:text-white
 }
 .about {
   @apply flex items-center m-[1rem] mb-0

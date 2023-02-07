@@ -15,7 +15,7 @@ const format = (num: number) => {
       <div class="i-carbon-view" />
       <span class="heat">{{ viewed ? format(viewed) : '观看' }}</span>
     </div>
-    <div class="mid item">
+    <div class="mx-7 item">
       <div class="i-carbon-thumbs-up" />
       <span class="heat">{{ liked ? format(liked) : '点赞' }}</span>
     </div>
@@ -29,9 +29,6 @@ const format = (num: number) => {
 <style scoped>
 .bottombar {
   @apply flex all-flex all-items-center
-}
-.mid {
-  @apply mx-7
 }
 .heat {
   @apply pl-2
