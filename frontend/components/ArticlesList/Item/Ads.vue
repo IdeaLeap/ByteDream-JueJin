@@ -11,14 +11,7 @@ const ad = inject<IArticleAd>('ads')
           :name="ad?.author"
           duration="广告"
         />
-        <div>
-          <div class="title">
-            {{ ad?.title }}
-          </div>
-          <div class="summary">
-            {{ ad?.summary }}
-          </div>
-        </div>
+        <ArticlesListItemBarCenter ad :title="ad?.title" :summary="ad?.summary" />
       </div>
       <ArticlesListUiImg
         :src="ad?.cover"
@@ -30,7 +23,7 @@ const ad = inject<IArticleAd>('ads')
 
 <style scoped>
 .title {
-  @apply truncate  my-3 text-jj-font-normal text-[16px] title font-semibold tracking-wide
+  @apply truncate my-3 text-jj-font-normal text-[16px] title font-semibold tracking-wide
 }
 .summary {
   @apply whitespace-pre-wrap mlg:max-w-[520px] text-jj_thirdly text-[13px]
