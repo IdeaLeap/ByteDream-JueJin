@@ -96,6 +96,7 @@
   --jjext-color-fill:#3686ff;
   --jjext-color-more-list:#9aa3ab;
   --jjext-color-more-list-border:#ddd;
+  --juejin-background-navs-item-after:#EF4444;
 }
 
 html.light{
@@ -210,6 +211,10 @@ html.light{
   --juejin-text-signed:#abcdff;
   --juejin-border-signed:#b3d5ff;
   --juejin-text-signe-dayparts:#1e80ff;
+  --juejin-border-navs-header:#F3F4F6;
+  --juejin-border-navs-wrapper:#E5E7EB;
+  --juejin-navs-background:#ffffff;
+  --juejin-text-navs-item:#000000;
 }
 
 html.dark{
@@ -325,6 +330,10 @@ html.dark{
   --juejin-text-signed:#85BAFF;
   --juejin-border-signed:#2F5D99;
   --juejin-text-signe-dayparts:#6BABFF;
+  --juejin-border-navs-header:#494949;
+  --juejin-border-navs-wrapper:#494949;
+  --juejin-navs-background:#121212;
+  --juejin-text-navs-item:#e8ecfa;
 }
 
 .page-enter-active,

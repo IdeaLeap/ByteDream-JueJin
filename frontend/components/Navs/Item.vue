@@ -22,7 +22,8 @@ defineProps({
   line-height: 1;
   @apply h-full flex items-center text-[15px] border-b-2 border-transparent;
   @apply relative opacity-85 whitespace-nowrap;
-  @apply text-black dark:text-[#e8ecfa];
+  /* @apply text-black dark:text-[#e8ecfa]; */
+  @apply text-jj-navs-item-normal
 
 }
 .nav-item:hover {
@@ -31,7 +32,7 @@ defineProps({
 }
 .nav-item::after {
   @apply absolute left-2/3 top-[0.3rem] md:(top-[0.8rem]);
-  @apply bg-red-500 text-white;
+  @apply bg-jj-navs-after-normal text-jj-light;
   @apply rounded-full px-1.5 py-0.5 whitespace-nowrap;
   @apply transform-gpu scale-60 origin-top-left;
   content: attr(data-badge);

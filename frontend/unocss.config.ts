@@ -187,6 +187,21 @@ export default defineConfig({
             normal: 'var(--juejin-text-signe-dayparts)', // #1e80ff //#6BABFF
           },
         },
+        navs: {
+          normal: 'var(--juejin-border-navs-header)', // #F3F4F6 //#494949
+          wrapper: {
+            normal: 'var(--juejin-border-navs-wrapper)', // #E5E7EB //#494949
+          },
+          background: {
+            normal: 'var(--juejin-navs-background)', // #ffffff //#121212
+          },
+          item: {
+            normal: 'var(--juejin-text-navs-item)', // #000000 //#e8ecfa
+          },
+          after: {
+            normal: 'var(--juejin-background-navs-item-after)', // #EF4444
+          },
+        },
       },
     },
     breakpoints: {
