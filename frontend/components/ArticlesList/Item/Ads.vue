@@ -9,7 +9,7 @@ const ad = inject<IArticleAd>('ads')
       <div class="overflow-hidden flex-1">
         <ArticlesListItemBarTop
           :name="ad?.author"
-          duration="2天前"
+          duration="广告"
         />
         <div>
           <div class="title">
