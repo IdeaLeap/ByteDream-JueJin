@@ -51,8 +51,8 @@ const { immerseState } = useImmerse()
     </h1>
 
     <div class="flex items-center mb-1.667rem text-0">
-      <NuxtLink target="_blank" to="#" class="avatar-link" rel>
-        <nuxt-img class="bg-center w-3.333rem h-3.333rem mr-1rem bg-cover rd-50% bg-repeat inline-block relative" :src="article.authorId.avatar" loading="eager" />
+      <NuxtLink  target="_blank" to="#" class="avatar-link" rel>
+        <nuxt-img format="webp" class="authorAvatar" alt="authorAvatar" :src="article.authorId.avatar" loading="eager" />
       </NuxtLink>
       <div class="min-w-0 flex-1 min-h-43px">
         <div class="h-2rem flex items-center">
@@ -61,7 +61,7 @@ const { immerseState } = useImmerse()
               {{ article.authorId.name }}
             </span>
             <span v-show="!immerseState" blank="true" class="ml-0.33rem inline-flex items-center v-middle">
-              <img class="w-35px h-16px" :src="`https://pan.marlene.top/d/share/jj/${article.authorId.rank}.png`" loading="eager">
+              <nuxt-img format="webp" class="rank"  alt='rank' :src="`https://pan.marlene.top/d/share/jj/${article.authorId.rank}.png`" loading="eager" />
             </span>
           </NuxtLink>
         </div>
@@ -75,7 +75,7 @@ const { immerseState } = useImmerse()
       </div>
     </div>
 
-    <nuxt-img v-if="article?.cover" loading="eager" :src="article?.cover" class="object-cover relative w-100%" />
+    <nuxt-img v-if="article?.cover" loading="eager" :src="article?.cover" class="cover" alt="cover" />
 
     <div itemprop="articleBody" class="article-content">
       <div class="break-all lh-1.75em; fw-400 text-15px ; overflow-x-hidden cache">
@@ -88,5 +88,14 @@ const { immerseState } = useImmerse()
 <style scoped>
 #markdown-body {
   @apply text-jj-font-normal
+}
+.authorAvatar {
+  @apply bg-center w-3.333rem h-3.333rem mr-1rem bg-cover rd-50% bg-repeat inline-block relative
+}
+.rank{
+  @apply w-35px h-16px
+}
+.cover{
+ @apply object-cover relative w-100%
 }
 </style>
