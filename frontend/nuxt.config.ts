@@ -73,8 +73,4 @@ export default defineNuxtConfig({
     websiteId: 'f0ab5003-8840-46dc-956b-36dbabc6fa4f',
     scriptUrl: 'https://analytics.umami.is/script.js',
   },
-  sourcemap: {
-    server: false,
-    client: true,
-  },
 })
