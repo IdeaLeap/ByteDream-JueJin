@@ -4,6 +4,32 @@ const color = useColorMode()
 function toggleDark() {
   color.preference = color.value === 'dark' ? 'light' : 'dark'
 }
+if (process.client) {
+  const setDark = () => {
+    color.preference = color.value = 'dark'
+  }
+  const setLight = () => {
+    color.preference = color.value = 'light'
+  }
+  // 先获取media
+  const media = window.matchMedia('(prefers-color-scheme:dark)')
+  // 判断是否为暗主题
+  if (media.matches) {
+  // 匹配到暗主题
+    setDark()
+  }
+  else {
+  // 没有匹配到暗主题
+    setLight()
+  }
+  // 上面操作只会在页面加载时才会生效，因此，需要给media添加事件监听器
+  media.addEventListener('change', (e) => {
+    if (e.matches)
+      setDark()
+    else
+      setLight()
+  })
+}
 </script>
 
 <template>
