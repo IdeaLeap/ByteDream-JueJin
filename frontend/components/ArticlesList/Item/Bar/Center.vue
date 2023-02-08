@@ -7,7 +7,7 @@ defineProps<{
 </script>
 
 <template>
-  <div :class="`${ad ? 'pt-3' : 'py-3'}`">
+  <div :class="`${ad ? 'pt-3 mb-1' : 'py-4'}`">
     <div class="title">
       {{ title }}
     </div>

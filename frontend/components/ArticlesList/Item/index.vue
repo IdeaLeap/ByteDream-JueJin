@@ -1,14 +1,17 @@
 <script setup lang="ts">
+import { useAutoAnimate } from '@formkit/auto-animate/vue'
 import type { Ref } from 'vue'
 import type { IArticleItem } from '~~/types/IArticleItem'
 const artlist = inject<Ref<IArticleItem[]>>('artlist')
+const [parent] = useAutoAnimate()
 const hideHandler = (id: string) => {
   artlist && (artlist.value = artlist.value.filter(item => item.id !== id))
 }
 </script>
 
 <template>
-  <ClientOnly>
+  <ul ref="parent">
+    <ArticlesListItemAds />
     <li v-for="art in artlist" :key="art.id" class="list_container">
       <ArticlesListUiLink :to="`/article/${art.id}`">
         <div class="left">
@@ -24,7 +27,7 @@ const hideHandler = (id: string) => {
       </ArticlesListUiLink>
       <div class="icon" @click="hideHandler(art.id)" />
     </li>
-  </ClientOnly>
+  </ul>
 </template>
 
 <style scoped>
