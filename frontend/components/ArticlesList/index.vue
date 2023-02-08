@@ -1,19 +1,24 @@
 <script setup lang="ts">
+const initialArtlist = await useFetchPostData()
+const artlist = useState('artlist', () => initialArtlist)
+const articleAds = (await useFetch('/api/global')).data.value.articleAds
+const isLoading = useState(() => true)
 const route = useRoute()
-const articleList = ref(await useFetchPostData(route?.params))
-const { data: articleAds } = (await useFetch('/api/global/ad'))
-const isLoading = useState('isLoading', () => true)
-
 let pagenum = 1
 const addArtListItem = useThrottle(async () => {
-  useScrollBottom() && articleList.value.push(...(await useFetchPostData(route?.params, route.query?.sort, ++pagenum)))
+  useScrollBottom() && artlist.value.push(...(await useFetchPostData(route.path, route.query?.sort, ++pagenum)))
 })
-
-watch(() => route, async () => {
-  // 目前仅在query改变生效
-  articleList.value = []
-  articleList.value = await useFetchPostData(route?.params, route.query?.sort, pagenum = 1)
-}, { deep: true })
+provide('artlist', artlist)
+provide('ads', articleAds)
+watch(route, async (r) => {
+  const paths = route.path.split('/')
+  const params = {
+    type: paths[1],
+    tag: paths[2],
+  }
+  artlist.value = []
+  artlist.value = await useFetchPostData(params, route.query?.sort, pagenum = 1)
+}, { deep: true, immediate: true })
 onMounted(() => {
   (window as any).addEventListener('scroll', addArtListItem)
   isLoading.value = false
@@ -26,21 +31,10 @@ onUnmounted(() => {
 <template>
   <div class="articlelist">
     <ArticlesListNavigation />
-    <ArticlesListUiSkeleton v-if="isLoading || !articleList.length" />
+    <ArticlesListUiSkeleton v-if="isLoading || !artlist.length" />
     <ul v-else>
-      <ClientOnly>
-        <ArticlesListItemAds
-          :title="articleAds.title" :author="articleAds.author"
-          :summary="articleAds.summary" :cover="articleAds.cover" :url="articleAds.url"
-        />
-        <ArticlesListItem
-          v-for="item in articleList"
-          :key="item.id" :uid="item.id" :title="item.title"
-          :viewed="item.viewed" :liked="item.liked" :commented="item.commented"
-          :summary="item.summary" :cover="item.cover" :created-at="item.createdAt"
-          :author-id="item.authorId" :tags="item.tagIds.data"
-        />
-      </ClientOnly>
+      <ArticlesListItemAds />
+      <ArticlesListItem />
     </ul>
   </div>
 </template>

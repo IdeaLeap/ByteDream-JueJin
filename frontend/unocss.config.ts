@@ -50,39 +50,54 @@ export default defineConfig({
       jj: {
         thirdly: 'var(--jjext-color-thirdly)', // #86909c
         fourthly: 'var(--jjext-color-fourthly)', // #c9cdd4
-        article: 'var(--juejin-background-article)', // #ffffff
-        main: 'var(--juejin-background-main)', // #f4f5f5
+        article: 'var(--juejin-background-article)', // #ffffff //#27272a
+        main: 'var(--juejin-background-main)', // #f4f5f5 //#18181c
         font: {
-          normal: 'var(--juejin-h1-font-color)', // #252933
+          normal: 'var(--juejin-h1-font-color)', // #252933 #ffffff
           entry: {
             normal: 'var(--jjext-color-font-3)', // #8a919f
           },
         },
-        span: 'var(--juejin-span-font-color)', // #515767
-        p: 'var(--juejin-p-font-color)', // #000000
+        span: 'var(--juejin-span-font-color)', // #515767 #f7f8fa
+        p: 'var(--juejin-p-font-color)', // #000000 #f4f4f5
         light: 'var(--jjext-color-font-white)', // #fff
-        hover: 'var(--juejin-color-bg-hover)', // #FAFAFA
+        hover: 'var(--juejin-color-bg-hover)', // #FAFAFA #333
         brand: {
           font: {
-            normal: 'var(--juejin-font-brand1-normal)', // #1e80ff
+            normal: 'var(--juejin-font-brand1-normal)', // #1e80ff #4495ff
           },
-          normal: 'var(--juejin-brand-1-normal)', // #1e80ff
+          normal: 'var(--juejin-brand-1-normal)', // #1e80ff #2986ff
           light: {
             normal: 'var(--jjext-color-brand-5-light)', // #eaf2ff
           },
         },
-        sidebar: 'var(--juejin-color-bg-sidebar)', // #fff
-        content: 'var(--juejin-color-text-content)', // #1D2129
+        sidebar: 'var(--juejin-color-bg-sidebar)', // #fff #27272a
+        content: 'var(--juejin-color-text-content)', // #1D2129 #ffffff
         container: {
-          normal: 'var(--juejin-color-text-container)', // #333333
+          normal: 'var(--juejin-color-text-container)', // #333333 #ffffff
           hover: {
-            normal: 'var(--juejin-color-container-hover)', // #F7F8FA
+            normal: 'var(--juejin-color-container-hover)', // #F7F8FA #333
           },
         },
         border: {
-          normal: 'var(--juejin-article-list-border)', // #e4e6eb
+          normal: 'var(--juejin-article-list-border)', // #e4e6eb #212123
           bottom: {
-            normal: 'var(--juejin-border-bottom)', // #e4e6eb
+            normal: 'var(--juejin-border-bottom)', // #e4e6eb #1e80ff
+          },
+          catalog: {
+            normal: 'var(--jjext-color-gray-1-1)', // #e4e6eb
+          },
+          dropdown: {
+            normal: 'var(--jjext-color-border-drop-down)', // #ebebeb
+          },
+          more: {
+            normal: 'var(--jjext-color-more-list-border)', // #ddd
+          },
+          sign: {
+            normal: 'var(--juejin-border-sign)', // #8dbfff //#2F5D99
+          },
+          hover: {
+            normal: 'var(--juejin-hover-sign)', // #e8f2ff //#315078
           },
         },
         stroke: {
@@ -99,24 +114,102 @@ export default defineConfig({
           divider: {
             normal: 'var(--jjext-color-gray-1-1)', // #e4e6eb
           },
+          container: {
+            normal: 'var(--jjext-color-link-continer)', // #333
+          },
+          drop: {
+            normal: 'var(--jjext-color-drop-down)', // #909097
+          },
+          more: {
+            normal: 'var(--jjext-color-more-list)', // #9aa3ab
+          },
         },
         black: {
-          normal: 'var(--juejin-p-font-color)', // #000
+          normal: 'var(--juejin-p-font-color)', // #000 //#f4f4f5
+          tooltip: {
+            normal: 'var(--jjext-color-popover)', // rgba(0, 0, 0, 0.8)
+          },
+          dropdown: {
+            normal: 'var(--jjext-color-hover-drop-down)', // #111
+          },
         },
         link: {
           normal: 'var(--link)', // #007fff
           red: {
-            var: 'var(--jjext-color-link-red)', // #ff0000
+            normal: 'var(--jjext-color-link-red)', // #ff0000
           },
         },
         blue: {
           normal: 'var(--jjext-color-brand)', // #1e80ff
           fill: {
-            narmal: 'var(--juejin-color-fill)', // #3686ff
+            narmal: 'var(--jjext-color-fill)', // #3686ff
           },
         },
         tag: {
           normal: 'var(--jjext-color-tag-list)', // rgba(30, 128, 255, 0.16)
+        },
+        dropdown: {
+          normal: 'var(--jjext-color-background-drop-down)', // #fafafb
+        },
+        button: {
+          normal: 'var(--jjext-color-button-text)', // #2885FF
+          background: {
+            normal: 'var(--jjext-color-button-background)', // #F4F9FF
+          },
+          primary: {
+            normal: 'var(--jjext-color-button-primary-hover)', // #388EFF
+          },
+          plain: {
+            normal: 'var(--jjext-color-button-plain-hover)', // #E8F2FF
+          },
+          sign: {
+            normal: 'var(--juejin-background-sign-button)', // #f4f9ff //#171d23
+          },
+          text: {
+            normal: 'var(--juejin-text-sign)', // #1e80ff //#388EFF
+          },
+        },
+        skeleton: {
+          normal: 'var(--jjext-color-skeleton-1)', // #E5E7EC
+          background: {
+            normal: 'var(--jjext-color-skeleton-2)', // #555
+          },
+        },
+        signed: {
+          normal: 'var(--juejin-text-signed)', // #abcdff //#85BAFF
+          background: {
+            normal: 'var(--juejin-background-signed-button)', // #f4f9ff //#315078
+          },
+          border: {
+            normal: 'var(--juejin-border-signed)', // #b3d5ff //#2F5D99
+          },
+          dayparts: {
+            normal: 'var(--juejin-text-signe-dayparts)', // #1e80ff //#6BABFF
+          },
+        },
+        navs: {
+          normal: 'var(--juejin-border-navs-header)', // #F3F4F6 //#494949
+          wrapper: {
+            normal: 'var(--juejin-border-navs-wrapper)', // #E5E7EB //#494949
+          },
+          background: {
+            normal: 'var(--juejin-navs-background)', // #ffffff //#121212
+          },
+          item: {
+            normal: 'var(--juejin-text-navs-item)', // #000000 //#e8ecfa
+          },
+          after: {
+            normal: 'var(--juejin-color-navs-item-after)', // #EF4444
+          },
+        },
+        types: {
+          normal: 'var(--juejin-color-types-list)', // #71777c
+          tag: {
+            normal: 'var(--juejin-color-types-list-tag)', // #8a9aa9
+          },
+          background: {
+            normal: 'var(--juejin-color-types-tag-background)', // #f4f5f5
+          },
         },
       },
     },

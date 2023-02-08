@@ -18,7 +18,7 @@ const articleList = ArticleList.value.filter(item => item.id !== id.value)
 
 <template>
   <div>
-    <div class="sidebar-block related-entry-sidebar-block shadow dark:bg-jj_bg_gray" st:block="relatedEntrySidebarBlock">
+    <div v-if="articleList.length > 0" class="sidebar-block related-entry-sidebar-block shadow dark:bg-jj_bg_gray" st:block="relatedEntrySidebarBlock">
       <div class="block-title">
         相关文章
       </div>
@@ -42,7 +42,7 @@ const articleList = ArticleList.value.filter(item => item.id !== id.value)
   margin: 0 1.667rem;
   font-size: 16px;
   line-height: 2rem;
-  color: #1d2129;
+  /* color: #1d2129; */
   font-weight: 500;
   border-bottom: 1px solid;
   @apply text-jj-content border-b-jj-border-bottom-normal;
@@ -88,7 +88,7 @@ nuxt-link {
 
 nuxt-link:link {
   text-decoration: none;
-  @apply text-jj-link-red
+  @apply text-jj-link-red-normal
 }
 
 .entry-title {
@@ -96,7 +96,7 @@ nuxt-link:link {
   font-size: 1.167rem;
   font-weight: 400;
   /* color: #252933; */
-  @apply  text-jj-font-normal;
+  @apply text-jj-font-normal;
 }
 
 .entry-meta-box {

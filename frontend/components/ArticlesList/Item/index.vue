@@ -1,76 +1,43 @@
 <script setup lang="ts">
-import type { ITagItem } from '~~/types/IArticleItem'
-const { uid } = defineProps({
-  uid: String,
-  title: String,
-  viewed: Number,
-  liked: Number,
-  commented: Number,
-  summary: String,
-  cover: String,
-  createdAt: {
-    type: String,
-    required: true,
-  },
-  authorId: {
-    type: Object,
-    required: true,
-  },
-  tags: Array<ITagItem>,
-  index: Number,
-})
-const hideHandler = () => {
-  const lis = document.getElementById(`artlist_${uid}`)
-  if (lis === null)
-    return
-  lis.style.display = 'none'
+import type { Ref } from 'vue'
+import type { IArticleItem } from '~~/types/IArticleItem'
+const artlist = inject<Ref<IArticleItem[]>>('artlist')
+const hideHandler = (id: string) => {
+  artlist && (artlist.value = artlist.value.filter(item => item.id !== id))
 }
 </script>
 
 <template>
-  <li :id="`artlist_${uid}`" class="list_container">
-    <ArticlesListItemLink :to="`/article/${uid}`">
-      <div class="left">
-        <ArticlesListItemBarTop
-          :author-id="authorId"
-          :duration="formatTime(createdAt)"
-          :tags="tags"
-        />
-        <ArticlesListItemBarCenter :title="title" :summary="summary" />
-        <ArticlesListItemBarBottom :viewed="viewed" :liked="liked" :commented="commented" />
-      </div>
-      <nuxt-img
-        v-if="cover"
-        :src="cover"
-        :alt="summary"
-        loading="lazy"
-        fit="fill"
-        quality="80"
-        format="webp"
-        class="cover"
-      />
-    </ArticlesListItemLink>
-    <div
-      class="icon"
-      @click="hideHandler"
-    />
-  </li>
+  <ClientOnly>
+    <li v-for="art in artlist" :key="art.id" class="list_container">
+      <ArticlesListUiLink :to="`/article/${art.id}`">
+        <div class="left">
+          <ArticlesListItemBarTop
+            :author-id="art.authorId"
+            :duration="formatTime(art.createdAt)"
+            :tags="art.tagIds.data"
+          />
+          <ArticlesListItemBarCenter :title="art.title" :summary="art.summary" />
+          <ArticlesListItemBarBottom :viewed="art.viewed" :liked="art.liked" :commented="art.commented" />
+        </div>
+        <ArticlesListUiImg v-if="art.cover" :src="art.cover" :alt="art.summary" />
+      </ArticlesListUiLink>
+      <div class="icon" @click="hideHandler(art.id)" />
+    </li>
+  </ClientOnly>
 </template>
 
 <style scoped>
 .list_container {
-  @apply relative
+  @apply relative;
 }
 .list_container:hover .icon {
-  @apply block
+  @apply block;
 }
 .left {
-  @apply flex-1 truncate
+  @apply flex-1 truncate;
 }
 .icon {
-  @apply i-carbon-close display-none cursor-pointer text-[16px] text-jj-fourthly hover:text-primary transition absolute top-[1rem] right-[1.67rem]
-}
-.cover {
-  @apply mx-[1.67rem] mb-[-2rem] w-[120px] h-[80px]
+  @apply i-carbon-close display-none cursor-pointer text-[16px] text-jj-fourthly hover:text-primary transition absolute top-[1rem] right-[1.67rem];
 }
 </style>

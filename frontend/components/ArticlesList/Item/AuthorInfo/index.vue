@@ -10,10 +10,7 @@ defineProps<{
 <template>
   <div class="author_panel">
     <div class="author">
-      <nuxt-img
-        :src="avatar" :alt="name" loading="lazy" width="50" height="50" fit="fill" quality="80"
-        format="webp" class="rounded-full"
-      />
+      <ArticlesListUiImg :src="avatar" :alt="name" avatar />
       <div class="info">
         <div class="name">
           <span>{{ name }}</span>
@@ -24,14 +21,14 @@ defineProps<{
         </div>
       </div>
     </div>
-    <ArticlesListItemAuthorInfoBtns />
+    <ArticlesListUiBtns />
   </div>
 </template>
 
 <style scoped>
 .author_panel {
   box-shadow: 0 8px 24px rgb(81 87 103 / 16%);
-  @apply bg-white absolute top-[-9.5rem] left-0 mlg:left-[-1.67rem]
+  @apply bg-white absolute top-[-11rem] left-0 mlg:left-[-1.67rem]
   @apply dark:shadow-jj_author_info dark:bg-jj-article dark:text-white
 }
 .author {

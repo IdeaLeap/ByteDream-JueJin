@@ -12,17 +12,10 @@ export const formatTime = (createdAt: string): string => {
     ans = `${(duration / 60 / 24).toFixed(0)}天前`
   else if (duration < 60 * 24 * 30 * 365) // 一年内
     ans = `${(duration / 60 / 24 / 30).toFixed(0)}月前`
-  else // 超过一年
+  else if (duration >= 60 * 24 * 30 * 365) // 超过一年
     ans = `${(duration / 60 / 24 / 30 / 365).toFixed(0)}年前`
   return ans
 }
-export const useArtlist = (data: IArticleItem[]) => useState('artlist', () => [...data] as IArticleItem[])
-export const useArtlistPath = (path?: string | undefined) => useState('artlistPath', () => {
-  if (path === undefined)
-    return ''
-  return path
-})
-
 export const useFetchPostData = async (
   params?: any,
   sort: any = 'recommended',
