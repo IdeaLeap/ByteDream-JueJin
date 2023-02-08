@@ -46,7 +46,7 @@ export default defineConfig({
       jj_font_white: 'var(--jjext-color-font-white)', // #ffffff
       jj_font_black: 'var(--jjext-color-font-1)', // #252933
       jj_bg_gray: 'var(--jjext-color-bg-gray)', // #27272a
-      jj_navigation: 'var(--juejin-navigation)',
+      jj_navigation: 'var(--juejin-navigation)', // #fff //#181818
       jj: {
         thirdly: 'var(--jjext-color-thirdly)', // #86909c
         fourthly: 'var(--jjext-color-fourthly)', // #c9cdd4
@@ -98,6 +98,9 @@ export default defineConfig({
           },
           hover: {
             normal: 'var(--juejin-hover-sign)', // #e8f2ff //#315078
+          },
+          category: {
+            normal: 'var(--juejin-category-popover-border)', // #ebebeb //#201f1f
           },
         },
         stroke: {
