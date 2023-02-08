@@ -75,7 +75,7 @@ const { immerseState, immerseToggle } = useImmerse()
 }
 .list-icon {
   @apply inline-block box-content w-16px h-24px py-4px px-6px my-12px mx-10px;
-  @apply hover:bg-jj_bg rd-4px cursor-pointer fill-jj-black-normal;
+  @apply hover:bg-jj-gray-icon-normal rd-4px cursor-pointer fill-jj-black-normal;
   transition: transform 0.5s;
   /* fill: #000; */
 }
@@ -115,7 +115,7 @@ const { immerseState, immerseToggle } = useImmerse()
   @apply p-y-8px pr-0 pl-30px;
 }
 .list-item {
-  @apply text-14px c-jj-gray-text-normal fw-400 ml-4px overflow-hidden text-ellipsis;
+  @apply text-14px c-jj-span fw-400 ml-4px overflow-hidden text-ellipsis;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;

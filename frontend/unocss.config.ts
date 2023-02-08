@@ -123,6 +123,9 @@ export default defineConfig({
           more: {
             normal: 'var(--jjext-color-more-list)', // #9aa3ab
           },
+          icon: {
+            normal: 'var(--juejin-list-icon-hover)', // #f2f3f5 //#515767
+          },
         },
         black: {
           normal: 'var(--juejin-p-font-color)', // #000 //#f4f4f5

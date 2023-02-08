@@ -218,6 +218,7 @@ html.light{
   --juejin-border-navs-wrapper:#E5E7EB;
   --juejin-navs-background:#ffffff;
   --juejin-text-navs-item:#000000;
+  --juejin-list-icon-hover:#f2f3f5;
 }
 
 html.dark{
@@ -337,6 +338,7 @@ html.dark{
   --juejin-border-navs-wrapper:#494949;
   --juejin-navs-background:#121212;
   --juejin-text-navs-item:#e8ecfa;
+  --juejin-list-icon-hover:#515767;
 }
 
 .page-enter-active,
