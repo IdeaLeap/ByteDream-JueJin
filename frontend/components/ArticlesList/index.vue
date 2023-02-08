@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { IArticleItem } from '~~/types/IArticleItem'
-const artlist = ref<IArticleItem[]>([])
-const articleAds = (await useFetch('/api/global')).data.value.articleAds
+const artlist = useState<IArticleItem[]>(() => [])
+const articleAds = (await useFetch('/api/global/ad')).data.value
 const isLoading = useState(() => true)
 const route = useRoute()
 let pagenum = 1
