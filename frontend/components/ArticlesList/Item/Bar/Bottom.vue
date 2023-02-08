@@ -11,15 +11,15 @@ const format = (num: number) => {
 
 <template>
   <div class="bottombar">
-    <div class="bottombar_item">
+    <div class="item">
       <div class="i-carbon-view" />
       <span class="heat">{{ viewed ? format(viewed) : '观看' }}</span>
     </div>
-    <div class="mid bottombar_item">
+    <div class="mx-7 item">
       <div class="i-carbon-thumbs-up" />
       <span class="heat">{{ liked ? format(liked) : '点赞' }}</span>
     </div>
-    <div class="bottombar_item">
+    <div class="item">
       <div class="i-carbon-chat" />
       <span class="heat">{{ commented ? format(commented) : '评论' }}</span>
     </div>
@@ -30,13 +30,10 @@ const format = (num: number) => {
 .bottombar {
   @apply flex all-flex all-items-center
 }
-.mid {
-  @apply mx-7
-}
 .heat {
   @apply pl-2
 }
-.bottombar_item {
+.item {
   @apply text-jj_sec_app text-[13px] transition
   @apply hover:text-primary
 }

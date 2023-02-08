@@ -25,10 +25,11 @@ const isActive = ref(false)
 const handleClick = () => {
   isActive.value = !isActive.value
 }
+const { immerseState, immerseToggle } = useImmerse()
 </script>
 
 <template>
-  <nav v-if="hasColumn" class="next-article">
+  <nav v-if="hasColumn" v-show="!immerseState" class="next-article">
     <div class="next-article-header">
       <div class="next-article-title">
         下一篇

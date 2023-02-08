@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "nuxi build && sentry-cli releases files 1.0.0 upload-sourcemaps .nuxt/dist/client/_nuxt",
+    "build": "nuxi build",
     "dev": "nuxi dev",
     "start": "node .output/server/index.mjs",
     "lint": "eslint .",
@@ -33,6 +33,7 @@
     "@bytemd/vue-next": "^1.20.0",
     "@commitlint/cli": "^17.4.2",
     "@commitlint/config-conventional": "^17.4.2",
+    "@formkit/auto-animate": "^1.0.0-beta.6",
     "@iconify-json/carbon": "^1.1.10",
     "@iconify-json/twemoji": "^1.1.5",
     "@nuxtjs/color-mode": "^3.2.0",
