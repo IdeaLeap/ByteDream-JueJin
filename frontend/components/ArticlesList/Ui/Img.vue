@@ -21,7 +21,8 @@ defineProps({
 
 <style scoped>
 .cover {
-  @apply mx-[1.67rem] mb-[-2rem] w-[120px] h-[80px]
+  /* display: none; */
+  @apply ml-[1.67rem] mb-[-1.85rem] w-[120px] h-[80px]
 }
 .avatar {
   @apply w-17 h-17 rounded-full

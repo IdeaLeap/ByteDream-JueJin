@@ -32,7 +32,7 @@
   @apply all-px-5 all-my-4 flex
 }
 .text_style {
-  @apply focus:text-link hover:text-link
+  @apply focus:text-link hover:text-link dark:border-[#888]
 }
 .br {
   @apply border-r-1
