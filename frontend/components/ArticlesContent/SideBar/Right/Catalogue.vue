@@ -132,7 +132,6 @@ const scrollFixedCatalogue = () => {
 
 let originTop
 watch([isNavShown], (val) => {
-  // 写在一起会有卡顿
   val[0] ? catalogue.style.top = `${currentTop + headerHeight}px` : catalogue.style.top = '1.767rem'
 })
 watch([immerseState], (val) => {
@@ -193,14 +192,11 @@ onUnmounted(() => {
 
 <style scoped>
 #heading-3 {
-  position: relative;
-  top: -50px;
+  @apply relative top--50px
 }
 
 .sidebar-block {
-  position: relative;
-  /* margin-bottom: 1.5rem; */
-  margin-bottom: 20px;
+  @apply relative mb-20px
 }
 
 .catalog-block.isExpand {
@@ -216,20 +212,11 @@ onUnmounted(() => {
 }
 
 .article-catalog {
-  /* background: #fff; */
-  border-radius: 4px;
-  padding: 0;
-  @apply bg-jj-sidebar;
+  @apply bg-jj-sidebar p-0 rd-4px
 }
 
 .catalog-title {
-  font-weight: 500;
-  padding: 1.333rem 0;
-  margin: 0 1.667rem;
-  font-size: 16px;
-  line-height: 2rem;
-  /* color: #1d2129; */
-  border-bottom: 1px solid;
+  @apply fw-500 py-1.333rem px-0 mx-1.667rem my-0 text-16px lh-2rem border-b-1 border-b-solid;
   @apply text-jj-content border-b-jj-border-bottom-normal;
 }
 
@@ -238,56 +225,35 @@ onUnmounted(() => {
 }
 
 .catalog-body {
-  position: relative;
-  max-height: 460px;
-  margin: 8px 4px 0 0;
-  overflow: auto;
+  @apply relative overflow-auto max-h-460px mt-8px mr-4px mb-0 ml-0;
 }
 
 .catalog-list {
-  position: relative;
-  line-height: 22px;
-  padding: 0 0 12px;
+  @apply relative lh-22px pb-12px p-0;
 }
 
 .catalog-list .item {
-  margin: 0;
-  padding: 0;
-  font-size: 1.167rem;
-  font-weight: 400;
-  line-height: 22px;
-  /* color: #333; */
-  list-style: none;
+  @apply m-0 p-0 text-size-1.167rem fw-400 lh-22px list-none;
   @apply text-jj-container-normal;
 }
 
 .catalog-list .item.d1 {
   font-weight: 400;
-  /* color: #000; */
   @apply text-jj-black-normal;
 }
 
 .catalog-list .item.active > .a-container {
-  /* color: #007fff; */
   @apply text-jj-link-normal;
 }
 
 .catalog-list .item.active > .a-container:before {
+  @apply absolute top-4px left-0 mt-7px w-4px h-16px rd-r-4px;
   content: '';
-  position: absolute;
-  top: 4px;
-  left: 0;
-  margin-top: 7px;
-  width: 4px;
-  height: 16px;
-  /* background: #1e80ff; */
-  border-radius: 0 4px 4px 0;
   @apply bg-jj-blue-normal;
 }
 
 .catalog-list .item.d1 > .a-container {
-  margin: 0;
-  padding: 0 0 0 11px;
+  @apply p-0 pl-11px m-0;
 }
 
 .catalog-list .item.d2 > .a-container {
@@ -299,22 +265,10 @@ onUnmounted(() => {
 }
 
 .catalog-list .item .a-container {
-  display: block;
-  position: relative;
-  padding: 0 0 0 12px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  @apply block relative p-0 pl-12px truncate;
 }
 
 .catalog-list .catalog-aTag {
-  color: inherit;
-  display: inline-block;
-  padding: 8px;
-  width: 90%;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  border-radius: 4px;
+  @apply color-inherit inline-block p-8px w-90% rd-4px truncate
 }
 </style>
