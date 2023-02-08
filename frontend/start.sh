@@ -1,2 +1,2 @@
 yarn build;
-node .output/server/index.mjs
+PORT=8885 node .output/server/index.mjs;
