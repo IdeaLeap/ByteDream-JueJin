@@ -61,7 +61,8 @@ defineProps({
 .more-list {
   font-size: 1rem;
   line-height: 1.6;
-  color: #9aa3ab;
+  /* color: #9aa3ab; */
+  @apply text-jj-gray-more-normal
 }
 .more-list .item {
   float: left;
@@ -77,7 +78,8 @@ defineProps({
   clear: both;
 }
 .more-list .item span {
-  color: #909090;
+  /* color: #909090; */
+  @apply text-jj-gray-normal
 }
 .more-list.account-list {
   display: flex;
@@ -103,15 +105,16 @@ defineProps({
 }
 .more-list.account-list .wechat .qr-panel {
   position: absolute;
-  background: #fff;
+  /* background: #fff; */
   width: 10rem;
   top: 100%;
   left: -100%;
   z-index: 2;
   padding: 0.8rem 0 0;
   opacity: 0;
-  border: 1px solid #ddd;
+  border: 1px solid;
   transform: translate(-24px);
+  @apply bg-jj-light border-jj-border-more-normal
 }
 .more-list.account-list .wechat .title {
   text-align: center;
@@ -135,8 +138,9 @@ li {
 a {
   text-decoration: none;
   cursor: pointer;
-  color: #909090;
+  /* color: #909090; */
   background-color: transparent;
+  @apply text-jj-gray-normal
 }
 a,
 button,
@@ -144,7 +148,8 @@ input {
   margin: initial;
 }
 a:hover {
-  color: #007fff;
+  /* color: #007fff; */
+  @apply text-jj-link-normal
 }
 a:active,
 a:hover {

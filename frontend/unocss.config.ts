@@ -50,8 +50,8 @@ export default defineConfig({
       jj: {
         thirdly: 'var(--jjext-color-thirdly)', // #86909c
         fourthly: 'var(--jjext-color-fourthly)', // #c9cdd4
-        article: 'var(--juejin-background-article)', // #ffffff
-        main: 'var(--juejin-background-main)', // #f4f5f5
+        article: 'var(--juejin-background-article)', // #ffffff //#27272a
+        main: 'var(--juejin-background-main)', // #f4f5f5 //#18181c
         font: {
           normal: 'var(--juejin-h1-font-color)', // #252933 #ffffff
           entry: {
@@ -88,7 +88,16 @@ export default defineConfig({
             normal: 'var(--jjext-color-gray-1-1)', // #e4e6eb
           },
           dropdown: {
-            normal: '--jjext-color-border-drop-down', // #ebebeb
+            normal: 'var(--jjext-color-border-drop-down)', // #ebebeb
+          },
+          more: {
+            normal: 'var(--jjext-color-more-list-border)', // #ddd
+          },
+          sign: {
+            normal: 'var(--juejin-border-sign)', // #8dbfff //#2F5D99
+          },
+          hover: {
+            normal: 'var(--juejin-hover-sign)', // #e8f2ff //#315078
           },
         },
         stroke: {
@@ -111,9 +120,12 @@ export default defineConfig({
           drop: {
             normal: 'var(--jjext-color-drop-down)', // #909097
           },
+          more: {
+            normal: 'var(--jjext-color-more-list)', // #9aa3ab
+          },
         },
         black: {
-          normal: 'var(--juejin-p-font-color)', // #000
+          normal: 'var(--juejin-p-font-color)', // #000 //#f4f4f5
           tooltip: {
             normal: 'var(--jjext-color-popover)', // rgba(0, 0, 0, 0.8)
           },
@@ -124,13 +136,13 @@ export default defineConfig({
         link: {
           normal: 'var(--link)', // #007fff
           red: {
-            var: 'var(--jjext-color-link-red)', // #ff0000
+            normal: 'var(--jjext-color-link-red)', // #ff0000
           },
         },
         blue: {
           normal: 'var(--jjext-color-brand)', // #1e80ff
           fill: {
-            narmal: 'var(--juejin-color-fill)', // #3686ff
+            narmal: 'var(--jjext-color-fill)', // #3686ff
           },
         },
         tag: {
@@ -150,11 +162,53 @@ export default defineConfig({
           plain: {
             normal: 'var(--jjext-color-button-plain-hover)', // #E8F2FF
           },
+          sign: {
+            normal: 'var(--juejin-background-sign-button)', // #f4f9ff //#171d23
+          },
+          text: {
+            normal: 'var(--juejin-text-sign)', // #1e80ff //#388EFF
+          },
         },
         skeleton: {
           normal: 'var(--jjext-color-skeleton-1)', // #E5E7EC
           background: {
             normal: 'var(--jjext-color-skeleton-2)', // #555
+          },
+        },
+        signed: {
+          normal: 'var(--juejin-text-signed)', // #abcdff //#85BAFF
+          background: {
+            normal: 'var(--juejin-background-signed-button)', // #f4f9ff //#315078
+          },
+          border: {
+            normal: 'var(--juejin-border-signed)', // #b3d5ff //#2F5D99
+          },
+          dayparts: {
+            normal: 'var(--juejin-text-signe-dayparts)', // #1e80ff //#6BABFF
+          },
+        },
+        navs: {
+          normal: 'var(--juejin-border-navs-header)', // #F3F4F6 //#494949
+          wrapper: {
+            normal: 'var(--juejin-border-navs-wrapper)', // #E5E7EB //#494949
+          },
+          background: {
+            normal: 'var(--juejin-navs-background)', // #ffffff //#121212
+          },
+          item: {
+            normal: 'var(--juejin-text-navs-item)', // #000000 //#e8ecfa
+          },
+          after: {
+            normal: 'var(--juejin-color-navs-item-after)', // #EF4444
+          },
+        },
+        types: {
+          normal: 'var(--juejin-color-types-list)', // #71777c
+          tag: {
+            normal: 'var(--juejin-color-types-list-tag)', // #8a9aa9
+          },
+          background: {
+            normal: 'var(--juejin-color-types-tag-background)', // #f4f5f5
           },
         },
       },
