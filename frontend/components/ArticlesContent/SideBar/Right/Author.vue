@@ -1,5 +1,5 @@
 <script setup>
-const props = defineProps({
+defineProps({
   author: {
     type: Object,
   },
@@ -9,13 +9,13 @@ const props = defineProps({
 <template>
   <div class="sidebar-block author-block pure mb-20px bg-jj-sidebar">
     <NuxtLink href="#" target="_blank" rel class="user-item item pb-1.416rem">
-      <img :src="props.author.avatar" alt="" class="lazy avatar" loading="lazy">
+      <nuxt-img format="webp" :src="author.avatar" alt="avatar" class="lazy avatar" loading="lazy" />
       <div class="info-box">
         <div class="username flex items-center">
-          <span class="name text-jj-font-normal" style="max-width: 128px"> {{ props.author.name }} </span>
+          <span class="name text-jj-font-normal" style="max-width: 128px"> {{ author.name }} </span>
         </div>
-        <div :title="props.author.motto" class="position">
-          {{ props.author.motto }}
+        <div :title="author.motto" class="position">
+          {{ author.motto }}
         </div>
       </div>
     </NuxtLink>
@@ -40,7 +40,7 @@ a {
   cursor: pointer;
   background-color: transparent;
   /* color: #909090; */
-  @apply text-jj-gray-normal
+  @apply text-jj-gray-normal;
 }
 .user-item .avatar {
   flex: 0 0 auto;
@@ -90,7 +90,7 @@ img {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  @apply text-jj_font_black
+  @apply text-jj_font_black;
 }
 .username .name {
   display: inline-block;
@@ -108,7 +108,7 @@ img {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  @apply text-jj_font_black
+  @apply text-jj_font_black;
 }
 .user-item .info-box .position {
   margin-top: 4px;
@@ -119,6 +119,6 @@ img {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  @apply text-jj-gray-text-normal
+  @apply text-jj-gray-text-normal;
 }
 </style>
