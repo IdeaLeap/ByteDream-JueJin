@@ -40,7 +40,7 @@ defineProps({
 
 .linklist_link {
   @apply flex flex-row justify-start
-  @apply items-center gap-3 hover:bg-[#fbfbfb] p-3
+  @apply items-center gap-3 p-3
   @apply hover:bg-jj-hover
 }
 

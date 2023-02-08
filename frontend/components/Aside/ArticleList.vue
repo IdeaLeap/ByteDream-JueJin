@@ -49,10 +49,10 @@ const { data: ArticleList } = await useFetch(`/api/articles/tags?tags=${JSON.str
   margin: 0 1.667rem;
   font-size: 16px;
   line-height: 2rem;
-  color: #1d2129;
+  /* color: #1d2129; */
   font-weight: 500;
-  border-bottom: 1px solid #e4e6eb;
-  @apply dark:text-jj_font_white dark:border-b-nav_icon_color
+  border-bottom: 1px solid;
+  @apply text-jj-content border-b-jj-bottom-normal
 }
 
 .entry-list {
@@ -65,7 +65,8 @@ const { data: ArticleList } = await useFetch(`/api/articles/tags?tags=${JSON.str
 }
 
 .item .entry-title:hover {
-  color: #1E80FF;
+  /* color: #1E80FF; */
+  @apply text-jj-blue-normal
 }
 
 nuxt-link,
@@ -82,20 +83,21 @@ nuxt-link {
 nuxt-link {
   text-decoration: none;
   cursor: pointer;
-  color: #909090;
+  /* color: #909090; */
+  @apply text-jj-gray-normal
 }
 
 nuxt-link:link {
-  color: #FF0000;
   text-decoration: none;
+  @apply text-jj-link-red-normal
 }
 
 .entry-title {
   line-height: 22px;
   font-size: 1.167rem;
   font-weight: 400;
-  color: #252933;
-  @apply dark:text-jj_font_white
+  /* color: #252933; */
+  @apply text-jj-font-normal
 }
 
 .entry-meta-box {
@@ -106,7 +108,8 @@ nuxt-link:link {
   display: inline-block;
   font-size: 1.167rem;
   line-height: 22px;
-  color: #8a919f;
+  /* color: #8a919f; */
   font-weight: 400;
+  @apply text-jj-font-entry-normal
 }
 </style>

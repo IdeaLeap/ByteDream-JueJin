@@ -58,31 +58,26 @@ const sign = () => {
 }
 
 .sign_txt {
-  @apply text-[#8a919f] text-lg
+  @apply text-jj-font-entry-normal text-lg
 }
 
 .sign_btn {
-  @apply bg-[#f4f9ff] border-[#8dbfff] hover:bg-[#e8f2ff] border-solid border-1 rounded-2 h-13
-  @apply dark:bg-[#171d23] dark:border-[#2F5D99] dark:hover:bg-[#315078] select-none
+  @apply bg-jj-button-sign-normal border-jj-border-sign-normal hover:bg-jj-border-hover-normal border-solid border-1 rounded-2 h-13 select-none
 }
 
 .sign_btn_txt {
-  @apply text-lg text-[#1e80ff] px-5 py-1
-  @apply dark:text-[#388EFF]
+  @apply text-lg text-jj-button-text-normal px-5 py-1
 }
 
 .sign_btn_txt_signed{
-  @apply text-lg text-[#abcdff] px-5 py-1
-  @apply dark:text-[#85BAFF]
+  @apply text-lg text-jj-signed-normal px-5 py-1
 }
 
 .sign_btn_signed{
-  @apply bg-[#f4f9ff] border-[#b3d5ff] border-solid border-1 rounded-2 h-13
-  @apply dark:bg-[#315078] dark:border-[#2F5D99]
+  @apply bg-jj-signed-background-normal border-jj-signed-border-normal border-solid border-1 rounded-2 h-13
 }
 
 .sign_dayparts > span {
-  @apply text-[#1e80ff]
-  @apply dark:text-[#6BABFF]
+  @apply text-jj-signed-dayparts-normal
 }
 </style>

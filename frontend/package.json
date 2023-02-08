@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "nuxi build && sentry-cli releases files 1.0.0 upload-sourcemaps .nuxt/dist/client/_nuxt",
+    "build": "nuxi build",
     "dev": "nuxi dev",
     "start": "node .output/server/index.mjs",
     "lint": "eslint .",
