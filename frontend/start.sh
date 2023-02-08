@@ -1,2 +1,3 @@
 yarn build;
-PORT=8885 node .output/server/index.mjs;
+cd .output;
+PORT=8885 npx serve ./public;
