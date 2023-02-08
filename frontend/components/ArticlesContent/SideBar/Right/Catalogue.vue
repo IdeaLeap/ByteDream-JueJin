@@ -221,7 +221,7 @@ onUnmounted(() => {
 }
 
 .catalog-block.isExpand .article-catalog .catalog-body {
-  max-height: 612px;
+  max-height: 460px;
 }
 
 .catalog-body {
