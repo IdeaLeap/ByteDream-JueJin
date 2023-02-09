@@ -1,2 +1,2 @@
-yarn build;
-PORT=8885 node .output/server/index.mjs;
+sudo yarn build;
+sudo PORT=8885 node .output/server/index.mjs;
