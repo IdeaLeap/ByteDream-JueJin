@@ -3,7 +3,7 @@
     <NuxtLink
       to="?"
       :class="`${
-        $route.query.sort ? 'text-jj-navs-item-normal' : 'text-link'
+        $route.query.sort ? 'text-gray-500' : 'text-link'
       } br text_style pl-0`"
     >
       推荐
@@ -11,7 +11,7 @@
     <NuxtLink
       to="?sort=newest"
       :class="`${
-        $route.query.sort === 'newest' ? 'text-link' : 'text-jj-navs-item-normal'
+        $route.query.sort === 'newest' ? 'text-link' : 'text-gray-500'
       } br text_style`"
     >
       最新
@@ -19,7 +19,7 @@
     <NuxtLink
       to="?sort=three_days_hottest"
       :class="`${
-        ($route.query.sort && $route.query.sort?.indexOf('hottest') !== -1) ? 'text-link' : 'text-jj-navs-item-normal'
+        ($route.query.sort && $route.query.sort?.indexOf('hottest') !== -1) ? 'text-link' : 'text-gray-500'
       } text_style`"
     >
       热榜
