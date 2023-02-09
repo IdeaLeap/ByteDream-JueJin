@@ -1,2 +1,2 @@
-yarn build;
-NODE_ENV=production yarn start;
+sudo yarn build;
+sudo NODE_ENV=production yarn start;

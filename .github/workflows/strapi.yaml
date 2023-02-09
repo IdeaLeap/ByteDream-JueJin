@@ -41,7 +41,7 @@ jobs:
           password: ${{ secrets.STRAPI_PASS }} # 服务器密码
           script: |
             cd /opt/cms # 进入服务器中的端工程所在的目录
-            yarn install # 安装项目依赖
+            sudo yarn install # 安装项目依赖
             pm2 delete cms # 删除旧的进程
             pm2 start start.sh --name cms # 启动新的进程
             pm2 save # 保存配置
