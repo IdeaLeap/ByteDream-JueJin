@@ -13,7 +13,7 @@ const isNavShown = inject('isNavShown')
   <div class="main-header-wrapper">
     <header class="main-header flex items-center justify-between h-full" :class="{ 'nav-shown': isNavShown }">
       <nav class="nav-list h-full">
-        <NuxtLink to="/" class="logo h-full">
+        <NuxtLink to="/" aria-label="Back to home" class="logo h-full">
           <Logo />
         </NuxtLink>
         <div class="nav-wrapper">
@@ -42,7 +42,7 @@ const isNavShown = inject('isNavShown')
     transition: all .2s;
     @apply flex items-center fixed top-0 left-0 right-0;
     @apply space-between md:justify-around;
-    @apply bg-jj_navigation border-b-1 h-[5rem] lt-sm:(h-[4.333rem]) z-99 border-jj-navs-normal;
+    @apply bg-jj-sidebar border-b-1 h-[5rem] lt-sm:(h-[4.333rem]) z-99 border-jj-navs-normal;
 }
 .logo{
   @apply flex items-center mr-4 ml-6 w-auto inline-block;
