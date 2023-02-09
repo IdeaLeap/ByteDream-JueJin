@@ -17,7 +17,7 @@ defineProps({
             :to="i.url"
             class="linklist_link"
           >
-            <nuxt-img :src="i.icon" class="linklist_icon" />
+            <nuxt-img :src="i.icon" :alt="i.title" class="linklist_icon" />
             <span class="linklist_txt">
               {{ i.title }}
             </span>
