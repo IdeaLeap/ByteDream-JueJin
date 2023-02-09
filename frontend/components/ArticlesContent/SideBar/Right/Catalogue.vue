@@ -228,6 +228,22 @@ onUnmounted(() => {
   @apply relative overflow-auto max-h-460px mt-8px mr-4px mb-0 ml-0;
 }
 
+.catalog-body::-webkit-scrollbar {
+    width: 6px;
+    height: 80px;
+}
+
+.catalog-body::-webkit-scrollbar-thumb {
+    background-color: #e4e6eb;
+    outline: none;
+    border-radius: 2px;
+}
+
+.catalog-body::-webkit-scrollbar-track {
+    box-shadow: none;
+    border-radius: 2px;
+}
+
 .catalog-list {
   @apply relative lh-22px pb-12px p-0;
 }
