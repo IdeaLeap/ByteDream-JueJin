@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { getProcessor } from 'bytemd'
 import { visit } from 'unist-util-visit'
 const props = defineProps({
@@ -11,8 +11,8 @@ const props = defineProps({
  *  @description: 获取目录
  *
  */
-const Catalogue = ref([]) // 目录
-const stringifyHeading = (e) => {
+const Catalogue = ref<{ level: number;text: string } []>([]) // 目录
+const stringifyHeading = (e: any) => {
   let result = ''
   visit(e, (node) => {
     if (node.type === 'text')
@@ -24,15 +24,15 @@ getProcessor({
   plugins: [
     {
       rehype: p =>
-        p.use(() => (tree) => {
+        p.use(() => (tree: any) => {
           if (tree && tree.children.length) {
-            const items = []
+            const items: { level: number;text: string } [] = []
             tree.children
-              .filter(v => v.type === 'element')
-              .forEach((node) => {
+              .filter((v: any) => v.type === 'element')
+              .forEach((node: any) => {
                 // 过滤掉主题和高亮
-                const removeTheme = node.children.filter(item => item.value?.includes('theme'))
-                const removeHl = node.children.filter(item => item.value?.includes('highlight'))
+                const removeTheme = node.children.filter((item: any) => item.value?.includes('theme'))
+                const removeHl = node.children.filter((item: any) => item.value?.includes('highlight'))
 
                 if (node.tagName[0] === 'h' && !!node.children.length && removeTheme.length === 0 && removeHl.length === 0) {
                   const i = Number(node.tagName[1])
@@ -52,13 +52,13 @@ getProcessor({
 /**
  * @description: 目录点击事件
  */
-const isActive = ref()
-const activeSelect = (index) => {
+const isActive = ref<number>()
+const activeSelect = (index: number) => {
   if (isActive.value === index)
     return
   isActive.value = index
 }
-const catalogueClass = (level) => {
+const catalogueClass = (level: number) => {
   switch (level) {
     case 1:
       return 'item d1'
@@ -74,36 +74,50 @@ const catalogueClass = (level) => {
 /**
  * @description: 目录滚动定位事件
  */
-let headerHeight
-const itemOffsetTop = ref([])
-const navRef = ref(null)
-const liRef = ref([])
+const itemOffsetTop = ref<{ key: number; top: number }[]>([])
+const navRef = ref()
+const liRef = ref<HTMLElement[]>([])
+const navMid = ref(0)
+const headerHeight = ref(0)
+const originTop = ref(0)
+const firtstCatalogueTop = ref(0)
+const currentScrollTop = ref(0)
 
-const onScroll = () => {
-  const navMid = navRef.value.clientHeight / 2
+const getInitByScroll = () => {
+  navMid.value = navRef.value.clientHeight / 2
+  headerHeight.value = document.querySelector('.main-header')!.clientHeight
+  originTop.value = (document.querySelector('.sticky-block-box') as HTMLElement).offsetTop
+  firtstCatalogueTop.value = originTop.value
   itemOffsetTop.value = []
   Catalogue.value.forEach((val, i) => {
-    const firstHead = document.querySelector(`#heading-${i}`)
+    const firstHead = document.querySelector(`#heading-${i}`) as HTMLElement
     if (firstHead) {
-      itemOffsetTop.value.push({
+      itemOffsetTop.value?.push({
         key: i,
         top: firstHead.offsetTop,
       })
     }
   })
-  const scrollTop = document.documentElement.scrollTop - headerHeight + 20
-  for (let n = 0; n < itemOffsetTop.value.length; n++) {
+}
+const onScroll = () => {
+  const documentElement = document.documentElement
+  currentScrollTop.value = documentElement.scrollTop
+  const scrollTop = currentScrollTop.value - headerHeight.value + 20
+  const itemOffsetTopLength = itemOffsetTop.value.length
+  for (let n = 0; n < itemOffsetTopLength; n++) {
     if (scrollTop >= itemOffsetTop.value[n].top)
       isActive.value = itemOffsetTop.value[n].key
   }
-  const activeELe = liRef.value[isActive.value]?.offsetTop
-  navMid > activeELe
-    ? navRef.value.scrollTo({
-      top: 0,
-    })
-    : navRef.value.scrollTo({
-      top: activeELe - navMid,
-    })
+  if (isActive.value) {
+    const activeEleTop = liRef.value[isActive.value].offsetTop
+    navMid.value > activeEleTop
+      ? navRef.value.scrollTo({
+        top: 0,
+      })
+      : navRef.value.scrollTo({
+        top: activeEleTop - navMid.value,
+      })
+  }
 
   window.scrollTo({
     left: 0,
@@ -113,56 +127,59 @@ const onScroll = () => {
 /**
  * @description: 目录固定
  */
-const isNavShown = inject('isNavShown')
-const firtstCatalogueTop = ref(0)
-let catalogue
-let currentTop
-let sideBar
+const isNavShown = inject('isNavShown') as Boolean
 const { immerseState, immerseToggle } = useImmerse()
-const scrollFixedCatalogue = () => {
-  const scrollTop = document.documentElement.scrollTop
-  sideBar = document.querySelector('.sidebar')
-  catalogue = document.querySelector('.sticky-block-box')
-  currentTop = parseFloat(window.getComputedStyle(catalogue).top)
-  if (scrollTop - headerHeight > catalogue.offsetTop)
-    sideBar.classList.add('sticky')
-  if (scrollTop <= firtstCatalogueTop.value && !immerseState.value)
-    sideBar.classList.remove('sticky')
+
+const catalogue = ref<HTMLElement | null>(null)
+let sideBar: HTMLElement | null = null
+const getInitByScrollFixedCatalogue = () => {
+  const sideBarEle = document.querySelector('.sidebar')
+  sideBar = sideBarEle as HTMLElement
+  catalogue.value = document.querySelector('.sticky-block-box')
 }
 
-let originTop
-watch([isNavShown], (val) => {
-  val[0] ? catalogue.style.top = `${currentTop + headerHeight}px` : catalogue.style.top = '1.767rem'
+const scrollFixedCatalogue = () => {
+  if (currentScrollTop.value - headerHeight.value > catalogue.value!.offsetTop)
+    sideBar!.classList.add('sticky')
+
+  if (currentScrollTop.value <= firtstCatalogueTop.value && !immerseState.value)
+    sideBar!.classList.remove('sticky')
+}
+
+watch(isNavShown, (val) => {
+  val ? catalogue.value!.style.top = `${catalogue.value!.offsetTop + headerHeight!.value}px` : catalogue.value!.style.top = '1.767rem'
 })
-watch([immerseState], (val) => {
-  if (val[0]) {
-    sideBar.classList.add('sticky')
+watch(immerseState, (val) => {
+  if (val) {
+    sideBar!.classList.add('sticky')
   }
   else {
-    firtstCatalogueTop.value = originTop
+    firtstCatalogueTop.value = originTop.value
     scrollFixedCatalogue()
   }
 })
-onMounted(() => {
-  headerHeight = document.querySelector('.main-header').clientHeight
-  const route = useRoute()
 
-  setTimeout(() => {
-    window.scroll(0, 0)
-    window.addEventListener('scroll', onScroll)
-    window.addEventListener('scroll', scrollFixedCatalogue)
-    if (route.hash) {
-      const hashIndex = route.hash.slice(9)
-      if (hashIndex !== -1) {
-        isActive.value = hashIndex
-        const a = document.createElement('a')
-        a.href = `#heading-${hashIndex}`
-        a.click()
-      }
+onMounted(() => {
+  const isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)
+  if (isMobile)
+    document.querySelector('html')!.style.scrollBehavior = 'smooth'
+  window.addEventListener('scroll', onScroll)
+  window.addEventListener('scroll', scrollFixedCatalogue)
+  const route = useRoute()
+  if (route.hash) {
+    const hashIndex = route.hash.slice(9)
+    if (Number(hashIndex) !== -1) {
+      isActive.value = Number(hashIndex)
+      const a = document.createElement('a')
+      a.href = `#heading-${hashIndex}`
+      a.click()
     }
-    originTop = document.querySelector('.sticky-block-box').offsetTop
-    firtstCatalogueTop.value = originTop
-  }, 1)
+  }
+
+  nextTick(() => {
+    getInitByScroll()
+    getInitByScrollFixedCatalogue()
+  })
 })
 
 onUnmounted(() => {
