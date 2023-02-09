@@ -33,7 +33,7 @@ if (process.client) {
 </script>
 
 <template>
-  <button class="!outline-none flex lt-md:mr-5" @click="toggleDark">
+  <button class="!outline-none flex lt-md:mr-5" aria-label="Toggle theme" @click="toggleDark">
     <div class="dark:i-carbon-moon i-carbon-sun text-6 text-black dark:text-[#e8ecfa] opacity-85 hover:opacity-100" />
   </button>
 </template>
