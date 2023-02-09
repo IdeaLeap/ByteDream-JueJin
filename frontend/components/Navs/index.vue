@@ -13,7 +13,7 @@ const isNavShown = inject('isNavShown')
   <div class="main-header-wrapper">
     <header class="main-header flex items-center justify-between h-full" :class="{ 'nav-shown': isNavShown }">
       <nav class="nav-list h-full">
-        <NuxtLink to="/" class="logo h-full">
+        <NuxtLink to="/" aria-label="Back to home" class="logo h-full">
           <Logo />
         </NuxtLink>
         <div class="nav-wrapper">
