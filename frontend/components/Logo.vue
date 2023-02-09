@@ -1,9 +1,9 @@
 <template>
-  <div class="!flex h-[2rem]">
+  <div class="!flex h-[2rem] w-118px">
     <svg
       viewBox="0 0 36 28"
       xmlns="http://www.w3.org/2000/svg"
-      class="fill-nav_icon_color "
+      class="fill-nav_icon_color h-full"
     >
       <path
         d="M17.5865 17.3955H17.5902L28.5163 8.77432L25.5528 6.39453L17.5902 12.6808H17.5865L17.5828 12.6845L9.62018 6.40201L6.6604 8.78181L17.5828 17.3992L17.5865 17.3955Z"
@@ -18,7 +18,7 @@
     <svg
       viewBox="42 0 95 28"
       xmlns="http://www.w3.org/2000/svg"
-      class="ml-2 fill-[#000] dark:fill-[#e0e0e0] hidden sm:(block)"
+      class="ml-2 fill-[#000] dark:fill-[#e0e0e0] hidden sm:(block) h-full"
     >
       <path
         d="M133.287 18.4172H131.162L129.923 23.0758H126.825V16.7559H135.364V14.7315H126.825V11.1469H133.074V9.12256H118.454V11.1469H124.703V14.7315H116.164V16.7559H124.703V23.0758H121.601L120.363 18.4172H118.237L119.487 23.0758H115.543V25.1001H135.985V23.0758H132.041L133.287 18.4172Z"

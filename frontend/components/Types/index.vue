@@ -52,7 +52,7 @@ const isNavShown = inject('isNavShown')
 .view-types {
   transition: all .2s;
   transform: translateZ(0);
-  @apply bg-jj_navigation w-full fixed top-[5rem] lt-sm:(top-[4.333rem]) shadow-sm shadow-black/5 dark:shadow-white/5 h-[3.833rem] z-1;
+  @apply bg-jj-sidebar w-full fixed top-[5rem] lt-sm:(top-[4.333rem]) shadow-sm shadow-black/5 dark:shadow-white/5 h-[3.833rem] z-1;
 }
 .type-list-item{
   @apply h-full w-auto float-left cursor-pointer whitespace-nowrap flex items-center p-x-[1rem] text-jj-types-normal text-[1.16rem];
@@ -91,7 +91,7 @@ const isNavShown = inject('isNavShown')
   @apply scale-100;
 }
 .category-popover {
-  @apply scale-0 transition-100 delay-150 transition-all bg-jj-light border-jj-border-dropdown-normal;
+  @apply scale-0 transition-100 delay-150 transition-all bg-jj-article border-jj-border-dropdown-normal;
   position: fixed;
   top: 3.833rem;
   padding: 1.17rem 1.17rem .17rem;
