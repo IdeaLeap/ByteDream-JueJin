@@ -22,9 +22,9 @@ defineProps({
 <style scoped>
 .cover {
   /* display: none; */
-  @apply ml-[1.67rem] mb-[-1.85rem] w-[120px] h-[80px]
+  @apply aspect-[3/2] ml-[1.67rem] mb-[-1.85rem] w-[120px]
 }
 .avatar {
-  @apply w-17 h-17 rounded-full
+  @apply w-16 h-16 rounded-full
 }
 </style>
