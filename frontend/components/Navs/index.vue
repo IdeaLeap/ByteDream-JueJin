@@ -1,5 +1,4 @@
 <script setup>
-const runtimeConfig = useRuntimeConfig()
 const { data: NavList } = await useFetch('/api/global/navs')
 const route = useRoute()
 const activeNav = computed(() => {

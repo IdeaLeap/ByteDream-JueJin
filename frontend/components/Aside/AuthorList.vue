@@ -1,5 +1,15 @@
 <script setup lang="ts">
-const { data: AuthorList } = await useFetch('/api/authors/list')
+import { useAutoAnimate } from '@formkit/auto-animate/vue'
+const [parent] = useAutoAnimate()
+const page = ref(1)
+const AuthorList = ref([]) as any
+const { data } = (await useFetch(`/api/authors/list?page=${page.value}`))
+AuthorList.value = data.value
+const showAll = async () => {
+  page.value = 2
+  const { data } = (await useFetch(`/api/authors/list?page=${page.value}`))
+  AuthorList.value.push(...data.value)
+}
 </script>
 
 <template>
@@ -8,9 +18,9 @@ const { data: AuthorList } = await useFetch('/api/authors/list')
       <div class="user-block-header">
         🎖️作者榜
       </div>
-      <div class="user-list">
+      <div ref="parent" class="user-list">
         <div v-for="item in AuthorList" :key="item.uid" class="item">
-          <nuxt-link target="_blank" rel="" class="link">
+          <div rel="" class="link">
             <nuxt-img :src="item.avatar" :alt="`${item.name}的头像`" class="lazy avatar" loading="lazy" />
 
             <div class="user-info">
@@ -19,22 +29,22 @@ const { data: AuthorList } = await useFetch('/api/authors/list')
                   {{ item.name }}
                 </span>
                 <span blank="true" class="rank">
-                  <nuxt-img src="https://lf3-cdn-tos.bytescm.com/obj/static/xitu_juejin_web/img/lv-4.a78c420.png" :alt="`lv-${item.rank}`" title="创作等级" />
+                  <nuxt-img :src="`https://pan.marlene.top/d/share/jj/${item.rank}.png`" :alt="`lv-${item.rank}`" title="创作等级" />
                 </span>
               </div>
               <div class="position">
                 {{ item.motto }}
               </div>
             </div>
-          </nuxt-link>
+          </div>
         </div>
 
-        <nuxt-link href="/recommendation/authors/recommended" class="item" target="_blank">
+        <div v-if="page === 1" class="item cursor-pointer" @click="showAll">
           <div class="more" f-c-c text-link>
             <span>完整榜单</span>
             <div class="icon" i-carbon-chevron-right />
           </div>
-        </nuxt-link>
+        </div>
       </div>
     </div>
   </div>
@@ -97,7 +107,7 @@ const { data: AuthorList } = await useFetch('/api/authors/list')
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  @apply text-jj-gray-normal
+  @apply text-jj-gray-normal;
 }
 
 .recommend-author-block .item .more {
@@ -115,6 +125,10 @@ const { data: AuthorList } = await useFetch('/api/authors/list')
 }
 
 .recommend-author-block {
-  @apply bg-jj-sidebar
+  @apply bg-jj-sidebar;
+}
+
+.link{
+  @apply cursor-pointer;
 }
 </style>

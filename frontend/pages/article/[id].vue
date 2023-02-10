@@ -5,7 +5,7 @@ const url = ref(`/api/articles/${route.params.id}`)
 
 const { data: articleData } = await useFetch(url)
 const articleDataList = ref<IArticle>()
-articleDataList.value = articleData.value.article
+articleDataList.value = articleData.value
 useHead({
   title: articleDataList.value?.title,
   meta: [

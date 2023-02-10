@@ -35,6 +35,7 @@ const maxLength = 9
 }
 .nav-list {
     position: relative;
+    @apply ml-[1rem];
 }
 .nav-list .nav-items.tag:has(.router-link-exact-active) {
     /* background-color: #007fff; */
@@ -54,7 +55,7 @@ const maxLength = 9
     padding: 0 .83rem;
     margin-right: 1rem;
     margin-bottom: 1rem;
-    @apply bg-jj-light text-jj-types-tag-normal
+    @apply bg-jj-tag-item text-jj-types-tag-normal;
 }
 .nav-items {
     position: relative;

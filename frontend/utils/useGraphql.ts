@@ -37,15 +37,20 @@ const removeStrapiWrapper = (data: any) => {
   }
 }
 
-export async function useGraphql(query: any) {
+export async function useGraphql(query: any, authorization?: string) {
   try {
     const runtimeConfig = useRuntimeConfig()
     const data = JSON.stringify({
       query,
     })
+    const headers = new Headers()
+    headers.append('Content-Type', 'application/json')
+    if (authorization)
+      headers.append('Authorization', `Bearer ${authorization}`)
     const res = await $fetch(runtimeConfig.public.graphql_url, {
       method: 'POST',
       body: data,
+      headers,
     }) as any
     if ('errors' in res.data)
       throw res
