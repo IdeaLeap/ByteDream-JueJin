@@ -50,6 +50,7 @@ defineProps({
           <NuxtImg
             src="https://lf3-cdn-tos.bytescm.com/obj/static/xitu_juejin_web/img/juejin-qr.b247fde.jpeg"
             class="qr"
+            alt="qr"
           />
         </div>
       </li>
