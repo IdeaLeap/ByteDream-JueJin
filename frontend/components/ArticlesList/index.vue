@@ -11,6 +11,7 @@ const addArtListItem = useThrottle(async () => {
 provide('artlist', artlist)
 provide('ads', articleAds)
 watch(route, async () => {
+  artlist.value = []
   artlist.value = await useFetchPostData(route?.params, route.query?.sort, pagenum = 1)
 }, { deep: true, immediate: true })
 onMounted(() => {
