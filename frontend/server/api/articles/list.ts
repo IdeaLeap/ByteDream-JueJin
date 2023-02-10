@@ -66,7 +66,7 @@ export default defineEventHandler(async (event): Promise<IArticleItem[]> => {
         ]
       }
       ${strategy[1]}
-      pagination: { page: ${pageNum || '1'}, pageSize: 20 }
+      pagination: { page: ${pageNum || '1'}, pageSize: 10 }
     ){
       data{
         id
