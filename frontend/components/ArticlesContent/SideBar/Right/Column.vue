@@ -24,7 +24,7 @@ const { immerseState, immerseToggle } = useImmerse()
 </script>
 
 <template>
-  <nav  v-show="!immerseState" class="next-article">
+  <nav v-show="!immerseState" class="next-article">
     <div class="next-article-header">
       <div class="next-article-title">
         下一篇

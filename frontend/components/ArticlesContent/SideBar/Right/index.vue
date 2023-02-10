@@ -57,7 +57,7 @@ const { immerseState } = useImmerse()
     <ArticlesContentSideBarRightAuthor v-if="!immerseState" :author="article!.authorId" />
     <ArticlesContentSideBarRightRelatedArticles v-if="!immerseState" class="sidebar-block" :author="article!.authorId" :tags="article!.tagIds" />
     <div class="sticky-block-box">
-      <ArticlesContentSideBarRightCatalogue v-if="catalogueList.length !== 0"  class="sidebar-block" :catalogue-list="catalogueList"  />
+      <ArticlesContentSideBarRightCatalogue v-if="catalogueList.length !== 0" class="sidebar-block" :catalogue-list="catalogueList" />
       <ArticlesContentSideBarRightColumn v-if="Object.keys(article!.columId).length !== 0 " :column="article!.columId" />
     </div>
   </div>

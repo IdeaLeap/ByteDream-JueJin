@@ -23,7 +23,7 @@ defineProps({
           标签：
         </div>
         <div class="tag-list-container">
-          <a href="#" target="_blank" rel="" class="item tag-item" v-for="(item, index) in tag" :key="index" ><span class="tag-title">{{ item.alias }}</span></a>
+          <a v-for="(item, index) in tag" :key="index" href="#" target="_blank" rel="" class="item tag-item"><span class="tag-title">{{ item.alias }}</span></a>
         </div>
       </div>
     </div>
