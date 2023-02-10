@@ -35,6 +35,7 @@ const maxLength = 9
 }
 .nav-list {
     position: relative;
+    @apply ml-[1rem];
 }
 .nav-list .nav-items.tag:has(.router-link-exact-active) {
     /* background-color: #007fff; */

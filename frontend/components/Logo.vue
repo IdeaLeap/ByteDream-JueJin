@@ -1,5 +1,5 @@
 <template>
-  <div class="!flex h-[2rem] w-118px">
+  <div class="!flex h-[2rem] lt-sm:(w-[2.6rem]) w-118px">
     <svg
       viewBox="0 0 36 28"
       xmlns="http://www.w3.org/2000/svg"
