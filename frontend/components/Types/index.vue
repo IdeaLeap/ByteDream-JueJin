@@ -1,6 +1,5 @@
 <script setup>
 const route = useRoute()
-const runtimeConfig = useRuntimeConfig()
 const { data: typeList } = await useFetch('/api/global/types')
 const isNavShown = inject('isNavShown')
 </script>
