@@ -1,4 +1,3 @@
-import { serve } from 'esbuild';
 <script setup>
 const props = defineProps({
   author: {
@@ -12,7 +11,6 @@ const { data: ArticleList } = await useFetch(`/api/articles/tags?tags=${JSON.str
 const route = useRoute()
 const id = ref(route.params.id)
 // 过滤掉当前文章
-
 const articleList = ArticleList.value.filter(item => item.id !== id.value)
 </script>
 

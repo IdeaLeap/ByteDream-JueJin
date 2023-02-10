@@ -13,13 +13,8 @@ const getNextArticle = () => {
   const allColumnListlength = allColumnList.length
   nextArticle.value = allColumnList[(currentIndex + 1) % allColumnListlength]
 }
-
-const hasColumn = ref(false)
-if (props.column.articles !== undefined) {
-  hasColumn.value = true
-  allColumnList = props.column.articles.data
-  getNextArticle()
-}
+allColumnList = props.column.articles.data
+getNextArticle()
 
 const isActive = ref(false)
 const handleClick = () => {
@@ -29,7 +24,7 @@ const { immerseState, immerseToggle } = useImmerse()
 </script>
 
 <template>
-  <nav v-if="hasColumn" v-show="!immerseState" class="next-article">
+  <nav v-show="!immerseState" class="next-article">
     <div class="next-article-header">
       <div class="next-article-title">
         下一篇

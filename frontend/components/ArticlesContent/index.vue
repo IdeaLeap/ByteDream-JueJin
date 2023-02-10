@@ -14,12 +14,7 @@ import themeStyle from './themeStyle'
 import highlightStyle from './highlightStyle'
 import type { IArticle } from '~~/types/IArticle'
 
-defineProps({
-  article: {
-    type: Object as () => IArticle,
-    required: true,
-  },
-})
+defineProps<{ article: IArticle }>()
 const plugins = [breaks(), frontmatter(), highlightStyle(), themeStyle(), gemoji(), gfm(), highlight(), math(), medium({ background: 'rgba(0, 0, 0, 0.7)' }), mermaid()]
 
 // 赋值属性唯一ID

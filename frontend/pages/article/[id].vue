@@ -1,8 +1,26 @@
-<!-- eslint-disable no-console -->
 <script setup lang="ts">
+import type { IArticle } from '@/types/IArticle'
 const route = useRoute()
 const url = ref(`/api/articles/${route.params.id}`)
+
 const { data: articleData } = await useFetch(url)
+const articleDataList = ref<IArticle>()
+articleDataList.value = articleData.value.article
+useHead({
+  title: articleDataList.value?.title,
+  meta: [
+    {
+      hid: 'description',
+      name: 'description',
+      content: articleDataList.value?.summary,
+    },
+    {
+      hid: 'keywords',
+      name: 'keywords',
+      content: articleDataList.value?.tagIds.data.join(','),
+    },
+  ],
+})
 const isRender = useState('isRender', () => false)
 onMounted(() => {
   isRender.value = true
@@ -13,12 +31,12 @@ onMounted(() => {
   <div class="view-container">
     <main class="container main-container relative w-100% max-w-960px my-0 mx-auto" style="max-width: 1140px">
       <div v-show="isRender" class="view column-view mt-1.767rem" pb-8rem>
-        <ArticlesContentSideBarLeft :commented="articleData.article.commented" :liked="articleData.article.liked" />
+        <ArticlesContentSideBarLeft :commented="articleDataList?.commented" :liked="articleDataList?.liked" />
         <div class="main-area article-area" mb-1.5rem>
-          <ArticlesContent :article="articleData.article" />
-          <ArticlesContentEnd :type="articleData.article.typeId" :tag="articleData.article.tagIds" />
+          <ArticlesContent :article="articleDataList" />
+          <ArticlesContentEnd :type="articleDataList?.typeId" :tag="articleDataList?.tagIds.data" />
         </div>
-        <ArticlesContentSideBarRight :article="articleData.article" />
+        <ArticlesContentSideBarRight :article="articleDataList" />
       </div>
     </main>
   </div>

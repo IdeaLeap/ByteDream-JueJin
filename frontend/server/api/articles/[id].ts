@@ -16,6 +16,7 @@ export default defineEventHandler(async (event): Promise<IArticle> => {
           cover
           createdAt
           updatedAt
+          summary
           authorId{
             data{
               id
