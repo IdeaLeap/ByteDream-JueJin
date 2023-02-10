@@ -20,7 +20,7 @@ const showAll = async () => {
       </div>
       <div ref="parent" class="user-list">
         <div v-for="item in AuthorList" :key="item.uid" class="item">
-          <nuxt-link target="_blank" rel="" class="link">
+          <div rel="" class="link">
             <nuxt-img :src="item.avatar" :alt="`${item.name}的头像`" class="lazy avatar" loading="lazy" />
 
             <div class="user-info">
@@ -36,7 +36,7 @@ const showAll = async () => {
                 {{ item.motto }}
               </div>
             </div>
-          </nuxt-link>
+          </div>
         </div>
 
         <div v-if="page === 1" class="item cursor-pointer" @click="showAll">
@@ -107,7 +107,7 @@ const showAll = async () => {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  @apply text-jj-gray-normal
+  @apply text-jj-gray-normal;
 }
 
 .recommend-author-block .item .more {
@@ -125,6 +125,10 @@ const showAll = async () => {
 }
 
 .recommend-author-block {
-  @apply bg-jj-sidebar
+  @apply bg-jj-sidebar;
+}
+
+.link{
+  @apply cursor-pointer;
 }
 </style>

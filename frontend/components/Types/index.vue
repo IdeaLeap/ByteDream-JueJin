@@ -82,7 +82,7 @@ const isNavShown = inject('isNavShown')
   @apply absolute right-0 top-0;
 }
 .list-item-wrapper{
-  @apply relative;
+  @apply relative h-full;
 }
 .type-list-item:hover+.category-popover{
   @apply scale-100;
@@ -98,8 +98,6 @@ const isNavShown = inject('isNavShown')
   max-height: 16.67rem;
   font-weight: 400;
   line-height: 1.2;
-  /* background-color: #fff; */
-  /* border: 1px solid #ebebeb; */
   box-shadow: 0 1px 5px 0 rgb(0 0 0 / 15%);
   box-sizing: border-box;
   border-radius: 2px;
@@ -115,14 +113,12 @@ const isNavShown = inject('isNavShown')
     justify-content: center;
     align-items: center;
     height: 2rem;
-    /* background-color: #f4f5f5; */
     border-radius: 1rem;
     font-size: 1.1rem;
-    /* color: #71777d; */
     padding: 0 .83rem;
     margin-right: 1rem;
     margin-bottom: 1rem;
-    @apply bg-jj-types-background-normal text-jj-types-normal
+    @apply bg-jj-gray-normal text-jj-types-text cursor-pointer;
 }
 .tag:hover{
   @apply text-link;

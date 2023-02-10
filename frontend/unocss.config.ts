@@ -153,6 +153,7 @@ export default defineConfig({
         },
         tag: {
           normal: 'var(--jjext-color-tag-list)', // rgba(30, 128, 255, 0.16)
+          item: 'var(--juejin-background-article)',
         },
         dropdown: {
           normal: 'var(--jjext-color-background-drop-down)', // #fafafb
@@ -216,6 +217,7 @@ export default defineConfig({
           background: {
             normal: 'var(--juejin-color-types-tag-background)', // #f4f5f5
           },
+          text: 'var(--juejin-h1-font-color)',
         },
       },
     },
