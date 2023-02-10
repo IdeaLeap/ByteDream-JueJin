@@ -4,7 +4,7 @@ defineProps({
     type: Object,
   },
   tag: {
-    type: Object,
+    type: Array,
   },
 })
 </script>
@@ -18,12 +18,12 @@ defineProps({
         </div>
         <a href="/frontend" target="_blank" rel="" class="item category-item"><span class="tag-title">{{ type.alias }}</span></a>
       </div>
-      <div v-if="tag.data.length !== 0" class="tag-list">
+      <div v-if="tag.length !== 0" class="tag-list">
         <div class="tag-list-title">
           标签：
         </div>
         <div class="tag-list-container">
-          <a href="#" target="_blank" rel="" class="item tag-item"><span v-for="(item, index) in tag.data" :key="index" class="tag-title">{{ item.alias }}</span></a>
+          <a v-for="(item, index) in tag" :key="index" href="#" target="_blank" rel="" class="item tag-item"><span class="tag-title">{{ item.alias }}</span></a>
         </div>
       </div>
     </div>

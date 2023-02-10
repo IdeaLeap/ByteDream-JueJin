@@ -1,53 +1,8 @@
 <script setup lang="ts">
-import { getProcessor } from 'bytemd'
-import { visit } from 'unist-util-visit'
-const props = defineProps({
-  content: {
-    type: String,
-    default: '',
-  },
-})
-/**
- *  @description: 获取目录
- *
- */
-const Catalogue = ref<{ level: number;text: string } []>([]) // 目录
-const stringifyHeading = (e: any) => {
-  let result = ''
-  visit(e, (node) => {
-    if (node.type === 'text')
-      result += node.value
-  })
-  return result
-}
-getProcessor({
-  plugins: [
-    {
-      rehype: p =>
-        p.use(() => (tree: any) => {
-          if (tree && tree.children.length) {
-            const items: { level: number;text: string } [] = []
-            tree.children
-              .filter((v: any) => v.type === 'element')
-              .forEach((node: any) => {
-                // 过滤掉主题和高亮
-                const removeTheme = node.children.filter((item: any) => item.value?.includes('theme'))
-                const removeHl = node.children.filter((item: any) => item.value?.includes('highlight'))
-
-                if (node.tagName[0] === 'h' && !!node.children.length && removeTheme.length === 0 && removeHl.length === 0) {
-                  const i = Number(node.tagName[1])
-                  items.push({
-                    level: i,
-                    text: stringifyHeading(node),
-                  })
-                }
-              })
-            Catalogue.value = items.filter(v => v.level === 1 || v.level === 2 || v.level === 3)
-          }
-        }),
-    },
-  ],
-}).processSync(props.content)
+import type { ICatalogue } from '@/types/IArticleItem'
+const props = defineProps<{
+  catalogueList: ICatalogue[]
+}>()
 
 /**
  * @description: 目录点击事件
@@ -89,7 +44,7 @@ const getInitByScroll = () => {
   originTop.value = (document.querySelector('.sticky-block-box') as HTMLElement).offsetTop
   firtstCatalogueTop.value = originTop.value
   itemOffsetTop.value = []
-  Catalogue.value.forEach((val, i) => {
+  props.catalogueList.forEach((val, i) => {
     const firstHead = document.querySelector(`#heading-${i}`) as HTMLElement
     if (firstHead) {
       itemOffsetTop.value?.push({
@@ -108,6 +63,7 @@ const onScroll = () => {
     if (scrollTop >= itemOffsetTop.value[n].top)
       isActive.value = itemOffsetTop.value[n].key
   }
+
   if (isActive.value) {
     const activeEleTop = liRef.value[isActive.value].offsetTop
     navMid.value > activeEleTop
@@ -118,10 +74,6 @@ const onScroll = () => {
         top: activeEleTop - navMid.value,
       })
   }
-
-  window.scrollTo({
-    left: 0,
-  })
 }
 
 /**
@@ -130,16 +82,16 @@ const onScroll = () => {
 const isNavShown = inject('isNavShown') as Boolean
 const { immerseState, immerseToggle } = useImmerse()
 
-const catalogue = ref<HTMLElement | null>(null)
+const catalogueEle = ref<HTMLElement | null>(null)
 let sideBar: HTMLElement | null = null
 const getInitByScrollFixedCatalogue = () => {
   const sideBarEle = document.querySelector('.sidebar')
   sideBar = sideBarEle as HTMLElement
-  catalogue.value = document.querySelector('.sticky-block-box')
+  catalogueEle.value = document.querySelector('.sticky-block-box')
 }
 
 const scrollFixedCatalogue = () => {
-  if (currentScrollTop.value - headerHeight.value > catalogue.value!.offsetTop)
+  if (currentScrollTop.value - headerHeight.value > catalogueEle.value!.offsetTop)
     sideBar!.classList.add('sticky')
 
   if (currentScrollTop.value <= firtstCatalogueTop.value && !immerseState.value)
@@ -147,11 +99,12 @@ const scrollFixedCatalogue = () => {
 }
 
 watch(isNavShown, (val) => {
-  val ? catalogue.value!.style.top = `${catalogue.value!.offsetTop + headerHeight!.value}px` : catalogue.value!.style.top = '1.767rem'
+  val ? (catalogueEle.value!.style.top = `${catalogueEle.value!.offsetTop + headerHeight!.value}px`) : (catalogueEle.value!.style.top = '1.767rem')
 })
 watch(immerseState, (val) => {
   if (val) {
     sideBar!.classList.add('sticky')
+    onScroll()
   }
   else {
     firtstCatalogueTop.value = originTop.value
@@ -160,9 +113,6 @@ watch(immerseState, (val) => {
 })
 
 onMounted(() => {
-  const isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)
-  if (isMobile)
-    document.querySelector('html')!.style.scrollBehavior = 'smooth'
   window.addEventListener('scroll', onScroll)
   window.addEventListener('scroll', scrollFixedCatalogue)
   const route = useRoute()
@@ -196,7 +146,7 @@ onUnmounted(() => {
       </div>
       <div ref="navRef" class="catalog-body">
         <ul class="catalog-list" style="margin-top: 0px">
-          <li v-for="(item, index) in Catalogue" ref="liRef" :key="index" :class="[{ active: index === isActive }, catalogueClass(item.level)]" @click="activeSelect(index)">
+          <li v-for="(item, index) in catalogueList" ref="liRef" :key="index" :class="[{ active: index === isActive }, catalogueClass(item.level)]" @click="activeSelect(index)">
             <div class="a-container">
               <a :href="`#heading-${index}`" :title="item.text" class="catalog-aTag hover:bg-jj-container-hover-normal"> {{ item.text }} </a>
             </div>
@@ -209,11 +159,11 @@ onUnmounted(() => {
 
 <style scoped>
 #heading-3 {
-  @apply relative top--50px
+  @apply relative top--50px;
 }
 
 .sidebar-block {
-  @apply relative mb-20px
+  @apply relative mb-20px;
 }
 
 .catalog-block.isExpand {
@@ -229,7 +179,7 @@ onUnmounted(() => {
 }
 
 .article-catalog {
-  @apply bg-jj-sidebar p-0 rd-4px
+  @apply bg-jj-sidebar p-0 rd-4px;
 }
 
 .catalog-title {
@@ -246,19 +196,19 @@ onUnmounted(() => {
 }
 
 .catalog-body::-webkit-scrollbar {
-    width: 6px;
-    height: 80px;
+  width: 6px;
+  height: 80px;
 }
 
 .catalog-body::-webkit-scrollbar-thumb {
-    background-color: #e4e6eb;
-    outline: none;
-    border-radius: 2px;
+  background-color: #e4e6eb;
+  outline: none;
+  border-radius: 2px;
 }
 
 .catalog-body::-webkit-scrollbar-track {
-    box-shadow: none;
-    border-radius: 2px;
+  box-shadow: none;
+  border-radius: 2px;
 }
 
 .catalog-list {
@@ -302,6 +252,6 @@ onUnmounted(() => {
 }
 
 .catalog-list .catalog-aTag {
-  @apply color-inherit inline-block p-8px w-90% rd-4px truncate
+  @apply color-inherit inline-block p-8px w-90% rd-4px truncate;
 }
 </style>

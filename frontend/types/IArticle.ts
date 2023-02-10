@@ -41,4 +41,5 @@ export interface IArticle {
   tagIds: { data: ITagItem[] }
   typeId: IType
   columId: IColumn
+  summary: string
 }
