@@ -13,7 +13,7 @@ const routeMap = {
   <div v-if="route.query.sort && route.query.sort?.indexOf('hottest') !== -1" class="dorp-down-area">
     <div class="drop-down">
       <div class="dropdown-toggle" @click="isShow = !isShow">
-        {{ routeMap[route.query.sort as string] }}
+        {{ routeMap[String(route.query.sort)] }}
         <div class="icon" i-carbon:caret-up :class="!isShow ? 'toggled' : ''" />
       </div>
       <ul v-if="isShow" class="dropdown-menu">
