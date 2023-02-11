@@ -24,20 +24,26 @@ if (process.client) {
     setItem()
   }
 
+  onMounted(() => {
   // 上面操作只会在页面加载时才会生效，因此，需要给media添加事件监听器
-  media.addEventListener('change', (e) => {
-    if (e.matches)
-      setDark()
-    else
-      setLight()
+    media.addEventListener('change', (e) => {
+      if (e.matches)
+        setDark()
+      else
+        setLight()
+    })
+
+    window.addEventListener('storage', (e) => {
+      if (e.newValue === 'light')
+        setLight()
+
+      else
+        setDark()
+    })
   })
-
-  window.addEventListener('storage', (e) => {
-    if (e.newValue === 'light')
-      setLight()
-
-    else
-      setDark()
+  onUnmounted(() => {
+    media.removeEventListener('change', (e) => {}, true)
+    window.removeEventListener('storage', (e) => {}, true)
   })
 }
 </script>
