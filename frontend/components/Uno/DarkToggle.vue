@@ -31,6 +31,14 @@ if (process.client) {
     else
       setLight()
   })
+
+  window.addEventListener('storage', (e) => {
+    if (e.newValue === 'light')
+      setLight()
+
+    else
+      setDark()
+  })
 }
 </script>
 
