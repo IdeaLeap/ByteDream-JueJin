@@ -1,4 +1,4 @@
-export default (fn?: () => any, wait = 1500) => {
+export default (fn?: () => any, wait = 1000) => {
   let timer: NodeJS.Timeout | null = null
   return () => {
     if (!timer) {
