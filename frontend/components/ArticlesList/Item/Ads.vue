@@ -20,12 +20,3 @@ const ad = inject<IArticleAd>('ads')
     </ArticlesListUiLink>
   </li>
 </template>
-
-<style scoped>
-.title {
-  @apply truncate my-3 text-jj-font-normal text-[16px] title font-semibold tracking-wide
-}
-.summary {
-  @apply whitespace-pre-wrap mlg:max-w-[520px] text-jj_thirdly text-[13px]
-}
-</style>

@@ -11,7 +11,7 @@ defineProps<{
     <div class="title">
       {{ title }}
     </div>
-    <div class="summary">
+    <div :class="`${ad ? 'whitespace-pre-wrap' : 'truncate'}`" class="summary">
       {{ summary }}
     </div>
   </div>
@@ -22,6 +22,6 @@ defineProps<{
   @apply truncate text-jj-font-normal text-[16px] title font-semibold tracking-wide
 }
 .summary {
-  @apply truncate pt-3 text-jj_thirdly text-[13px]
+  @apply pt-3 text-jj_thirdly text-[13px]
 }
 </style>
