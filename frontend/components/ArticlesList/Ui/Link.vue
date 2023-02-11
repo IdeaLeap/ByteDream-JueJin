@@ -12,7 +12,7 @@ defineProps({
 
 <style scoped>
 .link_container {
-  @apply transition hover:bg-jj-hover f-c-c py-4 transition-all b-b b-grey all-cursor-pointer flex-1 px-[1.67rem] truncate
-  @apply dark:b-jj-gray-container-normal
+  @apply transition flex-1 f-c-c transition-all b-b b-grey all-cursor-pointer px-[1.67rem] pt-[1.25rem] pb-[0.85rem] truncate
+  @apply dark:b-jj-gray-container-normal hover:bg-jj-hover
 }
 </style>
