@@ -5,23 +5,25 @@ function toggleDark() {
   color.preference = color.value === 'dark' ? 'light' : 'dark'
 }
 if (process.client) {
+  const item = localStorage.getItem('nuxt-color-mode') || 'dark'
+  localStorage.setItem('nuxt-color-mode', item)
   const setDark = () => {
     color.preference = color.value = 'dark'
   }
   const setLight = () => {
     color.preference = color.value = 'light'
   }
+  const setItem = () => {
+    color.preference = color.value = item
+  }
   // 先获取media
   const media = window.matchMedia('(prefers-color-scheme:dark)')
   // 判断是否为暗主题
   if (media.matches) {
-  // 匹配到暗主题
-    setDark()
+    // 如果是暗色主题则使用localStorage储存的上次使用的主题颜色
+    setItem()
   }
-  else {
-  // 没有匹配到暗主题
-    setLight()
-  }
+
   // 上面操作只会在页面加载时才会生效，因此，需要给media添加事件监听器
   media.addEventListener('change', (e) => {
     if (e.matches)
