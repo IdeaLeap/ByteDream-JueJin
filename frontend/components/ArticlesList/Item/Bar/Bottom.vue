@@ -26,7 +26,7 @@ const format = (num: number) => num > 10000 ? `${(num / 10000).toFixed(1)}w` : n
 
 <style scoped>
 .bottombar {
-  @apply flex all-flex
+  @apply flex all-flex leading-[22px]
 }
 .heat {
   @apply pl-2
