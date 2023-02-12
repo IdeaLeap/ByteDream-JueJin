@@ -21,7 +21,6 @@ defineProps({
 
 <style scoped>
 .cover {
-  /* display: none; */
   @apply aspect-[3/2] ml-[1.67rem] mb-[-1.85rem] w-[120px]
 }
 .avatar {

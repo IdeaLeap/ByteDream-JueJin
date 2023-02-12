@@ -32,17 +32,17 @@ const hideHandler = (id: string) => {
 
 <style scoped>
 .list_container {
-  @apply relative;
+  @apply relative
 }
 
 .list_container:hover .icon {
-  @apply block;
+  @apply block
 }
 .left {
-  @apply flex-1 truncate;
+  @apply flex-1 truncate
 }
 .icon {
-  @apply i-carbon-close display-none cursor-pointer text-[16px] text-jj-fourthly hover:text-primary transition absolute top-[1rem] right-[1.67rem];
+  @apply i-carbon-close display-none cursor-pointer text-[16px] text-jj-fourthly hover:text-primary transition absolute top-[1rem] right-[1.67rem]
 }
 .link:visited :deep(.title) {
   @apply text-jj-navs-title

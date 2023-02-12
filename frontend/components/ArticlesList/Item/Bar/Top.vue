@@ -49,7 +49,7 @@ defineProps({
   @apply scale-0 delay-150 transition-all text-black
 }
 .info:hover {
-  @apply scale-100;
+  @apply scale-100
 }
 .name:hover+.info {
   @apply scale-100
