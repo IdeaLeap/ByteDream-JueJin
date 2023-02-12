@@ -24,6 +24,8 @@ interface IColumnArticleItem {
 }
 interface IColumn {
   column: string
+  cover: string
+  describe: string
   articles: { data: IColumnArticleItem[] }
 }
 export interface IArticle {

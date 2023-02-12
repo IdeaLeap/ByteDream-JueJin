@@ -4,7 +4,8 @@
   "info": {
     "singularName": "colum",
     "pluralName": "colums",
-    "displayName": "colum"
+    "displayName": "colum",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -21,6 +22,14 @@
       "relation": "oneToMany",
       "target": "api::article.article",
       "mappedBy": "columId"
+    },
+    "cover": {
+      "type": "string",
+      "required": true
+    },
+    "describe": {
+      "type": "string",
+      "required": true
     }
   }
 }
