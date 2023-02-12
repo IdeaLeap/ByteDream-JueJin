@@ -4,9 +4,7 @@ defineProps<{
   liked: number
   commented: number
 }>()
-const format = (num: number) => {
-  return num > 10000 ? `${(num / 10000).toFixed(1)}w` : num
-}
+const format = (num: number) => num > 10000 ? `${(num / 10000).toFixed(1)}w` : num
 </script>
 
 <template>
@@ -28,7 +26,7 @@ const format = (num: number) => {
 
 <style scoped>
 .bottombar {
-  @apply flex all-flex
+  @apply flex all-flex py-[1.25px]
 }
 .heat {
   @apply pl-2

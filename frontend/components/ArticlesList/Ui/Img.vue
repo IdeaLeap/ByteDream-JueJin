@@ -12,7 +12,7 @@ defineProps({
     :src="src"
     :alt="alt"
     loading="lazy"
-    fit="fill"
+    fit="cover"
     quality="80"
     format="webp"
     :class="`${avatar ? 'avatar' : 'cover'}`"

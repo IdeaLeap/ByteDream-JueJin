@@ -7,7 +7,7 @@ defineProps<{
 </script>
 
 <template>
-  <div :class="`${ad ? 'pt-3 mb-1' : 'py-4'}`">
+  <div :class="`${ad ? 'mb-1' : ''}`" class="my-[10px]">
     <div class="title">
       {{ title }}
     </div>
@@ -22,6 +22,6 @@ defineProps<{
   @apply truncate text-jj-font-normal text-[16px] title font-semibold tracking-wide
 }
 .summary {
-  @apply pt-3 text-jj_thirdly text-[13px]
+  @apply mt-[8px] text-jj_thirdly text-[13px] leading-[22px]
 }
 </style>
