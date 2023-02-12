@@ -215,10 +215,8 @@ export default defineConfig({
           tag: {
             normal: 'var(--juejin-color-types-list-tag)', // #8a9aa9
           },
-          background: {
-            normal: 'var(--juejin-color-types-tag-background)', // #f4f5f5
-          },
-          text: 'var(--juejin-h1-font-color)',
+          bg: 'var(--juejin-category-popover-bg)',
+          text: 'var(--juejin-category-popover-text)',
         },
       },
     },
