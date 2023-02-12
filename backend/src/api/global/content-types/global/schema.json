@@ -45,6 +45,11 @@
       "type": "component",
       "repeatable": false,
       "component": "articles.ads"
+    },
+    "contentAds": {
+      "type": "component",
+      "repeatable": false,
+      "component": "articles.content-ad"
     }
   }
 }

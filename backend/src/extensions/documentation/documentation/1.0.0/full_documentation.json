@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2023-02-12T05:42:21.560Z"
+    "x-generation-date": "2023-02-12T05:56:36.199Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -10884,6 +10884,9 @@
               },
               "articleAds": {
                 "$ref": "#/components/schemas/ArticlesAdsComponent"
+              },
+              "contentAds": {
+                "$ref": "#/components/schemas/ArticlesContentAdComponent"
               }
             }
           }
@@ -10927,6 +10930,9 @@
               },
               "articleAds": {
                 "$ref": "#/components/schemas/ArticlesAdsComponent"
+              },
+              "contentAds": {
+                "$ref": "#/components/schemas/ArticlesContentAdComponent"
               },
               "createdAt": {
                 "type": "string",
@@ -11267,6 +11273,9 @@
               },
               "articleAds": {
                 "$ref": "#/components/schemas/ArticlesAdsComponent"
+              },
+              "contentAds": {
+                "$ref": "#/components/schemas/ArticlesContentAdComponent"
               },
               "createdAt": {
                 "type": "string",
@@ -11641,6 +11650,9 @@
               "articleAds": {
                 "$ref": "#/components/schemas/ArticlesAdsComponent"
               },
+              "contentAds": {
+                "$ref": "#/components/schemas/ArticlesContentAdComponent"
+              },
               "createdAt": {
                 "type": "string",
                 "format": "date-time"
@@ -11980,6 +11992,9 @@
               },
               "articleAds": {
                 "$ref": "#/components/schemas/ArticlesAdsComponent"
+              },
+              "contentAds": {
+                "$ref": "#/components/schemas/ArticlesContentAdComponent"
               },
               "createdAt": {
                 "type": "string",
@@ -12357,6 +12372,9 @@
           },
           "img": {
             "type": "string"
+          },
+          "url": {
+            "type": "string"
           }
         }
       },
@@ -12399,6 +12417,23 @@
             "type": "string"
           },
           "url": {
+            "type": "string"
+          }
+        }
+      },
+      "ArticlesContentAdComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "img": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "ad": {
             "type": "string"
           }
         }
