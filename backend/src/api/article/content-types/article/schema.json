@@ -60,16 +60,16 @@
       "target": "api::author.author",
       "inversedBy": "articles"
     },
-    "columId": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::colum.colum",
-      "inversedBy": "articles"
-    },
     "tagIds": {
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::tag.tag",
+      "inversedBy": "articles"
+    },
+    "columId": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::colum.colum",
       "inversedBy": "articles"
     }
   }
