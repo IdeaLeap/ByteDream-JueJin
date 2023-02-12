@@ -19,6 +19,7 @@ export default defineEventHandler(async (): Promise<IGlobal> => {
           ads{
             ad
             img
+            url
           }
           footers{
             footer

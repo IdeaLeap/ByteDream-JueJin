@@ -1,7 +1,7 @@
 import { useGraphql } from '~~/utils/useGraphql'
-import type { mutation } from '~/types/IMutation'
+import type { liked } from '~/types/IMutation'
 const token = useRuntimeConfig().strapi_token
-export default defineEventHandler(async (event): Promise<mutation> => {
+export default defineEventHandler(async (event): Promise<liked> => {
   const query = getQuery(event)
   const id = query.id
   if (!id) {
@@ -52,5 +52,8 @@ export default defineEventHandler(async (event): Promise<mutation> => {
   return {
     code: 200,
     message: 'success',
+    data: {
+      liked: articleData.liked,
+    },
   }
 })
