@@ -62,6 +62,8 @@ export default defineEventHandler(async (event): Promise<IArticle> => {
             data{
               attributes{
                 column
+                cover
+                describe
                 articles{
                   data{
                     id

@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2023-02-11T07:39:26.502Z"
+    "x-generation-date": "2023-02-12T05:56:36.199Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -700,6 +700,12 @@
                                                           }
                                                         }
                                                       }
+                                                    },
+                                                    "cover": {
+                                                      "type": "string"
+                                                    },
+                                                    "describe": {
+                                                      "type": "string"
                                                     },
                                                     "createdAt": {
                                                       "type": "string",
@@ -1607,6 +1613,12 @@
                                                           }
                                                         }
                                                       }
+                                                    },
+                                                    "cover": {
+                                                      "type": "string"
+                                                    },
+                                                    "describe": {
+                                                      "type": "string"
                                                     },
                                                     "createdAt": {
                                                       "type": "string",
@@ -2548,6 +2560,12 @@
                                                         }
                                                       }
                                                     },
+                                                    "cover": {
+                                                      "type": "string"
+                                                    },
+                                                    "describe": {
+                                                      "type": "string"
+                                                    },
                                                     "createdAt": {
                                                       "type": "string",
                                                       "format": "date-time"
@@ -3454,6 +3472,12 @@
                                                           }
                                                         }
                                                       }
+                                                    },
+                                                    "cover": {
+                                                      "type": "string"
+                                                    },
+                                                    "describe": {
+                                                      "type": "string"
                                                     },
                                                     "createdAt": {
                                                       "type": "string",
@@ -4580,6 +4604,12 @@
                                             }
                                           }
                                         },
+                                        "cover": {
+                                          "type": "string"
+                                        },
+                                        "describe": {
+                                          "type": "string"
+                                        },
                                         "createdAt": {
                                           "type": "string",
                                           "format": "date-time"
@@ -5427,6 +5457,12 @@
                                               }
                                             }
                                           }
+                                        },
+                                        "cover": {
+                                          "type": "string"
+                                        },
+                                        "describe": {
+                                          "type": "string"
                                         },
                                         "createdAt": {
                                           "type": "string",
@@ -6309,6 +6345,12 @@
                                             }
                                           }
                                         },
+                                        "cover": {
+                                          "type": "string"
+                                        },
+                                        "describe": {
+                                          "type": "string"
+                                        },
                                         "createdAt": {
                                           "type": "string",
                                           "format": "date-time"
@@ -7157,6 +7199,12 @@
                                             }
                                           }
                                         },
+                                        "cover": {
+                                          "type": "string"
+                                        },
+                                        "describe": {
+                                          "type": "string"
+                                        },
                                         "createdAt": {
                                           "type": "string",
                                           "format": "date-time"
@@ -7360,7 +7408,9 @@
         "properties": {
           "data": {
             "required": [
-              "column"
+              "column",
+              "cover",
+              "describe"
             ],
             "type": "object",
             "properties": {
@@ -7380,6 +7430,12 @@
                   ],
                   "example": "string or id"
                 }
+              },
+              "cover": {
+                "type": "string"
+              },
+              "describe": {
+                "type": "string"
               }
             }
           }
@@ -8037,6 +8093,12 @@
                                             }
                                           }
                                         },
+                                        "cover": {
+                                          "type": "string"
+                                        },
+                                        "describe": {
+                                          "type": "string"
+                                        },
                                         "createdAt": {
                                           "type": "string",
                                           "format": "date-time"
@@ -8161,6 +8223,12 @@
                     }
                   }
                 }
+              },
+              "cover": {
+                "type": "string"
+              },
+              "describe": {
+                "type": "string"
               },
               "createdAt": {
                 "type": "string",
@@ -8864,6 +8932,12 @@
                                             }
                                           }
                                         },
+                                        "cover": {
+                                          "type": "string"
+                                        },
+                                        "describe": {
+                                          "type": "string"
+                                        },
                                         "createdAt": {
                                           "type": "string",
                                           "format": "date-time"
@@ -8988,6 +9062,12 @@
                     }
                   }
                 }
+              },
+              "cover": {
+                "type": "string"
+              },
+              "describe": {
+                "type": "string"
               },
               "createdAt": {
                 "type": "string",
@@ -9724,6 +9804,12 @@
                                             }
                                           }
                                         },
+                                        "cover": {
+                                          "type": "string"
+                                        },
+                                        "describe": {
+                                          "type": "string"
+                                        },
                                         "createdAt": {
                                           "type": "string",
                                           "format": "date-time"
@@ -9848,6 +9934,12 @@
                     }
                   }
                 }
+              },
+              "cover": {
+                "type": "string"
+              },
+              "describe": {
+                "type": "string"
               },
               "createdAt": {
                 "type": "string",
@@ -10551,6 +10643,12 @@
                                             }
                                           }
                                         },
+                                        "cover": {
+                                          "type": "string"
+                                        },
+                                        "describe": {
+                                          "type": "string"
+                                        },
                                         "createdAt": {
                                           "type": "string",
                                           "format": "date-time"
@@ -10676,6 +10774,12 @@
                   }
                 }
               },
+              "cover": {
+                "type": "string"
+              },
+              "describe": {
+                "type": "string"
+              },
               "createdAt": {
                 "type": "string",
                 "format": "date-time"
@@ -10780,6 +10884,9 @@
               },
               "articleAds": {
                 "$ref": "#/components/schemas/ArticlesAdsComponent"
+              },
+              "contentAds": {
+                "$ref": "#/components/schemas/ArticlesContentAdComponent"
               }
             }
           }
@@ -10823,6 +10930,9 @@
               },
               "articleAds": {
                 "$ref": "#/components/schemas/ArticlesAdsComponent"
+              },
+              "contentAds": {
+                "$ref": "#/components/schemas/ArticlesContentAdComponent"
               },
               "createdAt": {
                 "type": "string",
@@ -11163,6 +11273,9 @@
               },
               "articleAds": {
                 "$ref": "#/components/schemas/ArticlesAdsComponent"
+              },
+              "contentAds": {
+                "$ref": "#/components/schemas/ArticlesContentAdComponent"
               },
               "createdAt": {
                 "type": "string",
@@ -11537,6 +11650,9 @@
               "articleAds": {
                 "$ref": "#/components/schemas/ArticlesAdsComponent"
               },
+              "contentAds": {
+                "$ref": "#/components/schemas/ArticlesContentAdComponent"
+              },
               "createdAt": {
                 "type": "string",
                 "format": "date-time"
@@ -11876,6 +11992,9 @@
               },
               "articleAds": {
                 "$ref": "#/components/schemas/ArticlesAdsComponent"
+              },
+              "contentAds": {
+                "$ref": "#/components/schemas/ArticlesContentAdComponent"
               },
               "createdAt": {
                 "type": "string",
@@ -12253,6 +12372,9 @@
           },
           "img": {
             "type": "string"
+          },
+          "url": {
+            "type": "string"
           }
         }
       },
@@ -12295,6 +12417,23 @@
             "type": "string"
           },
           "url": {
+            "type": "string"
+          }
+        }
+      },
+      "ArticlesContentAdComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "img": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "ad": {
             "type": "string"
           }
         }
@@ -12998,6 +13137,12 @@
                                               }
                                             }
                                           }
+                                        },
+                                        "cover": {
+                                          "type": "string"
+                                        },
+                                        "describe": {
+                                          "type": "string"
                                         },
                                         "createdAt": {
                                           "type": "string",
@@ -13845,6 +13990,12 @@
                                               }
                                             }
                                           }
+                                        },
+                                        "cover": {
+                                          "type": "string"
+                                        },
+                                        "describe": {
+                                          "type": "string"
                                         },
                                         "createdAt": {
                                           "type": "string",
@@ -14726,6 +14877,12 @@
                                             }
                                           }
                                         },
+                                        "cover": {
+                                          "type": "string"
+                                        },
+                                        "describe": {
+                                          "type": "string"
+                                        },
                                         "createdAt": {
                                           "type": "string",
                                           "format": "date-time"
@@ -15572,6 +15729,12 @@
                                               }
                                             }
                                           }
+                                        },
+                                        "cover": {
+                                          "type": "string"
+                                        },
+                                        "describe": {
+                                          "type": "string"
                                         },
                                         "createdAt": {
                                           "type": "string",
@@ -16481,6 +16644,12 @@
                                             }
                                           }
                                         },
+                                        "cover": {
+                                          "type": "string"
+                                        },
+                                        "describe": {
+                                          "type": "string"
+                                        },
                                         "createdAt": {
                                           "type": "string",
                                           "format": "date-time"
@@ -17330,6 +17499,12 @@
                                               }
                                             }
                                           }
+                                        },
+                                        "cover": {
+                                          "type": "string"
+                                        },
+                                        "describe": {
+                                          "type": "string"
                                         },
                                         "createdAt": {
                                           "type": "string",
@@ -18214,6 +18389,12 @@
                                             }
                                           }
                                         },
+                                        "cover": {
+                                          "type": "string"
+                                        },
+                                        "describe": {
+                                          "type": "string"
+                                        },
                                         "createdAt": {
                                           "type": "string",
                                           "format": "date-time"
@@ -19063,6 +19244,12 @@
                                               }
                                             }
                                           }
+                                        },
+                                        "cover": {
+                                          "type": "string"
+                                        },
+                                        "describe": {
+                                          "type": "string"
                                         },
                                         "createdAt": {
                                           "type": "string",
