@@ -72,10 +72,8 @@ const { immerseState, immerseToggle } = useImmerse()
   @apply inline-block box-content w-16px h-24px py-4px px-6px my-12px mx-10px;
   @apply hover:bg-jj-gray-icon-normal rd-4px cursor-pointer fill-jj-black-normal;
   transition: transform 0.5s;
-  /* fill: #000; */
 }
 .list-icon.active {
-  /* fill: #3686ff; */
   @apply fill-jj-blue fill-normal;
 }
 .next-article-hr {
