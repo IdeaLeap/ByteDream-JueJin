@@ -34,6 +34,7 @@ const hideHandler = (id: string) => {
 .list_container {
   @apply relative;
 }
+
 .list_container:hover .icon {
   @apply block;
 }
