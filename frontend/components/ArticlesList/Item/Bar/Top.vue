@@ -40,7 +40,7 @@ defineProps({
 
 <style scoped>
 .topbar {
-  @apply flex items-center pr-4 text-[13px]
+  @apply flex items-center pr-4 text-[13px] leading-[22px]
 }
 .author {
   @apply transition text-jj-font-normal px-3 border-r-1 pl-0 hover:text-jj-brand-normal

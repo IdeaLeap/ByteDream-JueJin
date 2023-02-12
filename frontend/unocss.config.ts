@@ -196,6 +196,7 @@ export default defineConfig({
         },
         navs: {
           normal: 'var(--juejin-border-navs-header)', // #F3F4F6 //#494949
+          title: 'var(--jjext-color-nav-title)', // #86909c
           wrapper: {
             normal: 'var(--juejin-border-navs-wrapper)', // #E5E7EB //#494949
           },
