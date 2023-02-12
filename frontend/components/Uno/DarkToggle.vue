@@ -4,6 +4,7 @@ const color = useColorMode()
 function toggleDark() {
   color.preference = color.value === 'dark' ? 'light' : 'dark'
 }
+
 if (process.client) {
   const item = localStorage.getItem('nuxt-color-mode') || 'dark'
   localStorage.setItem('nuxt-color-mode', item)
@@ -19,31 +20,35 @@ if (process.client) {
   // 先获取media
   const media = window.matchMedia('(prefers-color-scheme:dark)')
   // 判断是否为暗主题
-  if (media.matches) {
-    // 如果是暗色主题则使用localStorage储存的上次使用的主题颜色
+  if (media.matches)
+  // 如果是暗色主题则使用localStorage储存的上次使用的主题颜色
     setItem()
+
+  // 上面操作只会在页面加载时才会生效，因此，需要给media添加事件监听器
+  // MediaQueryList的maches属性会返回媒体查询的结果
+  function handleColorChange(e: MediaQueryListEvent) {
+    if (e.matches)
+      setDark()
+    else
+      setLight()
+  }
+
+  function handleStorageChange(e: StorageEvent) {
+    if (e.key === 'nuxt-color-mode' && typeof e.newValue === 'string') {
+      if (e.newValue === 'light')
+        setLight()
+      else if (e.newValue === 'dark')
+        setDark()
+    }
   }
 
   onMounted(() => {
-  // 上面操作只会在页面加载时才会生效，因此，需要给media添加事件监听器
-    media.addEventListener('change', (e) => {
-      if (e.matches)
-        setDark()
-      else
-        setLight()
-    })
-
-    window.addEventListener('storage', (e) => {
-      if (e.newValue === 'light')
-        setLight()
-
-      else
-        setDark()
-    })
+    media.addEventListener('change', handleColorChange)
+    window.addEventListener('storage', handleStorageChange)
   })
   onUnmounted(() => {
-    media.removeEventListener('change', (e) => {}, true)
-    window.removeEventListener('storage', (e) => {}, true)
+    media.removeEventListener('change', handleColorChange)
+    window.removeEventListener('storage', handleStorageChange)
   })
 }
 </script>
