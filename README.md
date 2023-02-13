@@ -38,6 +38,7 @@
 - 📦 `Vercel` - Auto Deploy & Preview with Workflows
 - 🔥 `Netlify + Cloudflare` - Deploy in Production Environment
 - 👀 `Sentry` - Error Tracking
+- 👁️ `MeiliSearch` - Fast Search Engine
 
 ## 开发
 

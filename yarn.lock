@@ -2,6 +2,24 @@
 # yarn lockfile v1
 
 
+"@algolia/events@^4.0.1":
+  version "4.0.1"
+  resolved "https://registry.npmmirror.com/@algolia/events/-/events-4.0.1.tgz#fd39e7477e7bc703d7f893b556f676c032af3950"
+  integrity sha512-FQzvOCgoFXAbf5Y6mYozw2aj5KCJoA3m4heImceldzPSMbdyS4atVjJzXKMsfX3wnZTFYwkkt8/z8UesLHlSBQ==
+
+"@algolia/ui-components-highlight-vdom@^1.2.1":
+  version "1.2.1"
+  resolved "https://registry.npmmirror.com/@algolia/ui-components-highlight-vdom/-/ui-components-highlight-vdom-1.2.1.tgz#c430c9f090ef8c68477ef4b685324ed231ce0c13"
+  integrity sha512-IlYgIaCUEkz9ezNbwugwKv991oOHhveyq6nzL0F1jDzg1p3q5Yj/vO4KpNG910r2dwGCG3nEm5GtChcLnarhFA==
+  dependencies:
+    "@algolia/ui-components-shared" "1.2.1"
+    "@babel/runtime" "^7.0.0"
+
+"@algolia/ui-components-shared@1.2.1", "@algolia/ui-components-shared@^1.2.1":
+  version "1.2.1"
+  resolved "https://registry.npmmirror.com/@algolia/ui-components-shared/-/ui-components-shared-1.2.1.tgz#62e3a04fc11623f149312942cd764d4528dd994c"
+  integrity sha512-a7mYHf/GVQfhAx/HRiMveKkFvHspQv/REdG+C/FIOosiSmNZxX7QebDwJkrGSmDWdXO12D0Qv1xn3AytFcEDlQ==
+
 "@ampproject/remapping@^2.1.0", "@ampproject/remapping@^2.2.0":
   version "2.2.0"
   resolved "https://registry.npmmirror.com/@ampproject/remapping/-/remapping-2.2.0.tgz"
@@ -2182,6 +2200,13 @@
     semver "^7.3.5"
     tar "^6.1.11"
 
+"@meilisearch/instant-meilisearch@0.10.1":
+  version "0.10.1"
+  resolved "https://registry.npmmirror.com/@meilisearch/instant-meilisearch/-/instant-meilisearch-0.10.1.tgz#07220e88d30121d1f07c465fdeae7c048d20ed4a"
+  integrity sha512-uEw1P5zTRNtZvXrFqs2I2O1RNRZMXH2n6d3WEV7IWjKMO9drRLnI69YZALvG50238/9qWam4h07zXsq8ElXPBA==
+  dependencies:
+    meilisearch "^0.30.0"
+
 "@mswjs/cookies@^0.2.2":
   version "0.2.2"
   resolved "https://registry.npmmirror.com/@mswjs/cookies/-/cookies-0.2.2.tgz"
@@ -3239,6 +3264,18 @@
     lodash "4.17.21"
     yup "0.32.9"
 
+"@strapi/utils@^4.5.4":
+  version "4.6.1"
+  resolved "https://registry.npmmirror.com/@strapi/utils/-/utils-4.6.1.tgz#5e2b600d230ace703d479880fd3ae65aa2f42b78"
+  integrity sha512-rsECsXyRuL3Hi12cfsSVHS07JXrMR1eT+gWaTC2KxtHRiLsueELEKG08h13tlMwRfvvhzPcjqB11qNs3bI17iA==
+  dependencies:
+    "@sindresorhus/slugify" "1.1.0"
+    date-fns "2.29.3"
+    http-errors "1.8.1"
+    lodash "4.17.21"
+    p-map "4.0.0"
+    yup "0.32.9"
+
 "@swc/helpers@^0.4.14":
   version "0.4.14"
   resolved "https://registry.npmmirror.com/@swc/helpers/-/helpers-0.4.14.tgz"
@@ -3364,6 +3401,11 @@
   dependencies:
     "@types/ms" "*"
 
+"@types/dom-speech-recognition@^0.0.1":
+  version "0.0.1"
+  resolved "https://registry.npmmirror.com/@types/dom-speech-recognition/-/dom-speech-recognition-0.0.1.tgz#e326761a04b4a49c0eec2ac7948afc1c6aa12baa"
+  integrity sha512-udCxb8DvjcDKfk1WTBzDsxFbLgYxmQGKrE/ricoMqHRNjSlSUCcamVTA5lIQqzY10mY5qCY0QDwBfFEwhfoDPw==
+
 "@types/eslint-scope@^3.7.3":
   version "3.7.4"
   resolved "https://registry.npmmirror.com/@types/eslint-scope/-/eslint-scope-3.7.4.tgz"
@@ -3429,12 +3471,22 @@
     "@types/minimatch" "*"
     "@types/node" "*"
 
+"@types/google.maps@^3.45.3":
+  version "3.51.1"
+  resolved "https://registry.npmmirror.com/@types/google.maps/-/google.maps-3.51.1.tgz#7cd2007d231d49b9642d84e752d25f41827f7c2b"
+  integrity sha512-Wtl6PUL26jEbC1NBqJi7uoyYZo1/I3EDCd9pZk9EN6ZDvKaO28M5+nIQGyYomzvkMpMHnfywpTzalhwr76/oAg==
+
 "@types/hast@^2.0.0", "@types/hast@^2.3.4":
   version "2.3.4"
   resolved "https://registry.npmmirror.com/@types/hast/-/hast-2.3.4.tgz"
   integrity sha512-wLEm0QvaoawEDoTRwzTXp4b4jpwiJDvR5KMnFnVodm3scufTlBOWRD6N1OBf9TZMhjlNsSfcO5V+7AF4+Vy+9g==
   dependencies:
     "@types/unist" "*"
+
+"@types/hogan.js@^3.0.0":
+  version "3.0.1"
+  resolved "https://registry.npmmirror.com/@types/hogan.js/-/hogan.js-3.0.1.tgz#64c54407b30da359763e14877f5702b8ae85d61c"
+  integrity sha512-D03i/2OY7kGyMq9wdQ7oD8roE49z/ZCZThe/nbahtvuqCNZY9T2MfedOWyeBdbEpY2W8Gnh/dyJLdFtUCOkYbg==
 
 "@types/hoist-non-react-statics@^3.3.0", "@types/hoist-non-react-statics@^3.3.1":
   version "3.3.1"
@@ -3651,7 +3703,7 @@
   resolved "https://registry.npmmirror.com/@types/prop-types/-/prop-types-15.7.5.tgz"
   integrity sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==
 
-"@types/qs@*":
+"@types/qs@*", "@types/qs@^6.5.3":
   version "6.9.7"
   resolved "https://registry.npmmirror.com/@types/qs/-/qs-6.9.7.tgz"
   integrity sha512-FGa1F62FT09qcrueBA6qYTrJPVDzah9a+493+o2PCXsesWHIn27G98TsSMs3WPNbZIEj4+VJf6saSFpvD+3Zsw==
@@ -4620,6 +4672,13 @@ ajv@^8.0.0, ajv@^8.11.0, ajv@^8.8.0:
     json-schema-traverse "^1.0.0"
     require-from-string "^2.0.2"
     uri-js "^4.2.2"
+
+algoliasearch-helper@^3.11.3:
+  version "3.11.3"
+  resolved "https://registry.npmmirror.com/algoliasearch-helper/-/algoliasearch-helper-3.11.3.tgz#6e7af8afe6f9a9e55186abffb7b6cf7ca8de3301"
+  integrity sha512-TbaEvLwiuGygHQIB8y+OsJKQQ40+JKUua5B91X66tMUHyyhbNHvqyr0lqd3wCoyKx7WybyQrC0WJvzoIeh24Aw==
+  dependencies:
+    "@algolia/events" "^4.0.1"
 
 ansi-align@^3.0.0:
   version "3.0.1"
@@ -6508,6 +6567,13 @@ cross-env@^7.0.3:
   integrity sha512-+/HKd6EgcQCJGh2PSjZuUitQBQynKor4wrFbRg4DtAgS1aWO+gU52xpH7M9ScGgXSYmAVS9bIJ8EzuaGw0oNAw==
   dependencies:
     cross-spawn "^7.0.1"
+
+cross-fetch@^3.1.5:
+  version "3.1.5"
+  resolved "https://registry.npmmirror.com/cross-fetch/-/cross-fetch-3.1.5.tgz#e1389f44d9e7ba767907f7af8454787952ab534f"
+  integrity sha512-lvb1SBsI0Z7GDwmuid+mU3kWVBwTVUbe7S0H52yaaAdQOXq2YktTCZdlAcNKFzE6QtRz0snpw9bNiPeOIkkQvw==
+  dependencies:
+    node-fetch "2.6.7"
 
 cross-spawn@^6.0.0:
   version "6.0.5"
@@ -9497,6 +9563,14 @@ hmac-drbg@^1.0.1:
     minimalistic-assert "^1.0.0"
     minimalistic-crypto-utils "^1.0.1"
 
+hogan.js@^3.0.2:
+  version "3.0.2"
+  resolved "https://registry.npmmirror.com/hogan.js/-/hogan.js-3.0.2.tgz#4cd9e1abd4294146e7679e41d7898732b02c7bfd"
+  integrity sha512-RqGs4wavGYJWE07t35JQccByczmNUXQT0E12ZYV1VKYu5UiAU9lsos/yBAcf840+zrUQQxgVduCR5/B8nNtibg==
+  dependencies:
+    mkdirp "0.3.0"
+    nopt "1.0.10"
+
 hoist-non-react-statics@^3.0.0, hoist-non-react-statics@^3.1.0, hoist-non-react-statics@^3.3.0, hoist-non-react-statics@^3.3.1, hoist-non-react-statics@^3.3.2:
   version "3.3.2"
   resolved "https://registry.npmmirror.com/hoist-non-react-statics/-/hoist-non-react-statics-3.3.2.tgz"
@@ -9537,6 +9611,11 @@ hpack.js@^2.1.6:
     obuf "^1.0.0"
     readable-stream "^2.0.1"
     wbuf "^1.1.0"
+
+htm@^3.0.0:
+  version "3.1.1"
+  resolved "https://registry.npmmirror.com/htm/-/htm-3.1.1.tgz#49266582be0dc66ed2235d5ea892307cc0c24b78"
+  integrity sha512-983Vyg8NwUE7JkZ6NmOqpCZ+sh1bKv2iYTlUkzlWmA5JD2acKoxd4KVxbMmxX/85mtfdnDmTFoNKcg5DGAvxNQ==
 
 html-entities@^2.1.0, html-entities@^2.3.2:
   version "2.3.3"
@@ -9919,6 +9998,30 @@ inquirer@^9.1.4:
     strip-ansi "^7.0.1"
     through "^2.3.6"
     wrap-ansi "^8.0.1"
+
+instantsearch.css@7.4.5:
+  version "7.4.5"
+  resolved "https://registry.npmmirror.com/instantsearch.css/-/instantsearch.css-7.4.5.tgz#2a521aa634329bf1680f79adf87c79d67669ec8d"
+  integrity sha512-iIGBYjCokU93DDB8kbeztKtlu4qVEyTg1xvS6iSO1YvqRwkIZgf0tmsl/GytsLdZhuw8j4wEaeYsCzNbeJ/zEQ==
+
+instantsearch.js@^4.47.0:
+  version "4.50.3"
+  resolved "https://registry.npmmirror.com/instantsearch.js/-/instantsearch.js-4.50.3.tgz#3b810fed3b52f0b887c3ae458cd9054433872742"
+  integrity sha512-xfVKe7/uAzxnSJeUI2M4RQZycnggx+jtKB6ZCp10Q2FGsPn0pwf2kHO1r0oy05SFYj/UmRf6NXV6h7GjR+ctKg==
+  dependencies:
+    "@algolia/events" "^4.0.1"
+    "@algolia/ui-components-highlight-vdom" "^1.2.1"
+    "@algolia/ui-components-shared" "^1.2.1"
+    "@types/dom-speech-recognition" "^0.0.1"
+    "@types/google.maps" "^3.45.3"
+    "@types/hogan.js" "^3.0.0"
+    "@types/qs" "^6.5.3"
+    algoliasearch-helper "^3.11.3"
+    hogan.js "^3.0.2"
+    htm "^3.0.0"
+    preact "^10.10.0"
+    qs "^6.5.1 < 6.10"
+    search-insights "^2.1.0"
 
 internal-slot@^1.0.4:
   version "1.0.4"
@@ -11840,6 +11943,13 @@ medium-zoom@^1.0.8:
   resolved "https://registry.npmmirror.com/medium-zoom/-/medium-zoom-1.0.8.tgz"
   integrity sha512-CjFVuFq/IfrdqesAXfg+hzlDKu6A2n80ZIq0Kl9kWjoHh9j1N9Uvk5X0/MmN0hOfm5F9YBswlClhcwnmtwz7gA==
 
+meilisearch@0.30.0, meilisearch@^0.30.0:
+  version "0.30.0"
+  resolved "https://registry.npmmirror.com/meilisearch/-/meilisearch-0.30.0.tgz#707f9a6b07440c496b965379616e084f112160ae"
+  integrity sha512-3y1hALOwTDpquYar+gDREqRasFPWKxkWAhk6h+RF+nKObPVf9N77wcTNvukGwOKbxRyJnKge0OPgAB1BkB9VVw==
+  dependencies:
+    cross-fetch "^3.1.5"
+
 memfs@^3.4.1, memfs@^3.4.3:
   version "3.4.13"
   resolved "https://registry.npmmirror.com/memfs/-/memfs-3.4.13.tgz"
@@ -12402,6 +12512,11 @@ minizlib@^2.1.1:
     minipass "^3.0.0"
     yallist "^4.0.0"
 
+mitt@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.npmmirror.com/mitt/-/mitt-2.1.0.tgz#f740577c23176c6205b121b2973514eade1b2230"
+  integrity sha512-ILj2TpLiysu2wkBbWjAmww7TkZb65aiQO+DkVdUTBpBXq+MHYiETENkKFMtsJZX1Lf4pe4QOrTSjIfUwN5lRdg==
+
 mixin-deep@^1.2.0:
   version "1.3.2"
   resolved "https://registry.npmmirror.com/mixin-deep/-/mixin-deep-1.3.2.tgz"
@@ -12419,6 +12534,11 @@ mkdirp-classic@^0.5.2, mkdirp-classic@^0.5.3:
   version "0.5.3"
   resolved "https://registry.npmmirror.com/mkdirp-classic/-/mkdirp-classic-0.5.3.tgz"
   integrity sha512-gKLcREMhtuZRwRAfqP3RFW+TK4JqApVBtOIftVgjuABpAtpxhPGaDcfvbhNvD0B8iD1oUr/txX35NjcaY6Ns/A==
+
+mkdirp@0.3.0:
+  version "0.3.0"
+  resolved "https://registry.npmmirror.com/mkdirp/-/mkdirp-0.3.0.tgz#1bbf5ab1ba827af23575143490426455f481fe1e"
+  integrity sha512-OHsdUcVAQ6pOtg5JYWpCBo9W/GySVuwvP9hueRMW7UqshC0tbfzLv8wjySTPm3tfUZ/21CE9E1pJagOA91Pxew==
 
 mkdirp@^0.5.1:
   version "0.5.6"
@@ -12832,6 +12952,13 @@ non-layered-tidy-tree-layout@^2.0.2:
   resolved "https://registry.npmmirror.com/non-layered-tidy-tree-layout/-/non-layered-tidy-tree-layout-2.0.2.tgz"
   integrity sha512-gkXMxRzUH+PB0ax9dUN0yYF0S25BqeAYqhgMaLUFmpXLEk7Fcu8f4emJuOAY0V8kjDICxROIKsTAKsV/v355xw==
 
+nopt@1.0.10:
+  version "1.0.10"
+  resolved "https://registry.npmmirror.com/nopt/-/nopt-1.0.10.tgz#6ddd21bd2a31417b92727dd585f8a6f37608ebee"
+  integrity sha512-NWmpvLSqUrgrAC9HCuxEvb+PSloHpqVu+FqcO4eeF2h5qYRhA7ev6KvelyQAKtegUbC6RypJnlEOhd8vloNKYg==
+  dependencies:
+    abbrev "1"
+
 nopt@^5.0.0:
   version "5.0.0"
   resolved "https://registry.npmmirror.com/nopt/-/nopt-5.0.0.tgz"
@@ -12928,6 +13055,17 @@ nuxt-link-checker@^0.2.0:
     chalk "^5.2.0"
     cheerio "1.0.0-rc.12"
     ufo "^1.0.1"
+
+nuxt-meilisearch@^0.1.7:
+  version "0.1.7"
+  resolved "https://registry.npmmirror.com/nuxt-meilisearch/-/nuxt-meilisearch-0.1.7.tgz#38242caa250322c46d64486958bed84ae8a1a0cd"
+  integrity sha512-BKACnyghTV+gGCQUGUXxPTxbh7Twkk3CzjMm0dTepQgiLNGT0Q4qyN61JYEgH/7loF6PHRyYzdeLFxarFcj0XA==
+  dependencies:
+    "@meilisearch/instant-meilisearch" "0.10.1"
+    "@nuxt/kit" "3.0.0"
+    instantsearch.css "7.4.5"
+    meilisearch "0.30.0"
+    vue-instantsearch "4.6.0"
 
 nuxt-og-image@^0.6.0:
   version "0.6.0"
@@ -14065,6 +14203,11 @@ postcss@^8.1.10, postcss@^8.3.11, postcss@^8.4.18, postcss@^8.4.19, postcss@^8.4
     picocolors "^1.0.0"
     source-map-js "^1.0.2"
 
+preact@^10.10.0:
+  version "10.12.1"
+  resolved "https://registry.npmmirror.com/preact/-/preact-10.12.1.tgz#8f9cb5442f560e532729b7d23d42fd1161354a21"
+  integrity sha512-l8386ixSsBdbreOAkqtrwqHwdvR35ID8c3rKPa8lCWuO86dBi32QWHV4vfsZK1utLLFMvw+Z5Ad4XLkZzchscg==
+
 prebuild-install@^7.1.0, prebuild-install@^7.1.1:
   version "7.1.1"
   resolved "https://registry.npmmirror.com/prebuild-install/-/prebuild-install-7.1.1.tgz"
@@ -14225,6 +14368,11 @@ qs@6.11.0, qs@^6.10.2, qs@^6.10.3, qs@^6.4.0, qs@^6.5.2, qs@^6.9.6:
   integrity sha512-MvjoMCJwEarSbUYk5O+nmoSzSutSsTwF85zcHPQ9OrlFoZOYIjaqBAJIqIXjptyD5vThxGq52Xu/MaJzRkIk4Q==
   dependencies:
     side-channel "^1.0.4"
+
+"qs@^6.5.1 < 6.10":
+  version "6.9.7"
+  resolved "https://registry.npmmirror.com/qs/-/qs-6.9.7.tgz#4610846871485e1e048f44ae3b94033f0e675afe"
+  integrity sha512-IhMFgUmuNpyRfxA90umL7ByLlgRXu6tIfKPpF5TmcfRLlLCckfP/g3IQmju6jjpu+Hh8rA+2p6A27ZSPOOHdKw==
 
 qs@~6.5.2:
   version "6.5.3"
@@ -15293,6 +15441,11 @@ scule@^1.0.0:
   resolved "https://registry.npmmirror.com/scule/-/scule-1.0.0.tgz"
   integrity sha512-4AsO/FrViE/iDNEPaAQlb77tf0csuq27EsVpy6ett584EcRTp6pTDLoGWVxCD77y5iU5FauOvhsI4o1APwPoSQ==
 
+search-insights@^2.1.0:
+  version "2.2.3"
+  resolved "https://registry.npmmirror.com/search-insights/-/search-insights-2.2.3.tgz#3ef11cc622261887d0a95d91d84eebb5e63fe6b3"
+  integrity sha512-fXwC0QzkBGZuGTb6FoQG+iLS81wljYuBU4Sco4TGTgp5boVkiKZeFqPV0e5h5++5QncTU2FQrQ+G3ILnqEa3yA==
+
 select-files@^1.0.1:
   version "1.0.1"
   resolved "https://registry.npmmirror.com/select-files/-/select-files-1.0.1.tgz"
@@ -15857,6 +16010,14 @@ std-env@^3.0.1, std-env@^3.3.1:
   version "3.3.1"
   resolved "https://registry.npmmirror.com/std-env/-/std-env-3.3.1.tgz"
   integrity sha512-3H20QlwQsSm2OvAxWIYhs+j01MzzqwMwGiiO1NQaJYZgJZFPuAbf95/DiKRBSTYIJ2FeGUc+B/6mPGcWP9dO3Q==
+
+strapi-plugin-meilisearch@^0.9.1:
+  version "0.9.1"
+  resolved "https://registry.npmmirror.com/strapi-plugin-meilisearch/-/strapi-plugin-meilisearch-0.9.1.tgz#1f134866b6b77bd65d9869d6ab949514a5ff4ef7"
+  integrity sha512-kSZjqYJuuXulqPsIc1ZcpCG7xNbYfCYCNDNRN6CI/aisWFL65dQYVG7HkVOAaJfxdUaboFKNu9c5R1hzbtJwTQ==
+  dependencies:
+    "@strapi/utils" "^4.5.4"
+    meilisearch "^0.30.0"
 
 strapi-plugin-transformer@^2.2.0:
   version "2.2.0"
@@ -17335,6 +17496,14 @@ vue-eslint-parser@^9.0.1:
     esquery "^1.4.0"
     lodash "^4.17.21"
     semver "^7.3.6"
+
+vue-instantsearch@4.6.0:
+  version "4.6.0"
+  resolved "https://registry.npmmirror.com/vue-instantsearch/-/vue-instantsearch-4.6.0.tgz#bb6b25bcb07e3b6402e2d13c92b37fcf51d021b8"
+  integrity sha512-pZOX/b7VIU/QY2LLry8vdQzXvkDWBfEzuVbti9RwpUQBCq85aSgsJvElnDVXoe2pigFaT4EkzMeVbPhQicbXlA==
+  dependencies:
+    instantsearch.js "^4.47.0"
+    mitt "^2.1.0"
 
 vue-router@^4.1.6:
   version "4.1.6"

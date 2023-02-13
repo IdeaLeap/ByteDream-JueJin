@@ -32,7 +32,7 @@ onMounted(() => {
     <main class="container main-container relative w-100% max-w-960px my-0 mx-auto" style="max-width: 1140px">
       <div v-show="isRender" class="view column-view mt-1.767rem" pb-8rem>
         <ArticlesContentSideBarLeft :commented="articleDataList?.commented" :liked="articleDataList?.liked" />
-        <div class="main-area article-area" mb-1.5rem>
+        <div class="main-area article-area">
           <ArticlesContent :article="articleDataList" />
           <div class="article-end">
             <ArticlesContentEndTagList :type="articleDataList?.typeId" :tag="articleDataList?.tagIds.data" />
@@ -61,9 +61,9 @@ onMounted(() => {
   padding-right: 2.67rem;
   box-sizing: border-box;
   position: relative;
-  width: 820px;
+  width: 800px;
   max-width: 100%;
-  @apply bg-jj-article;
+  @apply bg-jj-article mb-1.5rem;
 }
 @media screen and (max-width: 1140px) {
   .main-area {
