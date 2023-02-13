@@ -38,5 +38,6 @@ export {
   IArticleItem,
   ITagItem,
   IArticleAd,
+  IAuthor,
   ICatalogue,
 }

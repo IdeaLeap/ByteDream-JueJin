@@ -1,23 +1,17 @@
 <script setup lang="ts">
-import type { ITagItem } from '~~/types/IArticleItem'
-defineProps({
-  duration: String,
-  tags: {
-    type: Array<ITagItem>,
-    default: [],
-  },
-  authorId: {
-    type: Object,
-    default: () => {},
-  },
-  adId: String,
-})
+import type { IAuthor, ITagItem } from '~~/types/IArticleItem'
+defineProps<{
+  duration: string
+  tags?: ITagItem[]
+  authorId?: IAuthor
+  adId?: string
+}>()
 </script>
 
 <template>
   <div class="topbar">
     <div class="author">
-      <span class="name">{{ adId ? adId : authorId.name }}</span>
+      <span class="name">{{ adId ? adId : authorId?.name }}</span>
       <ArticlesListItemAuthorCard
         v-if="authorId"
         :name="authorId.name"
@@ -27,7 +21,7 @@ defineProps({
         class="info"
       />
     </div>
-    <span :class="`duration ${tags.length ? 'b-r-1' : ''}`">{{ duration }}</span>
+    <span :class="`duration ${tags?.length ? 'b-r-1' : ''}`">{{ duration }}</span>
     <div class="flex px-3">
       <div v-for="(item, index) of tags" :key="item.tag" class="tag">
         <div v-if="index" class="icon" />
