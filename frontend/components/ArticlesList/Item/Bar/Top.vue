@@ -49,7 +49,7 @@ defineProps<{
   @apply text-jj-thirdly px-3
 }
 .tag {
-  @apply
+  @apply flex items-center
 }
 .tag span {
   @apply transition px-0 text-jj-thirdly hover:text-primary
