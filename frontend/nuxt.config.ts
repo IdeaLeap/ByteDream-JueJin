@@ -16,6 +16,7 @@ export default defineNuxtConfig({
     '@nuxtjs/color-mode',
     '@nuxt/image-edge',
     'nuxt-umami',
+    'nuxt-meilisearch',
   ],
   experimental: {
     reactivityTransform: true,
@@ -73,5 +74,14 @@ export default defineNuxtConfig({
     domains: 'bytedream.top',
     websiteId: 'f0ab5003-8840-46dc-956b-36dbabc6fa4f',
     scriptUrl: 'https://analytics.umami.is/script.js',
+  },
+  meilisearch: {
+    hostUrl: 'https://ms-dd92641c7c94-2028.sgp.meilisearch.io',
+    searchApiKey: process.env.SEARCH_API_KEY,
+    adminApiKey: process.env.SEARCH_ADMIN_API_KEY,
+    serverSideUsage: true,
+    instantSearch: {
+      theme: 'algolia',
+    },
   },
 })
