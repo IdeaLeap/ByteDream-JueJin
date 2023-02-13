@@ -11,7 +11,7 @@ const isNavShown = inject('isNavShown')
         综合
       </NuxtLink>
       <div v-for="item in typeList" :key="item.type" class="list-item-wrapper">
-        <NuxtLink class="type-list-item" :to="`/${item.type}`" :class="{ 'router-link-exact-active': route?.params?.type === item.type }">
+        <NuxtLink class="type-list-item" :to="`/${item.type}`">
           {{ item.alias }}
         </NuxtLink>
         <div v-if="item.tags.data.length > 0" class="category-popover">
@@ -122,5 +122,11 @@ const isNavShown = inject('isNavShown')
 }
 .tag-item{
   padding: 0 .83rem;
+  height: 2rem;
+    border-radius: 1rem;
+    @apply f-c-c;
+}
+.tag-item.router-link-exact-active {
+  @apply text-jj-light bg-primary;
 }
 </style>

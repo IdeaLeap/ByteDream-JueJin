@@ -37,9 +37,8 @@ const maxLength = 9
     position: relative;
     @apply ml-[1rem];
 }
-.nav-list .nav-items.tag:has(.router-link-exact-active) {
+.nav-list .nav-items.tag.router-link-exact-active {
     box-shadow: 0 1px 2px 0 rgb(0 0 0 / 5%), 0 1px 2px 0 rgb(0 0 0 / 5%);
-    @apply bg-jj-link-normal text-jj-light
 }
 .nav-list .nav-items.tag {
     display: flex;
@@ -58,13 +57,15 @@ const maxLength = 9
     cursor: pointer;
 }
 .nav-item.router-link-exact-active {
-    @apply text-jj-light;
+    @apply text-jj-light bg-primary;
 }
 .nav-item {
     text-decoration: none;
     cursor: pointer;
     padding: 0 .83rem;
-    @apply text-jj-gray-normal;
+    height: 2rem;
+    border-radius: 1rem;
+    @apply text-jj-gray-normal f-c-c;
 }
 .nav-list .nav-items.unfold {
     padding-right: 2rem;
