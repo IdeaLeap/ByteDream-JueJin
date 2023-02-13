@@ -70,7 +70,7 @@ const { immerseState } = useImmerse()
       </div>
     </div>
 
-    <nuxt-img format="webp" v-if="article?.cover" loading="eager" :src="article?.cover" class="cover" alt="cover" />
+    <nuxt-img v-if="article?.cover" format="webp" loading="eager" :src="article?.cover" class="cover" alt="cover" />
 
     <div itemprop="articleBody" class="article-content">
       <div class="break-all lh-1.75em; fw-400 text-15px ; overflow-x-hidden cache">

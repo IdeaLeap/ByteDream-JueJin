@@ -50,7 +50,7 @@ const { immerseState } = useImmerse()
 
 <template>
   <div class="sidebar hidden lg:block lg:w-4/12">
-    <ArticlesContentSideBarRightAuthor v-if="!immerseState" :author="article!.authorId" :viewed="article.viewed" :liked="article.liked"/>
+    <ArticlesContentSideBarRightAuthor v-if="!immerseState" :author="article!.authorId" :viewed="article.viewed" :liked="article.liked" />
     <ArticlesContentSideBarRightRelatedArticles v-if="!immerseState" class="sidebar-block" :author="article!.authorId" :tags="article!.tagIds" />
     <div class="sticky-block-box">
       <ArticlesContentSideBarRightCatalogue v-if="catalogueList.length !== 0" class="sidebar-block" :catalogue-list="catalogueList" />

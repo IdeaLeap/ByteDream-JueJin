@@ -36,10 +36,10 @@ defineProps<{
         <span class="count">&nbsp;{{ liked }}</span></span>
     </div>
     <div class="stat-item item">
-      <svg data-v-bdf6e7fa="" data-v-71f2d09e="" width="25" height="25" viewBox="0 0 25 25" class="icon stat-view-icon"><g data-v-bdf6e7fa="" data-v-71f2d09e="" fill="none" fill-rule="evenodd"><circle data-v-bdf6e7fa="" data-v-71f2d09e="" cx="12.5" cy="12.5" r="12.5" fill="#E1EFFF"></circle><path data-v-bdf6e7fa="" data-v-71f2d09e="" fill="#7BB9FF" d="M4 12.5S6.917 7 12.75 7s8.75 5.5 8.75 5.5-2.917 5.5-8.75 5.5S4 12.5 4 12.5zm8.75 2.292c1.208 0 2.188-1.026 2.188-2.292 0-1.266-.98-2.292-2.188-2.292-1.208 0-2.188 1.026-2.188 2.292 0 1.266.98 2.292 2.188 2.292z"></path></g></svg>
+      <svg data-v-bdf6e7fa="" data-v-71f2d09e="" width="25" height="25" viewBox="0 0 25 25" class="icon stat-view-icon"><g data-v-bdf6e7fa="" data-v-71f2d09e="" fill="none" fill-rule="evenodd"><circle data-v-bdf6e7fa="" data-v-71f2d09e="" cx="12.5" cy="12.5" r="12.5" fill="#E1EFFF" /><path data-v-bdf6e7fa="" data-v-71f2d09e="" fill="#7BB9FF" d="M4 12.5S6.917 7 12.75 7s8.75 5.5 8.75 5.5-2.917 5.5-8.75 5.5S4 12.5 4 12.5zm8.75 2.292c1.208 0 2.188-1.026 2.188-2.292 0-1.266-.98-2.292-2.188-2.292-1.208 0-2.188 1.026-2.188 2.292 0 1.266.98 2.292 2.188 2.292z" /></g></svg>
       <span class="content">
         文章被阅读
-        <span class="count">&nbsp;{{viewed}}</span></span>
+        <span class="count">&nbsp;{{ viewed }}</span></span>
     </div>
   </div>
 </template>
