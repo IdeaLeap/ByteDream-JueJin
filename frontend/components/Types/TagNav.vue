@@ -38,8 +38,6 @@ const maxLength = 9
     @apply ml-[1rem];
 }
 .nav-list .nav-items.tag:has(.router-link-exact-active) {
-    /* background-color: #007fff; */
-    /* color: #fff; */
     box-shadow: 0 1px 2px 0 rgb(0 0 0 / 5%), 0 1px 2px 0 rgb(0 0 0 / 5%);
     @apply bg-jj-link-normal text-jj-light
 }
@@ -48,11 +46,9 @@ const maxLength = 9
     justify-content: center;
     align-items: center;
     height: 2rem;
-    /* background-color: #fff; */
     border-radius: 1rem;
     font-size: 1.1rem;
-    /* color: #8a9aa9; */
-    padding: 0 .83rem;
+
     margin-right: 1rem;
     margin-bottom: 1rem;
     @apply bg-jj-tag-item text-jj-types-tag-normal;
@@ -62,13 +58,12 @@ const maxLength = 9
     cursor: pointer;
 }
 .nav-item.router-link-exact-active {
-    /* color: #fff; */
     @apply text-jj-light;
 }
 .nav-item {
     text-decoration: none;
     cursor: pointer;
-    /* color: #909090; */
+    padding: 0 .83rem;
     @apply text-jj-gray-normal;
 }
 .nav-list .nav-items.unfold {
@@ -83,7 +78,6 @@ const maxLength = 9
     width: 0;
     border-left: 5px solid transparent;
     border-right: 5px solid transparent;
-    /* border-top: 5px solid #8a9aa9; */
     @apply border-t-5 border-t-jj-types-tag-normal;
 }
 </style>
