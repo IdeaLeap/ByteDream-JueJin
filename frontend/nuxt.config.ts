@@ -76,7 +76,7 @@ export default defineNuxtConfig({
     scriptUrl: 'https://analytics.umami.is/script.js',
   },
   meilisearch: {
-    hostUrl: 'https://ms-dd92641c7c94-2028.sgp.meilisearch.io',
+    hostUrl: process.env.MEILISEARCH_HOST,
     searchApiKey: process.env.SEARCH_API_KEY,
     adminApiKey: process.env.SEARCH_ADMIN_API_KEY,
     serverSideUsage: true,
