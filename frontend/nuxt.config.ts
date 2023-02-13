@@ -45,7 +45,7 @@ export default defineNuxtConfig({
     },
     indexable: true,
     siteUrl: 'https://bytedream.top',
-    strapi_token: '4b5b71c47a604af29fc3005b2e50f46ce5182af0cf41b81bb5ef984db70b3760fa6ee1d08c9e47ac7ab579745ffce148352e05c09cad683128516ad2e74148cf5788f9123c278a13e01f5ebff14d555927eab2c2d7948afebce75142a838c27a9e1867b6b03feed1fb45c525ee0f3277320f20059e06730f8d2c014d0a0d6c15',
+    strapi_token: process.env.STRAPI_TOKEN,
   },
   sitemap: {
     hostname: 'https://bytedream.top',

@@ -37,6 +37,7 @@
 - 🗺 `Nuxt SEO Kit` - Sitemap,Schema.org,Generate dynamic social share images
 - 📦 `Vercel` - Auto Deploy & Preview with Workflows
 - 🔥 `Netlify + Cloudflare` - Deploy in Production Environment
+- 👀 `Sentry` - Error Tracking
 
 ## 开发
 

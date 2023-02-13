@@ -111,4 +111,5 @@ dist
 # TernJS port file
 .tern-port
 .vercel
+.env
 frontend/.env
