@@ -10,15 +10,14 @@ defineProps({
     type: Object,
     default: () => {},
   },
-  name: String,
+  adId: String,
 })
 </script>
 
 <template>
   <div class="topbar">
     <div class="author">
-      <span v-if="name" class="name">{{ name }}</span>
-      <span v-else class="name">{{ authorId.name }}</span>
+      <span class="name">{{ adId ? adId : authorId.name }}</span>
       <ArticlesListItemAuthorCard
         v-if="authorId"
         :name="authorId.name"
@@ -28,11 +27,11 @@ defineProps({
         class="info"
       />
     </div>
-    <span :class="`duration ${tags.length ? 'b-r' : ''}`">{{ duration }}</span>
-    <div class="tags">
+    <span :class="`duration ${tags.length ? 'b-r-1' : ''}`">{{ duration }}</span>
+    <div class="flex px-3">
       <div v-for="(item, index) of tags" :key="item.tag" class="tag">
-        <span class="content">{{ item.alias }}</span>
-        <div v-if="index !== tags.length - 1" class="icon" />
+        <div v-if="index" class="icon" />
+        <span>{{ item.alias }}</span>
       </div>
     </div>
   </div>
@@ -47,9 +46,7 @@ defineProps({
 }
 .info {
   @apply scale-0 delay-150 transition-all text-black
-}
-.info:hover {
-  @apply scale-100
+  @apply hover:scale-100
 }
 .name:hover+.info {
   @apply scale-100
@@ -57,19 +54,14 @@ defineProps({
 .duration {
   @apply text-jj-thirdly px-3
 }
-.b-r {
-  @apply border-r-1
-}
-.tags {
-  @apply flex px-3
-}
 .tag {
-  @apply items-center flex
+  @apply
 }
-.content {
+.tag span {
   @apply transition px-0 text-jj-thirdly hover:text-primary
 }
 .icon {
   @apply i-carbon-circle-solid px-2 text-[0.15rem]
+  @apply dark:text-jj-thirdly
 }
 </style>

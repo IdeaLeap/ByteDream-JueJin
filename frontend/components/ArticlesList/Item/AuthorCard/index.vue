@@ -14,9 +14,9 @@ defineProps<{
       <div class="info">
         <div class="name">
           <span>{{ name }}</span>
-          <img :src="`https://pan.marlene.top/d/share/jj/${rank}.png`" alt="等级">
+          <img class="w-[3rem] ml-[1rem]" :src="`https://pan.marlene.top/d/share/jj/${rank}.png`" :alt="`lv${rank}`">
         </div>
-        <div class="text-[#8f969c]">
+        <div class="text-[#8f969c] text-[0.1rem]">
           {{ motto }}
         </div>
       </div>
@@ -28,20 +28,17 @@ defineProps<{
 <style scoped>
 .author_card {
   box-shadow: 0 8px 24px rgb(81 87 103 / 16%);
-  @apply bg-white absolute top-[-10rem] left-0 mlg:left-[-1.67rem]
-  @apply dark:bg-jj-article dark:text-white
+  @apply bg-white absolute top-[-9rem] left-0 mlg:left-[-1.67rem]
+  @apply dark:(bg-jj-article text-white)
 }
 .about {
   @apply flex items-center m-[1rem] mb-0
 }
-.about .info {
-  @apply pl-[1rem] flex flex-col justify-center
+.info {
+  @apply flex flex-col justify-center
 }
 .name {
-  @apply text-[1rem] flex items-center
-}
-.name img {
-  @apply w-[3rem] m-l-[1rem]
+  @apply flex-auto flex items-center pr-[1rem]
 }
 .author_card::after {
   border: 10px solid transparent;

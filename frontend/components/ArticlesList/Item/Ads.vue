@@ -6,9 +6,9 @@ const ad = inject<IArticleAd>('ads')
 <template>
   <li class="relative">
     <ArticlesListUiLink :to="ad?.url">
-      <div class="overflow-hidden flex-1">
+      <div class="flex-1 overflow-hidden">
         <ArticlesListItemBarTop
-          :name="ad?.author"
+          :ad-id="ad?.author"
           duration="广告"
         />
         <ArticlesListItemBarCenter ad :title="ad?.title" :summary="ad?.summary" />

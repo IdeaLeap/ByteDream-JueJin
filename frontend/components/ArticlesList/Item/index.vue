@@ -12,9 +12,9 @@ const hideHandler = (id: string) => {
 <template>
   <ul ref="parent">
     <ArticlesListItemAds />
-    <li v-for="art in artlist" :key="art.id" class="list_container">
+    <li v-for="art in artlist" :key="art.id" class="relative">
       <ArticlesListUiLink class="link" :to="`/article/${art.id}`">
-        <div class="left">
+        <div class="flex-1 truncate">
           <ArticlesListItemBarTop
             :author-id="art.authorId"
             :duration="formatTime(art.createdAt)"
@@ -31,15 +31,8 @@ const hideHandler = (id: string) => {
 </template>
 
 <style scoped>
-.list_container {
-  @apply relative
-}
-
-.list_container:hover .icon {
+li:hover .icon {
   @apply block
-}
-.left {
-  @apply flex-1 truncate
 }
 .icon {
   @apply i-carbon-close display-none cursor-pointer text-[16px] text-jj-fourthly hover:text-primary transition absolute top-[1rem] right-[1.67rem]
