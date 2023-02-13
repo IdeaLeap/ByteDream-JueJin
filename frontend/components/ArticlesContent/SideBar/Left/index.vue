@@ -1,15 +1,32 @@
 <script setup lang="ts">
-defineProps({
-  commented: Number,
-  liked: Number,
-})
+defineProps<{
+  commented: Number
+  liked: Number
+}>()
+const isLiked = ref(false)
+const route = useRoute()
+const url = ref(`/api/articles/update/like?id=${route.params.id}`)
+const newLike = ref(0)
+const handleLike = async () => {
+  if (!isLiked.value) {
+    const { data } = await useFetch(url)
+    if (data.value.code === 200) {
+      isLiked.value = true
+      newLike.value = data.value.data.liked
+    }
+    else {
+      isLiked.value = false
+    }
+  }
+}
+
 const { immerseState, immerseToggle } = useImmerse()
 </script>
 
 <template>
   <div class="article-suspended-panel article-suspended-panel hidden lg:block">
     <ArticlesContentSideBarLeftSvg />
-    <div v-show="!immerseState" :badge="liked" class="panel-btn with-badge">
+    <div v-show="!immerseState" :badge="newLike === 0 ? liked : newLike" class="panel-btn with-badge" :class="isLiked ? 'active' : ''" @click="handleLike">
       <svg class="sprite-icon icon-zan"><use xlink:href="#icon-zan" /></svg>
     </div>
     <div v-show="!immerseState" :badge="commented" class="panel-btn with-badge">
@@ -62,15 +79,16 @@ svg {
   display: inline;
 }
 .panel-btn:not(.share-btn).active .sprite-icon {
-  /* color: #1e80ff; */
-  @apply text-jj-blue-normal
+  @apply text-jj-blue-normal;
+}
+.panel-btn:not(.share-btn).active.with-badge:after {
+  @apply bg-jj-blue-normal;
 }
 .tooltip {
   @apply relative inline-block;
 }
 .tooltip .tooltiptext {
   @apply absolute z-1 bottom-113% ml--25% w-70px h-45px lh-45px  text-#fff text-center rd-6px opacity-0 invisible bg-jj-black-tooltip-normal;
-  /* background-color: rgba(0, 0, 0, 0.8); */
   transition: visibility 0s linear 0.3s, opacity 0.3s linear;
 }
 .tooltip:hover .tooltiptext {

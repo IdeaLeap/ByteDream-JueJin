@@ -10,32 +10,25 @@ defineProps({
 </script>
 
 <template>
-  <div class="article-end">
-    <div class="tag-list-box">
-      <div v-if="type" class="tag-list">
-        <div class="tag-list-title">
-          分类：
-        </div>
-        <a href="/frontend" target="_blank" rel="" class="item category-item"><span class="tag-title">{{ type.alias }}</span></a>
+  <div class="tag-list-box">
+    <div v-if="type" class="tag-list">
+      <div class="tag-list-title">
+        分类：
       </div>
-      <div v-if="tag.length !== 0" class="tag-list">
-        <div class="tag-list-title">
-          标签：
-        </div>
-        <div class="tag-list-container">
-          <a v-for="(item, index) in tag" :key="index" href="#" target="_blank" rel="" class="item tag-item"><span class="tag-title">{{ item.alias }}</span></a>
-        </div>
+      <a href="/frontend" target="_blank" rel="" class="item category-item"><span class="tag-title">{{ type.alias }}</span></a>
+    </div>
+    <div v-if="tag.length !== 0" class="tag-list">
+      <div class="tag-list-title">
+        标签：
+      </div>
+      <div class="tag-list-container">
+        <a v-for="(item, index) in tag" :key="index" href="#" target="_blank" rel="" class="item tag-item"><span class="tag-title">{{ item.alias }}</span></a>
       </div>
     </div>
   </div>
 </template>
 
 <style scoped>
-.main-area .article-end {
-  padding-top: 10px;
-  border-radius: 0 0 4px 4px;
-  padding-bottom: 3.33rem;
-}
 .main-area {
   border-radius: 4px;
   /* background-color: #fff; */
