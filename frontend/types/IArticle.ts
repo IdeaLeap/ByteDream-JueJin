@@ -28,7 +28,7 @@ interface IColumn {
   describe: string
   articles: { data: IColumnArticleItem[] }
 }
-export interface IArticle {
+interface IArticle {
   id: string
   title: string
   viewed: number
@@ -42,6 +42,10 @@ export interface IArticle {
   authorId: IAuthor
   tagIds: { data: ITagItem[] }
   typeId: IType
-  columId: IColumn
+  columId: { data: IColumn[] }
   summary: string
+}
+export {
+  IArticle,
+  IColumn,
 }
