@@ -2,7 +2,7 @@
 defineProps<{
   src: string
   alt: string
-  avatar: boolean
+  avatar?: boolean
 }>()
 </script>
 
