@@ -17,6 +17,8 @@ defineProps({
             alt="QRcode"
             loading="lazy"
             class="max-h-15 max-w-15"
+            width="50"
+            height="50"
           />
         </div>
         <div class="gadgets_txt_container">
