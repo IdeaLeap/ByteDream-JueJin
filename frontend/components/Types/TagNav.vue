@@ -9,7 +9,7 @@ const maxLength = 9
   <Transition name="fade">
     <nav v-if="tagList.length > 0" class="tag-nav tag-navigator">
       <ul class="nav-list tag-list">
-        <li class="nav-items tag active">
+        <li class="nav-items tag">
           <NuxtLink :to="`/${route?.params?.type}`" class="nav-item">
             综合
           </NuxtLink>
@@ -63,13 +63,13 @@ const maxLength = 9
 }
 .nav-item.router-link-exact-active {
     /* color: #fff; */
-    @apply text-jj-light
+    @apply text-jj-light;
 }
 .nav-item {
     text-decoration: none;
     cursor: pointer;
     /* color: #909090; */
-    @apply text-jj-gray-normal
+    @apply text-jj-gray-normal;
 }
 .nav-list .nav-items.unfold {
     padding-right: 2rem;
@@ -84,6 +84,6 @@ const maxLength = 9
     border-left: 5px solid transparent;
     border-right: 5px solid transparent;
     /* border-top: 5px solid #8a9aa9; */
-    @apply border-t-5 border-t-jj-types-tag-normal
+    @apply border-t-5 border-t-jj-types-tag-normal;
 }
 </style>

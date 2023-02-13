@@ -117,7 +117,7 @@ const isNavShown = inject('isNavShown')
     padding: 0 .83rem;
     margin-right: 1rem;
     margin-bottom: 1rem;
-    @apply bg-jj-gray-normal text-jj-types-text cursor-pointer;
+    @apply bg-jj-types-bg text-jj-types-text cursor-pointer;
 }
 .tag:hover{
   @apply text-link;

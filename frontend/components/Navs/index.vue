@@ -53,7 +53,7 @@ const isNavShown = inject('isNavShown')
 
 .nav-item-wrapper{
   @apply hidden md:(flex h-full);
-  @apply lt-md:(absolute top-4rem left-2rem p-2 h-auto border-1 border-jj-navs-wrapper-normal rounded-md shadow-xl shadow-black/10 dark:shadow-white/10 transform-gpu -translate-x-1/2 bg-jj-navs-background-normal);
+  @apply lt-md:(absolute top-4rem left-2rem p-2 h-auto border-1 border-jj-navs-wrapper-normal rounded-md shadow-xl shadow-black/10 dark:shadow-white/10 transform-gpu -translate-x-1/2 bg-jj-article);
 }
 .mobile-nav{
   @apply f-c-c md:hidden text-jj-blue-normal;

@@ -7,7 +7,7 @@ const { data: articleData } = await useFetch(url)
 const articleDataList = ref<IArticle>()
 articleDataList.value = articleData.value
 useHead({
-  title: articleDataList.value?.title,
+  title: articleDataList.value?.title ?? '文章不存在',
   meta: [
     {
       hid: 'description',
@@ -34,7 +34,10 @@ onMounted(() => {
         <ArticlesContentSideBarLeft :commented="articleDataList?.commented" :liked="articleDataList?.liked" />
         <div class="main-area article-area" mb-1.5rem>
           <ArticlesContent :article="articleDataList" />
-          <ArticlesContentEnd :type="articleDataList?.typeId" :tag="articleDataList?.tagIds.data" />
+          <div class="article-end">
+            <ArticlesContentEndTagList :type="articleDataList?.typeId" :tag="articleDataList?.tagIds.data" />
+            <ArticlesContentEndColumnContainer v-if="Object.keys(articleDataList!.columId).length !== 0" :column="articleDataList?.columId.data" />
+          </div>
         </div>
         <ArticlesContentSideBarRight :article="articleDataList" />
       </div>
@@ -82,5 +85,10 @@ onMounted(() => {
     padding-left: 2rem;
     padding-right: 2rem;
   }
+}
+.main-area .article-end {
+  padding-top: 10px;
+  border-radius: 0 0 4px 4px;
+  padding-bottom: 3.33rem;
 }
 </style>

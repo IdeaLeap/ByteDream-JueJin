@@ -18,7 +18,7 @@
   --jjext-color-thirdly-bg: #f4f5f5;
   --jjext-color-hover-bg: #e8f3ff;
   --jjext-color-comment-bg: rgba(244, 245, 245, 0.5);
-  --jjext-hover-bg: linear-gradient( 90deg, rgba(232, 243, 255, 0) 0%, rgba(232, 243, 255, 0.8) 25.09%, #e8f3ff 50.16%, rgba(232, 243, 255, 0.8) 75.47%, rgba(232, 243, 255, 0) 100% );
+  --jjext-hover-bg: linear-gradient(90deg, rgba(232, 243, 255, 0) 0%, rgba(232, 243, 255, 0.8) 25.09%, #e8f3ff 50.16%, rgba(232, 243, 255, 0.8) 75.47%, rgba(232, 243, 255, 0) 100%);
   --jjext-color-mask: rgba(0, 0, 0, 0.4);
   --jjext-color-quick-nav-text: #ffffff;
   --jjext-color-nav-bg: rgba(255, 255, 255, 0.13);
@@ -80,29 +80,28 @@
   --jjext-color-shade-1: rgba(0, 0, 0, 0.4);
   --jjext-color-popup: #fff;
   --jjext-color-popover: rgba(0, 0, 0, 0.8);
-  --jjext-color-bg-gray:#27272a;
-  --jjext-color-link-red:#ff0000;
-  --jjext-color-link-continer:#333;
-  --jjext-color-drop-down:#909097;
-  --jjext-color-border-drop-down:#ebebeb;
-  --jjext-color-hover-drop-down:#111;
-  --jjext-color-background-drop-down:#fafafb;
-  --jjext-color-button-text:#2885FF;
-  --jjext-color-button-background:#F4F9FF;
-  --jjext-color-button-primary-hover:#388EFF;
-  --jjext-color-button-plain-hover:#E8F2FF;
-  --jjext-color-skeleton-1:#E5E7EC;
-  --jjext-color-skeleton-2:#555;
-  --jjext-color-fill:#3686ff;
-  --jjext-color-more-list:#9aa3ab;
-  --jjext-color-more-list-border:#ddd;
-  --juejin-color-navs-item-after:#EF4444;
-  --juejin-color-types-list:#71777c;
-  --juejin-color-types-list-tag:#8a9aa9;
-  
+  --jjext-color-bg-gray: #27272a;
+  --jjext-color-link-red: #ff0000;
+  --jjext-color-link-continer: #333;
+  --jjext-color-drop-down: #909097;
+  --jjext-color-border-drop-down: #ebebeb;
+  --jjext-color-hover-drop-down: #111;
+  --jjext-color-background-drop-down: #fafafb;
+  --jjext-color-button-text: #2885ff;
+  --jjext-color-button-background: #f4f9ff;
+  --jjext-color-button-primary-hover: #388eff;
+  --jjext-color-button-plain-hover: #e8f2ff;
+  --jjext-color-skeleton-1: #e5e7ec;
+  --jjext-color-skeleton-2: #555;
+  --jjext-color-fill: #3686ff;
+  --jjext-color-more-list: #9aa3ab;
+  --jjext-color-more-list-border: #ddd;
+  --juejin-color-navs-item-after: #ef4444;
+  --juejin-color-types-list: #71777c;
+  --juejin-color-types-list-tag: #8a9aa9;
 }
 
-html.light{
+html.light {
   --juejin-layer-golden-1: #faf3e5;
   --juejin-layer-golden-2: #f6e7cb;
   --juejin-component-hover: #e4e6eb;
@@ -112,8 +111,8 @@ html.light{
   --juejin-gradientgold_hover_end: #e6c99b;
   --juejin-gradientgold_click_start: #e9d5b3;
   --juejin-gradientgold_click_end: #dac29a;
-  --juejin-layer_loading_start: rgba(228,230,235,0);
-  --juejin-layer_loading_end: rgba(228,230,235,0.5);
+  --juejin-layer_loading_start: rgba(228, 230, 235, 0);
+  --juejin-layer_loading_end: rgba(228, 230, 235, 0.5);
   --juejin-layer_golden_2: #faf3e5;
   --juejin-font_golden_4: #7e5d25;
   --juejin-font-golden-1: #7e5d25;
@@ -121,14 +120,14 @@ html.light{
   --juejin-font-golden-3: #d6b885;
   --juejin-gray-0: #fff;
   --juejin-gray-1-1: #e4e6eb;
-  --juejin-gray-1-2: rgba(228,230,235,0.5);
+  --juejin-gray-1-2: rgba(228, 230, 235, 0.5);
   --juejin-gray-1-3: #e4e6eb;
   --juejin-gray-2: #f2f3f5;
   --juejin-gray-3: #f7f8fa;
   --juejin-background: #f2f3f5;
   --juejin-layer-1: #fff;
   --juejin-layer-2-1: #f7f8fa;
-  --juejin-layer-2-2: rgba(247,248,250,0.7);
+  --juejin-layer-2-2: rgba(247, 248, 250, 0.7);
   --juejin-layer-3-fill: #f2f3f5;
   --juejin-layer-3-border: #e4e6eb;
   --juejin-layer-4-dropdown: #fff;
@@ -138,15 +137,15 @@ html.light{
   --juejin-brand-3-click: #0060dd;
   --juejin-brand-4-disable: #abcdff;
   --juejin-brand-5-light: #eaf2ff;
-  --juejin-mask-1: rgba(0,0,0,0.4);
+  --juejin-mask-1: rgba(0, 0, 0, 0.4);
   --juejin-mask-2: #fff;
   --juejin-mask-3: none;
-  --juejin-brand-fill1-normal: rgba(30,128,255,0.05);
-  --juejin-brand-fill2-hover: rgba(30,128,255,0.1);
-  --juejin-brand-fill3-click: rgba(30,128,255,0.2);
-  --juejin-brand-stroke1-normal: rgba(30,128,255,0.3);
-  --juejin-brand-stroke2-hover: rgba(30,128,255,0.45);
-  --juejin-brand-stroke3-click: rgba(30,128,255,0.6);
+  --juejin-brand-fill1-normal: rgba(30, 128, 255, 0.05);
+  --juejin-brand-fill2-hover: rgba(30, 128, 255, 0.1);
+  --juejin-brand-fill3-click: rgba(30, 128, 255, 0.2);
+  --juejin-brand-stroke1-normal: rgba(30, 128, 255, 0.3);
+  --juejin-brand-stroke2-hover: rgba(30, 128, 255, 0.45);
+  --juejin-brand-stroke3-click: rgba(30, 128, 255, 0.6);
   --juejin-font_danger: #ff5132;
   --juejin-font-1: #252933;
   --juejin-font-2: #515767;
@@ -179,25 +178,25 @@ html.light{
   --juejin-sub-7-red: #ff5e54;
   --juejin-coupon_1_button: #f64242;
   --juejin-coupon_1_button_disable: #faa0a0;
-  --juejin-coupon_2_card: rgba(255,245,244,0.7);
-  --juejin-coupon_3_stroke: rgba(246,66,66,0.2);
+  --juejin-coupon_2_card: rgba(255, 245, 244, 0.7);
+  --juejin-coupon_3_stroke: rgba(246, 66, 66, 0.2);
   --juejin-navigation: #fff;
-  --juejin-shade-1: rgba(0,0,0,0.4);
-  --juejin-shade-2: rgba(0,0,0,0.6);
+  --juejin-shade-1: rgba(0, 0, 0, 0.4);
+  --juejin-shade-2: rgba(0, 0, 0, 0.6);
   --juejin-popup: #fff;
-  --juejin-popover: rgba(0,0,0,0.8);
+  --juejin-popover: rgba(0, 0, 0, 0.8);
   --juejin-sheets: #f7f8fa;
   --juejin-coupon-button: #f64242;
   --juejin-coupon-button-disable: #faa0a0;
-  --juejin-coupon-card: rgba(255,245,244,0.7);
+  --juejin-coupon-card: rgba(255, 245, 244, 0.7);
   --juejin-layer-loading-start: #e4e6eb;
-  --juejin-layer-loading-end: rgba(228,230,235,0.5);
+  --juejin-layer-loading-end: rgba(228, 230, 235, 0.5);
   --juejin-font-priv-hint: #916be1;
   --juejin-background-jscore-radar: #232323;
   --juejin-background-article: #ffffff;
   --juejin-background-main: #f4f5f5;
-  --juejin-background-sign-button:#f4f9ff;
-  --juejin-background-signed-button:#f4f9ff;
+  --juejin-background-sign-button: #f4f9ff;
+  --juejin-background-signed-button: #f4f9ff;
   --juejin-h1-font-color: #252933;
   --juejin-span-font-color: #515767;
   --juejin-p-font-color: #000000;
@@ -221,77 +220,79 @@ html.light{
   --juejin-list-icon-hover:#f2f3f5;
   --juejin-category-popover-border:#ebebeb;
   --juejin-color-types-tag-background:#f4f5f5;
+  --juejin-category-popover-text:#71777c;
+  --juejin-category-popover-bg:#f4f5f5;
 }
 
-html.dark{
-  --juejin-layer-golden-1: rgba(209,171,97,0.23);
-  --juejin-layer-golden-2: rgba(237,211,167,0.4);
-  --juejin-component-hover: hsla(0,0%,100%,0.2);
+html.dark {
+  --juejin-layer-golden-1: rgba(209, 171, 97, 0.23);
+  --juejin-layer-golden-2: rgba(237, 211, 167, 0.4);
+  --juejin-component-hover: hsla(0, 0%, 100%, 0.2);
   --juejin-gradientgold_normal_start: #fde8c3;
   --juejin-gradientgold_normal_end: #edd3a7;
   --juejin-gradientgold_hover_start: #f1dfc0;
   --juejin-gradientgold_hover_end: #e6c99b;
   --juejin-gradientgold_click_start: #e9d5b3;
   --juejin-gradientgold_click_end: #dac29a;
-  --juejin-layer_loading_start: hsla(0,0%,100%,0);
-  --juejin-layer_loading_end: hsla(0,0%,100%,0.2);
-  --jjext-color-main-bg: #18181C;
-  --juejin-layer_golden_2: rgba(209,171,97,0.12);
+  --juejin-layer_loading_start: hsla(0, 0%, 100%, 0);
+  --juejin-layer_loading_end: hsla(0, 0%, 100%, 0.2);
+  --jjext-color-main-bg: #18181c;
+  --juejin-layer_golden_2: rgba(209, 171, 97, 0.12);
   --juejin-font_golden_4: #7e5d25;
   --juejin-font-golden-1: #edd3a7;
   --juejin-font-golden-2: #bea985;
   --juejin-font-golden-3: #8e7f64;
   --juejin-gray-0: #000;
-  --juejin-gray-1-1: hsla(0,0%,100%,0.2);
-  --juejin-gray-1-2: hsla(0,0%,100%,0.1);
+  --juejin-gray-1-1: hsla(0, 0%, 100%, 0.2);
+  --juejin-gray-1-2: hsla(0, 0%, 100%, 0.1);
   --juejin-gray-1-3: #464646;
-  --juejin-gray-2: hsla(0,0%,100%,0.12);
-  --juejin-gray-3: hsla(0,0%,100%,0.08);
+  --juejin-gray-2: hsla(0, 0%, 100%, 0.12);
+  --juejin-gray-3: hsla(0, 0%, 100%, 0.08);
   --juejin-background: #000;
   --juejin-layer-1: #181818;
-  --juejin-layer-2-1: hsla(0,0%,100%,0.08);
-  --juejin-layer-2-2: hsla(0,0%,100%,0.08);
-  --juejin-layer-3-fill: hsla(0,0%,100%,0.08);
-  --juejin-layer-3-border: hsla(0,0%,100%,0.2);
+  --juejin-layer-2-1: hsla(0, 0%, 100%, 0.08);
+  --juejin-layer-2-2: hsla(0, 0%, 100%, 0.08);
+  --juejin-layer-3-fill: hsla(0, 0%, 100%, 0.08);
+  --juejin-layer-3-border: hsla(0, 0%, 100%, 0.2);
   --juejin-layer-4-dropdown: #2f2f2f;
-  --juejin-layer-5: hsla(0,0%,100%,0.12);
+  --juejin-layer-5: hsla(0, 0%, 100%, 0.12);
   --juejin-brand-1-normal: #2986ff;
   --juejin-brand-2-hover: #1473ed;
   --juejin-brand-3-click: #0563dd;
-  --juejin-brand-4-disable: rgba(41,134,255,0.4);
-  --juejin-brand-5-light: rgba(30,128,255,0.2);
-  --juejin-mask-1: hsla(0,0%,100%,0.4);
+  --juejin-brand-4-disable: rgba(41, 134, 255, 0.4);
+  --juejin-brand-5-light: rgba(30, 128, 255, 0.2);
+  --juejin-mask-1: hsla(0, 0%, 100%, 0.4);
   --juejin-mask-2: #282828;
-  --juejin-mask-3: rgba(0,0,0,0.05);
-  --juejin-brand-fill1-normal: rgba(41,134,255,0.15);
-  --juejin-brand-fill2-hover: rgba(20,115,237,0.25);
-  --juejin-brand-fill3-click: rgba(5,99,221,0.35);
-  --juejin-brand-stroke1-normal: rgba(41,134,255,0.4);
-  --juejin-brand-stroke2-hover: rgba(20,115,237,0.6);
-  --juejin-brand-stroke3-click: rgba(5,99,221,0.6);
+  --juejin-mask-3: rgba(0, 0, 0, 0.05);
+  --juejin-brand-fill1-normal: rgba(41, 134, 255, 0.15);
+  --juejin-brand-fill2-hover: rgba(20, 115, 237, 0.25);
+  --juejin-brand-fill3-click: rgba(5, 99, 221, 0.35);
+  --juejin-brand-stroke1-normal: rgba(41, 134, 255, 0.4);
+  --juejin-brand-stroke2-hover: rgba(20, 115, 237, 0.6);
+  --juejin-brand-stroke3-click: rgba(5, 99, 221, 0.6);
   --juejin-font_danger: #f85959;
-  --juejin-font-1: hsla(0,0%,100%,0.9);
-  --juejin-font-2: hsla(0,0%,100%,0.7);
-  --juejin-font-3: hsla(0,0%,100%,0.55);
-  --juejin-font-4: hsla(0,0%,100%,0.45);
+  --juejin-font-1: hsla(0, 0%, 100%, 0.9);
+  --juejin-font-2: hsla(0, 0%, 100%, 0.7);
+  --juejin-font-3: hsla(0, 0%, 100%, 0.55);
+  --juejin-font-4: hsla(0, 0%, 100%, 0.45);
   --juejin-font-brand1-normal: #4495ff;
   --juejin-font-brand2-hover: #2b88ff;
   --juejin-font-brand3-click: #1371ec;
-  --juejin-font-brand4-disable: rgba(19,113,236,0.4);
+  --juejin-font-brand4-disable: rgba(19, 113, 236, 0.4);
   --juejin-font-success: #40c17b;
   --juejin-font-warning: #ff8541;
   --juejin-font-danger: #c62633;
-  --juejin-font-white-disable: hsla(0,0%,100%,0.6);
+  --juejin-font-white-disable: hsla(0, 0%, 100%, 0.6);
   --juejin-font-white: #fff;
   --juejin-success-1-normal: #40c17b;
   --juejin-success-2-deep: #008445;
-  --juejin-success-3-light: rgba(64,193,123,0.2);
+  --juejin-success-3-light: rgba(64, 193, 123, 0.2);
   --juejin-warning-1-normal: #ff8541;
   --juejin-warning-2-deep: #d85c02;
-  --juejin-warning-3-light: rgba(255,133,65,0.2);
+  --juejin-warning-3-light: rgba(255, 133, 65, 0.2);
   --juejin-danger-1-normal: #f85959;
   --juejin-danger-2-deep: #c62633;
-  --juejin-danger-3-light: rgba(248,89,89,0.2);
+  --juejin-danger-3-light: rgba(248, 89, 89, 0.2);
   --juejin-sub-1-purple: #a965ff;
   --juejin-sub-2-blue: #68a9ff;
   --juejin-sub-3-cyan: #74f4ed;
@@ -299,27 +300,27 @@ html.dark{
   --juejin-sub-5-yellow: #ffd748;
   --juejin-sub-6-orange: #ff8f60;
   --juejin-sub-7-red: #ff6e65;
-  --juejin-coupon_1_button: rgba(251,86,83,0.8);
+  --juejin-coupon_1_button: rgba(251, 86, 83, 0.8);
   --juejin-coupon_1_button_disable: #782928;
-  --juejin-coupon_2_card: rgba(255,176,176,0.08);
-  --juejin-coupon_3_stroke: rgba(246,66,66,0.18);
+  --juejin-coupon_2_card: rgba(255, 176, 176, 0.08);
+  --juejin-coupon_3_stroke: rgba(246, 66, 66, 0.18);
   --juejin-navigation: #181818;
-  --juejin-shade-1: rgba(0,0,0,0.6);
-  --juejin-shade-2: rgba(0,0,0,0.7);
+  --juejin-shade-1: rgba(0, 0, 0, 0.6);
+  --juejin-shade-2: rgba(0, 0, 0, 0.7);
   --juejin-popup: #282828;
   --juejin-popover: #323232;
   --juejin-sheets: #222;
-  --juejin-coupon-button: rgba(251,86,83,0.8);
+  --juejin-coupon-button: rgba(251, 86, 83, 0.8);
   --juejin-coupon-button-disable: #782928;
-  --juejin-coupon-card: rgba(255,176,176,0.08);
+  --juejin-coupon-card: rgba(255, 176, 176, 0.08);
   --juejin-layer-loading-start: #fff;
-  --juejin-layer-loading-end: hsla(0,0%,100%,0.2);
+  --juejin-layer-loading-end: hsla(0, 0%, 100%, 0.2);
   --juejin-font-priv-hint: #916be1;
   --juejin-background-jscore-radar: #232323;
   --juejin-background-article: #27272a;
   --juejin-background-main: #18181c;
-  --juejin-background-sign-button:#171d23;
-  --juejin-background-signed-button:#315078;
+  --juejin-background-sign-button: #171d23;
+  --juejin-background-signed-button: #315078;
   --juejin-h1-font-color: #ffffff;
   --juejin-span-font-color: #f7f8fa;
   --juejin-p-font-color: #f4f4f5;
@@ -343,6 +344,8 @@ html.dark{
   --juejin-list-icon-hover:#515767;
   --juejin-category-popover-border:#201f1f;
   --juejin-color-types-tag-background:#8a9aa9;
+  --juejin-category-popover-text:#71777c;
+  --juejin-category-popover-bg:#f4f5f5;
 }
 
 .page-enter-active,
@@ -361,7 +364,6 @@ html.dark{
   z-index: 10000;
 }
 
-
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.5s ease;
@@ -370,4 +372,13 @@ html.dark{
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  font-weight: bold;
 }

@@ -58,6 +58,7 @@ export async function useGraphql(query: any, authorization?: string) {
   }
   catch (err: any) {
     console.error('API请求错误')
+    console.error('请求数据为', query)
     console.error(err)
   }
 }

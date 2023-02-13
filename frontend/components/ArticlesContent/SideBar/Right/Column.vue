@@ -74,7 +74,7 @@ const { immerseState, immerseToggle } = useImmerse()
   transition: transform 0.5s;
 }
 .list-icon.active {
-  @apply fill-jj-blue fill-normal;
+  @apply fill-jj-blue-fill-normal;
 }
 .next-article-hr {
   @apply absolute h-1px top-50px left-20px w-20px bg-jj-catalog-normal border-0;

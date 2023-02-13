@@ -1,40 +1,38 @@
+<script setup lang="ts">
+const queryMap = {
+  推荐: '',
+  最新: 'newest',
+  热榜: 'three_days_hottest',
+}
+</script>
+
 <template>
-  <div class="link">
+  <div class="links">
     <NuxtLink
-      to="?"
-      :class="`${
-        $route.query.sort ? 'text-jj-gray-normal' : 'text-link'
-      } br text_style pl-0`"
+      v-for="(item, key, index) in queryMap"
+      :key="key"
+      :to="item ? `?sort=${item}` : '?'"
+      :class="`
+        ${$route.query.sort === item ? 'h_t' : ''}
+        ${index ? 'b-l-1' : ''}
+        ${(!index && !$route.query.sort) ? 'h_t' : ''}
+        t
+        `"
     >
-      推荐
-    </NuxtLink>
-    <NuxtLink
-      to="?sort=newest"
-      :class="`${
-        $route.query.sort === 'newest' ? 'text-link' : 'text-jj-gray-normal'
-      } br text_style`"
-    >
-      最新
-    </NuxtLink>
-    <NuxtLink
-      to="?sort=three_days_hottest"
-      :class="`${
-        ($route.query.sort && $route.query.sort?.indexOf('hottest') !== -1) ? 'text-link' : 'text-jj-gray-normal'
-      } text_style`"
-    >
-      热榜
+      {{ key }}
     </NuxtLink>
   </div>
 </template>
 
 <style scoped>
-.link {
+.links {
   @apply all-px-5 all-my-4 flex
 }
-.text_style {
-  @apply focus:text-link hover:text-link dark:border-[#888]
+.t {
+  @apply text-jj-gray-normal
+  @apply hover:text-link dark:border-[#888]
 }
-.br {
-  @apply border-r-1
+.h_t {
+  @apply text-link
 }
 </style>

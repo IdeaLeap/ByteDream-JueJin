@@ -12,16 +12,12 @@
 <style scoped>
 .primary {
   transition: background-color .1s linear .05s;
-  @apply px-[4rem] py-[0.5rem] m-[1rem] text-[1.167rem] text-white h-full bg-jj-brand-normal rounded-[4px]
+  @apply px-[3.5rem] py-[0.4rem] m-[0.75rem] text-[1.167rem] text-white h-full bg-jj-brand-normal rounded-[2px]
   @apply border border-solid border-jj-stroke-normal
+  @apply hover:bg-jj-button-primary-normal
 }
 .plain {
   @apply text-jj-button-normal bg-jj-button-background-normal
-}
-.primary:hover {
-  @apply bg-jj-button-primary-normal
-}
-.plain:hover {
-  @apply bg-jj-button-plain-normal
+  @apply hover:bg-jj-button-plain-normal
 }
 </style>

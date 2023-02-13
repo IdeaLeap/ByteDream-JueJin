@@ -1,8 +1,4 @@
 <script setup lang="ts">
-/**
- *  @description: 获取目录
- *
- */
 import { getProcessor } from 'bytemd'
 import { visit } from 'unist-util-visit'
 import type { ICatalogue } from '@/types/IArticleItem'
@@ -54,11 +50,11 @@ const { immerseState } = useImmerse()
 
 <template>
   <div class="sidebar hidden lg:block lg:w-4/12">
-    <ArticlesContentSideBarRightAuthor v-if="!immerseState" :author="article!.authorId" />
+    <ArticlesContentSideBarRightAuthor v-if="!immerseState" :author="article!.authorId" :viewed="article.viewed" :liked="article.liked" />
     <ArticlesContentSideBarRightRelatedArticles v-if="!immerseState" class="sidebar-block" :author="article!.authorId" :tags="article!.tagIds" />
     <div class="sticky-block-box">
       <ArticlesContentSideBarRightCatalogue v-if="catalogueList.length !== 0" class="sidebar-block" :catalogue-list="catalogueList" />
-      <ArticlesContentSideBarRightColumn v-if="Object.keys(article!.columId).length !== 0 " :column="article!.columId" />
+      <ArticlesContentSideBarRightColumn v-if="article!.columId.data[0]" :key="article!.columId.data[0].column" :column="article!.columId.data[0]" />
     </div>
   </div>
 </template>
