@@ -14,7 +14,7 @@ defineProps<{
       <div class="ml-[0.5rem]">
         <div class="name">
           <span>{{ name }}</span>
-          <img class="w-[3rem] ml-[0.75rem]" :src="`https://pan.marlene.top/d/share/jj/${rank}.png`" :alt="`lv${rank}`">
+          <img class="w-[3rem] ml-[0.75rem]" :src="`https://picxyxsw.oss-cn-hangzhou.aliyuncs.com/${rank}.png`" :alt="`lv${rank}`">
         </div>
         <div class="text-[#8f969c] text-[12px]">
           {{ motto }}

@@ -4,4 +4,4 @@ cms采用`Strapi`搭建，开发时需设置`.env`文件配置相关的Token数�
 
 ## 表设计
 
-![表结构](https://pan.marlene.top/d/share/jj/database.png)
+![表结构](https://picxyxsw.oss-cn-hangzhou.aliyuncs.com/database.png)
