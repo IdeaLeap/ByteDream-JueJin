@@ -17,6 +17,7 @@ export default defineNuxtConfig({
     '@nuxt/image-edge',
     'nuxt-umami',
     'nuxt-meilisearch',
+    '@nuxt/devtools',
   ],
   experimental: {
     reactivityTransform: true,
