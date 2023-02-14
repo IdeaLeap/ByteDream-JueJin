@@ -1,6 +1,7 @@
 <script setup>
-const pageSize = ref(0)
+const pageNum = ref(1)
 const { data: NavList } = await useFetch('/api/global/navs')
+const pageTotal = Math.ceil(NavList.value.length / 9.0)
 const route = useRoute()
 const activeNav = computed(() => {
   return NavList.value.find(item => item.url === route.path) || NavList.value[0]
@@ -9,13 +10,12 @@ const [isMobileNavShown, toggleMobileNavShown] = useToggle()
 const isNavShown = inject('isNavShown')
 const changePageNum = (direction) => {
   if (direction === 'prev') {
-    if (pageSize.value > 0)
-      pageSize.value = pageSize.value - 9
+    if (pageNum.value > 1)
+      pageNum.value = pageNum.value - 1
   }
-
   else {
-    if (pageSize.value + 9 < NavList.value.length)
-      pageSize.value = pageSize.value + 9
+    if (pageNum.value < pageTotal)
+      pageNum.value = pageNum.value + 1
   }
 }
 </script>
@@ -32,12 +32,12 @@ const changePageNum = (direction) => {
             <span class="mobile-nav-active">{{ activeNav?.nav }}</span>
             <div i-carbon:caret-up class="mobile-nav-icon" />
           </div>
-          <div class="nav-item-wrapper" :class="{ 'mobile-nav-item-wrapper': isMobileNavShown }">
-            <NavsItem v-for="item in NavList.slice(pageSize, pageSize + 9)" :key="item.nav" :nav="item" class="mx-4" :class="{ 'mobile-nav-item': isMobileNavShown }" @click="toggleMobileNavShown()" />
+          <div v-if="!!NavList" class="nav-item-wrapper" :class="{ 'mobile-nav-item-wrapper': isMobileNavShown }">
+            <NavsItem v-for="item in NavList.slice((pageNum - 1) * 9, pageNum * 9)" :key="item.nav" :nav="item" class="mx-4" :class="{ 'mobile-nav-item': isMobileNavShown }" @click="toggleMobileNavShown()" />
             <div v-if="NavList.length > 9" class="h-full">
               <div class="alter-items">
-                <div class="alter-item alter-prev" :class="{ '!text-gray': pageSize === 0 }" @click="changePageNum('prev')" />
-                <div class="alter-item alter-next" :class="{ '!text-gray': pageSize + 9 > NavList.length }" @click="changePageNum('next')" />
+                <div class="alter-item alter-prev" :class="{ '!text-gray': pageNum === 1 }" @click="changePageNum('prev')" />
+                <div class="alter-item alter-next" :class="{ '!text-gray': pageNum === pageTotal }" @click="changePageNum('next')" />
               </div>
             </div>
           </div>
