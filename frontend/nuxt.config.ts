@@ -74,7 +74,7 @@ export default defineNuxtConfig({
     cache: false,
     domains: 'bytedream.marlene.top',
     websiteId: '908a66e8-a102-4f1b-900b-7b10891cc03c',
-    scriptUrl: 'http://8.130.20.114:3000/umami.js',
+    scriptUrl: 'https://umami.marlene.top/umami.js',
   },
   meilisearch: {
     hostUrl: process.env.MEILISEARCH_HOST,
