@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import type { IArticleItem } from '~~/types/IArticleItem'
-const artlist = useState<IArticleItem[]>(() => [])
+const artlist = useState<IArticleItem[]>('artlist', () => [])
 const { data: articleAds } = (await useFetch('/api/global/ad'))
-const isLoading = useState(() => true)
+const isLoading = useState('isLoading', () => true)
 const route = useRoute()
 let pagenum = 1
 const addArtListItem = useThrottle(async () => {

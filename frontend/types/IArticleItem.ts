@@ -40,5 +40,4 @@ export {
   IArticleAd,
   IAuthor,
   ICatalogue,
-  IAuthor,
 }
