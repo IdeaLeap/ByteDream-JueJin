@@ -11,14 +11,14 @@ const isNavShown = inject('isNavShown')
         综合
       </NuxtLink>
       <div v-for="item in typeList" :key="item.type" class="list-item-wrapper">
-        <NuxtLink class="type-list-item" :to="`/${item.type}`" :class="{ 'router-link-exact-active': route?.params?.type === item.type }">
+        <NuxtLink class="type-list-item" :to="`/${item.type}`">
           {{ item.alias }}
         </NuxtLink>
         <div v-if="item.tags.data.length > 0" class="category-popover">
           <nav class="tag-nav">
             <ul class="tag-list">
               <li v-for="item_ in item.tags.data" :key="item_.id" class="tag">
-                <NuxtLink :to="`/${item.type}/${item_.tag}`">
+                <NuxtLink :to="`/${item.type}/${item_.tag}`" class="tag-item">
                   {{ item_.alias }}
                 </NuxtLink>
               </li>
@@ -58,7 +58,6 @@ const isNavShown = inject('isNavShown')
   @apply cursor-pointer;
 }
 .type-list-item:hover{
-  /* color: #1e80ff; */
   @apply text-jj-blue-normal
 }
 
@@ -114,12 +113,20 @@ const isNavShown = inject('isNavShown')
     height: 2rem;
     border-radius: 1rem;
     font-size: 1.1rem;
-    padding: 0 .83rem;
     margin-right: 1rem;
     margin-bottom: 1rem;
     @apply bg-jj-types-bg text-jj-types-text cursor-pointer;
 }
 .tag:hover{
   @apply text-link;
+}
+.tag-item{
+  padding: 0 .83rem;
+  height: 2rem;
+    border-radius: 1rem;
+    @apply f-c-c;
+}
+.tag-item.router-link-exact-active {
+  @apply text-jj-light bg-primary;
 }
 </style>

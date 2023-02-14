@@ -18,6 +18,8 @@ defineProps({
             :src="i.icon"
             alt="police"
             class="police_img"
+            width="16"
+            height="16"
           />
           {{ i.footer }}
         </NuxtLink>
@@ -34,6 +36,8 @@ defineProps({
             src="https://lf3-cdn-tos.bytescm.com/obj/static/xitu_juejin_web/img/weibo.0cd39f5.png"
             alt="微博"
             class="icon"
+            width="16"
+            height="16"
           />
         </NuxtLink>
       </li>
@@ -42,6 +46,8 @@ defineProps({
           src="https://lf3-cdn-tos.bytescm.com/obj/static/xitu_juejin_web/img/wechat.ce329e6.png"
           alt="微信"
           class="icon"
+          width="16"
+          height="16"
         />
         <div class="qr-panel">
           <div class="title">
@@ -51,6 +57,8 @@ defineProps({
             src="https://lf3-cdn-tos.bytescm.com/obj/static/xitu_juejin_web/img/juejin-qr.b247fde.jpeg"
             class="qr"
             alt="qr"
+            width="50"
+            height="50"
           />
         </div>
       </li>
