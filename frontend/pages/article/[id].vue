@@ -36,7 +36,7 @@ onMounted(() => {
           <ArticlesContent :article="articleDataList" />
           <div class="article-end">
             <ArticlesContentEndTagList :type="articleDataList?.typeId" :tag="articleDataList?.tagIds.data" />
-            <ArticlesContentEndColumnContainer v-if="Object.keys(articleDataList!.columId).length !== 0" :column="articleDataList?.columId.data" />
+            <ArticlesContentEndColumnContainer v-if="articleDataList?.columId.data.length !== 0" :column="articleDataList?.columId.data" />
           </div>
         </div>
         <ArticlesContentSideBarRight :article="articleDataList" />
