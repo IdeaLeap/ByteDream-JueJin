@@ -23,6 +23,7 @@ const isNavShown = inject('isNavShown')
           <div class="nav-item-wrapper" :class="{ 'mobile-nav-item-wrapper': isMobileNavShown }" @click="toggleMobileNavShown()">
             <NavsItem v-for="item in NavList" :key="item.nav" :nav="item" class="mx-4" :class="{ 'mobile-nav-item': isMobileNavShown }" />
           </div>
+          <NavsSearchBox class="hidden md:(block)" />
         </div>
       </nav>
       <UnoDarkToggle />
