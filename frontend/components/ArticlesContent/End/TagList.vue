@@ -15,14 +15,19 @@ defineProps({
       <div class="tag-list-title">
         分类：
       </div>
-      <a href="/frontend" target="_blank" rel="" class="item category-item"><span class="tag-title">{{ type.alias }}</span></a>
+      <NuxtLink :href="`/${type.type}`" target="_blank" rel="" class="item category-item">
+        <span class="tag-title">{{ type.alias }}</span>
+      </NuxtLink>
     </div>
     <div v-if="tag.length !== 0" class="tag-list">
       <div class="tag-list-title">
         标签：
       </div>
       <div class="tag-list-container">
-        <a v-for="(item, index) in tag" :key="index" href="#" target="_blank" rel="" class="item tag-item"><span class="tag-title">{{ item.alias }}</span></a>
+        <!-- :href="`/tag/${item.alias}`" -->
+        <NuxtLink v-for="(item, index) in tag" :key="index" href="" rel="" class="item tag-item">
+          <span class="tag-title">{{ item.alias }}</span>
+        </NuxtLink>
       </div>
     </div>
   </div>
