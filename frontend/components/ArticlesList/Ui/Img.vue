@@ -26,6 +26,6 @@ defineProps<{
   @apply object-cover w-[120px] h-[80px]
 }
 .avatar {
-  @apply w-16 h-16 rounded-full
+  @apply w-[50px] h-[50px] rounded-full
 }
 </style>
