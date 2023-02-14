@@ -44,7 +44,7 @@ const { immerseState, immerseToggle } = useImmerse()
       <svg class="sprite-icon icon-report"><use xlink:href="#icon-report" /></svg>
     </div>
     <span class="tooltip">
-      <span class="tooltiptext">沉浸阅读</span>
+      <span class="tooltiptext">{{ !immerseState ? '沉浸阅读' : '退出阅读' }}</span>
       <span class="byte-tooltip__wrapper"><div class="panel-btn block" :class="immerseState ? 'active ' : ''" @click="immerseToggle">
         <svg class="sprite-icon icon-immerse"><use xlink:href="#icon-immerse" /></svg></div></span>
     </span>
