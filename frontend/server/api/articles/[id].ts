@@ -1,5 +1,17 @@
 import { useGraphql } from '~~/utils/useGraphql'
 import type { IArticle } from '~~/types/IArticle'
+const updateViewed = async (type: string, id: string, viewedNum: number) => {
+  await useGraphql(`mutation update${type} {
+    update${type}(id: ${id}, data: { viewed: ${++viewedNum} }) {
+      data {
+        id
+        attributes {
+          viewed
+        }
+      }
+    }
+  }`, useRuntimeConfig().strapi_token)
+}
 export default defineEventHandler(async (event): Promise<IArticle> => {
   const id = event.context.params.id
   const reqQuery = `query{
@@ -16,6 +28,7 @@ export default defineEventHandler(async (event): Promise<IArticle> => {
           cover
           createdAt
           updatedAt
+          summary
           authorId{
             data{
               id
@@ -49,6 +62,8 @@ export default defineEventHandler(async (event): Promise<IArticle> => {
             data{
               attributes{
                 column
+                cover
+                describe
                 articles{
                   data{
                     id
@@ -63,6 +78,9 @@ export default defineEventHandler(async (event): Promise<IArticle> => {
         }
       }
     }
-}`
-  return await useGraphql(reqQuery)
+  }`
+  const articleData = (await useGraphql(reqQuery)).article
+  updateViewed('Article', id, articleData.viewed)
+  updateViewed('Author', articleData.authorId.id, articleData.authorId.viewed)
+  return articleData
 })

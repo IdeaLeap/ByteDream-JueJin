@@ -13,22 +13,18 @@ const getNextArticle = () => {
   const allColumnListlength = allColumnList.length
   nextArticle.value = allColumnList[(currentIndex + 1) % allColumnListlength]
 }
-
-const hasColumn = ref(false)
-if (props.column.articles !== undefined) {
-  hasColumn.value = true
-  allColumnList = props.column.articles.data
-  getNextArticle()
-}
+allColumnList = props.column.articles.data
+getNextArticle()
 
 const isActive = ref(false)
 const handleClick = () => {
   isActive.value = !isActive.value
 }
+const { immerseState, immerseToggle } = useImmerse()
 </script>
 
 <template>
-  <nav v-if="hasColumn" class="next-article">
+  <nav v-show="!immerseState" class="next-article">
     <div class="next-article-header">
       <div class="next-article-title">
         下一篇
@@ -70,26 +66,24 @@ const handleClick = () => {
   @apply flex justify-between;
 }
 .next-article-title {
-  @apply fw-500 text-16px c-#1d2129 lh-2rem my-0 mx-1.667rem pt-1.333rem pb-12px text-jj-content;
+  @apply fw-500 text-16px lh-2rem my-0 mx-1.667rem pt-1.333rem pb-12px text-jj-content;
 }
 .list-icon {
   @apply inline-block box-content w-16px h-24px py-4px px-6px my-12px mx-10px;
-  @apply hover:bg-#f2f3f5 rd-4px cursor-pointer;
+  @apply hover:bg-jj-gray-icon-normal rd-4px cursor-pointer fill-jj-black-normal;
   transition: transform 0.5s;
-  fill: #000;
 }
 .list-icon.active {
-  /* fill: #3686ff; */
-  @apply fill-jj-blue-fill-normal
+  @apply fill-jj-blue-fill-normal;
 }
 .next-article-hr {
-  @apply absolute h-1px top-50px left-20px w-20px bg-#e4e6eb border-0;
+  @apply absolute h-1px top-50px left-20px w-20px bg-jj-catalog-normal border-0;
 }
 .article-content {
   @apply pb-1.667rem p-0;
 }
 .article {
-  @apply text-14px c-#515767 lh-22px pt-12px px-1.667rem pb-0 overflow-hidden text-ellipsis text-jj-span;
+  @apply text-14px c-jj-gray-text-normal lh-22px pt-12px px-1.667rem pb-0 overflow-hidden text-ellipsis text-jj-span;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
@@ -114,7 +108,7 @@ const handleClick = () => {
   @apply p-y-8px pr-0 pl-30px;
 }
 .list-item {
-  @apply text-14px c-jj-gray-text-normal fw-400 ml-4px overflow-hidden text-ellipsis;
+  @apply text-14px c-jj-span fw-400 ml-4px overflow-hidden text-ellipsis;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;

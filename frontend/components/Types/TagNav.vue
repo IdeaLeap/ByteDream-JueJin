@@ -9,7 +9,7 @@ const maxLength = 9
   <Transition name="fade">
     <nav v-if="tagList.length > 0" class="tag-nav tag-navigator">
       <ul class="nav-list tag-list">
-        <li class="nav-items tag active">
+        <li class="nav-items tag">
           <NuxtLink :to="`/${route?.params?.type}`" class="nav-item">
             综合
           </NuxtLink>
@@ -35,10 +35,9 @@ const maxLength = 9
 }
 .nav-list {
     position: relative;
+    @apply ml-[1rem];
 }
-.nav-list .nav-items.tag:has(.router-link-exact-active) {
-    background-color: #007fff;
-    color: #fff;
+.nav-list .nav-items.tag.router-link-exact-active {
     box-shadow: 0 1px 2px 0 rgb(0 0 0 / 5%), 0 1px 2px 0 rgb(0 0 0 / 5%);
 }
 .nav-list .nav-items.tag {
@@ -46,25 +45,27 @@ const maxLength = 9
     justify-content: center;
     align-items: center;
     height: 2rem;
-    background-color: #fff;
     border-radius: 1rem;
     font-size: 1.1rem;
-    color: #8a9aa9;
-    padding: 0 .83rem;
+
     margin-right: 1rem;
     margin-bottom: 1rem;
+    @apply bg-jj-tag-item text-jj-types-tag-normal;
 }
 .nav-items {
     position: relative;
     cursor: pointer;
 }
 .nav-item.router-link-exact-active {
-    color: #fff;
+    @apply text-jj-light bg-primary;
 }
 .nav-item {
     text-decoration: none;
     cursor: pointer;
-    color: #909090;
+    padding: 0 .83rem;
+    height: 2rem;
+    border-radius: 1rem;
+    @apply text-jj-gray-normal f-c-c;
 }
 .nav-list .nav-items.unfold {
     padding-right: 2rem;
@@ -78,6 +79,6 @@ const maxLength = 9
     width: 0;
     border-left: 5px solid transparent;
     border-right: 5px solid transparent;
-    border-top: 5px solid #8a9aa9;
+    @apply border-t-5 border-t-jj-types-tag-normal;
 }
 </style>

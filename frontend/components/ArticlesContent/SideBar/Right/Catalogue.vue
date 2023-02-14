@@ -1,64 +1,19 @@
-<script setup>
-import { getProcessor } from 'bytemd'
-import { visit } from 'unist-util-visit'
-const props = defineProps({
-  content: {
-    type: String,
-    default: '',
-  },
-})
-/**
- *  @description: 获取目录
- *
- */
-const Catalogue = ref([]) // 目录
-const stringifyHeading = (e) => {
-  let result = ''
-  visit(e, (node) => {
-    if (node.type === 'text')
-      result += node.value
-  })
-  return result
-}
-getProcessor({
-  plugins: [
-    {
-      rehype: p =>
-        p.use(() => (tree) => {
-          if (tree && tree.children.length) {
-            const items = []
-            tree.children
-              .filter(v => v.type === 'element')
-              .forEach((node) => {
-                // 过滤掉主题和高亮
-                const removeTheme = node.children.filter(item => item.value?.includes('theme'))
-                const removeHl = node.children.filter(item => item.value?.includes('highlight'))
-
-                if (node.tagName[0] === 'h' && !!node.children.length && removeTheme.length === 0 && removeHl.length === 0) {
-                  const i = Number(node.tagName[1])
-                  items.push({
-                    level: i,
-                    text: stringifyHeading(node),
-                  })
-                }
-              })
-            Catalogue.value = items.filter(v => v.level === 1 || v.level === 2 || v.level === 3)
-          }
-        }),
-    },
-  ],
-}).processSync(props.content)
+<script setup lang="ts">
+import type { ICatalogue } from '@/types/IArticleItem'
+const props = defineProps<{
+  catalogueList: ICatalogue[]
+}>()
 
 /**
  * @description: 目录点击事件
  */
-const isActive = ref()
-const activeSelect = (index) => {
+const isActive = ref<number>()
+const activeSelect = (index: number) => {
   if (isActive.value === index)
     return
   isActive.value = index
 }
-const catalogueClass = (level) => {
+const catalogueClass = (level: number) => {
   switch (level) {
     case 1:
       return 'item d1'
@@ -74,72 +29,107 @@ const catalogueClass = (level) => {
 /**
  * @description: 目录滚动定位事件
  */
-let headerHeight
-const itemOffsetTop = ref([])
-const onScroll = () => {
+const itemOffsetTop = ref<{ key: number; top: number }[]>([])
+const navRef = ref()
+const liRef = ref<HTMLElement[]>([])
+const navMid = ref(0)
+const headerHeight = ref(0)
+const originTop = ref(0)
+const firtstCatalogueTop = ref(0)
+const currentScrollTop = ref(0)
+
+const getInitByScroll = () => {
+  navMid.value = navRef.value.clientHeight / 2
+  headerHeight.value = document.querySelector('.main-header')!.clientHeight
+  originTop.value = (document.querySelector('.sticky-block-box') as HTMLElement).offsetTop
+  firtstCatalogueTop.value = originTop.value
   itemOffsetTop.value = []
-  Catalogue.value.forEach((val, i) => {
-    const firstHead = document.querySelector(`#heading-${i}`)
+  props.catalogueList.forEach((val, i) => {
+    const firstHead = document.querySelector(`#heading-${i}`) as HTMLElement
     if (firstHead) {
-      itemOffsetTop.value.push({
+      itemOffsetTop.value?.push({
         key: i,
         top: firstHead.offsetTop,
       })
     }
   })
-  const scrollTop = document.documentElement.scrollTop - headerHeight + 20
-  for (let n = 0; n < itemOffsetTop.value.length; n++) {
+}
+const onScroll = () => {
+  const documentElement = document.documentElement
+  currentScrollTop.value = documentElement.scrollTop
+  const scrollTop = currentScrollTop.value - headerHeight.value + 20
+  const itemOffsetTopLength = itemOffsetTop.value.length
+  for (let n = 0; n < itemOffsetTopLength; n++) {
     if (scrollTop >= itemOffsetTop.value[n].top)
       isActive.value = itemOffsetTop.value[n].key
   }
 
-  window.scrollTo({
-    left: 0,
-  })
+  if (isActive.value) {
+    const activeEleTop = liRef.value[isActive.value].offsetTop
+    navMid.value > activeEleTop
+      ? navRef.value.scrollTo({
+        top: 0,
+      })
+      : navRef.value.scrollTo({
+        top: activeEleTop - navMid.value,
+      })
+  }
 }
 
 /**
  * @description: 目录固定
  */
-const isNavShown = inject('isNavShown')
-const firtstCatalogueTop = ref(0)
-let catalogue
-let currentTop
+const isNavShown = inject('isNavShown') as Boolean
+const { immerseState, immerseToggle } = useImmerse()
+
+const catalogueEle = ref<HTMLElement | null>(null)
+let sideBar: HTMLElement | null = null
+const getInitByScrollFixedCatalogue = () => {
+  const sideBarEle = document.querySelector('.sidebar')
+  sideBar = sideBarEle as HTMLElement
+  catalogueEle.value = document.querySelector('.sticky-block-box')
+}
+
 const scrollFixedCatalogue = () => {
-  const scrollTop = document.documentElement.scrollTop
-  const sideBar = document.querySelector('.sidebar')
-  catalogue = document.querySelector('.sticky-block-box')
-  currentTop = parseFloat(window.getComputedStyle(catalogue).top)
-  if (scrollTop - headerHeight > catalogue.offsetTop)
-    sideBar.classList.add('sticky')
-  if (scrollTop <= firtstCatalogueTop.value)
-    sideBar.classList.remove('sticky')
+  if (currentScrollTop.value - headerHeight.value > catalogueEle.value!.offsetTop)
+    sideBar!.classList.add('sticky')
+
+  if (currentScrollTop.value <= firtstCatalogueTop.value && !immerseState.value)
+    sideBar!.classList.remove('sticky')
 }
 
 watch(isNavShown, (val) => {
-  if (val)
-    catalogue.style.top = `${currentTop + headerHeight}px`
-  else
-    catalogue.style.top = '1.767rem'
+  val ? (catalogueEle.value!.style.top = `${catalogueEle.value!.offsetTop + headerHeight!.value}px`) : (catalogueEle.value!.style.top = '1.767rem')
 })
+watch(immerseState, (val) => {
+  if (val) {
+    sideBar!.classList.add('sticky')
+    onScroll()
+  }
+  else {
+    firtstCatalogueTop.value = originTop.value
+    scrollFixedCatalogue()
+  }
+})
+
 onMounted(() => {
-  headerHeight = document.querySelector('.main-header').clientHeight
-  const route = useRoute()
   window.addEventListener('scroll', onScroll)
   window.addEventListener('scroll', scrollFixedCatalogue)
-  setTimeout(() => {
-    window.scroll(0, 0)
-    firtstCatalogueTop.value = document.querySelector('.sticky-block-box').offsetTop
-    if (route.hash) {
-      const hashIndex = route.hash.slice(9)
-      if (hashIndex !== -1) {
-        isActive.value = hashIndex
-        const a = document.createElement('a')
-        a.href = `#heading-${hashIndex}`
-        a.click()
-      }
+  const route = useRoute()
+  if (route.hash) {
+    const hashIndex = route.hash.slice(9)
+    if (Number(hashIndex) !== -1) {
+      isActive.value = Number(hashIndex)
+      const a = document.createElement('a')
+      a.href = `#heading-${hashIndex}`
+      a.click()
     }
-  }, 1)
+  }
+
+  nextTick(() => {
+    getInitByScroll()
+    getInitByScrollFixedCatalogue()
+  })
 })
 
 onUnmounted(() => {
@@ -154,9 +144,9 @@ onUnmounted(() => {
       <div class="catalog-title">
         目录
       </div>
-      <div class="catalog-body">
+      <div ref="navRef" class="catalog-body">
         <ul class="catalog-list" style="margin-top: 0px">
-          <li v-for="(item, index) in Catalogue" :key="index" :class="[{ active: index === isActive }, catalogueClass(item.level)]" @click="activeSelect(index)">
+          <li v-for="(item, index) in catalogueList" ref="liRef" :key="index" :class="[{ active: index === isActive }, catalogueClass(item.level)]" @click="activeSelect(index)">
             <div class="a-container">
               <a :href="`#heading-${index}`" :title="item.text" class="catalog-aTag hover:bg-jj-container-hover-normal"> {{ item.text }} </a>
             </div>
@@ -169,14 +159,11 @@ onUnmounted(() => {
 
 <style scoped>
 #heading-3 {
-  position: relative;
-  top: -50px;
+  @apply relative top--50px;
 }
 
 .sidebar-block {
-  position: relative;
-  /* margin-bottom: 1.5rem; */
-  margin-bottom: 20px;
+  @apply relative mb-20px;
 }
 
 .catalog-block.isExpand {
@@ -192,78 +179,64 @@ onUnmounted(() => {
 }
 
 .article-catalog {
-  /* background: #fff; */
-  border-radius: 4px;
-  padding: 0;
-  @apply bg-jj-sidebar;
+  @apply bg-jj-sidebar p-0 rd-4px;
 }
 
 .catalog-title {
-  font-weight: 500;
-  padding: 1.333rem 0;
-  margin: 0 1.667rem;
-  font-size: 16px;
-  line-height: 2rem;
-  /* color: #1d2129; */
-  border-bottom: 1px solid;
+  @apply fw-500 py-1.333rem px-0 mx-1.667rem my-0 text-16px lh-2rem border-b-1 border-b-solid;
   @apply text-jj-content border-b-jj-border-bottom-normal;
 }
 
 .catalog-block.isExpand .article-catalog .catalog-body {
-  max-height: 612px;
+  max-height: 460px;
 }
 
 .catalog-body {
-  position: relative;
-  max-height: 460px;
-  margin: 8px 4px 0 0;
-  overflow: auto;
+  @apply relative overflow-auto max-h-460px mt-8px mr-4px mb-0 ml-0;
+}
+
+.catalog-body::-webkit-scrollbar {
+  width: 6px;
+  height: 80px;
+}
+
+.catalog-body::-webkit-scrollbar-thumb {
+  background-color: #e4e6eb;
+  outline: none;
+  border-radius: 2px;
+}
+
+.catalog-body::-webkit-scrollbar-track {
+  box-shadow: none;
+  border-radius: 2px;
 }
 
 .catalog-list {
-  position: relative;
-  line-height: 22px;
-  padding: 0 0 12px;
+  @apply relative lh-22px pb-12px p-0;
 }
 
 .catalog-list .item {
-  margin: 0;
-  padding: 0;
-  font-size: 1.167rem;
-  font-weight: 400;
-  line-height: 22px;
-  /* color: #333; */
-  list-style: none;
+  @apply m-0 p-0 text-size-1.167rem fw-400 lh-22px list-none;
   @apply text-jj-container-normal;
 }
 
 .catalog-list .item.d1 {
   font-weight: 400;
-  /* color: #000; */
   @apply text-jj-black-normal;
 }
 
 .catalog-list .item.active > .a-container {
-  /* color: #007fff; */
   @apply text-jj-link-normal;
 }
 
 .catalog-list .item.active > .a-container:before {
+  @apply absolute top-4px left-0 mt-7px w-4px h-16px rd-r-4px;
   content: '';
-  position: absolute;
-  top: 4px;
-  left: 0;
-  margin-top: 7px;
-  width: 4px;
-  height: 16px;
-  /* background: #1e80ff; */
-  border-radius: 0 4px 4px 0;
   @apply bg-jj-blue-normal;
 }
 
 .catalog-list .item.d1 > .a-container {
-  margin: 0;
-  padding: 0 0 0 11px;
+  @apply p-0 pl-11px m-0;
 }
 
 .catalog-list .item.d2 > .a-container {
@@ -275,23 +248,10 @@ onUnmounted(() => {
 }
 
 .catalog-list .item .a-container {
-  display: block;
-  position: relative;
-  padding: 0 0 0 12px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  @apply block relative p-0 pl-12px truncate;
 }
 
 .catalog-list .catalog-aTag {
-  color: inherit;
-  display: inline-block;
-  padding: 8px;
-  width: 90%;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  border-radius: 4px;
-  @apply text-jj-container-normal;
+  @apply color-inherit inline-block p-8px w-90% rd-4px truncate;
 }
 </style>

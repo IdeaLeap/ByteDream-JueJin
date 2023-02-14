@@ -10,29 +10,28 @@ defineProps({
     type: Object,
     default: () => {},
   },
-  name: String,
+  adId: String,
 })
 </script>
 
 <template>
   <div class="topbar">
-    <div class="author-id">
-      <span v-if="name" class="name">{{ name }}</span>
-      <span v-else class="name">{{ authorId.name }}</span>
-      <ArticlesListItemAuthorInfo
+    <div class="author">
+      <span class="name">{{ adId ? adId : authorId.name }}</span>
+      <ArticlesListItemAuthorCard
         v-if="authorId"
         :name="authorId.name"
         :motto="authorId.motto"
         :avatar="authorId.avatar"
         :rank="authorId.rank"
-        class="author-info"
+        class="info"
       />
     </div>
-    <span :class="`duration ${tags.length ? 'duration-r' : ''}`">{{ duration }}</span>
-    <div class="tag-container">
+    <span :class="`duration ${tags.length ? 'b-r-1' : ''}`">{{ duration }}</span>
+    <div class="flex px-3">
       <div v-for="(item, index) of tags" :key="item.tag" class="tag">
-        <span class="tag-content">{{ item.tag }}</span>
-        <div v-if="index !== tags.length - 1" class="tag-icon" />
+        <div v-if="index" class="icon" />
+        <span>{{ item.alias }}</span>
       </div>
     </div>
   </div>
@@ -40,36 +39,29 @@ defineProps({
 
 <style scoped>
 .topbar {
-  @apply flex items-center pr-4 text-[13px]
+  @apply flex items-center pr-4 text-[13px] leading-[22px]
 }
-.author-id {
+.author {
   @apply transition text-jj-font-normal px-3 border-r-1 pl-0 hover:text-jj-brand-normal
 }
-.author-info {
+.info {
   @apply scale-0 delay-150 transition-all text-black
+  @apply hover:scale-100
 }
-.author-info:hover {
-  @apply scale-100;
-}
-.name:hover+.author-info {
+.name:hover+.info {
   @apply scale-100
 }
 .duration {
   @apply text-jj-thirdly px-3
 }
-.duration-r {
-  @apply border-r-1
-}
-.tag-container {
-  @apply flex px-3
-}
 .tag {
-  @apply items-center flex
+  @apply
 }
-.tag-content {
+.tag span {
   @apply transition px-0 text-jj-thirdly hover:text-primary
 }
-.tag-icon {
+.icon {
   @apply i-carbon-circle-solid px-2 text-[0.15rem]
+  @apply dark:text-jj-thirdly
 }
 </style>

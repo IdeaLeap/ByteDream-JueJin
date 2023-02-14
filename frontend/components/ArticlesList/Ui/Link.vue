@@ -1,7 +1,5 @@
 <script setup lang="ts">
-defineProps({
-  to: String,
-})
+defineProps<{ to: String }>()
 </script>
 
 <template>
@@ -12,7 +10,11 @@ defineProps({
 
 <style scoped>
 .link_container {
-  @apply transition hover:bg-jj-hover f-c-c py-4 transition-all b-b b-grey all-cursor-pointer flex-1 pl-[1.67rem] truncate
-  @apply dark:b-[#333]
+  @apply transition flex-1 f-c-c transition-all all-cursor-pointer px-[1.67rem] pt-[1rem] pb-[10px] truncate
+  @apply hover:bg-jj-hover
+}
+.link_container::after {
+  background-color: rgba(185, 186, 190, .35);
+  @apply absolute content-none bottom-0 h-[1px] left-[1.67rem] right-[1.67rem]
 }
 </style>

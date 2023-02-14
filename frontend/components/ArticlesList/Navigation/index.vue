@@ -1,12 +1,13 @@
 <template>
-  <div class="navigation">
+  <div class="navigator">
     <ArticlesListNavigationLink />
     <ArticlesListNavigationSelect />
   </div>
 </template>
 
 <style scoped>
-.navigation {
-  @apply flex text-[1.17rem] pl-[0.42rem] border-b-1
+.navigator {
+  border-bottom: 1px solid hsla(0,0%,59.2%,.1);
+  @apply flex text-[1.17rem] pl-[0.42rem]
 }
 </style>

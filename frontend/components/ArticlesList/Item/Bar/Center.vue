@@ -2,28 +2,26 @@
 defineProps<{
   title: string
   summary: string
+  ad?: boolean
 }>()
 </script>
 
 <template>
-  <div class="mainbar">
+  <div :class="`${ad ? 'mb-1' : ''}`" class="my-[10px]">
     <div class="title">
       {{ title }}
     </div>
-    <div class="summary">
+    <div :class="`${ad ? 'whitespace-pre-wrap' : 'truncate'}`" class="summary">
       {{ summary }}
     </div>
   </div>
 </template>
 
 <style scoped>
-.mainbar {
-  @apply py-3
-}
 .title {
   @apply truncate text-jj-font-normal text-[16px] title font-semibold tracking-wide
 }
 .summary {
-  @apply truncate pt-3 text-jj_thirdly text-[13px]
+  @apply mt-[8px] text-jj_thirdly text-[13px] leading-[22px]
 }
 </style>

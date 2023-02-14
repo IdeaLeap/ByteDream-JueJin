@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_articles_content_ads",
+  "info": {
+    "displayName": "ContentAd",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "img": {
+      "type": "string",
+      "required": true
+    },
+    "url": {
+      "type": "string",
+      "required": true
+    },
+    "ad": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

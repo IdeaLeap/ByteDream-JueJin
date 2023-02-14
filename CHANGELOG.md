@@ -1,5 +1,40 @@
 # Changelog
 
+## [1.5.0](https://github.com/MarleneJiang/ByteDream-JueJin/compare/v1.4.0...v1.5.0) (2023-02-08)
+
+
+### Features
+
+* remove userArlist ([39c13b5](https://github.com/MarleneJiang/ByteDream-JueJin/commit/39c13b52b30f28043fa0c953f8cb8c6cb8d9224f))
+* remove userArtlistPath ([6b951da](https://github.com/MarleneJiang/ByteDream-JueJin/commit/6b951dad2c7432fa9a7fa80bb87f180d4dff9c5c))
+* 修改数据删除文章列表 ([ee885d9](https://github.com/MarleneJiang/ByteDream-JueJin/commit/ee885d9d60f13843af50f42f37a172a490815699))
+* 导航栏标签与文章列表交互 ([ad46954](https://github.com/MarleneJiang/ByteDream-JueJin/commit/ad46954b03aff1f56d5b22ad26f826a18ce2dc02))
+* 拉取主分支代码 ([438d120](https://github.com/MarleneJiang/ByteDream-JueJin/commit/438d120c2bd1b5556c2928e514a477d8741017fa))
+* 文章列表标签显示中文 ([7264216](https://github.com/MarleneJiang/ByteDream-JueJin/commit/72642165d5d40ed54b285933cb6330c61753d241))
+* 添加删除动画 ([d252a48](https://github.com/MarleneJiang/ByteDream-JueJin/commit/d252a48069ea513b11ef34de7fc21d817ee057a0))
+* 适配掘金的新玩意儿 出入流畅 ([5dad7ef](https://github.com/MarleneJiang/ByteDream-JueJin/commit/5dad7ef7cc2eb93d3be69113e03c68111a53ab22))
+* 适配掘金的新玩意儿 拉动到下部侧边展示广告 ([f755dc0](https://github.com/MarleneJiang/ByteDream-JueJin/commit/f755dc079797a345b3b0d9c1d4b2f86f5dbe204b))
+
+
+### Bug Fixes
+
+* eslint ([5ab8279](https://github.com/MarleneJiang/ByteDream-JueJin/commit/5ab82797d41a6387c07c4d45273f8396ace32311))
+* eslint ([0b16eaa](https://github.com/MarleneJiang/ByteDream-JueJin/commit/0b16eaa8a16b89cf53988e24e764afbbb720cb9c))
+* eslint ([3de6804](https://github.com/MarleneJiang/ByteDream-JueJin/commit/3de680457c06cfa5d3cddad5fa70646f5b6387f1))
+* eslint ([7006f92](https://github.com/MarleneJiang/ByteDream-JueJin/commit/7006f921071b40d0a419a2291a3150878197ff5d))
+* eslint ([e83adae](https://github.com/MarleneJiang/ByteDream-JueJin/commit/e83adae940b92fea88058051fd95b65eb665e6c5))
+* **Types:** 改正了颜色抽离时误用了具有两种颜色的样式导致暗色主题下tag背景颜不对的问题 ([95226af](https://github.com/MarleneJiang/ByteDream-JueJin/commit/95226af68d64fec74a7a798eb2a5db62026c5aba))
+* update ([c2ce690](https://github.com/MarleneJiang/ByteDream-JueJin/commit/c2ce6908bd37f0c79be20850f347decd2e28864c))
+* 修复低分辨率显示不完整 ([fab15d4](https://github.com/MarleneJiang/ByteDream-JueJin/commit/fab15d46a6eacfafcfa723a077ef6c5800165ea5))
+* 修复文章列表api请求重复问题 ([06e7df1](https://github.com/MarleneJiang/ByteDream-JueJin/commit/06e7df1f541a4f8105f6520cdb4119ce01234268))
+* 修复沉浸模式下目录滚动问题 ([01350d9](https://github.com/MarleneJiang/ByteDream-JueJin/commit/01350d9689d811cb409d6bebc78643632647dae0))
+* 关闭sourcemap 会泄露源代码 ([0183e58](https://github.com/MarleneJiang/ByteDream-JueJin/commit/0183e580f77dc035c730817ad825fe876ff19a5b))
+* 在没有图片的时候，文章列表没有右边距 ([bef431a](https://github.com/MarleneJiang/ByteDream-JueJin/commit/bef431ad36eae04dbbaf4c8ec28eab598ead28cc))
+* 文章广告接口 ([e06bd02](https://github.com/MarleneJiang/ByteDream-JueJin/commit/e06bd024f5577d6158b9d6886dd8a875ab4e4091))
+* 路由跳转问题 ([cf43142](https://github.com/MarleneJiang/ByteDream-JueJin/commit/cf4314252660348c47dc5f1173f4e74fef9cd290))
+* 路由问题 ([b8035c0](https://github.com/MarleneJiang/ByteDream-JueJin/commit/b8035c0b607494d188cc13d1881d3988da9695cd))
+* 长目录优化 + md暗黑模式适配 ([adfcb25](https://github.com/MarleneJiang/ByteDream-JueJin/commit/adfcb25f2627647b37c5a46cac0e120399c4ecb0))
+
 ## [1.4.0](https://github.com/MarleneJiang/ByteDream-JueJin/compare/v1.3.0...v1.4.0) (2023-02-06)
 
 

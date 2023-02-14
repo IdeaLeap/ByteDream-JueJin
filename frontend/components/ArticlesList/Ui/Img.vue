@@ -1,29 +1,31 @@
 <script setup lang="ts">
-defineProps({
-  src: String,
-  alt: String,
-  avatar: Boolean,
-})
+defineProps<{
+  src: string
+  alt: string
+  avatar?: boolean
+}>()
 </script>
 
 <template>
-  <nuxt-img
-    v-if="src"
-    :src="src"
-    :alt="alt"
-    loading="lazy"
-    fit="fill"
-    quality="80"
-    format="webp"
-    :class="`${avatar ? 'avatar' : 'cover'}`"
-  />
+  <div :class="`${avatar ? '' : 'ml-[1.67rem] mb-[-1.85rem]'} overflow-hiden`">
+    <nuxt-img
+      v-if="src"
+      :src="src"
+      :alt="alt"
+      loading="lazy"
+      fit="cover"
+      quality="80"
+      format="webp"
+      :class="`${avatar ? 'avatar' : 'cover'}`"
+    />
+  </div>
 </template>
 
 <style scoped>
 .cover {
-  @apply mx-[1.67rem] mb-[-2rem] w-[120px] h-[80px]
+  @apply object-cover w-[120px] h-[80px]
 }
 .avatar {
-  @apply w-20 h-20 rounded-full
+  @apply w-16 h-16 rounded-full
 }
 </style>

@@ -14,12 +14,7 @@ import themeStyle from './themeStyle'
 import highlightStyle from './highlightStyle'
 import type { IArticle } from '~~/types/IArticle'
 
-defineProps({
-  article: {
-    type: Object as () => IArticle,
-    required: true,
-  },
-})
+defineProps<{ article: IArticle }>()
 const plugins = [breaks(), frontmatter(), highlightStyle(), themeStyle(), gemoji(), gfm(), highlight(), math(), medium({ background: 'rgba(0, 0, 0, 0.7)' }), mermaid()]
 
 // 赋值属性唯一ID
@@ -52,7 +47,7 @@ const { immerseState } = useImmerse()
 
     <div class="flex items-center mb-1.667rem text-0">
       <NuxtLink target="_blank" to="#" class="avatar-link" rel>
-        <nuxt-img class="bg-center w-3.333rem h-3.333rem mr-1rem bg-cover rd-50% bg-repeat inline-block relative" :src="article.authorId.avatar" loading="eager" />
+        <nuxt-img format="webp" class="authorAvatar" alt="authorAvatar" :src="article.authorId.avatar" loading="eager" />
       </NuxtLink>
       <div class="min-w-0 flex-1 min-h-43px">
         <div class="h-2rem flex items-center">
@@ -61,7 +56,7 @@ const { immerseState } = useImmerse()
               {{ article.authorId.name }}
             </span>
             <span v-show="!immerseState" blank="true" class="ml-0.33rem inline-flex items-center v-middle">
-              <img class="w-35px h-16px" :src="`https://pan.marlene.top/d/share/jj/${article.authorId.rank}.png`" loading="eager">
+              <nuxt-img format="webp" class="rank" alt="rank" :src="`https://pan.marlene.top/d/share/jj/${article.authorId.rank}.png`" loading="eager" />
             </span>
           </NuxtLink>
         </div>
@@ -75,12 +70,27 @@ const { immerseState } = useImmerse()
       </div>
     </div>
 
-    <nuxt-img v-if="article?.cover" loading="eager" :src="article?.cover" class="object-cover relative w-100%" />
+    <nuxt-img v-if="article?.cover" format="webp" loading="eager" :src="article?.cover" class="cover" alt="cover" />
 
     <div itemprop="articleBody" class="article-content">
-      <div class="break-all lh-1.75em; fw-400 text-15px color-[#333]; overflow-x-hidden cache bg-jj-light">
+      <div class="break-all lh-1.75em; fw-400 text-15px ; overflow-x-hidden cache">
         <Viewer id="markdown-body" :value="article.content" :plugins="plugins" />
       </div>
     </div>
   </article>
 </template>
+
+<style scoped>
+#markdown-body {
+  @apply text-jj-font-normal
+}
+.authorAvatar {
+  @apply bg-center w-3.333rem h-3.333rem mr-1rem bg-cover rd-50% bg-repeat inline-block relative
+}
+.rank{
+  @apply w-35px h-16px
+}
+.cover{
+ @apply object-cover relative w-100%
+}
+</style>

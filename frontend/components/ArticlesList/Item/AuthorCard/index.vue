@@ -8,15 +8,15 @@ defineProps<{
 </script>
 
 <template>
-  <div class="author_panel">
-    <div class="author">
+  <div class="author_card">
+    <div class="about">
       <ArticlesListUiImg :src="avatar" :alt="name" avatar />
       <div class="info">
         <div class="name">
           <span>{{ name }}</span>
-          <img :src="`https://pan.marlene.top/d/share/jj/${rank}.png`" alt="等级">
+          <img class="w-[3rem] ml-[1rem]" :src="`https://pan.marlene.top/d/share/jj/${rank}.png`" :alt="`lv${rank}`">
         </div>
-        <div class="text-[#8f969c]">
+        <div class="text-[#8f969c] text-[0.1rem]">
           {{ motto }}
         </div>
       </div>
@@ -26,26 +26,24 @@ defineProps<{
 </template>
 
 <style scoped>
-.author_panel {
+.author_card {
   box-shadow: 0 8px 24px rgb(81 87 103 / 16%);
-  @apply bg-white absolute top-[-11rem] left-0 mlg:left-[-1.67rem]
-  @apply dark:shadow-jj_author_info dark:bg-jj-article dark:text-white
+  @apply bg-white absolute top-[-9rem] left-0 mlg:left-[-1.67rem]
+  @apply dark:(bg-jj-article text-white)
 }
-.author {
+.about {
   @apply flex items-center m-[1rem] mb-0
 }
-.author .info {
-  @apply pl-[1rem] flex flex-col justify-center
+.info {
+  @apply flex flex-col justify-center
 }
 .name {
-  @apply text-[1rem] flex items-center
+  @apply flex-auto flex items-center pr-[1rem]
 }
-.name img {
-  @apply w-[3rem] m-l-[1rem]
-}
-.author_panel::after {
+.author_card::after {
   border: 10px solid transparent;
-  @apply w-0 h-0 border-[10px] border-t-white
+  border-top-color: white;
+  @apply w-0 h-0
   @apply absolute bottom-0 left-1/2 content-none -translate-x-1/2 translate-y-full
   @apply dark:border-t-jj_bg_gray
 }

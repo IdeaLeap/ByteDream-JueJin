@@ -5,9 +5,14 @@ interface IAuthorListItem {
   avatar: string
   rank: Number
 }
-export default defineEventHandler(async (): Promise<IAuthorListItem[]> => {
+export default defineEventHandler(async (event): Promise<IAuthorListItem[]> => {
+  const query = getQuery(event)
+  const page = query?.page || 1
   const reqQuery = `query{
-        authors(pagination: { page: 1, pageSize: 3 }){
+        authors(
+          pagination: { page: ${page}, pageSize: 4 }
+          sort: "rank:desc"
+          ){
           data{
             attributes{
               name

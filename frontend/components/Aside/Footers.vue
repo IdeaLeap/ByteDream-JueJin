@@ -12,12 +12,14 @@ defineProps({
     <ul class="more-list">
       <li v-for="i in footers" :key="i" class="item">
         <span>{{ i.describe }}</span>
-        <NuxtLink v-if="i.footer && i.url " :to="i.url" target="_blank" rel="nofollow">
+        <NuxtLink v-if="i.footer " :to="i.url" target="_blank" rel="nofollow">
           <NuxtImg
             v-if="i.icon"
             :src="i.icon"
             alt="police"
             class="police_img"
+            width="16"
+            height="16"
           />
           {{ i.footer }}
         </NuxtLink>
@@ -34,6 +36,8 @@ defineProps({
             src="https://lf3-cdn-tos.bytescm.com/obj/static/xitu_juejin_web/img/weibo.0cd39f5.png"
             alt="微博"
             class="icon"
+            width="16"
+            height="16"
           />
         </NuxtLink>
       </li>
@@ -42,6 +46,8 @@ defineProps({
           src="https://lf3-cdn-tos.bytescm.com/obj/static/xitu_juejin_web/img/wechat.ce329e6.png"
           alt="微信"
           class="icon"
+          width="16"
+          height="16"
         />
         <div class="qr-panel">
           <div class="title">
@@ -50,6 +56,9 @@ defineProps({
           <NuxtImg
             src="https://lf3-cdn-tos.bytescm.com/obj/static/xitu_juejin_web/img/juejin-qr.b247fde.jpeg"
             class="qr"
+            alt="qr"
+            width="50"
+            height="50"
           />
         </div>
       </li>
@@ -61,7 +70,8 @@ defineProps({
 .more-list {
   font-size: 1rem;
   line-height: 1.6;
-  color: #9aa3ab;
+  /* color: #9aa3ab; */
+  @apply text-jj-gray-more-normal
 }
 .more-list .item {
   float: left;
@@ -77,7 +87,8 @@ defineProps({
   clear: both;
 }
 .more-list .item span {
-  color: #909090;
+  /* color: #909090; */
+  @apply text-jj-gray-normal
 }
 .more-list.account-list {
   display: flex;
@@ -103,15 +114,16 @@ defineProps({
 }
 .more-list.account-list .wechat .qr-panel {
   position: absolute;
-  background: #fff;
+  /* background: #fff; */
   width: 10rem;
   top: 100%;
   left: -100%;
   z-index: 2;
   padding: 0.8rem 0 0;
   opacity: 0;
-  border: 1px solid #ddd;
+  border: 1px solid;
   transform: translate(-24px);
+  @apply bg-jj-light border-jj-border-more-normal
 }
 .more-list.account-list .wechat .title {
   text-align: center;
@@ -135,8 +147,9 @@ li {
 a {
   text-decoration: none;
   cursor: pointer;
-  color: #909090;
+  /* color: #909090; */
   background-color: transparent;
+  @apply text-jj-gray-normal
 }
 a,
 button,
@@ -144,7 +157,8 @@ input {
   margin: initial;
 }
 a:hover {
-  color: #007fff;
+  /* color: #007fff; */
+  @apply text-jj-link-normal
 }
 a:active,
 a:hover {

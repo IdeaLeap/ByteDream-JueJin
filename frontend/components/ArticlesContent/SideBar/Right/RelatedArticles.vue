@@ -1,4 +1,3 @@
-import { serve } from 'esbuild';
 <script setup>
 const props = defineProps({
   author: {
@@ -12,13 +11,12 @@ const { data: ArticleList } = await useFetch(`/api/articles/tags?tags=${JSON.str
 const route = useRoute()
 const id = ref(route.params.id)
 // 过滤掉当前文章
-
 const articleList = ArticleList.value.filter(item => item.id !== id.value)
 </script>
 
 <template>
   <div>
-    <div class="sidebar-block related-entry-sidebar-block shadow dark:bg-jj_bg_gray" st:block="relatedEntrySidebarBlock">
+    <div v-if="articleList.length > 0" class="sidebar-block related-entry-sidebar-block shadow dark:bg-jj_bg_gray" st:block="relatedEntrySidebarBlock">
       <div class="block-title">
         相关文章
       </div>
@@ -28,7 +26,17 @@ const articleList = ArticleList.value.filter(item => item.id !== id.value)
             <div class="entry-title">
               {{ item.title }}
             </div>
-            <div class="entry-meta-box" />
+            <div class="entry-meta-box">
+              <div class="entry-meta">
+                {{ item.liked }}{{ item.liked > 1 ? '赞' : '赞' }}
+              </div>
+              <div class="entry-meta">
+                &nbsp;·&nbsp;
+              </div>
+              <div class="entry-meta">
+                {{ item.commented }}{{ item.commented > 1 ? '评论' : '评论' }}
+              </div>
+            </div>
           </nuxt-link>
         </div>
       </div>
@@ -42,7 +50,7 @@ const articleList = ArticleList.value.filter(item => item.id !== id.value)
   margin: 0 1.667rem;
   font-size: 16px;
   line-height: 2rem;
-  color: #1d2129;
+  /* color: #1d2129; */
   font-weight: 500;
   border-bottom: 1px solid;
   @apply text-jj-content border-b-jj-border-bottom-normal;
@@ -88,7 +96,7 @@ nuxt-link {
 
 nuxt-link:link {
   text-decoration: none;
-  @apply text-jj-link-red
+  @apply text-jj-link-red-normal
 }
 
 .entry-title {
@@ -96,7 +104,7 @@ nuxt-link:link {
   font-size: 1.167rem;
   font-weight: 400;
   /* color: #252933; */
-  @apply  text-jj-font-normal;
+  @apply text-jj-font-normal;
 }
 
 .entry-meta-box {

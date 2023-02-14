@@ -17,7 +17,7 @@ defineProps({
             :to="i.url"
             class="linklist_link"
           >
-            <nuxt-img :src="i.icon" class="linklist_icon" />
+            <nuxt-img :src="i.icon" :alt="i.title" class="linklist_icon" />
             <span class="linklist_txt">
               {{ i.title }}
             </span>
@@ -40,7 +40,7 @@ defineProps({
 
 .linklist_link {
   @apply flex flex-row justify-start
-  @apply items-center gap-3 hover:bg-[#fbfbfb] p-3
+  @apply items-center gap-3 p-3
   @apply hover:bg-jj-hover
 }
 

@@ -9,9 +9,10 @@ interface ILinksItem {
   icon: string
   url: string
 }
-interface IAdsItem {
+export interface IAdsItem {
   ad: string
   img: string
+  url: string
 }
 interface IFootersItem {
   footer: string

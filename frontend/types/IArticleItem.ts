@@ -18,6 +18,10 @@ interface ITagItem {
   tag: string
   alias: string
 }
+interface ICatalogue {
+  level: number
+  text: string
+}
 interface IArticleItem {
   id: string
   title: string
@@ -34,4 +38,6 @@ export {
   IArticleItem,
   ITagItem,
   IArticleAd,
+  ICatalogue,
+  IAuthor,
 }

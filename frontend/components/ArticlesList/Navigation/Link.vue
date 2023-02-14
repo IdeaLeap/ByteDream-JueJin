@@ -1,44 +1,38 @@
 <script setup lang="ts">
-const artlistPath = useArtlistPath()
+const queryMap = {
+  推荐: '',
+  最新: 'newest',
+  热榜: 'three_days_hottest',
+}
 </script>
 
 <template>
-  <div class="link">
+  <div class="links">
     <NuxtLink
-      :to="`${artlistPath}?`"
-      :class="`${
-        $route.query.sort ? 'text-gray-500' : 'text-link'
-      } br text_style pl-0`"
+      v-for="(item, key, index) in queryMap"
+      :key="key"
+      :to="item ? `?sort=${item}` : '?'"
+      :class="`
+        ${$route.query.sort === item ? 'h_t' : ''}
+        ${index ? 'b-l-1' : ''}
+        ${(!index && !$route.query.sort) ? 'h_t' : ''}
+        t
+        `"
     >
-      推荐
-    </NuxtLink>
-    <NuxtLink
-      :to="`${artlistPath}?sort=newest`"
-      :class="`${
-        $route.query.sort === 'newest' ? 'text-link' : 'text-gray-500'
-      } br text_style`"
-    >
-      最新
-    </NuxtLink>
-    <NuxtLink
-      :to="`${artlistPath}?sort=three_days_hottest`"
-      :class="`${
-        ($route.query.sort && $route.query.sort?.indexOf('hottest') !== -1) ? 'text-link' : 'text-gray-500'
-      } text_style`"
-    >
-      热榜
+      {{ key }}
     </NuxtLink>
   </div>
 </template>
 
 <style scoped>
-.link {
+.links {
   @apply all-px-5 all-my-4 flex
 }
-.text_style {
-  @apply focus:text-link hover:text-link
+.t {
+  @apply text-jj-gray-normal
+  @apply hover:text-link dark:border-[#888]
 }
-.br {
-  @apply border-r-1
+.h_t {
+  @apply text-link
 }
 </style>
