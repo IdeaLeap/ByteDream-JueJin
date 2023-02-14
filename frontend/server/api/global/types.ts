@@ -1,9 +1,11 @@
 import { useGraphql } from '~~/utils/useGraphql'
-import type { ITypeItem } from '~~/types/IType'
+import type { IType } from '~~/types/IType'
 
-export default defineEventHandler(async (): Promise<ITypeItem[]> => {
+export default defineEventHandler(async (event): Promise<IType> => {
+  const query = getQuery(event)
+  const page = query?.page || 1
   const reqQuery = `query{
-    types{
+    types(pagination: { page:${page},pageSize: 9 }){
       data{
         attributes{
           type
@@ -19,7 +21,13 @@ export default defineEventHandler(async (): Promise<ITypeItem[]> => {
           }
         }
       }
+    meta{
+      pagination {
+        pageCount
+        total
+      }
+    }
     }
   }`
-  return (await useGraphql(reqQuery)).types.data
+  return (await useGraphql(reqQuery)).types
 })
