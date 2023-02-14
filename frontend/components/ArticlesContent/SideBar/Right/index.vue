@@ -2,13 +2,11 @@
 import { getProcessor } from 'bytemd'
 import { visit } from 'unist-util-visit'
 import type { ICatalogue } from '@/types/IArticleItem'
-const props = defineProps({
-  article: {
-    type: Object,
-    required: true,
-  },
-})
-const catalogueList = ref<ICatalogue []>([]) // 目录
+import type { IArticle } from '@/types/IArticle'
+const props = defineProps<{
+  article: IArticle
+}>()
+const catalogueList = ref<ICatalogue[]>([]) // 目录
 const stringifyHeading = (e: any) => {
   let result = ''
   visit(e, (node) => {
@@ -23,7 +21,7 @@ getProcessor({
       rehype: p =>
         p.use(() => (tree: any) => {
           if (tree && tree.children.length) {
-            const items: { level: number;text: string } [] = []
+            const items: { level: number; text: string }[] = []
             tree.children
               .filter((v: any) => v.type === 'element')
               .forEach((node: any) => {
@@ -45,6 +43,7 @@ getProcessor({
     },
   ],
 }).processSync(props.article.content)
+
 const { immerseState } = useImmerse()
 </script>
 
@@ -54,7 +53,7 @@ const { immerseState } = useImmerse()
     <ArticlesContentSideBarRightRelatedArticles v-if="!immerseState" class="sidebar-block" :author="article!.authorId" :tags="article!.tagIds" />
     <div class="sticky-block-box">
       <ArticlesContentSideBarRightCatalogue v-if="catalogueList.length !== 0" class="sidebar-block" :catalogue-list="catalogueList" />
-      <ArticlesContentSideBarRightColumn v-if="article!.columId.data[0]" :key="article!.columId.data[0].column" :column="article!.columId.data[0]" />
+      <ArticlesContentSideBarRightColumn v-show="!immerseState" v-if="article?.columId.data[0]" :column="article?.columId.data[0]" />
     </div>
   </div>
 </template>
@@ -78,5 +77,8 @@ const { immerseState } = useImmerse()
   top: 6.766999999999999rem;
   width: inherit;
   transition: top 0.2s;
+}
+.sidebar.sticky.top .sticky-block-box {
+    top: 1.767rem;
 }
 </style>
