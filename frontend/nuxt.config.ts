@@ -72,9 +72,9 @@ export default defineNuxtConfig({
     autoTrack: true,
     doNotTrack: false,
     cache: false,
-    domains: 'bytedream.top',
-    websiteId: 'f0ab5003-8840-46dc-956b-36dbabc6fa4f',
-    scriptUrl: 'https://analytics.umami.is/script.js',
+    domains: 'bytedream.marlene.top',
+    websiteId: '908a66e8-a102-4f1b-900b-7b10891cc03c',
+    scriptUrl: 'http://8.130.20.114:3000/umami.js',
   },
   meilisearch: {
     hostUrl: process.env.MEILISEARCH_HOST,
