@@ -15,7 +15,7 @@ useHead({
     { name: 'keywords', content: 'JueJin, ByteDream' },
     { name: 'author', content: 'ByteDream' },
     { name: 'format-detection', content: 'telephone=no' },
-    { name: 'viewport', content: 'initial-scale=1,maximum-scale=1' },
+    { name: 'viewport', content: 'initial-scale=1,maximum-scale=5' },
     { name: 'robots', content: 'index, follow' },
     { name: 'applicable-device', content: 'pc,mobile' },
     { name: 'google', content: 'notranslate' },

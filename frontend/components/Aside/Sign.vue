@@ -42,7 +42,7 @@ const sign = () => {
 }
 
 .sign_text_container {
-  @apply flex flex-col gap-1
+  @apply flex flex-col gap-1 ml-2
 }
 
 .sign_dayparts {

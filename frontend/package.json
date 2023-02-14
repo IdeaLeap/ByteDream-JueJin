@@ -18,6 +18,7 @@
     "@nuxt/image-edge": "^1.0.0-27840416.dc1ed65",
     "@sentry/browser": "^7.36.0",
     "@sentry/tracing": "^7.36.0",
+    "nuxt-meilisearch": "^0.1.7",
     "nuxt-umami": "^1.2.0"
   },
   "devDependencies": {
