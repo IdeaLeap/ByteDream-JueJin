@@ -102,7 +102,7 @@ interface IArticleItem {
 | --- | --- |
 | 参数(GET)| tags（传入格式化的array，例如 [{"tag":"frontend","alias":"前端"}] ）authorId 作者id |
 | 示例 | http://localhost:3000/api/articles/tags?tags=[{%22tag%22:%22frontend%22,%22alias%22:%22%E5%89%8D%E7%AB%AF%22}]&authorId=6 |
-| 介绍 | 获取相关tag的文章，支持多个tag |
+| 介绍 | 获取相关tag的文章，支持多个tag，最多十篇文章，按点赞量逆序排列 |
 | 备注 | ArticleList是array类型 |
 #### 使用方式
 ```
