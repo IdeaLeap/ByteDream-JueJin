@@ -2,7 +2,7 @@
 import type { IArticleItem } from '~~/types/IArticleItem'
 const artlist = useState<IArticleItem[]>('artlist', () => [])
 const { data: articleAds } = (await useFetch('/api/global/ad'))
-const isLoading = useState('isLoading', () => true)
+const isLoading = useState('isLoading', () => false)
 const route = useRoute()
 let pagenum = 1
 const addArtListItem = useThrottle(async () => {
@@ -11,12 +11,12 @@ const addArtListItem = useThrottle(async () => {
 provide('artlist', artlist)
 provide('ads', articleAds)
 watch(route, async () => {
-  artlist.value = []
+  isLoading.value = true
   artlist.value = await useFetchPostData(route?.params, route.query?.sort, pagenum = 1)
+  isLoading.value = false
 }, { deep: true, immediate: true })
 onMounted(() => {
   (window as any).addEventListener('scroll', addArtListItem)
-  isLoading.value = false
 })
 onUnmounted(() => {
   (window as any).removeEventListener('scroll', addArtListItem)
@@ -26,9 +26,12 @@ onUnmounted(() => {
 <template>
   <div class="bg-jj-article">
     <ArticlesListNavigation />
-    <ArticlesListUiSkeleton v-if="isLoading || !artlist.length" />
-    <ClientOnly v-else>
-      <ArticlesListItem />
+    <ClientOnly>
+      <template #fallback>
+        <ArticlesListUiSkeleton />
+      </template>
+      <ArticlesListUiSkeleton v-if="isLoading" />
+      <ArticlesListItem v-else />
     </ClientOnly>
   </div>
 </template>
