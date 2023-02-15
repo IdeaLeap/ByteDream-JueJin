@@ -1,1 +1,1 @@
-export const useFold = (data: boolean) => useState('unfold', () => data)
+export const useFold = () => useState('unfold', () => false)

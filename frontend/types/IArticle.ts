@@ -48,4 +48,5 @@ interface IArticle {
 export {
   IArticle,
   IColumn,
+  IColumnArticleItem,
 }

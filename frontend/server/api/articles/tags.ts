@@ -33,6 +33,8 @@ export default defineEventHandler(async (event): Promise<ITagItem[] | IArticleIt
           or: [${tagQuery}]
           authorId: {id:{eq:"${authorId}"}}
         }
+        pagination: { pageSize: 10 }
+        sort: "liked:desc"
       ){
         data{
           id
