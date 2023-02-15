@@ -134,7 +134,7 @@ img {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  @apply text-jj-gray-text-normal;
+  @apply text-jj-gray-user-normal;
 }
 .cut-off {
   @apply h-1px;
