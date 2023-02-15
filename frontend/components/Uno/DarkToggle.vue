@@ -4,7 +4,9 @@ const color = useColorMode()
 function toggleDark() {
   color.preference = color.value === 'dark' ? 'light' : 'dark'
 }
-
+const themeColor = computed(() => {
+  return color.value === 'dark' ? '#000000' : '#ffffff'
+})
 if (process.client) {
   const item = localStorage.getItem('nuxt-color-mode') || 'dark'
   localStorage.setItem('nuxt-color-mode', item)
@@ -51,6 +53,19 @@ if (process.client) {
     window.removeEventListener('storage', handleStorageChange)
   })
 }
+// 定义头部元数据
+useHead({
+  meta: [
+    {
+      name: 'theme-color',
+      content: themeColor.value,
+    },
+    {
+      name: 'msapplication-TileColor',
+      content: themeColor.value,
+    },
+  ],
+})
 </script>
 
 <template>
