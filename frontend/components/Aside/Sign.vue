@@ -1,6 +1,6 @@
 <script setup lang="ts">
 let day_parts = ref('')
-if (process.server)
+if (process.client)
   day_parts = useDayParts()
 const is_sign = ref(false)
 const sign = () => {

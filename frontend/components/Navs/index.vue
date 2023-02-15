@@ -1,11 +1,23 @@
 <script setup>
+const pageNum = ref(1)
 const { data: NavList } = await useFetch('/api/global/navs')
+const pageTotal = Math.ceil(NavList.value.length / 9.0)
 const route = useRoute()
 const activeNav = computed(() => {
   return NavList.value.find(item => item.url === route.path) || NavList.value[0]
 })
 const [isMobileNavShown, toggleMobileNavShown] = useToggle()
 const isNavShown = inject('isNavShown')
+const changePageNum = (direction) => {
+  if (direction === 'prev') {
+    if (pageNum.value > 1)
+      pageNum.value = pageNum.value - 1
+  }
+  else {
+    if (pageNum.value < pageTotal)
+      pageNum.value = pageNum.value + 1
+  }
+}
 </script>
 
 <template>
@@ -20,8 +32,14 @@ const isNavShown = inject('isNavShown')
             <span class="mobile-nav-active">{{ activeNav?.nav }}</span>
             <div i-carbon:caret-up class="mobile-nav-icon" />
           </div>
-          <div class="nav-item-wrapper" :class="{ 'mobile-nav-item-wrapper': isMobileNavShown }" @click="toggleMobileNavShown()">
-            <NavsItem v-for="item in NavList" :key="item.nav" :nav="item" class="mx-4" :class="{ 'mobile-nav-item': isMobileNavShown }" />
+          <div v-if="!!NavList" class="nav-item-wrapper" :class="{ 'mobile-nav-item-wrapper': isMobileNavShown }">
+            <NavsItem v-for="item in NavList.slice((pageNum - 1) * 9, pageNum * 9)" :key="item.nav" :nav="item" class="mx-4" :class="{ 'mobile-nav-item': isMobileNavShown }" @click="toggleMobileNavShown()" />
+            <div v-if="NavList.length > 9" class="h-full">
+              <div class="alter-items">
+                <div class="alter-item alter-prev" :class="{ '!text-gray': pageNum === 1 }" @click="changePageNum('prev')" />
+                <div class="alter-item alter-next" :class="{ '!text-gray': pageNum === pageTotal }" @click="changePageNum('next')" />
+              </div>
+            </div>
           </div>
         </div>
       </nav>
@@ -33,7 +51,6 @@ const isNavShown = inject('isNavShown')
 <style scoped>
 .main-header.nav-shown{
     transform: translateZ(0);
-    /* @apply -translate-y-5rem; */
 }
 
 .main-header {
@@ -58,13 +75,11 @@ const isNavShown = inject('isNavShown')
 .mobile-nav{
   @apply f-c-c md:hidden text-jj-blue-normal;
   cursor: pointer;
-  /* color: #1e80ff; */
   font-size: 1.33rem;
   width: 5.66rem;
 }
 
 .mobile-nav-icon {
-  /* color: #515767; */
   transform: rotate(180deg);
   transition: transform .2s ease-in-out;
   @apply text-jj-gray-text-normal
@@ -85,5 +100,19 @@ const isNavShown = inject('isNavShown')
 
 .nav-wrapper{
   @apply relative h-full flex items-center;
+}
+
+.alter-items{
+  @apply h-full f-c-c mx-4  flex-col lt-md:(flex-row h-4rem);
+}
+.alter-item{
+  @apply text-[1.2rem] text-jj-navs-item-normal;
+}
+
+.alter-prev{
+  @apply lt-md:(i-carbon:caret-left) i-carbon:caret-up hover:(text-jj-blue-normal cursor-pointer);
+}
+.alter-next{
+  @apply lt-md:(i-carbon:caret-right) i-carbon:caret-down hover:(text-jj-blue-normal cursor-pointer);
 }
 </style>

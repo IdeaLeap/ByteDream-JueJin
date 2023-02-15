@@ -102,7 +102,7 @@ interface IArticleItem {
 | --- | --- |
 | 参数(GET)| tags（传入格式化的array，例如 [{"tag":"frontend","alias":"前端"}] ）authorId 作者id |
 | 示例 | http://localhost:3000/api/articles/tags?tags=[{%22tag%22:%22frontend%22,%22alias%22:%22%E5%89%8D%E7%AB%AF%22}]&authorId=6 |
-| 介绍 | 获取相关tag的文章，支持多个tag |
+| 介绍 | 获取相关tag的文章，支持多个tag，最多十篇文章，按点赞量逆序排列 |
 | 备注 | ArticleList是array类型 |
 #### 使用方式
 ```
@@ -187,13 +187,13 @@ export interface liked extends mutation {
 
 ## 作者
 ### 获取作者榜
-| 接口 | /authors/list |
+| 接口 | /authors/list?page |
 | --- | --- |
-| 介绍 | 获取作者榜数据，包括作者头像、名称、描述等，只返回前三个作者 |
+| 介绍 | 获取作者榜数据，包括作者头像、名称、描述等，一次返回4个作者 |
 | 备注 | AuthorList是array类型 |
 #### 使用方式
 ```
-const { data: AuthorList } = await useFetch('/api/authors/list')
+const { data: AuthorList } = await useFetch(`/api/authors/list?page=${page || 1}`)
 ```
 
 #### 数据结构
@@ -281,21 +281,42 @@ interface IGlobal {
 ```
 
 ### 获取标签栏
-| 接口 | /global/types |
+| 接口 | /global/types?page |
 | --- | --- |
 | 介绍 | 获取首页标签栏数据 |
-| 备注 | TypeList是array类型 |
+| 备注 | TypeList是array类型，一页最多9个type |
 #### 使用方式
 ```
-const { data: TypeList } = await useFetch('/api/authors/types')
+const { data: typeList } = await useFetch(`/api/global/types?page=${pageNum}`)
 ```
 
 #### 数据结构
 
 ```ts
-interface ITypeItem {
-  type: string
+export interface IType {
+  data: ITypeItem[]
+  meta: ITypeMeta
 }
+
+export interface ITypeMeta {
+  pagination: {
+    pageCount: number
+    total: number
+  }
+}
+
+export interface ITypeItem {
+  type: string
+  alias: string
+  tags: { data: ITagItem[] }
+}
+
+export interface ITagItem {
+  id: string
+  tag: string
+  alias: string
+}
+
 ```
 
 ### 获取文章列表数据

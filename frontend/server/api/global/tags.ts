@@ -9,6 +9,7 @@ export default defineEventHandler(async (event): Promise<ITagItem[]> => {
           filters:{
             type: {type:{eq:"${type}"}}
           }
+          pagination: { pageSize: 999 }
         ) {
       data {
         id

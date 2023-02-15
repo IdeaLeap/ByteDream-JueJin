@@ -29,7 +29,7 @@ const showAll = async () => {
                   {{ item.name }}
                 </span>
                 <span blank="true" class="rank">
-                  <nuxt-img :src="`https://pan.marlene.top/d/share/jj/${item.rank}.png`" :alt="`lv-${item.rank}`" title="创作等级" />
+                  <nuxt-img :src="`https://picxyxsw.oss-cn-hangzhou.aliyuncs.com/${item.rank}.png`" :alt="`lv-${item.rank}`" title="创作等级" />
                 </span>
               </div>
               <div class="position">
