@@ -22,8 +22,7 @@ defineProps({
   line-height: 1;
   @apply h-full flex items-center text-[15px] border-b-2 border-transparent;
   @apply relative opacity-85 whitespace-nowrap;
-  /* @apply text-black dark:text-[#e8ecfa]; */
-  @apply text-jj-navs-item-normal
+  @apply text-jj-navs-item-normal;
 
 }
 .nav-item:hover {

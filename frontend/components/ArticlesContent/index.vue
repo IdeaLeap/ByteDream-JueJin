@@ -56,7 +56,7 @@ const { immerseState } = useImmerse()
               {{ article.authorId.name }}
             </span>
             <span v-show="!immerseState" blank="true" class="ml-0.33rem inline-flex items-center v-middle">
-              <nuxt-img format="webp" class="rank" alt="rank" :src="`https://pan.marlene.top/d/share/jj/${article.authorId.rank}.png`" loading="eager" />
+              <nuxt-img format="webp" class="rank" alt="rank" :src="`https://picxyxsw.oss-cn-hangzhou.aliyuncs.com/${article.authorId.rank}.png`" loading="eager" />
             </span>
           </NuxtLink>
         </div>
