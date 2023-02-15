@@ -61,5 +61,6 @@
     "**/*.{js,ts,vue,html}": [
       "eslint --max-warnings=0"
     ]
-  }
+  },
+  "license": "Apache-2.0"
 }
