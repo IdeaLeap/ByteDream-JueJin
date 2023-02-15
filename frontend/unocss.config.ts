@@ -129,6 +129,9 @@ export default defineConfig({
           icon: {
             normal: 'var(--juejin-list-icon-hover)', // #f2f3f5 //#515767
           },
+          user: {
+            normal: 'var(--juejin-author-user-list-text)', // #515767 //#8a919f
+          },
         },
         black: {
           normal: 'var(--juejin-p-font-color)', // #000 //#f4f4f5
