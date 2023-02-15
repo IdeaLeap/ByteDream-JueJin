@@ -1,7 +1,7 @@
 {
   "name": "frontend",
   "version": "1.0.0",
-  "private": false,
+  "private": true,
   "scripts": {
     "build": "nuxi build",
     "dev": "nuxi dev",

@@ -1,6 +1,6 @@
 {
   "name": "backend",
-  "private": false,
+  "private": true,
   "version": "0.1.0",
   "description": "JueJin CMS",
   "scripts": {
