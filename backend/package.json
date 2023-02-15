@@ -5,7 +5,7 @@
   "description": "JueJin CMS",
   "scripts": {
     "dev": "strapi develop",
-    "start": "NODE_ENV=production strapi start",
+    "start": "strapi start",
     "build": "strapi build",
     "strapi": "strapi"
   },
