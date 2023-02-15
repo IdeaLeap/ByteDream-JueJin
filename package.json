@@ -23,5 +23,5 @@
     "nuxt": "^3.0.0",
     "turbo": "^1.7.2"
   },
-  "license": "Apache License 2.0"
+  "license": "Apache-2.0"
 }
