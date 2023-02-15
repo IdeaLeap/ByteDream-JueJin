@@ -1,7 +1,7 @@
 <script setup>
 const route = useRoute()
-const { data: tagList } = await useFetch(`/api/global/tags?type=${route?.params?.type}`)
-const isFold = useFold(false)
+const { data: tagList } = await useFetch(`/api/global/tags?type=${route?.params?.type || ''}`)
+const isFold = useFold()
 const maxLength = 9
 </script>
 
@@ -69,6 +69,7 @@ const maxLength = 9
 }
 .nav-list .nav-items.unfold {
     padding-right: 2rem;
+    padding-left: 1rem;
 }
 .nav-list .nav-items.unfold:after {
     position: absolute;
