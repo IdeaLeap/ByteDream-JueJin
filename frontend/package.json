@@ -1,7 +1,7 @@
 {
   "name": "frontend",
   "version": "1.0.0",
-  "private": true,
+  "private": false,
   "scripts": {
     "build": "nuxi build",
     "dev": "nuxi dev",
@@ -61,5 +61,6 @@
     "**/*.{js,ts,vue,html}": [
       "eslint --max-warnings=0"
     ]
-  }
+  },
+  "license": "Apache License 2.0"
 }

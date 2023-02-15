@@ -1,6 +1,6 @@
 {
   "name": "backend",
-  "private": true,
+  "private": false,
   "version": "0.1.0",
   "description": "JueJin CMS",
   "scripts": {
@@ -30,5 +30,5 @@
     "node": ">=14.19.1 <=18.x.x",
     "npm": ">=6.0.0"
   },
-  "license": "MIT"
+  "license": "Apache License 2.0"
 }
