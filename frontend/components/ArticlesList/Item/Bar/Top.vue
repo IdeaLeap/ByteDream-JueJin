@@ -6,14 +6,15 @@ defineProps<{
   authorId?: IAuthor
   adId?: string
 }>()
+const show = useState('authorCard', () => false)
 </script>
 
 <template>
   <div class="topbar">
     <div class="author">
-      <span class="name">{{ adId ? adId : authorId?.name }}</span>
-      <ArticlesListItemAuthorCard
-        v-if="authorId"
+      <span class="name" @mouseover="show = true">{{ adId ? adId : authorId?.name }}</span>
+      <LazyArticlesListItemAuthorCard
+        v-if="show && authorId"
         :name="authorId.name"
         :motto="authorId.motto"
         :avatar="authorId.avatar"
