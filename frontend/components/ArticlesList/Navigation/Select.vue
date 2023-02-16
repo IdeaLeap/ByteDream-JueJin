@@ -10,7 +10,7 @@ const routeMap = {
 </script>
 
 <template>
-  <div v-if="route.query.sort && route.query.sort?.indexOf('hottest') !== -1" class="z-9 relative">
+  <div class="z-9 relative">
     <div class="drop-down">
       <div class="dropdown-toggle" @click="isShow = !isShow">
         {{ routeMap[String(route.query.sort)] }}
