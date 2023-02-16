@@ -15,7 +15,7 @@ watch(route, async () => {
   artlist.value = await useFetchPostData(route?.params, route.query?.sort, pagenum = 1)
   isLoading.value = false
 }, { deep: true, immediate: true })
-onBeforeMount(() => {
+onMounted(() => {
   (window as any).addEventListener('scroll', addArtListItem)
 })
 onUnmounted(() => {
