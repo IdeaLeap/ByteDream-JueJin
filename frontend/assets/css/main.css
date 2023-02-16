@@ -222,6 +222,7 @@ html {
   --juejin-color-types-tag-background:#f4f5f5;
   --juejin-category-popover-text:#71777c;
   --juejin-category-popover-bg:#f4f5f5;
+  --juejin-author-user-list-text:#515767;
 }
 
 html.dark {
@@ -346,6 +347,7 @@ html.dark {
   --juejin-color-types-tag-background:#8a9aa9;
   --juejin-category-popover-text:#71777c;
   --juejin-category-popover-bg:#f4f5f5;
+  --juejin-author-user-list-text:#8a919f;
 }
 
 .page-enter-active,

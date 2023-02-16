@@ -60,7 +60,7 @@ const { immerseState, immerseToggle } = useImmerse()
   content: attr(badge);
 }
 .panel-btn {
-  @apply relative mb-1.667rem w-4rem h-4rem bg-jj_font_white bg-center bg-no-repeat rd-50%  cursor-pointer text-center text-size-1.67rem;
+  @apply relative mb-1.667rem w-4rem h-4rem bg-jj-article bg-center bg-no-repeat rd-50%  cursor-pointer text-center text-size-1.67rem;
   background-position: 50%;
   box-shadow: 0 2px 4px 0 rgb(0 0 0 / 4%);
 }
