@@ -8,7 +8,7 @@ const props = defineProps<{
 /**
  * @description: 目录点击事件
  */
-const isActive = ref<number>()
+const isActive = shallowRef<number>()
 const activeSelect = (index: number) => {
   if (isActive.value === index)
     return
@@ -33,10 +33,10 @@ const catalogueClass = (level: number) => {
 const itemOffsetTop = ref<{ key: number; top: number }[]>([])
 const navRef = ref()
 const liRef = ref<HTMLElement[]>([])
-const navMid = ref(0)
-const headerHeight = ref(0)
-const catalogueEleTop = ref(0)
-const currentScrollTop = ref(0)
+const navMid = shallowRef(0)
+const headerHeight = shallowRef(0)
+const catalogueEleTop = shallowRef(0)
+const currentScrollTop = shallowRef(0)
 
 const getInitByScroll = () => {
   navMid.value = navRef.value.clientHeight / 2

@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { useAutoAnimate } from '@formkit/auto-animate/vue'
 const [parent] = useAutoAnimate()
-const page = ref(1)
-const AuthorList = ref([]) as any
+const page = shallowRef(1)
+const AuthorList = shallowRef([]) as any
 const { data } = (await useFetch(`/api/authors/list?page=${page.value}`))
 AuthorList.value = data.value
 const showAll = async () => {

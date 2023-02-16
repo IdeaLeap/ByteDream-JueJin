@@ -1,8 +1,8 @@
 <script setup lang="ts">
-let day_parts = ref('')
+let day_parts = shallowRef('')
 if (process.client)
   day_parts = useDayParts()
-const is_sign = ref(false)
+const is_sign = shallowRef(false)
 const sign = () => {
   is_sign.value = true
   document.querySelector('.sign_btn')?.classList.remove('unSigned')

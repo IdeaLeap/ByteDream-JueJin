@@ -1,5 +1,5 @@
 <script setup>
-const pageNum = ref(1)
+const pageNum = shallowRef(1)
 const { data: NavList } = await useFetch('/api/global/navs')
 const pageTotal = Math.ceil(NavList.value.length / 9.0)
 const route = useRoute()
