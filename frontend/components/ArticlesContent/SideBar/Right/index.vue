@@ -48,7 +48,7 @@ const { immerseState } = useImmerse()
 </script>
 
 <template>
-  <div class="sidebar hidden lg:block lg:w-4/12">
+  <div class="sidebar">
     <ArticlesContentSideBarRightAuthor v-if="!immerseState" :author="article!.authorId" :viewed="article.viewed" :liked="article.liked" />
     <ArticlesContentSideBarRightRelatedArticles v-if="!immerseState" class="sidebar-block" :author="article!.authorId" :tags="article!.tagIds" />
     <div class="sticky-block-box">
@@ -79,6 +79,11 @@ const { immerseState } = useImmerse()
   transition: top 0.2s;
 }
 .sidebar.sticky.top .sticky-block-box {
-    top: 1.767rem;
+  top: 1.767rem;
+}
+@media (max-width: 1000px) {
+  .sidebar {
+    display: none;
+  }
 }
 </style>
