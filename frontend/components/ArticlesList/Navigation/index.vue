@@ -1,7 +1,7 @@
 <template>
   <div class="navigator">
     <ArticlesListNavigationLink />
-    <LazyArticlesListNavigationSelect v-if="$route.query?.sort?.indexOf('hottest')" />
+    <LazyArticlesListNavigationSelect v-if="$route.query.sort && $route.query.sort?.indexOf('hottest') !== -1" />
   </div>
 </template>
 
