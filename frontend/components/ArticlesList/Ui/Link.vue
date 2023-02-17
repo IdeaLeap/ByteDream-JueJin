@@ -10,7 +10,7 @@ defineProps<{ to: String }>()
 
 <style scoped>
 .link_container {
-  @apply transition flex-1 f-c-c transition-all all-cursor-pointer px-[1.67rem] pt-[1rem] pb-[10px] truncate
+  @apply transition flex-1 f-c-c transition-all all-cursor-pointer px-[1.67rem] pb-[10px] truncate
   @apply hover:bg-jj-hover
 }
 .link_container::after {

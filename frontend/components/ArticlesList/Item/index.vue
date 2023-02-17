@@ -10,16 +10,16 @@ const hideHandler = (id: string) => {
 </script>
 
 <template>
-  <ul ref="parent" class="list-items">
+  <ul ref="parent">
     <ArticlesListItemAds />
-    <li v-for="art in artlist" :key="art.id">
+    <li v-for="art in artlist" :key="art.id" class="relative">
+      <ArticlesListItemBarTop
+        :author-id="art.authorId"
+        :duration="formatTime(art.createdAt)"
+        :tags="art.tagIds.data"
+      />
       <ArticlesListUiLink class="link" :to="`/article/${art.id}`">
         <div class="flex-1 truncate">
-          <ArticlesListItemBarTop
-            :author-id="art.authorId"
-            :duration="formatTime(art.createdAt)"
-            :tags="art.tagIds.data"
-          />
           <ArticlesListItemBarCenter :title="art.title" :summary="art.summary" />
           <ArticlesListItemBarBottom :viewed="art.viewed" :liked="art.liked" :commented="art.commented" />
         </div>
@@ -31,9 +31,6 @@ const hideHandler = (id: string) => {
 </template>
 
 <style scoped>
-.list-items{
-  position: inherit !important;
-}
 li:hover .icon {
   @apply block
 }
