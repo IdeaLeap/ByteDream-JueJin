@@ -10,7 +10,7 @@ const show = useState('authorCard', () => false)
 </script>
 
 <template>
-  <div class="topbar">
+  <div class="topbar" :class="!adId ? 'px-[1.67rem]' : ''">
     <div class="author">
       <span class="name" @mouseover="show = true">{{ adId ? adId : authorId?.name }}</span>
       <LazyArticlesListItemAuthorCard
@@ -34,7 +34,7 @@ const show = useState('authorCard', () => false)
 
 <style scoped>
 .topbar {
-  @apply flex items-center pr-4 text-[13px] leading-[22px]
+  @apply flex items-center pr-4 text-[13px] leading-[22px] pt-[1rem] all-cursor-pointer
 }
 .author {
   @apply transition text-jj-font-normal px-3 border-r-1 pl-0 hover:text-jj-brand-normal
