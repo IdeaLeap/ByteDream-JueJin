@@ -2,7 +2,7 @@
 import type { IColumn, IColumnArticleItem } from '@/types/IArticle'
 const props = defineProps<{ column?: IColumn }>()
 const route = useRoute()
-const currentId = ref(route.params.id)
+const currentId = shallowRef(route.params.id)
 const nextArticle = ref<IColumnArticleItem>()
 
 let allColumnList: IColumnArticleItem[] = []

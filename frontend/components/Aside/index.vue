@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useWindowScroll } from '@vueuse/core'
 const { data: GlobalData } = await useFetch('/api/global')
-const { x, y } = useWindowScroll()
+const { y } = useWindowScroll()
 const isNavShown = inject('isNavShown')
 </script>
 

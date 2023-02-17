@@ -3,10 +3,10 @@ defineProps<{
   commented: Number
   liked: Number
 }>()
-const isLiked = ref(false)
+const isLiked = shallowRef(false)
 const route = useRoute()
-const url = ref(`/api/articles/update/like?id=${route.params.id}`)
-const newLike = ref(0)
+const url = shallowRef(`/api/articles/update/like?id=${route.params.id}`)
+const newLike = shallowRef(0)
 const handleLike = async () => {
   if (!isLiked.value) {
     const { data } = await useFetch(url)

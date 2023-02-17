@@ -5,7 +5,7 @@ const props = defineProps({
     required: true,
   },
 })
-const is_show_list = reactive({ ...Array<Boolean> })
+const is_show_list = shallowReactive({ ...Array<Boolean> })
 for (let i = 0; i < props.ads.length; i++)
   is_show_list[i] = true
 const turn_off = (i: number) => {
