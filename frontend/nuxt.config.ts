@@ -73,7 +73,7 @@ export default defineNuxtConfig({
     doNotTrack: false,
     cache: false,
     domains: 'bytedream.marlene.top',
-    websiteId: 'f13ea320-8738-4c9c-8673-a09dcd9151d4',
+    websiteId: '6d45d6e7-70ee-4c39-a871-79a1be476d92',
     scriptUrl: 'https://umami.marlene.top/umami.js',
   },
   meilisearch: {
