@@ -10,7 +10,7 @@ const routeMap = {
 </script>
 
 <template>
-  <div class=" relative">
+  <div class="select">
     <div class="drop-down">
       <div class="dropdown-toggle" @click="isShow = !isShow">
         {{ routeMap[String(route.query.sort)] }}
@@ -28,6 +28,9 @@ const routeMap = {
 </template>
 
 <style scoped>
+.select{
+  position: relative;
+}
 .drop-down {
   @apply absolute top-1/2 left-0 text-jj-gray-drop-normal min-w-[4rem] -translate-y-1/2
 }
