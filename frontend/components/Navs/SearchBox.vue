@@ -1,13 +1,30 @@
 <script>
-const keyword = e.target.value
-const { data: SearchData } = await useFetch(`/api/global/search?keyword=${keyword}`)
+import { ref } from 'vue'
+
+export default {
+  setup() {
+    const query = ref('')
+    const searchResult = ref(null)
+
+    const search = async () => {
+      const response = await fetch(`/api/global/search?keyword=${query.value}`)
+      searchResult.value = await response.json()
+    }
+
+    return {
+      query,
+      searchResult,
+      search,
+    }
+  },
+}
 </script>
 
 <template>
   <div class="bar7">
     <li class="nav-item search">
-      <form role="search" class="search-form isResourceVisible">
-        <input type="search" maxlength="32" placeholder="探索稀土掘金" value="" class="search-input isResourceVisible">
+      <form role="search" class="search-form isResourceVisible" @submit.prevent="search">
+        <input v-model="query" type="search" maxlength="32" placeholder="探索稀土掘金" class="search-input isResourceVisible">
         <button type="submit" class="search-submit isResourceVisible">
           <i class="iconfont icon-search" />
         </button>
@@ -21,12 +38,12 @@ const { data: SearchData } = await useFetch(`/api/global/search?keyword=${keywor
           <div class="list">
             <el-checkbox-group v-model="checkList">
               <el-checkbox
-                v-for="item in SearchData.data"
-                :key="item.id"
-                :label="item.id"
-                :disabled="item.disabled"
+                v-for="hit in searchResult.hits"
+                :key="hit.id"
+                :label="hit.id"
+                :disabled="hit.disabled"
               >
-                {{ item.name }}
+                {{ hit.title }}
               </el-checkbox>
             </el-checkbox-group>
           </div>
