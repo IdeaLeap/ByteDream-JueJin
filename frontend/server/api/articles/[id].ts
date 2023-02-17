@@ -13,7 +13,7 @@ const updateViewed = async (type: string, id: string, viewedNum: number) => {
   }`, useRuntimeConfig().strapi_token)
 }
 export default defineEventHandler(async (event): Promise<IArticle> => {
-  const id = event.context.params.id
+  const id = event?.context?.params?.id || '1'
   const reqQuery = `query{
     article(id : ${id}){
       data{
