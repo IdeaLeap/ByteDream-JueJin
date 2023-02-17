@@ -31,6 +31,10 @@ const hideHandler = (id: string) => {
 </template>
 
 <style scoped>
+li {
+  @apply transition
+  @apply hover:bg-jj-hover
+}
 li:hover .icon {
   @apply block
 }

@@ -10,8 +10,7 @@ defineProps<{ to: String }>()
 
 <style scoped>
 .link_container {
-  @apply transition flex-1 f-c-c transition-all all-cursor-pointer px-[1.67rem] pb-[10px] truncate
-  @apply hover:bg-jj-hover
+  @apply flex-1 f-c-c all-cursor-pointer px-[1.67rem] pb-[10px] truncate
 }
 .link_container::after {
   background-color: rgba(185, 186, 190, .35);
