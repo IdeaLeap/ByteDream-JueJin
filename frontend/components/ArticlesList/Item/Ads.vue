@@ -4,7 +4,7 @@ const ad = inject<IArticleAd>('ads')
 </script>
 
 <template>
-  <li class="relative">
+  <li>
     <ArticlesListUiLink :to="ad?.url">
       <div class="flex-1 overflow-hidden">
         <ArticlesListItemBarTop

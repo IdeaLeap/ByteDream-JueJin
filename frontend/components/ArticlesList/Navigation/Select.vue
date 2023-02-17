@@ -10,7 +10,7 @@ const routeMap = {
 </script>
 
 <template>
-  <div class="z-9 relative">
+  <div class=" relative">
     <div class="drop-down">
       <div class="dropdown-toggle" @click="isShow = !isShow">
         {{ routeMap[String(route.query.sort)] }}
@@ -41,7 +41,7 @@ const routeMap = {
 }
 .dropdown-menu {
   box-shadow: 0 1px 2px 0 rgb(0 0 0 / 5%);
-  @apply text-left bg-white border border-[#ebebeb] absolute box-border top-[105%] left-0 z-1000 min-w-[7rem] text-[1rem] rounded-[0.17rem]
+  @apply text-left bg-white border border-[#ebebeb] absolute box-border top-[105%] left-0 z-1 min-w-[7rem] text-[1rem] rounded-[0.17rem]
   @apply dark:(b-jj-gray-container-normal bg-jj_bg_gray)
 }
 .dropdown-menu li {
