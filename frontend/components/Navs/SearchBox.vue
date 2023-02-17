@@ -35,21 +35,52 @@ export default {
 </template>
 
 <style>
-@media screen and (max-width: 1350px){
-.search-form {
-    width: 180px;
+@media (max-width: 799px){
+.nav-item.search {
+    padding-left: 4.133rem;
+}}
+
+.nav-item.search {
+    cursor: auto;
+    padding-left: 0;
 }
-}
-.search-form {
-    background-color: #fff;
+.nav-item {
+    color: #86909c;
+    padding: 0 1rem;
+    font-size: 1.167rem;
+    margin: 0;
+    height: 100%;
     display: flex;
+    justify-content: center;
     align-items: center;
-    justify-content: space-between;
-    border-radius: 4px;
+    cursor: pointer;
+}
+.nav-item {
     position: relative;
-    height: 2.834rem;
-    border: 1px solid #c2c8d1;
-    transition: width .2s;
+    cursor: pointer;
+}
+
+li {
+    list-style: none;
+}
+.search-form .search-icon {
+    display: inline-block;
+    width: 1.33rem;
+    padding: 0 .8333rem 0 0;
+    cursor: pointer;
+    margin: 7px 15px;
+}
+
+img {
+    border-style: none;
+}
+.search-form .seach-icon-container {
+    position: relative;
+    left: -2px;
+    width: 44px;
+    height: 30px;
+    background: var(--juejin-background);
+    border-radius: 2px;
 }
 .search-form .search-input {
     border: none;
@@ -62,29 +93,77 @@ export default {
     background-color: transparent;
     transition: width .3s;
 }
-.search-form .seach-icon-container {
+
+a, button, input {
+    margin: initial;
+}
+button, input {
+    overflow: visible;
+}
+button, input, select, textarea {
+    font: inherit;
+    margin: 0;
+}
+a, button, input {
+    margin: initial;
+}
+button, input {
+    overflow: visible;
+}
+button, input, select, textarea {
+    font: inherit;
+    margin: 0;
+}
+@media (max-width: 799px){
+.search-form {
+    transition: width .2s ease-in;
+}}
+
+@media screen and (max-width: 799px){
+.search-form {
+    width: 220px;
+}}
+@media screen and (max-width: 1069px){
+.search-form {
+    width: 240px;
+}}
+@media screen and (max-width: 1350px){
+.search-form {
+    width: 180px;
+}}
+.search-form{
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 4px;
     position: relative;
-    left: -2px;
-    width: 44px;
-    height: 30px;
-    background: var(--juejin-background);
-    border-radius: 2px;
+    height: 2.834rem;
+    border: 1px solid #c2c8d1;
+    transition: width .2s;
 }
-.search-form .search-icon {
-    display: inline-block;
-    padding: 0 .8333rem 0 0;
-    cursor: pointer;
-    margin: 7px 15px;
-}
-img {
-    border-style: none;
-}
-form {
-    display: block;
-    margin-top: 0em;
-}
+@media (max-width: 799px){
+.nav-item.search {
+    padding-left: 4.133rem;
+}}
+
 .nav-item.search {
     cursor: auto;
     padding-left: 0;
+}
+.nav-item {
+    color: #86909c;
+    padding: 0 1rem;
+    font-size: 1.167rem;
+    margin: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.nav-item {
+    position: relative;
+    cursor: pointer;
 }
 </style>
