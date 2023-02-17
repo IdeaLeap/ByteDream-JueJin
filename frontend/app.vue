@@ -6,7 +6,7 @@ useHead({
     { rel: 'canonical', href: 'https://bytedream.top' },
   ],
   meta: [
-    { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+    { name: 'viewport', content: 'width=device-width, initial-scale=1, user-scalable=no, viewport-fit=cover, maximum-scale=1.0, minimum-scale=1.0' },
     { name: 'apple-mobile-web-app-capable', content: 'yes' },
     { name: 'apple-mobile-web-app-status-bar-style', content: 'black' },
     { name: 'apple-mobile-web-app-title', content: 'JueJin' },
@@ -76,6 +76,7 @@ if (process.client) {
 html,
 body,
 #__nuxt {
+  overflow-x: initial;
   font-size: 12px;
   height: 100vh;
   margin: 0;
