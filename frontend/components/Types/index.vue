@@ -1,7 +1,32 @@
 <script setup>
 const route = useRoute()
-const { data: typeList } = await useFetch('/api/global/types')
+const pageNum = ref(1)
+const typeList = reactive({
+  data: [],
+  meta: {
+    pagination: {
+      pageCount: 1,
+    },
+  },
+})
+const { data: typeList_ } = await useFetch(`/api/global/types?page=${pageNum.value}`)
+typeList.data = typeList_.value.data
+typeList.meta = typeList_.value.meta
 const isNavShown = inject('isNavShown')
+const changePageNum = async (direction) => {
+  if (direction === 'prev') {
+    if (pageNum.value > 1)
+      pageNum.value = pageNum.value - 1
+  }
+  else {
+    if (pageNum.value < typeList.meta.pagination.pageCount)
+      pageNum.value = pageNum.value + 1
+  }
+
+  const { data: typeList_ } = await useFetch(`/api/global/types?page=${pageNum.value}`)
+  typeList.data = typeList_.value.data
+  typeList.meta = typeList_.value.meta
+}
 </script>
 
 <template>
@@ -10,7 +35,7 @@ const isNavShown = inject('isNavShown')
       <NuxtLink class="type-list-item" to="/">
         综合
       </NuxtLink>
-      <div v-for="item in typeList" :key="item.type" class="list-item-wrapper">
+      <div v-for="item in typeList.data" :key="item.type" class="list-item-wrapper">
         <NuxtLink class="type-list-item" :to="`/${item.type}`">
           {{ item.alias }}
         </NuxtLink>
@@ -26,7 +51,10 @@ const isNavShown = inject('isNavShown')
           </nav>
         </div>
       </div>
-      <!-- <span class="type-manage type-list-item">标签管理</span> -->
+      <span v-if="typeList.meta.pagination.total > 9" class="type-manage type-list-item alter-items">
+        <div i-carbon:caret-left class="alter-prev alter-item" :class="pageNum === 1 ? '!text-gray' : 'hover:!text-jj-blue-normal'" @click="changePageNum('prev')" />
+        <div i-carbon:caret-right class="alter-next alter-item" :class="pageNum === typeList.meta.pagination.pageCount ? '!text-gray' : 'hover:!text-jj-blue-normal'" @click="changePageNum('next')" />
+      </span>
     </div>
   </div>
 </template>
@@ -58,7 +86,7 @@ const isNavShown = inject('isNavShown')
   @apply cursor-pointer;
 }
 .type-list-item:hover{
-  @apply text-jj-blue-normal
+  @apply text-jj-blue-normal;
 }
 
 .type-list{
@@ -93,7 +121,7 @@ const isNavShown = inject('isNavShown')
   position: fixed;
   top: 3.833rem;
   padding: 1.17rem 1.17rem .17rem;
-  max-height: 16.67rem;
+  max-width: 30rem;
   font-weight: 400;
   line-height: 1.2;
   box-shadow: 0 1px 5px 0 rgb(0 0 0 / 15%);
@@ -128,5 +156,8 @@ const isNavShown = inject('isNavShown')
 }
 .tag-item.router-link-exact-active {
   @apply text-jj-light bg-primary;
+}
+.alter-items{
+  @apply  hover:!text-jj-types-normal text-[1.2rem];
 }
 </style>

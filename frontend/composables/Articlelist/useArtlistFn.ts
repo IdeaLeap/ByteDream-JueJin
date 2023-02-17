@@ -4,7 +4,7 @@ export const formatTime = (createdAt: string): string => {
   const now = new Date()
   const duration = (now.getTime() - created.getTime()) / 1000 / 60
   let ans = '刚刚'
-  if (duration < 60) // 一小时内
+  if (duration > 0 && duration < 60) // 一小时内
     ans = `${(duration).toFixed(0)}分钟前`
   else if (duration < 60 * 24) // 一天内
     ans = `${(duration / 60).toFixed(0)}小时前`

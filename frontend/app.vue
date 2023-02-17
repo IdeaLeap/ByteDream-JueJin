@@ -7,7 +7,6 @@ useHead({
   ],
   meta: [
     { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-    { name: 'theme-color', content: '#000000' },
     { name: 'apple-mobile-web-app-capable', content: 'yes' },
     { name: 'apple-mobile-web-app-status-bar-style', content: 'black' },
     { name: 'apple-mobile-web-app-title', content: 'JueJin' },
@@ -20,7 +19,6 @@ useHead({
     { name: 'applicable-device', content: 'pc,mobile' },
     { name: 'google', content: 'notranslate' },
     { name: 'google-site-verification', content: 'google-site-verification' },
-    { name: 'msapplication-TileColor', content: '#000000' },
     { name: 'msapplication-TileImage', content: '/favicon.png' },
     { name: 'msapplication-config', content: '/browserconfig.xml' },
     { name: 'msapplication-tap-highlight', content: 'no' },

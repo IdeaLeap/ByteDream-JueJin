@@ -17,6 +17,7 @@ export default defineNuxtConfig({
     '@nuxt/image-edge',
     'nuxt-umami',
     'nuxt-meilisearch',
+    '@nuxt/devtools',
   ],
   experimental: {
     reactivityTransform: true,
@@ -71,9 +72,9 @@ export default defineNuxtConfig({
     autoTrack: true,
     doNotTrack: false,
     cache: false,
-    domains: 'bytedream.top',
-    websiteId: 'f0ab5003-8840-46dc-956b-36dbabc6fa4f',
-    scriptUrl: 'https://analytics.umami.is/script.js',
+    domains: 'bytedream.marlene.top',
+    websiteId: 'f13ea320-8738-4c9c-8673-a09dcd9151d4',
+    scriptUrl: 'https://umami.marlene.top/umami.js',
   },
   meilisearch: {
     hostUrl: process.env.MEILISEARCH_HOST,

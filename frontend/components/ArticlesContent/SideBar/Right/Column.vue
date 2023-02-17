@@ -1,30 +1,41 @@
-<script setup>
-const props = defineProps({
-  column: Object,
-})
-
+<script setup lang="ts">
+import type { IColumn, IColumnArticleItem } from '@/types/IArticle'
+const props = defineProps<{ column?: IColumn }>()
 const route = useRoute()
 const currentId = ref(route.params.id)
-const nextArticle = ref({})
+const nextArticle = ref<IColumnArticleItem>()
 
-let allColumnList
+let allColumnList: IColumnArticleItem[] = []
 const getNextArticle = () => {
   const currentIndex = allColumnList.findIndex(item => item.id === currentId.value)
-  const allColumnListlength = allColumnList.length
+  const allColumnListlength: number = allColumnList.length
   nextArticle.value = allColumnList[(currentIndex + 1) % allColumnListlength]
 }
-allColumnList = props.column.articles.data
-getNextArticle()
+if (props?.column) {
+  allColumnList = props.column?.articles.data
+  getNextArticle()
+}
 
 const isActive = ref(false)
-const handleClick = () => {
+const handleClick = (e: any) => {
   isActive.value = !isActive.value
 }
-const { immerseState, immerseToggle } = useImmerse()
+const handleClickOutside = (e: any) => {
+  if (!e.target.closest('.active'))
+    isActive.value = false
+}
+
+onMounted(() => {
+  document.addEventListener('click', handleClickOutside)
+})
+
+onUnmounted(() => {
+  document.removeEventListener('click', handleClickOutside)
+})
 </script>
 
 <template>
-  <nav v-show="!immerseState" class="next-article">
+  <nav class="next-article">
     <div class="next-article-header">
       <div class="next-article-title">
         下一篇
@@ -39,11 +50,11 @@ const { immerseState, immerseToggle } = useImmerse()
     </div>
     <hr class="next-article-hr">
     <div class="article-content">
-      <a :href="`/article/${nextArticle.id}`" target="_blank" :title="nextArticle.title" class="article"> {{ nextArticle.title }} </a>
+      <a :href="`/article/${nextArticle?.id}`" target="_blank" :title="nextArticle?.title" class="article"> {{ nextArticle?.title }} </a>
     </div>
-    <nav v-if="isActive" class="article-list next-article-list">
+    <nav v-show="isActive" class="article-list next-article-list ">
       <div class="list-title">
-        {{ props.column.column }}
+        {{ props.column?.column }}
       </div>
       <div class="list-body">
         <ul class="list-ul">
@@ -120,6 +131,6 @@ const { immerseState, immerseToggle } = useImmerse()
 }
 .active {
   /* color: rgb(0, 127, 255); */
-  @apply text-jj-link-normal
+  @apply text-jj-link-normal;
 }
 </style>

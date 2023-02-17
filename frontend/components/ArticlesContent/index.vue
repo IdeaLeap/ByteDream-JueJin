@@ -20,22 +20,22 @@ const plugins = [breaks(), frontmatter(), highlightStyle(), themeStyle(), gemoji
 // 赋值属性唯一ID
 function transformToId() {
   const articleDom = document.getElementById('markdown-body')
-  const children = Array.from(articleDom!.children)
-  if (children.length > 0) {
-    let index = 0
-    for (let i = 0; i < children.length; i++) {
-      const tagName = children[i].tagName
-      if (tagName === 'H1' || tagName === 'H2' || tagName === 'H3') {
-        children[i].setAttribute('id', `heading-${index}`)
-        index++
+  if (articleDom?.children) {
+    const children = Array.from(articleDom.children)
+    if (children.length > 0) {
+      let index = 0
+      for (let i = 0; i < children.length; i++) {
+        const tagName = children[i].tagName
+        if (tagName === 'H1' || tagName === 'H2' || tagName === 'H3') {
+          children[i].setAttribute('id', `heading-${index}`)
+          index++
+        }
       }
     }
   }
 }
 
-onMounted(() => {
-  transformToId()
-})
+onMounted(transformToId)
 const { immerseState } = useImmerse()
 </script>
 
@@ -56,7 +56,7 @@ const { immerseState } = useImmerse()
               {{ article.authorId.name }}
             </span>
             <span v-show="!immerseState" blank="true" class="ml-0.33rem inline-flex items-center v-middle">
-              <nuxt-img format="webp" class="rank" alt="rank" :src="`https://pan.marlene.top/d/share/jj/${article.authorId.rank}.png`" loading="eager" />
+              <nuxt-img format="webp" class="rank" alt="rank" :src="`https://picxyxsw.oss-cn-hangzhou.aliyuncs.com/${article.authorId.rank}.png`" loading="eager" />
             </span>
           </NuxtLink>
         </div>

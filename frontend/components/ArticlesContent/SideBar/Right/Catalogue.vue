@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import type { Ref } from 'vue'
 import type { ICatalogue } from '@/types/IArticleItem'
 const props = defineProps<{
   catalogueList: ICatalogue[]
@@ -34,15 +35,13 @@ const navRef = ref()
 const liRef = ref<HTMLElement[]>([])
 const navMid = ref(0)
 const headerHeight = ref(0)
-const originTop = ref(0)
-const firtstCatalogueTop = ref(0)
+const catalogueEleTop = ref(0)
 const currentScrollTop = ref(0)
 
 const getInitByScroll = () => {
   navMid.value = navRef.value.clientHeight / 2
   headerHeight.value = document.querySelector('.main-header')!.clientHeight
-  originTop.value = (document.querySelector('.sticky-block-box') as HTMLElement).offsetTop
-  firtstCatalogueTop.value = originTop.value
+  catalogueEleTop.value = (document.querySelector('.sticky-block-box') as HTMLElement).offsetTop
   itemOffsetTop.value = []
   props.catalogueList.forEach((val, i) => {
     const firstHead = document.querySelector(`#heading-${i}`) as HTMLElement
@@ -79,52 +78,53 @@ const onScroll = () => {
 /**
  * @description: 目录固定
  */
-const isNavShown = inject('isNavShown') as Boolean
-const { immerseState, immerseToggle } = useImmerse()
+const isNavShown = inject('isNavShown') as Ref<Boolean>
+const { immerseState } = useImmerse()
 
-const catalogueEle = ref<HTMLElement | null>(null)
 let sideBar: HTMLElement | null = null
 const getInitByScrollFixedCatalogue = () => {
   const sideBarEle = document.querySelector('.sidebar')
   sideBar = sideBarEle as HTMLElement
-  catalogueEle.value = document.querySelector('.sticky-block-box')
 }
 
 const scrollFixedCatalogue = () => {
-  if (currentScrollTop.value - headerHeight.value > catalogueEle.value!.offsetTop)
+  if (currentScrollTop.value - headerHeight.value > catalogueEleTop.value)
     sideBar!.classList.add('sticky')
 
-  if (currentScrollTop.value <= firtstCatalogueTop.value && !immerseState.value)
+  if (currentScrollTop.value - 20 <= catalogueEleTop.value && !immerseState.value && isNavShown.value)
+    sideBar!.classList.remove('sticky')
+
+  if (currentScrollTop.value - headerHeight.value <= catalogueEleTop.value && !immerseState.value && !isNavShown.value)
     sideBar!.classList.remove('sticky')
 }
 
 watch(isNavShown, (val) => {
-  val ? (catalogueEle.value!.style.top = `${catalogueEle.value!.offsetTop + headerHeight!.value}px`) : (catalogueEle.value!.style.top = '1.767rem')
+  if (val)
+    sideBar?.classList.remove('top')
+  else
+    sideBar?.classList.add('top')
 })
+
 watch(immerseState, (val) => {
-  if (val) {
+  if (val)
     sideBar!.classList.add('sticky')
-    onScroll()
-  }
-  else {
-    firtstCatalogueTop.value = originTop.value
+  else
     scrollFixedCatalogue()
-  }
 })
 
 onMounted(() => {
   window.addEventListener('scroll', onScroll)
   window.addEventListener('scroll', scrollFixedCatalogue)
-  const route = useRoute()
-  if (route.hash) {
-    const hashIndex = route.hash.slice(9)
-    if (Number(hashIndex) !== -1) {
-      isActive.value = Number(hashIndex)
-      const a = document.createElement('a')
-      a.href = `#heading-${hashIndex}`
-      a.click()
-    }
-  }
+  // const route = useRoute()
+  // if (route.hash) {
+  //   const hashIndex = route.hash.slice(9)
+  //   if (Number(hashIndex) !== -1) {
+  //     isActive.value = Number(hashIndex)
+  //     const a = document.createElement('a')
+  //     a.href = `#heading-${hashIndex}`
+  //     a.click()
+  //   }
+  // }
 
   nextTick(() => {
     getInitByScroll()
@@ -148,7 +148,9 @@ onUnmounted(() => {
         <ul class="catalog-list" style="margin-top: 0px">
           <li v-for="(item, index) in catalogueList" ref="liRef" :key="index" :class="[{ active: index === isActive }, catalogueClass(item.level)]" @click="activeSelect(index)">
             <div class="a-container">
-              <a :href="`#heading-${index}`" :title="item.text" class="catalog-aTag hover:bg-jj-container-hover-normal"> {{ item.text }} </a>
+              <NuxtLink :href="`#heading-${index}`" :title="item.text" class="catalog-aTag hover:bg-jj-container-hover-normal">
+                {{ item.text }}
+              </NuxtLink>
             </div>
           </li>
         </ul>

@@ -44,7 +44,7 @@ const { immerseState, immerseToggle } = useImmerse()
       <svg class="sprite-icon icon-report"><use xlink:href="#icon-report" /></svg>
     </div>
     <span class="tooltip">
-      <span class="tooltiptext">沉浸阅读</span>
+      <span class="tooltiptext">{{ !immerseState ? '沉浸阅读' : '退出阅读' }}</span>
       <span class="byte-tooltip__wrapper"><div class="panel-btn block" :class="immerseState ? 'active ' : ''" @click="immerseToggle">
         <svg class="sprite-icon icon-immerse"><use xlink:href="#icon-immerse" /></svg></div></span>
     </span>
@@ -55,12 +55,15 @@ const { immerseState, immerseToggle } = useImmerse()
 .article-suspended-panel {
   @apply fixed top-140px ml--7rem z-2;
 }
-.panel-btn.with-badge:after {
+.panel-btn.with-badge:not([badge="0"]):after {
   @apply absolute top-0 left-75% h-17px lh-17px px-5px rd-9px text-11px text-center whitespace-nowrap bg-jj-gray-panel-normal text-jj_font_white;
   content: attr(badge);
 }
+.panel-btn.with-badge:after[content="0"] {
+  content: none;
+}
 .panel-btn {
-  @apply relative mb-1.667rem w-4rem h-4rem bg-jj_font_white bg-center bg-no-repeat rd-50%  cursor-pointer text-center text-size-1.67rem;
+  @apply relative mb-1.667rem w-4rem h-4rem bg-jj-article bg-center bg-no-repeat rd-50%  cursor-pointer text-center text-size-1.67rem;
   background-position: 50%;
   box-shadow: 0 2px 4px 0 rgb(0 0 0 / 4%);
 }

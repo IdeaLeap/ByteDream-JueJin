@@ -36,12 +36,13 @@ onMounted(() => {
           <ArticlesContent :article="articleDataList" />
           <div class="article-end">
             <ArticlesContentEndTagList :type="articleDataList?.typeId" :tag="articleDataList?.tagIds.data" />
-            <ArticlesContentEndColumnContainer v-if="Object.keys(articleDataList!.columId).length !== 0" :column="articleDataList?.columId.data" />
+            <ArticlesContentEndColumnContainer v-if="articleDataList?.columId.data.length !== 0" :column="articleDataList?.columId.data" />
           </div>
         </div>
         <ArticlesContentSideBarRight :article="articleDataList" />
       </div>
     </main>
+    <AsideSuspensionPanel class="fixed right-3 bottom-1 suspension-panel z-1000" />
   </div>
 </template>
 
@@ -56,7 +57,6 @@ onMounted(() => {
 }
 .main-area {
   border-radius: 4px;
-  /* background-color: #fff; */
   padding-left: 2.67rem;
   padding-right: 2.67rem;
   box-sizing: border-box;
@@ -77,15 +77,18 @@ onMounted(() => {
   }
   .main-area {
     width: 100%;
+    position: relative;
+    max-width: 100%;
+    box-sizing: border-box;
   }
 }
-@media screen and (max-width: 1000px) {
-  .main-area {
-    border: none;
-    padding-left: 2rem;
-    padding-right: 2rem;
+
+@media (max-width: 960px) {
+  .suspension-panel {
+    display: none;
   }
 }
+
 .main-area .article-end {
   padding-top: 10px;
   border-radius: 0 0 4px 4px;
