@@ -17,9 +17,21 @@ if (props?.column) {
 }
 
 const isActive = ref(false)
-const handleClick = () => {
+const handleClick = (e: any) => {
   isActive.value = !isActive.value
 }
+const handleClickOutside = (e: any) => {
+  if (!e.target.closest('.active'))
+    isActive.value = false
+}
+
+onMounted(() => {
+  document.addEventListener('click', handleClickOutside)
+})
+
+onUnmounted(() => {
+  document.removeEventListener('click', handleClickOutside)
+})
 </script>
 
 <template>
@@ -40,7 +52,7 @@ const handleClick = () => {
     <div class="article-content">
       <a :href="`/article/${nextArticle?.id}`" target="_blank" :title="nextArticle?.title" class="article"> {{ nextArticle?.title }} </a>
     </div>
-    <nav v-if="isActive" class="article-list next-article-list">
+    <nav v-show="isActive" class="article-list next-article-list ">
       <div class="list-title">
         {{ props.column?.column }}
       </div>

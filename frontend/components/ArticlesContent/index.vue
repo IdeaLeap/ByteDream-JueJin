@@ -20,22 +20,22 @@ const plugins = [breaks(), frontmatter(), highlightStyle(), themeStyle(), gemoji
 // 赋值属性唯一ID
 function transformToId() {
   const articleDom = document.getElementById('markdown-body')
-  const children = Array.from(articleDom!.children)
-  if (children.length > 0) {
-    let index = 0
-    for (let i = 0; i < children.length; i++) {
-      const tagName = children[i].tagName
-      if (tagName === 'H1' || tagName === 'H2' || tagName === 'H3') {
-        children[i].setAttribute('id', `heading-${index}`)
-        index++
+  if (articleDom?.children) {
+    const children = Array.from(articleDom.children)
+    if (children.length > 0) {
+      let index = 0
+      for (let i = 0; i < children.length; i++) {
+        const tagName = children[i].tagName
+        if (tagName === 'H1' || tagName === 'H2' || tagName === 'H3') {
+          children[i].setAttribute('id', `heading-${index}`)
+          index++
+        }
       }
     }
   }
 }
 
-onMounted(() => {
-  transformToId()
-})
+onMounted(transformToId)
 const { immerseState } = useImmerse()
 </script>
 
