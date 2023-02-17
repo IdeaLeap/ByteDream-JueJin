@@ -21,7 +21,7 @@ export default {
 </script>
 
 <template>
-  <div class="bar7">
+  <div class="bar">
     <li class="nav-item search">
       <form role="search" class="search-form isResourceVisible">
         <input type="search" maxlength="32" placeholder="探索稀土掘金" value="" class="search-input isResourceVisible">
@@ -161,35 +161,7 @@ button, input, select, textarea {
 img {
     border-style: none;
 }
-/*active*/
-/* @media (max-width: 1149px){
-.search-add :focus{
-    margin-right: .292rem;
-}}
-.search-add :focus{
-    flex: 1 1 auto;
-    height: 5rem;
-    display: flex;
-    justify-content: flex-end;
-}
-@media screen and (max-width: 1069px){
-.search-add-ul[data-v-96dfbeac] {
-    width: 32.667rem;
-}}
-
-@media screen and (max-width: 1350px){
-.search-add-ul[data-v-96dfbeac] {
-    width: 27.083rem;
-}}
-.search-add-ul[data-v-96dfbeac] {
-    display: flex;
-    justify-content: flex-start;
-}
-ul :focus{
-    padding: 0;
-    margin: 0;
-} */
-.bar7 input:focus {
+.bar input:focus {
             width: 300px;
         }
 </style>
