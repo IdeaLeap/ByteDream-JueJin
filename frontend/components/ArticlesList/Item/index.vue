@@ -13,13 +13,13 @@ const hideHandler = (id: string) => {
   <ul ref="parent">
     <ArticlesListItemAds />
     <li v-for="art in artlist" :key="art.id" class="relative">
+      <ArticlesListItemBarTop
+        :author-id="art.authorId"
+        :duration="formatTime(art.createdAt)"
+        :tags="art.tagIds.data"
+      />
       <ArticlesListUiLink class="link" :to="`/article/${art.id}`">
         <div class="flex-1 truncate">
-          <ArticlesListItemBarTop
-            :author-id="art.authorId"
-            :duration="formatTime(art.createdAt)"
-            :tags="art.tagIds.data"
-          />
           <ArticlesListItemBarCenter :title="art.title" :summary="art.summary" />
           <ArticlesListItemBarBottom :viewed="art.viewed" :liked="art.liked" :commented="art.commented" />
         </div>
@@ -31,6 +31,10 @@ const hideHandler = (id: string) => {
 </template>
 
 <style scoped>
+li {
+  @apply transition
+  @apply hover:bg-jj-hover
+}
 li:hover .icon {
   @apply block
 }
