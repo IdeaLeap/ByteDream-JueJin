@@ -1,7 +1,6 @@
 <script>
-export default {
-
-}
+const keyword = e.target.value
+const { data: SearchData } = await useFetch(`/api/global/search?keyword=${keyword}`)
 </script>
 
 <template>
@@ -19,31 +18,17 @@ export default {
           >
         </div>
         <div class="typehead" style="display: none;">
-          <!---->
-          <div class="title">
-            <span>搜索历史</span> <span class="clear">
-              清空
-            </span>
-          </div>
           <div class="list">
-            <div>
-              调试safari
-            </div>
-            <div>
-              safari优化
-            </div>
-            <div>
-              camera
-            </div>
-            <div>
-              设备优化
-            </div>
-            <div>
-              高数
-            </div>
-            <div>
-              青训营笔记
-            </div>
+            <el-checkbox-group v-model="checkList">
+              <el-checkbox
+                v-for="item in SearchData.data"
+                :key="item.id"
+                :label="item.id"
+                :disabled="item.disabled"
+              >
+                {{ item.name }}
+              </el-checkbox>
+            </el-checkbox-group>
           </div>
         </div>
       </form>
@@ -145,35 +130,7 @@ button, input, select, textarea {
 img {
     border-style: none;
 }
-/*active*/
-/* @media (max-width: 1149px){
-.search-add :focus{
-    margin-right: .292rem;
-}}
-.search-add :focus{
-    flex: 1 1 auto;
-    height: 5rem;
-    display: flex;
-    justify-content: flex-end;
-}
-@media screen and (max-width: 1069px){
-.search-add-ul[data-v-96dfbeac] {
-    width: 32.667rem;
-}}
-
-@media screen and (max-width: 1350px){
-.search-add-ul[data-v-96dfbeac] {
-    width: 27.083rem;
-}}
-.search-add-ul[data-v-96dfbeac] {
-    display: flex;
-    justify-content: flex-start;
-}
-ul :focus{
-    padding: 0;
-    margin: 0;
-} */
 .bar7 input:focus {
             width: 300px;
-        }
+      }
 </style>
