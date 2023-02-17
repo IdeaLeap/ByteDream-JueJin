@@ -275,4 +275,16 @@ textarea {
   border: 1px solid #c2c8d1;
   transition: width .2s;
 }
+.search-form .seach-icon-container.active[data-v-96dfbeac] {
+    background: #eaf2ff;
+}
+
+.search-form .seach-icon-container[data-v-96dfbeac] {
+    position: relative;
+    left: -2px;
+    width: 44px;
+    height: 30px;
+    background: var(--juejin-background);
+    border-radius: 2px;
+}
 </style>
