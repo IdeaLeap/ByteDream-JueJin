@@ -115,16 +115,16 @@ watch(immerseState, (val) => {
 onMounted(() => {
   window.addEventListener('scroll', onScroll)
   window.addEventListener('scroll', scrollFixedCatalogue)
-  const route = useRoute()
-  if (route.hash) {
-    const hashIndex = route.hash.slice(9)
-    if (Number(hashIndex) !== -1) {
-      isActive.value = Number(hashIndex)
-      const a = document.createElement('a')
-      a.href = `#heading-${hashIndex}`
-      a.click()
-    }
-  }
+  // const route = useRoute()
+  // if (route.hash) {
+  //   const hashIndex = route.hash.slice(9)
+  //   if (Number(hashIndex) !== -1) {
+  //     isActive.value = Number(hashIndex)
+  //     const a = document.createElement('a')
+  //     a.href = `#heading-${hashIndex}`
+  //     a.click()
+  //   }
+  // }
 
   nextTick(() => {
     getInitByScroll()
