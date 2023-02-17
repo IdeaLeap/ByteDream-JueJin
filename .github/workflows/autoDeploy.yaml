@@ -46,3 +46,29 @@ jobs:
             sed -i 's/\r//' start.sh # 将start.sh中的\r替换为空，解决换行符问题
             pm2 start start.sh --name cms # 启动新的进程
             pm2 save # 保存配置
+
+      # 同步代码到服务器（目标路径：/opt/bytedream/）
+      - name: Deploy Nuxt
+        uses: cross-the-world/scp-pipeline@master
+        with:
+          host: ${{ secrets.STRAPI_HOST }} # 服务器IP（需要在GitHub上自行配置对应的secret）
+          user: ${{ secrets.STRAPI_USER }} # 服务器用户名
+          pass: ${{ secrets.STRAPI_PASS }} # 服务器密码
+          connect_timeout: 10s
+          local: './frontend/*' # 源路径（工作流）
+          remote: /opt/bytedream # 目标路径（服务器）
+      
+      # 在服务器端执行相关指令
+      - name: PM2 Nuxt
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.STRAPI_HOST }} # 服务器IP（需要在GitHub上自行配置对应的secret）
+          username: ${{ secrets.STRAPI_USER }} # 服务器用户名
+          password: ${{ secrets.STRAPI_PASS }} # 服务器密码
+          script: |
+            cd /opt/bytedream # 进入服务器中的端工程所在的目录
+            sudo yarn install # 安装项目依赖
+            pm2 delete bytedream # 删除旧的进程
+            sed -i 's/\r//' start.sh # 将start.sh中的\r替换为空，解决换行符问题
+            pm2 start start.sh --name bytedream # 启动新的进程
+            pm2 save # 保存配置

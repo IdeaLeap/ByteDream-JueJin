@@ -105,7 +105,7 @@ const changePageNum = async (direction) => {
 }
 
 .type-manage{
-  @apply md:(absolute right-0 top-0);
+  @apply absolute right-0 top-0;
 }
 .list-item-wrapper{
   @apply relative h-full;
