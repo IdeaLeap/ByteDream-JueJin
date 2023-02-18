@@ -19,7 +19,7 @@ const turn_off = (i: number) => {
       <div v-if="is_show_list[index]">
         <div class="ad_container group">
           <nuxt-link :to="i.url" target="_blank">
-            <nuxt-img class="ad" :src="i.img" :alt="i.ad" width="240" height="200" />
+            <nuxt-img format="webp" class="ad" :src="i.img" :alt="i.ad" width="240" height="200" />
           </nuxt-link>
           <div i-carbon-close class="ad_close group-hover:opacity-50" @click="turn_off(parseInt(index))" />
           <div class="txt_container">

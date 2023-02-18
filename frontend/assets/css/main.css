@@ -229,6 +229,7 @@ html {
   --juejin-search-hover:#eff2f5;
   --juejin-search-border:#ebebeb;
   --juejin-search-text:#5e6369;
+  --juejin-404-bg:#fff;
 }
 
 html.dark {
@@ -354,12 +355,13 @@ html.dark {
   --juejin-category-popover-text:#71777c;
   --juejin-category-popover-bg:#f4f5f5;
   --juejin-author-user-list-text:#8a919f;
-  --juejin-search-bg:#000;
+  --juejin-search-bg:#222323;
   --juejin-search-icon:#27272a;
-  --juejin-search-list:#000;
+  --juejin-search-list:#222323;
   --juejin-search-hover:#333;
   --juejin-search-border:#b9babe59;
   --juejin-search-text:#fff;
+  --juejin-404-bg:#222323;
 }
 
 .page-enter-active,

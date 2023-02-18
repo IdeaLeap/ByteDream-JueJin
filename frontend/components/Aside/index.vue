@@ -14,7 +14,6 @@ const isNavShown = inject('isNavShown')
     <AsideLinkList class="mb-5" :links="GlobalData.links" />
     <!-- <AsideArticleList class="sidebar-block mb-5" /> -->
     <AsideFooters class="mb-5" :footers="GlobalData.footers" />
-    <AsideSuspensionPanel class="fixed right-3 bottom-1" />
     <transition>
       <div v-show="y > 1370" class="hover-ads" :class="{ 'ads-nav-shown': isNavShown }">
         <AsideAdvertisements :ads="GlobalData.ads" />

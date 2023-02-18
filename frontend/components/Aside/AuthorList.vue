@@ -21,7 +21,7 @@ const showAll = async () => {
       <div ref="parent" class="user-list">
         <div v-for="item in AuthorList" :key="item.uid" class="item">
           <div rel="" class="link">
-            <nuxt-img :src="item.avatar" :alt="`${item.name}的头像`" class="lazy avatar" loading="lazy" />
+            <nuxt-img format="webp" :src="item.avatar" :alt="`${item.name}的头像`" class="lazy avatar" loading="lazy" />
 
             <div class="user-info">
               <div class="username username">
@@ -29,7 +29,7 @@ const showAll = async () => {
                   {{ item.name }}
                 </span>
                 <span blank="true" class="rank">
-                  <nuxt-img :src="`https://picxyxsw.oss-cn-hangzhou.aliyuncs.com/${item.rank}.png`" :alt="`lv-${item.rank}`" title="创作等级" />
+                  <nuxt-img format="webp" :src="`https://picxyxsw.oss-cn-hangzhou.aliyuncs.com/${item.rank}.png`" :alt="`lv-${item.rank}`" title="创作等级" />
                 </span>
               </div>
               <div class="position">

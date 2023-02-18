@@ -22,7 +22,7 @@ const changePageNum = (direction) => {
 
 <template>
   <div class="main-header-wrapper">
-    <header class="main-header flex items-center justify-between h-full" :class="{ 'nav-shown': isNavShown }">
+    <header class="main-header flex items-center justify-between h-full w-[100vw]" :class="{ 'nav-shown': isNavShown }">
       <nav class="nav-list h-full">
         <NuxtLink to="/" aria-label="Back to home" class="logo h-full">
           <Logo />
