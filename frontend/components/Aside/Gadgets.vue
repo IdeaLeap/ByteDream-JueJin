@@ -13,6 +13,7 @@ defineProps({
       <div class="gadgets_qrcode_container">
         <div class="items-end">
           <nuxt-img
+            format="webp"
             :src="gadgets.qrcode"
             alt="QRcode"
             loading="lazy"

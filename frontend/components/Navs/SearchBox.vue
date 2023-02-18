@@ -7,7 +7,7 @@ const handleClick = () => {
   isActive.value = true
 }
 const handleClickOutside = (e) => {
-  if (!e.target.closest('.search-active'))
+  if (e.target.closest('.search-active') == null)
     isActive.value = false
 }
 const handleClickLink = () => {
@@ -53,7 +53,7 @@ onUnmounted(() => {
       <div class="search-icon" :class="{ 'search-active': isActive }">
         <div class="i-carbon-search" />
       </div>
-      <div v-if="!!searchData.hits" class="search-result">
+      <div v-if="!!searchData.hits" class="search-result" :class="{ hidden: !isActive }">
         <div class="result-title">
           共查到{{ searchData.estimatedTotalHits }}条结果
         </div>
@@ -105,7 +105,7 @@ onUnmounted(() => {
 }
 .search-icon {
   position: relative;
-  border-radius: 2px;
+  border-radius: 4px;
   @apply f-c-c text-1.2rem text-gray h-full w-3rem bg-jj-navs-search-icon;
 }
 .search-icon.search-active {
