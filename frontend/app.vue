@@ -6,7 +6,7 @@ useHead({
     { rel: 'canonical', href: 'https://bytedream.top' },
   ],
   meta: [
-    { name: 'viewport', content: 'width=device-width, initial-scale=1, user-scalable=no, viewport-fit=cover, maximum-scale=1.0, minimum-scale=1.0' },
+    { name: 'viewport', content: 'width=device-width, initial-scale=1, user-scalable=yes, viewport-fit=cover, maximum-scale=5.0, minimum-scale=1.0' },
     { name: 'apple-mobile-web-app-capable', content: 'yes' },
     { name: 'apple-mobile-web-app-status-bar-style', content: 'black' },
     { name: 'apple-mobile-web-app-title', content: 'JueJin' },
@@ -14,7 +14,6 @@ useHead({
     { name: 'keywords', content: 'JueJin, ByteDream' },
     { name: 'author', content: 'ByteDream' },
     { name: 'format-detection', content: 'telephone=no' },
-    { name: 'viewport', content: 'initial-scale=1,maximum-scale=5' },
     { name: 'robots', content: 'index, follow' },
     { name: 'applicable-device', content: 'pc,mobile' },
     { name: 'google', content: 'notranslate' },
