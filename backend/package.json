@@ -16,9 +16,9 @@
     "@strapi/plugin-i18n": "4.6.0",
     "@strapi/plugin-users-permissions": "4.6.0",
     "@strapi/strapi": "4.6.0",
-    "better-sqlite3": "^8.0.1",
+    "better-sqlite3": "^8.1.0",
     "strapi-plugin-meilisearch": "^0.9.1",
-    "strapi-plugin-transformer": "^2.2.0"
+    "strapi-plugin-transformer": "^3.0.0"
   },
   "author": {
     "name": "ByteDream"

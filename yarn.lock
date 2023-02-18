@@ -5795,7 +5795,7 @@ bcryptjs@2.4.3:
   resolved "https://registry.npmmirror.com/bcryptjs/-/bcryptjs-2.4.3.tgz#9ab5627b93e60621ff7cdac5da9733027df1d0cb"
   integrity sha512-V/Hy/X9Vt7f3BbPJEi8BdVFMByHi+jNXrYkW3huaybV/kQ0KJg0Y6PkEMbn+zeT+i+SiKZ/HMqJGIIt4LZDqNQ==
 
-better-sqlite3@^8.0.1:
+better-sqlite3@^8.1.0:
   version "8.1.0"
   resolved "https://registry.npmmirror.com/better-sqlite3/-/better-sqlite3-8.1.0.tgz#a0039c5dfdc04b733cac3c8dbe1b71f3e5fc62d3"
   integrity sha512-p1m09H+Oi8R9TPj810pdNswMFuVgRNgCJEWypp6jlkOgSwMIrNyuj3hW78xEuBRGok5RzeaUW8aBtTWF3l/TQA==
@@ -17220,10 +17220,10 @@ strapi-plugin-meilisearch@^0.9.1:
     "@strapi/utils" "^4.5.4"
     meilisearch "^0.30.0"
 
-strapi-plugin-transformer@^2.2.0:
-  version "2.2.0"
-  resolved "https://registry.npmmirror.com/strapi-plugin-transformer/-/strapi-plugin-transformer-2.2.0.tgz#430e831670cd6b38fd699fc169076c26bd505e63"
-  integrity sha512-KWJvlAfkHCFNkyVlgE9WwET76AThdZ0gdD2/XMpqzChZtNebHJlT9mTkSDneu5RFlbfB18bALF18xEm6lGD9EA==
+strapi-plugin-transformer@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.npmmirror.com/strapi-plugin-transformer/-/strapi-plugin-transformer-3.0.0.tgz#c7b23f457eacb093ecc11171a96b93de7a64fc00"
+  integrity sha512-5F08FB/wNXugp8mDWMjnCMxj0XeykApla1QILCFjflzvr96L7iSrpNjvN/c5Y2r6vFvwt+AllWCj0xy6ZbWF5A==
 
 stream-browserify@^3.0.0:
   version "3.0.0"
