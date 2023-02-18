@@ -18,7 +18,7 @@ const handleClickLink = () => {
 const searchInput = useDebounceFn(async () => {
   if (keyword.value !== '') {
     const { data: SearchData_ } = await useFetch(
-      `/api/global/search?keyword=${keyword}`,
+      `/api/global/search?keyword=${keyword.value}`,
     )
     searchData.value = SearchData_.value
   }
@@ -48,16 +48,15 @@ onUnmounted(() => {
         type="search"
         maxlength="32"
         placeholder="搜索"
-        @input="searchInput"
       >
-      <div class="search-icon" :class="{ 'search-active': isActive }">
+      <div class="search-icon" :class="{ 'search-active': isActive }" @click="searchInput">
         <div class="i-carbon-search" />
       </div>
-      <div v-if="!!searchData.hits" class="search-result" :class="{ hidden: !isActive }">
+      <div v-if="!!searchData" class="search-result" :class="{ hidden: !isActive }">
         <div class="result-title">
-          共查到{{ searchData.estimatedTotalHits }}条结果
+          共查到{{ searchData?.hits.length || 0 }}条结果
         </div>
-        <div class="result-list">
+        <div v-if="searchData?.hits" class="result-list">
           <NuxtLink
             v-for="item in searchData.hits"
             :key="item.id"

@@ -89,7 +89,7 @@ const changePageNum = async (direction) => {
 .view-types {
   transition: all .2s;
   transform: translateZ(0);
-  @apply bg-jj-sidebar w-full fixed top-[5rem] lt-sm: (top-[4.333rem]) shadow-sm shadow-black/5 dark:shadow-white/5 h-[3.833rem] z-1;
+  @apply bg-jj-sidebar w-full fixed top-[5rem] lt-sm:(top-[4.333rem]) shadow-sm shadow-black/5 dark:shadow-white/5 h-[3.833rem] z-1;
 }
 
 .type-list-item {
