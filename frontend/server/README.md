@@ -182,7 +182,6 @@ export interface liked extends mutation {
     liked: number
   }
 }
-
 ```
 
 ## 作者
@@ -316,7 +315,6 @@ export interface ITagItem {
   tag: string
   alias: string
 }
-
 ```
 
 ### 获取文章列表数据
@@ -437,7 +435,6 @@ interface IColumId {
   cover: string
   describe: string
 }
-
 ```
 
 

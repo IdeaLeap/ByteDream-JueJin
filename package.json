@@ -20,8 +20,8 @@
   ],
   "devDependencies": {
     "husky": "^8.0.3",
-    "nuxt": "^3.0.0",
-    "turbo": "^1.7.2"
+    "nuxt": "^3.2.2",
+    "turbo": "^1.8.1"
   },
   "license": "Apache-2.0"
 }
