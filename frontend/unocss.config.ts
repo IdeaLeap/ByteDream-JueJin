@@ -212,6 +212,14 @@ export default defineConfig({
           after: {
             normal: 'var(--juejin-color-navs-item-after)', // #EF4444
           },
+          search: {
+            bg: 'var(--juejin-search-bg)',
+            icon: 'var(--juejin-search-icon)',
+            list: 'var(--juejin-search-list)',
+            hover: 'var(--juejin-search-hover)',
+            border: 'var(--juejin-search-border)',
+            text: 'var(--juejin-search-text)',
+          },
         },
         types: {
           normal: 'var(--juejin-color-types-list)', // #71777c

@@ -1,167 +1,149 @@
-<script>
-import { ref } from 'vue'
+<script setup>
+const isActive = ref(false)
+const keyword = ref('')
+const searchData = ref('')
 
-export default {
-  setup() {
-    const query = ref('')
-    const searchResult = ref(null)
-
-    const search = async () => {
-      const response = await fetch(`/api/global/search?keyword=${query.value}`)
-      searchResult.value = await response.json()
-    }
-
-    return {
-      query,
-      searchResult,
-      search,
-    }
-  },
+const handleClick = () => {
+  isActive.value = true
 }
+const handleClickOutside = (e) => {
+  if (!e.target.closest('.search-active'))
+    isActive.value = false
+}
+const handleClickLink = () => {
+  keyword.value = ''
+  searchData.value = ''
+  isActive.value = false
+}
+const searchInput = useDebounceFn(async () => {
+  if (keyword.value !== '') {
+    const { data: SearchData_ } = await useFetch(
+      `/api/global/search?keyword=${keyword}`,
+    )
+    searchData.value = SearchData_.value
+  }
+  else {
+    searchData.value = ''
+  }
+}, 100)
+onMounted(() => {
+  document.addEventListener('click', handleClickOutside)
+})
+
+onUnmounted(() => {
+  document.removeEventListener('click', handleClickOutside)
+})
 </script>
 
 <template>
-  <div class="bar">
-    <li class="nav-item search">
-      <form role="search" class="search-form isResourceVisible">
-        <input type="search" maxlength="32" placeholder="探索稀土掘金" value="" class="search-input isResourceVisible">
-        <button type="submit" class="search-submit isResourceVisible">
-          <i class="iconfont icon-search" />
-        </button>
-        <div class="seach-icon-container">
-          <img
-            src="//lf3-cdn-tos.bytescm.com/obj/static/xitu_juejin_web/1e8ab9a22f0ddc36349f60b38900d0bd.svg" alt="搜索"
-            class="search-icon"
+  <div class="h-full f-c-c">
+    <div
+      class="search-box"
+      :class="{ 'search-active': isActive }"
+      @click="handleClick"
+    >
+      <input
+        v-model="keyword"
+        class="search-input active isResourceVisible"
+        type="search"
+        maxlength="32"
+        placeholder="搜索"
+        @input="searchInput"
+      >
+      <div class="search-icon" :class="{ 'search-active': isActive }">
+        <div class="i-carbon-search" />
+      </div>
+      <div v-if="!!searchData.hits" class="search-result">
+        <div class="result-title">
+          共查到{{ searchData.estimatedTotalHits }}条结果
+        </div>
+        <div class="result-list">
+          <NuxtLink
+            v-for="item in searchData.hits"
+            :key="item.id"
+            class="result-item"
+            :to="`/article/${item.id}`"
+            @click="handleClickLink"
           >
+            {{ item.title }}
+          </NuxtLink>
         </div>
-        <div class="typehead" style="display: none;">
-          <!---->
-          <div class="title">
-            <span>搜索历史</span> <span class="clear">
-              清空
-            </span>
-          </div>
-          <div class="list">
-            <div>
-              调试safari
-            </div>
-            <div>
-              safari优化
-            </div>
-            <div>
-              camera
-            </div>
-            <div>
-              设备优化
-            </div>
-            <div>
-              高数
-            </div>
-            <div>
-              青训营笔记
-            </div>
-          </div>
-        </div>
-      </form>
-    </li>
+      </div>
+    </div>
   </div>
 </template>
 
-<style>
-/*search form*/
-.search-form:hover {
-    border: 1px solid #8a919f;
+<style scoped>
+.search-box {
+  @apply relative flex bg-jj-navs-search-bg;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 4px;
+  position: relative;
+  height: 2.834rem;
+  border: 1px solid #c2c8d1;
+  transition: width 0.2s;
 }
-@media (max-width: 799px){
-.search-form {
-    transition: width .2s ease-in;
-}}
-@media screen and (max-width: 799px){
-.search-form {
-    width: 220px;
-}}
-@media screen and (max-width: 1069px){
-.search-form {
-    width: 240px;
-}}
-@media screen and (max-width: 1350px)
-{.search-form {
-    width: 180px;
-}}
-.search-form {
-    background-color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-radius: 4px;
-    position: relative;
-    height: 2.834rem;
-    border: 1px solid #c2c8d1;
-    transition: width .2s;
+.search-box.search-active {
+  border: 1px solid #1e80ff;
 }
-/**/
-
-.search-form .search-input {
-    border: none;
-    width: calc(100% - 44px);
-    padding: .6rem 0 .6rem 1rem;
-    box-shadow: none;
-    outline: none;
-    font-size: 1.1rem;
-    color: #8a919f;
-    background-color: transparent;
-    transition: width .3s;
+.search-input {
+  border: none;
+  width: calc(100% - 44px);
+  padding: 0.6rem 0 0.6rem 1rem;
+  box-shadow: none;
+  outline: none;
+  font-size: 1.1rem;
+  color: #8a919f;
+  background-color: transparent;
+  transition: width 0.3s;
 }
-
-[type=search] {
-    appearance: textfield;
-    outline-offset: -2px;
+[type="search"] {
+  appearance: textfield;
+  outline-offset: -2px;
 }
-[type=search] {
-    appearance: textfield;
-    outline-offset: -2px;
+.search-icon {
+  position: relative;
+  border-radius: 2px;
+  @apply f-c-c text-1.2rem text-gray h-full w-3rem bg-jj-navs-search-icon;
 }
-a, button, input {
-    margin: initial;
+.search-icon.search-active {
+  @apply bg-[#eaf2ff] text-blue;
 }
-button, input {
-    overflow: visible;
+.search-result {
+  width: 100%;
+  position: absolute;
+  top: 105%;
+  line-height: 2rem;
+  left: 0;
+  z-index: 1000;
+  min-width: 6rem;
+  font-size: 1rem;
+  color: #869aab;
+  list-style: none;
+  text-align: left;
+  border-radius: 0.17rem;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 5%);
+  border: 1px solid;
+  @apply bg-jj-navs-search-list border-jj-navs-search-border;
 }
-button, input, select, textarea {
-    font: inherit;
-    margin: 0;
+.result-title {
+  border-bottom: 1px solid;
+  @apply border-jj-navs-search-border;
+  padding: 0.5rem 1rem;
+  display: flex;
+  justify-content: space-between;
 }
-a, button, input {
-    margin: initial;
+.result-list {
+  cursor: pointer;
+  @apply text-jj-navs-search-text;
 }
-button, input {
-    overflow: visible;
+.result-item {
+  padding: 0.5rem 1rem;
+  @apply text-ellipsis truncate block;
 }
-button, input, select, textarea {
-    font: inherit;
-    margin: 0;
+.result-item:hover {
+  @apply bg-jj-navs-search-hover;
 }
-/*icon container*/
-.search-form .seach-icon-container {
-    position: relative;
-    left: -2px;
-    width: 44px;
-    height: 30px;
-    background: var(--juejin-background);
-    border-radius: 2px;
-}
-/*icon*/
-.search-form .search-icon {
-    display: inline-block;
-    width: 2.33rem;
-    padding: 0 .8333rem 0 0;
-    cursor: pointer;
-    margin: 7px 15px;
-}
-img {
-    border-style: none;
-}
-.bar input:focus {
-            width: 300px;
-        }
 </style>

@@ -41,10 +41,12 @@ const changePageNum = (direction) => {
               </div>
             </div>
           </div>
-          <NavsSearchBox class="hidden md:(block)" />
         </div>
       </nav>
-      <UnoDarkToggle />
+      <div class="nav-other">
+        <NavsSearchBox />
+        <UnoDarkToggle />
+      </div>
     </header>
   </div>
 </template>
@@ -58,7 +60,7 @@ const changePageNum = (direction) => {
     transform: translate3d(0,-100%,0);
     transition: all .2s;
     @apply flex items-center fixed top-0 left-0 right-0;
-    @apply space-between md:justify-around;
+    @apply space-between mlg:justify-around;
     @apply bg-jj-sidebar border-b-1 h-[5rem] lt-sm:(h-[4.333rem]) z-99 border-jj-navs-normal;
 }
 .logo{
@@ -70,11 +72,11 @@ const changePageNum = (direction) => {
 }
 
 .nav-item-wrapper{
-  @apply hidden md:(flex h-full);
-  @apply lt-md:(absolute top-4rem left-2rem p-2 h-auto border-1 border-jj-navs-wrapper-normal rounded-md shadow-xl shadow-black/10 dark:shadow-white/10 transform-gpu -translate-x-1/2 bg-jj-article);
+  @apply hidden mlg:(flex h-full);
+  @apply lt-mlg:(absolute top-4rem left-2rem p-2 h-auto border-1 border-jj-navs-wrapper-normal rounded-md shadow-xl shadow-black/10 dark:shadow-white/10 transform-gpu -translate-x-1/2 bg-jj-article);
 }
 .mobile-nav{
-  @apply f-c-c md:hidden text-jj-blue-normal;
+  @apply f-c-c mlg:hidden text-jj-blue-normal;
   cursor: pointer;
   font-size: 1.33rem;
   width: 5.66rem;
@@ -91,12 +93,12 @@ const changePageNum = (direction) => {
 }
 
 .mobile-nav-item-wrapper {
-  @apply lt-md:(block);
+  @apply lt-mlg:(block);
 
 }
 
 .mobile-nav-item{
-  @apply lt-md:(px-13 h-4rem);
+  @apply lt-mlg:(px-13 h-4rem);
 }
 
 .nav-wrapper{
@@ -104,16 +106,19 @@ const changePageNum = (direction) => {
 }
 
 .alter-items{
-  @apply h-full f-c-c mx-4  flex-col lt-md:(flex-row h-4rem);
+  @apply h-full f-c-c mx-4  flex-col lt-mlg:(flex-row h-4rem);
 }
 .alter-item{
   @apply text-[1.2rem] text-jj-navs-item-normal;
 }
 
 .alter-prev{
-  @apply lt-md:(i-carbon:caret-left) i-carbon:caret-up hover:(text-jj-blue-normal cursor-pointer);
+  @apply lt-mlg:(i-carbon:caret-left) i-carbon:caret-up hover:(text-jj-blue-normal cursor-pointer);
 }
 .alter-next{
-  @apply lt-md:(i-carbon:caret-right) i-carbon:caret-down hover:(text-jj-blue-normal cursor-pointer);
+  @apply lt-mlg:(i-carbon:caret-right) i-carbon:caret-down hover:(text-jj-blue-normal cursor-pointer);
+}
+.nav-other{
+  @apply h-full flex items-center gap-1.5rem lt-lg:mr-1.5rem lt-md:mr-1rem lt-sm:(mx-0.5rem gap-1rem) ;
 }
 </style>
