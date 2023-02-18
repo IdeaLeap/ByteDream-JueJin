@@ -8,7 +8,9 @@ export default function highlightStyle() {
       const $style = document.createElement('style')
       let hl = file.value.frontmatter?.highlight
       const hlStyle = highlight[hl]
-      if (hlStyle) { $style.innerHTML = hlStyle }
+      if (hlStyle) {
+        $style.innerHTML = hlStyle
+      }
       else {
         $style.innerHTML = highlight.default
         hl = 'default'
