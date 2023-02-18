@@ -9,6 +9,9 @@ export default defineNuxtConfig({
       'composables/**',
     ],
   },
+  routeRules: {
+    '/article/**': { swr: true },
+  },
   modules: [
     '@vueuse/nuxt',
     '@unocss/nuxt',
