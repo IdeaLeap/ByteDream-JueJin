@@ -1,5 +1,66 @@
 # Changelog
 
+## [1.6.0](https://github.com/MarleneJiang/ByteDream-JueJin/compare/v1.5.0...v1.6.0) (2023-02-18)
+
+
+### Features
+
+* use UMAMI ([5a5b188](https://github.com/MarleneJiang/ByteDream-JueJin/commit/5a5b188eb5ea528267be53d26dec5165f9b2efbe))
+* 不知道为啥就是看不到列表也卡在加载面 ([b6b7092](https://github.com/MarleneJiang/ByteDream-JueJin/commit/b6b7092644f2b064c0b23e0853f703a423190ebd))
+* 之前不好，现在框再调了一下 ([9f1ad1d](https://github.com/MarleneJiang/ByteDream-JueJin/commit/9f1ad1d26e93ce837a6377503a27c8ee210a3b12))
+* 修复标签栏自适应问题 ([2adbbb6](https://github.com/MarleneJiang/ByteDream-JueJin/commit/2adbbb6f9bb39b14155a93aa8c902f4b3dd20b90))
+* 修復z-index導致的select組件問題 ([d0fd6fc](https://github.com/MarleneJiang/ByteDream-JueJin/commit/d0fd6fce7caee183a285f3f5694ab8478ce1b22c))
+* 修復z-index導致的select組件問題 ([b1fb1e3](https://github.com/MarleneJiang/ByteDream-JueJin/commit/b1fb1e3e04f9becf407b702597b9bf8001f7c885))
+* 删掉点杂物 ([8b5e68f](https://github.com/MarleneJiang/ByteDream-JueJin/commit/8b5e68f2d0a90717f1415ddc9abcf1b6d761e5c4))
+* 加了引用api后调不动了不知道为啥 ([8de5a45](https://github.com/MarleneJiang/ByteDream-JueJin/commit/8de5a450bca61deffeffb8443fcf9a43146f18e7))
+* 去除无用部署 ([d8d69cf](https://github.com/MarleneJiang/ByteDream-JueJin/commit/d8d69cfb93f262783232931b6ed125fc5e9a508d))
+* 增加搜索功能 ([355bcdb](https://github.com/MarleneJiang/ByteDream-JueJin/commit/355bcdb0a0f7f523c22e0a57f7d36fb4f098d859))
+* 提交"license": "Apache License 2.0" ([1d2f039](https://github.com/MarleneJiang/ByteDream-JueJin/commit/1d2f039da3188b52a58347b93121a15ba15c577c))
+* 更新umami链接 ([957f1ef](https://github.com/MarleneJiang/ByteDream-JueJin/commit/957f1efe295c78e3aaf966ba40f205043a964b5c))
+* 样式好像整的还行了 ([46bda3b](https://github.com/MarleneJiang/ByteDream-JueJin/commit/46bda3ba324eece718ee17982c376e6690c67052))
+* 测试提交 ([c63dee0](https://github.com/MarleneJiang/ByteDream-JueJin/commit/c63dee095ddcaca95b1da343aa7dd8fd0e406732))
+* 添加懒加载 ([b65567f](https://github.com/MarleneJiang/ByteDream-JueJin/commit/b65567f8ac123417f0cb92c7f3a180683671dc25))
+* 添加懒加载 ([cfc18f4](https://github.com/MarleneJiang/ByteDream-JueJin/commit/cfc18f43e28091fb3643bc84f62165e93b266ec2))
+* 点击时会变宽 ([222d7c6](https://github.com/MarleneJiang/ByteDream-JueJin/commit/222d7c6ba45eee8e62ca288437807135d926ac0b))
+* 热度选择框懒加载 ([bd9775f](https://github.com/MarleneJiang/ByteDream-JueJin/commit/bd9775f1b5b8f68f1677a63b7fd6e27593114d02))
+* 热度选择框懒加载 ([a91a1cb](https://github.com/MarleneJiang/ByteDream-JueJin/commit/a91a1cb36e88eba0936541a73e742f4d3dea4aaf))
+* 相关文章最多十篇，按点赞量逆序排列 ([f25a7d6](https://github.com/MarleneJiang/ByteDream-JueJin/commit/f25a7d64a54810652802ef3b00f60e250a1e5b02))
+* 蓝块块加上 ([b094801](https://github.com/MarleneJiang/ByteDream-JueJin/commit/b094801dbc117da634358de08abf6184b064a974))
+* 蓝框框加上 ([f4a7273](https://github.com/MarleneJiang/ByteDream-JueJin/commit/f4a7273ff26a21a14fce6441b1b09bdc9cc591dd))
+* 解决导航栏&标签栏极端情况 ([c17ea83](https://github.com/MarleneJiang/ByteDream-JueJin/commit/c17ea83f6131648ed337a044c12358a9ed5520a1))
+* 骨架屏代码优化 ([a1999e4](https://github.com/MarleneJiang/ByteDream-JueJin/commit/a1999e4ac35e808d30ec0266a1dc0487ecba31bb))
+
+
+### Bug Fixes
+
+* autoDeploy,yaml line ([cc6dbab](https://github.com/MarleneJiang/ByteDream-JueJin/commit/cc6dbab75182f5fc2e7e2ac3db8365cb0a93e292))
+* backend启动命令 ([d6d4584](https://github.com/MarleneJiang/ByteDream-JueJin/commit/d6d4584cf2b8c83499ce8c6193ede9d3a547ca2c))
+* change umami Host ([79754c1](https://github.com/MarleneJiang/ByteDream-JueJin/commit/79754c1c34b9af0ad166f8107314d1fb8a40eb26))
+* eslint ([1f4de1d](https://github.com/MarleneJiang/ByteDream-JueJin/commit/1f4de1d7a0494367c2e41631dece0aeab3893c73))
+* eslint ([1bbebfb](https://github.com/MarleneJiang/ByteDream-JueJin/commit/1bbebfbaa43c0f63c948347c4a7d52f435dbd1a8))
+* eslint ([3404757](https://github.com/MarleneJiang/ByteDream-JueJin/commit/34047578b15553f76cff1336dd2a2651e92f51cd))
+* eslint ([46d73e7](https://github.com/MarleneJiang/ByteDream-JueJin/commit/46d73e74feea6a76583fec62f4abde4cb6f1239c))
+* eslint ([bc19ed7](https://github.com/MarleneJiang/ByteDream-JueJin/commit/bc19ed7b53d0d1be848cedb8720f9e3cdcd3e47b))
+* image OSS ([26db352](https://github.com/MarleneJiang/ByteDream-JueJin/commit/26db3529a7a6125e31f854dcfbfca98e78d1aaee))
+* lint  package.json ([7778c15](https://github.com/MarleneJiang/ByteDream-JueJin/commit/7778c15dd1ee62e8237402d80699bcdbb7975374))
+* package.json错误 ([14fd209](https://github.com/MarleneJiang/ByteDream-JueJin/commit/14fd209e530a3bcddb90f2a7871eb9a036519b0d))
+* 其他页面切回主页时签到不显示 ([011c28c](https://github.com/MarleneJiang/ByteDream-JueJin/commit/011c28cb3e0e55c0147ff72d3d64b8d08efc18b7))
+* 文章列表背景问题 ([2348b47](https://github.com/MarleneJiang/ByteDream-JueJin/commit/2348b47c918e2f2e50f8bc9900f50454b86249c9))
+* 文章底部对齐 ([f41177b](https://github.com/MarleneJiang/ByteDream-JueJin/commit/f41177b325ce6596fd55f5854457f4f05878e3c0))
+* 标题移动端溢出问题 ([4122bcd](https://github.com/MarleneJiang/ByteDream-JueJin/commit/4122bcd869ec93fca8d6e0cfc10253820f57553f))
+* 目录滚动优化 ([e309eca](https://github.com/MarleneJiang/ByteDream-JueJin/commit/e309ecae01b6081eb15fcf98b1a249f742bb91bc))
+* 细节修复 ([edc9c66](https://github.com/MarleneJiang/ByteDream-JueJin/commit/edc9c6647d5b8ac1bc73c59a8cfe79d970dbcdbf))
+* 细节问题 ([54c1809](https://github.com/MarleneJiang/ByteDream-JueJin/commit/54c18094bee4aa1a3f9ba0c48a97a8f360331e06))
+* 细节问题 ([3ae96ec](https://github.com/MarleneJiang/ByteDream-JueJin/commit/3ae96ec3a8e45e18623e79221d1bfdb375f84f44))
+* 規範 開源證書 ([53773b6](https://github.com/MarleneJiang/ByteDream-JueJin/commit/53773b659464c6be03f24c3d7b3dd963e0770cd9))
+* 解决移动端缩放问题 ([cb4002e](https://github.com/MarleneJiang/ByteDream-JueJin/commit/cb4002e988c8cfc16e1d7f2ae0d80b627aa91ff1))
+* 采用分页策略 ([f084f52](https://github.com/MarleneJiang/ByteDream-JueJin/commit/f084f524a490e991ece22f3cea56bcf93dc72823))
+
+
+### Performance Improvements
+
+* ref to shallowRef ([464575b](https://github.com/MarleneJiang/ByteDream-JueJin/commit/464575b23729d9dedb86392b2d46004052eb8b75))
+
 ## [1.5.0](https://github.com/MarleneJiang/ByteDream-JueJin/compare/v1.4.0...v1.5.0) (2023-02-14)
 
 
