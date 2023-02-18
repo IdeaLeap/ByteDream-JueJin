@@ -62,4 +62,3 @@ export async function useGraphql(query: any, authorization?: string) {
     console.error(err)
   }
 }
-
