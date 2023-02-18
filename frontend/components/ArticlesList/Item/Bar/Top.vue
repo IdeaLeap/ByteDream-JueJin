@@ -22,7 +22,9 @@ const show = useState('authorCard', () => false)
         class="info"
       />
     </div>
-    <span :class="`duration ${tags?.length ? 'b-r-1' : ''}`">{{ duration }}</span>
+    <div v-if="!adId">
+      <span class="duration">{{ duration }}</span>
+    </div>
     <div class="flex px-3">
       <div v-for="(item, index) of tags" :key="item.tag" class="tag">
         <div v-if="index" class="icon" />
@@ -37,7 +39,7 @@ const show = useState('authorCard', () => false)
   @apply flex items-center pr-4 text-[13px] leading-[22px] pt-[1rem] all-cursor-pointer
 }
 .author {
-  @apply transition text-jj-font-normal px-3 border-r-1 pl-0 hover:text-jj-brand-normal
+  @apply transition text-jj-font-normal px-3 pl-0 hover:text-jj-brand-normal
 }
 .info {
   @apply scale-0 delay-150 transition-all text-black
@@ -47,7 +49,13 @@ const show = useState('authorCard', () => false)
   @apply scale-100
 }
 .duration {
-  @apply text-jj-thirdly px-3
+  @apply text-jj-thirdly px-3 relative
+}
+.duration::before, .duration::after {
+  @apply content-none absolute top-1/2 -translate-y-1/2 display-block w-[1px] h-[12px] bg-[#e5e6eb]
+}
+.duration::after {
+  @apply right-0
 }
 .tag {
   @apply flex items-center

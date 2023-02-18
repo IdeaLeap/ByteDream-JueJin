@@ -7,32 +7,37 @@ const queryMap = {
 </script>
 
 <template>
-  <div class="links">
+  <div class="flex">
     <NuxtLink
-      v-for="(item, key, index) in queryMap"
-      :key="key"
-      :to="item ? `?sort=${item}` : '?'"
-      :class="`
-        ${$route.query.sort === item ? 'h_t' : ''}
-        ${index ? 'b-l-1' : ''}
-        ${(!index && !$route.query.sort) ? 'h_t' : ''}
-        t
-        `"
+      to="?"
+      :class="`${!$route.query?.sort ? 'ht' : ''}`"
     >
-      {{ key }}
+      推荐
+    </NuxtLink>
+    <NuxtLink
+      to="?sort=newest"
+      :class="`${$route.query.sort === 'newest' ? 'ht' : ''} mid`"
+    >
+      最新
+    </NuxtLink>
+    <NuxtLink
+      to="?sort=three_days_hottest"
+      :class="`${$route.query.sort === 'three_days_hottest' ? 'ht' : ''} last`"
+    >
+      热榜
     </NuxtLink>
   </div>
 </template>
 
 <style scoped>
-.links {
-  @apply all-px-5 all-my-4 flex
-}
-.t {
-  @apply text-jj-gray-normal
+a {
+  @apply relative my-4 px-[1.25rem] text-jj-gray-normal
   @apply hover:text-link dark:border-[#888]
 }
-.h_t {
+.mid::before, .last::before {
+  @apply content-none absolute top-1/2 left-0 -translate-y-1/2 display-block w-[1px] h-[12px] bg-[#e5e6eb]
+}
+.ht {
   @apply text-link
 }
 </style>
