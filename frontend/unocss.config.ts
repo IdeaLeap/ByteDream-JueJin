@@ -229,6 +229,9 @@ export default defineConfig({
           bg: 'var(--juejin-category-popover-bg)',
           text: 'var(--juejin-category-popover-text)',
         },
+        404: {
+          bg: 'var(--juejin-404-bg)',
+        },
       },
     },
     breakpoints: {

@@ -42,7 +42,6 @@ onMounted(() => {
         <ArticlesContentSideBarRight :article="articleDataList" />
       </div>
     </main>
-    <AsideSuspensionPanel class="fixed right-3 bottom-1 suspension-panel z-1000" />
   </div>
 </template>
 
