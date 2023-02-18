@@ -32,14 +32,13 @@ const hideHandler = (id: string) => {
 
 <style scoped>
 li {
-  @apply transition
-  @apply hover:bg-jj-hover
+  @apply transition hover:bg-jj-hover
 }
 li:hover .icon {
   @apply block
 }
 .icon {
-  @apply i-carbon-close display-none cursor-pointer text-[16px] text-jj-fourthly hover:text-primary transition absolute top-[1rem] right-[1.67rem]
+  @apply i-carbon-close transition absolute top-[1rem] right-[1.67rem] display-none cursor-pointer text-[16px] text-jj-fourthly hover:text-primary
 }
 .link:visited :deep(.title) {
   @apply text-jj-navs-title
