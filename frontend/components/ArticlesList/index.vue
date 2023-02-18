@@ -30,7 +30,7 @@ onUnmounted(() => {
       <template #fallback>
         <ArticlesListUiSkeleton />
       </template>
-      <ArticlesListUiSkeleton v-if="isLoading" />
+      <ArticlesListUiSkeleton v-if="isLoading || !artlist?.length" />
       <ArticlesListItem v-else />
     </ClientOnly>
   </div>

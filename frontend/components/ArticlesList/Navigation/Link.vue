@@ -1,11 +1,3 @@
-<script setup lang="ts">
-const queryMap = {
-  推荐: '',
-  最新: 'newest',
-  热榜: 'three_days_hottest',
-}
-</script>
-
 <template>
   <div class="flex">
     <NuxtLink
