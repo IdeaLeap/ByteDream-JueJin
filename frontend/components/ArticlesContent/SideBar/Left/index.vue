@@ -1,8 +1,12 @@
-<script setup lang="ts">
-defineProps<{
-  commented: Number
-  liked: Number
-}>()
+<script setup>
+defineProps({
+  commented: {
+    type: Number,
+  },
+  liked: {
+    type: Number,
+  },
+})
 const isLiked = shallowRef(false)
 const route = useRoute()
 const url = shallowRef(`/api/articles/update/like?id=${route.params.id}`)
@@ -19,7 +23,6 @@ const handleLike = async () => {
     }
   }
 }
-
 const { immerseState, immerseToggle } = useImmerse()
 </script>
 
