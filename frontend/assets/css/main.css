@@ -96,6 +96,7 @@
   --jjext-color-fill: #3686ff;
   --jjext-color-more-list: #9aa3ab;
   --jjext-color-more-list-border: #ddd;
+  --jjext-color-column-primary-bg: #1d7dfa;
   --juejin-color-navs-item-after: #ef4444;
   --juejin-color-types-list: #71777c;
   --juejin-color-types-list-tag: #8a9aa9;
@@ -230,6 +231,7 @@ html {
   --juejin-search-border:#ebebeb;
   --juejin-search-text:#5e6369;
   --juejin-404-bg:#fff;
+  --juejin-column-container-bg:#f7f8fa;
 }
 
 html.dark {
@@ -362,6 +364,7 @@ html.dark {
   --juejin-search-border:#b9babe59;
   --juejin-search-text:#fff;
   --juejin-404-bg:#222323;
+  --juejin-column-container-bg:#1e1e20;
 }
 
 .page-enter-active,

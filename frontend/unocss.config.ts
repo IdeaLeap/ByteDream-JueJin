@@ -78,6 +78,12 @@ export default defineConfig({
           hover: {
             normal: 'var(--juejin-color-container-hover)', // #F7F8FA #333
           },
+          column: {
+            normal: 'var(--juejin-column-container-bg)',
+          },
+          bg: {
+            normal: 'var(--jjext-color-column-primary-bg)', // #1d7dfa
+          },
         },
         border: {
           normal: 'var(--juejin-article-list-border)', // #e4e6eb #212123
