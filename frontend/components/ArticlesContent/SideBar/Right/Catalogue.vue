@@ -46,7 +46,7 @@ const currentScrollTop = shallowRef(0)
 const getInitByScroll = () => {
   const articleDom = document.getElementById('markdown-body')
   const headings = articleDom?.querySelectorAll('h1, h2, h3')
-  headings?.forEach((item: any, i) => {
+  headings?.forEach((item: any) => {
     heading.value.push(item)
   })
 
