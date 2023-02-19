@@ -8,7 +8,7 @@ defineProps<{
 </script>
 
 <template>
-  <div class="author_card truncate">
+  <div class="author_card">
     <div class="about">
       <ArticlesListUiImg :src="avatar" :alt="name" avatar />
       <div class="ml-[0.5rem]">
