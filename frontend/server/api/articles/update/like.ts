@@ -29,8 +29,9 @@ export default defineEventHandler(async (event): Promise<liked> => {
     }
   }`
   const articleData = (await useGraphql(reqQuery)).article
+  articleData.liked++
   await useGraphql(`mutation updateArticle {
-    updateArticle(id: ${id}, data: { liked: ${++articleData.liked} }) {
+    updateArticle(id: ${id}, data: { liked: ${articleData.liked} }) {
       data {
         id
         attributes {

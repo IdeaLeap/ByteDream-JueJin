@@ -1,2 +1,5 @@
+cd /opt/bytedream;
 sudo yarn build;
-sudo PORT=8885 node .output/server/index.mjs;
+cd /opt/bytedream/.output/server;
+sudo npm i node-fetch-native;
+sudo PORT=8885 node index.mjs;
