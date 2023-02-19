@@ -72,7 +72,7 @@ const { immerseState } = useImmerse()
   right: 0;
   width: 25rem;
 }
-.sticky .sticky-block-box {
+.sidebar.sticky .sticky-block-box {
   position: fixed;
   top: 6.766999999999999rem;
   width: inherit;

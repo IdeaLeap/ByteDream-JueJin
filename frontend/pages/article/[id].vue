@@ -79,12 +79,8 @@ onMounted(() => {
     position: relative;
     max-width: 100%;
     box-sizing: border-box;
-  }
-}
-
-@media (max-width: 960px) {
-  .suspension-panel {
-    display: none;
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
 }
 
