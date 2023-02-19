@@ -9,9 +9,15 @@ const props = defineProps<{
  * @description: 目录点击事件
  */
 const isActive = shallowRef<number>()
+const heading = ref<HTMLElement[]>([])
+const headerHeight = shallowRef(0)
+
 const activeSelect = (index: number) => {
   if (isActive.value === index)
     return
+  // a标签锚点定位时跳转会出现将元素置最左, 所以用scrollIntoView定位
+  heading.value[index].scrollIntoView()
+  window.scrollBy(0, -headerHeight.value - 30)
   isActive.value = index
 }
 const catalogueClass = (level: number) => {
@@ -34,17 +40,22 @@ const itemOffsetTop = ref<{ key: number; top: number }[]>([])
 const navRef = ref()
 const liRef = ref<HTMLElement[]>([])
 const navMid = shallowRef(0)
-const headerHeight = shallowRef(0)
 const catalogueEleTop = shallowRef(0)
 const currentScrollTop = shallowRef(0)
 
 const getInitByScroll = () => {
+  const articleDom = document.getElementById('markdown-body')
+  const headings = articleDom?.querySelectorAll('h1, h2, h3')
+  headings?.forEach((item: any) => {
+    heading.value.push(item)
+  })
+
   navMid.value = navRef.value.clientHeight / 2
   headerHeight.value = document.querySelector('.main-header')!.clientHeight
   catalogueEleTop.value = (document.querySelector('.sticky-block-box') as HTMLElement).offsetTop
   itemOffsetTop.value = []
   props.catalogueList.forEach((val, i) => {
-    const firstHead = document.querySelector(`#heading-${i}`) as HTMLElement
+    const firstHead = heading.value[i]
     if (firstHead) {
       itemOffsetTop.value?.push({
         key: i,
@@ -54,12 +65,11 @@ const getInitByScroll = () => {
   })
 }
 const onScroll = () => {
-  const documentElement = document.documentElement
-  currentScrollTop.value = documentElement.scrollTop
+  currentScrollTop.value = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop
   const scrollTop = currentScrollTop.value - headerHeight.value + 20
   const itemOffsetTopLength = itemOffsetTop.value.length
   for (let n = 0; n < itemOffsetTopLength; n++) {
-    if (scrollTop >= itemOffsetTop.value[n].top)
+    if (scrollTop >= itemOffsetTop.value[n].top - headerHeight.value)
       isActive.value = itemOffsetTop.value[n].key
   }
 
@@ -99,36 +109,28 @@ const scrollFixedCatalogue = () => {
 }
 
 watch(isNavShown, (val) => {
-  if (val)
-    sideBar?.classList.remove('top')
-  else
-    sideBar?.classList.add('top')
+  val ? sideBar?.classList.remove('top') : sideBar?.classList.add('top')
 })
 
 watch(immerseState, (val) => {
-  if (val)
-    sideBar!.classList.add('sticky')
-  else
-    scrollFixedCatalogue()
+  val ? sideBar!.classList.add('sticky') : scrollFixedCatalogue()
 })
 
 onMounted(() => {
   window.addEventListener('scroll', onScroll)
   window.addEventListener('scroll', scrollFixedCatalogue)
-  // const route = useRoute()
-  // if (route.hash) {
-  //   const hashIndex = route.hash.slice(9)
-  //   if (Number(hashIndex) !== -1) {
-  //     isActive.value = Number(hashIndex)
-  //     const a = document.createElement('a')
-  //     a.href = `#heading-${hashIndex}`
-  //     a.click()
-  //   }
-  // }
 
   nextTick(() => {
     getInitByScroll()
     getInitByScrollFixedCatalogue()
+    const route = useRoute()
+    if (route.hash) {
+      const hashIndex = route.hash.slice(9)
+      if (Number(hashIndex) !== -1) {
+        activeSelect(Number(hashIndex))
+        isActive.value = Number(hashIndex)
+      }
+    }
   })
 })
 
@@ -160,10 +162,6 @@ onUnmounted(() => {
 </template>
 
 <style scoped>
-#heading-3 {
-  @apply relative top--50px;
-}
-
 .sidebar-block {
   @apply relative mb-20px;
 }

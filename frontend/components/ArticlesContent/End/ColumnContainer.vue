@@ -56,10 +56,10 @@ const handleClick = async (i: any) => {
 
 <style scoped>
 .column-container {
-  @apply mt-40px relative bg-#f7f8fa p-1.333rem rounded-4px;
+  @apply mt-40px relative bg-jj-container-column-normal p-1.333rem rounded-4px;
 }
 .column-container .column-header .column-title {
-  @apply c-#515767 fw-400 text-14px lh-22px;
+  @apply c-jj-span fw-400 text-14px lh-22px;
 }
 .column-container .column-content {
   @apply max-h-258px mt-16px;
@@ -87,7 +87,7 @@ const handleClick = async (i: any) => {
   width: calc(100% - 216px);
 }
 .item-container .title {
-  @apply c-#252933 text-16px mb-4px lh-2rem fw-500 truncate;
+  @apply c-jj-font-normal text-16px mb-4px lh-2rem fw-500 truncate;
 }
 .item-container .tooltip {
   @apply w-100% relative inline-block;
@@ -96,7 +96,7 @@ const handleClick = async (i: any) => {
   @apply w-100% inline-block truncate;
 }
 .item-container .description {
-  @apply c-#8a919f text-14px lh-22px truncate;
+  @apply c-jj-font-entry-normal text-14px lh-22px truncate;
 }
 
 .item-container .btn {
@@ -104,10 +104,10 @@ const handleClick = async (i: any) => {
   transition: all 0.3s;
 }
 .primary {
-  @apply c-#fff bg-#1d7dfa hover:bg-#388eff;
+  @apply c-jj_font_white bg-jj-container-bg-normal hover:bg-jj-button-primary-normal;
 }
 .cancel {
-  @apply bg-jj_bg c-jj-font-entry-normal border-solid border-1px border-#1d7dfa;
+  @apply bg-jj_bg c-jj-font-entry-normal border-solid border-1px border-jj-container-bg-normal;
 }
 @keyframes spin {
   from {
@@ -124,7 +124,7 @@ const handleClick = async (i: any) => {
 }
 
 .tooltip .tooltiptext {
-  @apply absolute z-1 bottom-113% h-45px lh-45px  px-14px text-#fff text-center rd-6px opacity-0 invisible bg-jj-black-tooltip-normal text-ellipsis;
+  @apply absolute z-1 bottom-113% h-45px lh-45px  px-14px text-jj_font_white text-center rd-6px opacity-0 invisible bg-jj-black-tooltip-normal text-ellipsis;
   white-space: nowrap;
   transition: visibility 0s linear 0.3s, opacity 0.3s linear;
 }
