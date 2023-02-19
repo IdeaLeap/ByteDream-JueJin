@@ -80,7 +80,7 @@ const onScroll = () => {
         top: 0,
       })
       : navRef.value.scrollTo({
-        top: activeEleTop - navMid.value - headerHeight.value,
+        top: activeEleTop - navMid.value,
       })
   }
 }
