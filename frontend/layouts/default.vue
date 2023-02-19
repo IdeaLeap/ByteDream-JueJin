@@ -5,3 +5,11 @@
     <AsideSuspensionPanel class="fixed right-3 bottom-1 suspension-panel z-1000" />
   </main>
 </template>
+
+<style scoped>
+@media (max-width: 960px) {
+  .suspension-panel {
+    display: none;
+  }
+}
+</style>

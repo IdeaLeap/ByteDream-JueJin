@@ -27,7 +27,7 @@ function transformToId() {
       for (let i = 0; i < children.length; i++) {
         const tagName = children[i].tagName
         if (tagName === 'H1' || tagName === 'H2' || tagName === 'H3') {
-          children[i].setAttribute('id', `heading-${index}`)
+          children[i].setAttribute('data-id', `heading-${index}`)
           index++
         }
       }
