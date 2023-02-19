@@ -8,24 +8,14 @@ const themeColor = computed(() => {
   return color.value === 'dark' ? '#000000' : '#ffffff'
 })
 if (process.client) {
-  const item = localStorage.getItem('nuxt-color-mode') || 'dark'
-  localStorage.setItem('nuxt-color-mode', item)
   const setDark = () => {
     color.preference = color.value = 'dark'
   }
   const setLight = () => {
     color.preference = color.value = 'light'
   }
-  const setItem = () => {
-    color.preference = color.value = item
-  }
   // 先获取media
   const media = window.matchMedia('(prefers-color-scheme:dark)')
-  // 判断是否为暗主题
-  if (media.matches)
-  // 如果是暗色主题则使用localStorage储存的上次使用的主题颜色
-    setItem()
-
   // 上面操作只会在页面加载时才会生效，因此，需要给media添加事件监听器
   // MediaQueryList的maches属性会返回媒体查询的结果
   function handleColorChange(e: MediaQueryListEvent) {
