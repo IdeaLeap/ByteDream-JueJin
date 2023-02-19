@@ -60,7 +60,7 @@ onMounted(() => {
   padding-right: 2.67rem;
   box-sizing: border-box;
   position: relative;
-  width: 800px;
+  width: 820px;
   max-width: 100%;
   @apply bg-jj-article mb-1.5rem;
 }

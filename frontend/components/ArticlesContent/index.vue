@@ -63,7 +63,7 @@ const { immerseState } = useImmerse()
 
         <div v-show="!immerseState" class="text-1.167rem color-[#8a919f] lh-22px mt-2px">
           <time :datetime="article.updatedAt" :title="article.updatedAt" class="tracking-1px">
-            {{ useDateFormat(article.updatedAt, 'YYYY-MM-DD HH:mm:ss').value }}
+            {{ useDateFormat(article.updatedAt, 'YYYY年MM月DD日 HH:mm:ss').value }}
           </time>
           <span class="views-count"> ·&nbsp;&nbsp;阅读 {{ article.viewed }} </span>
         </div>
