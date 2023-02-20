@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import type { IAuthor, ITagItem } from '~~/types/IArticleItem'
 defineProps<{
-  duration: string
-  tags?: ITagItem[]
+  duration?: string
+  tags: ITagItem[]
   authorId?: IAuthor
   adId?: string
 }>()
