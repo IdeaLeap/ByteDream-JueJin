@@ -11,12 +11,14 @@
     "build": "npx turbo build --no-cache --force",
     "lint:fix": "npx turbo lint:fix",
     "typecheck": "npx turbo typecheck",
-    "start": "npx turbo start"
+    "start": "npx turbo start",
+    "test": "npx turbo test"
   },
   "packageManager": "yarn@1.22.19",
   "workspaces": [
     "frontend",
-    "backend"
+    "backend",
+    "e2e"
   ],
   "devDependencies": {
     "husky": "^8.0.3",
