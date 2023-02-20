@@ -14,7 +14,7 @@
     </NuxtLink>
     <NuxtLink
       to="?sort=three_days_hottest"
-      :class="`${$route.query.sort?.indexOf('hottest') !== -1 ? 'ht' : ''} last`"
+      :class="`${JSON.stringify($route.query).indexOf('hottest') !== -1 ? 'ht' : ''} last`"
     >
       热榜
     </NuxtLink>
