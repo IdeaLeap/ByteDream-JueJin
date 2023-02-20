@@ -91,6 +91,7 @@ ByteDream-JueJin
 │     ├─ autoDeploy.yaml // 自动部署
 │     ├─ issue.yaml
 │     ├─ lint.yaml
+│     ├─ test.yaml
 │     └─ release.yaml
 ├─ .gitignore
 ├─ .husky
@@ -104,6 +105,7 @@ ByteDream-JueJin
 │  ├─ extensions.json
 │  └─ settings.json
 ├─ .yarnrc
+├─ e2e
 ├─ backend
 │  ├─ .editorconfig
 │  ├─ .eslintignore
