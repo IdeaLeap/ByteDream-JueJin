@@ -25,7 +25,7 @@ defineProps({
       </div>
       <div class="tag-list-container">
         <!-- :href="`/tag/${item.alias}`" -->
-        <NuxtLink v-for="(item, index) in tag" :key="index" href="" rel="" class="item tag-item">
+        <NuxtLink v-for="(item, index) in tag" :key="index" href="/" rel="" class="item tag-item">
           <span class="tag-title">{{ item.alias }}</span>
         </NuxtLink>
       </div>
