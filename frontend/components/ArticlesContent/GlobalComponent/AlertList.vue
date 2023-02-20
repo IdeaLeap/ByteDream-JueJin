@@ -1,6 +1,8 @@
 <template>
   <div class="alert-list alert-list">
-    <div class="alert">代码复制成功</div>
+    <div class="alert">
+      代码复制成功
+    </div>
   </div>
 </template>
 
