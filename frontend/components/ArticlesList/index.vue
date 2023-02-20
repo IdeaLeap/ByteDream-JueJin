@@ -10,7 +10,7 @@ const addArtListItem = useThrottle(async () => {
 })
 provide('artlist', artlist)
 provide('ads', articleAds)
-watch(route, async () => {
+watch([() => route.query, () => route.params], async () => {
   isLoading.value = true
   artlist.value = await useFetchPostData(route?.params, route.query?.sort, pagenum = 1)
   isLoading.value = false
