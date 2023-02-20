@@ -6,7 +6,7 @@ const isLoading = useState('isLoading', () => false)
 const route = useRoute()
 let pagenum = 1
 const addArtListItem = useThrottle(async () => {
-  useScrollBottom() && artlist.value.push(...(await useFetchPostData(route?.params, route.query?.sort, ++pagenum)))
+  useScrollBottom() && artlist.value?.length && artlist.value.push(...(await useFetchPostData(route?.params, route.query?.sort, ++pagenum)))
 })
 provide('artlist', artlist)
 provide('ads', articleAds)
