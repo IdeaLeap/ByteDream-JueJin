@@ -10,35 +10,62 @@
 </pre>
 
 <p align="center">
+🎉 字节青训营《基于 Nuxt3 开发 SSR 仿掘金站点》 🎉
+</p>
+</div>
+
+<div align="center">
+
+</div>
+
+<p align="center">
+  <a href="https://github.com/MarleneJiang/ByteDream-JueJin/blob/main/LICENSE">
+    <img src="https://img.shields.io/github/license/MarleneJiang/ByteDream-JueJin?color=red" alt="license">
+  </a>
+  <a href="https://github.com/MarleneJiang/ByteDream-JueJin/releases">
+    <img src="https://img.shields.io/github/v/release/MarleneJiang/ByteDream-JueJin?color=purple&include_prereleases" alt="release">
+  </a>
+  <a href="https://github.com/MarleneJiang/ByteDream-JueJin/issues">
+    <img src="https://img.shields.io/github/issues/MarleneJiang/ByteDream-JueJin.svg?color=lightgreen" alt="issues">
+  </a>
+   <a href="https://github.com/MarleneJiang/ByteDream-JueJin/pulls">
+    <img src="https://img.shields.io/github/issues-pr/MarleneJiang/ByteDream-JueJin.svg?color=lightgreen" alt="pulls">
+  </a>
+    <a href="https://github.com/MarleneJiang/ByteDream-JueJin/actions">
+    <img src="https://github.com/MarleneJiang/ByteDream-JueJin/actions/workflows/autoDeploy.yaml/badge.svg" alt="action">
+  </a>
+</p>
+
+<p align="center">
 <br>
 <a href="https://bytedream.top/">🖥 Online Preview</a>
 </p>
 
 ## Features
 
-- ⚡️ `Nuxt3` - SSR
-- ✨ `Vue3.2`
-- 💨 `Turbo` - Manage Monorepo
-- 💎 `Strapi` - Headless CMS
-- 😎 `@Nuxt/Image` - Optimised images
-- 😁 `Umami` - Better Analytics
-- 🃏 `Commit Lint` -  Make sure you & your teammates follow the conventional commit
-- 💖 `Husky & Lint Staged` — Run scripts on your staged files before they are committed
-- 📏 `Eslint` - Find and fix problems in your code, also will auto-sort your imports
-- 🐶 `UnoCss` - The instant on-demand atomic CSS engine
-- 🤖 `preset-icons` - Use icons from any icon sets in Pure CSS
-- ⏰ The `<script setup>` syntax
-- 🍍 `Pinia` - Convenient State Management
-- 🚘 `Layout system` - What you see is what you have
-- 🎨 `APIs auto importing` - for Composition API, VueUse and custom composables
-- 🦾 `TypeScript` - of course
-- 👷 `Github Actions` - Lint your code on PR
-- 👀 `Automatic Branch and Issue Autolink` - Branch will be automatically created on issue assigned, and auto-linked on PR
-- 🗺 `Nuxt SEO Kit` - Sitemap,Schema.org,Generate dynamic social share images
-- 📦 `Vercel` - Auto Deploy & Preview with Workflows
-- 🔥 `Netlify + Cloudflare` - Deployed in Production Environment
-- 👀 `Sentry` - Error Tracking
-- 👁️ `MeiliSearch` - Fast Search Engine
+- ⚡️ `Nuxt3` - 高性能 SSR 框架
+- ✨ `Vue3.2`- 最新 Vue 更多语法糖
+- 💨 `Turbo` - MonoRepo 高性能框架
+- 💎 `Strapi` - 无头 CMS 框架
+- 😎 `@Nuxt/Image` - images 服务端渲染
+- 😁 `Umami` - Better Analytics 访问源分析
+- 🃏 `Commit Lint` - commit 规范检查
+- 💖 `Husky & Lint Staged` - precommit 运行库，提交时运行
+- 📏 `Eslint` - 规范化 TypeScript、JavaScript 代码
+- 🐶 `UnoCss` - 原子化 CSS 引擎、兼容 tailwindcss、windicss 
+- 🤖 `preset-icons` - unocss 封装的 icons
+- ⏰ The `<script setup>` - setup 语法糖 来自 Vue3.2
+- 🍍 `Pinia` - 全局状态管理库
+- 🚘 `Layout system` - 所见即所得
+- 🎨 `APIs auto importing` - 自动引入
+- 🦾 `TypeScript` - 更规范的语法
+- 👷 `Github Actions` - actions 自动运行、ci/cd 云端检查、部署
+- 👀 `Automatic Branch and Issue Autolink` - 创建 issue 自动创建一个分支
+- 🗺 `Nuxt SEO Kit` - SEO 优化、生成 og 图片 SSR必备
+- 📦 `Vercel` - 自动部署、预览的平台
+- 🔥 `Netlify + Cloudflare` - 部署平台 + cdn 加速
+- 👀 `Sentry` - 问题追踪
+- 👁️ `MeiliSearch` - 快速的搜索引擎
 
 ## 开发
 
@@ -49,11 +76,7 @@ yarn dev
 
 ## 预览
 
-(netlify) <https://bytedream.top/>
-
-(vercel) <https://vercel.bytedream.top/>
-
-(本地部署版本 位于杭电宿舍的服务器) <http://op.bytedream.top/>
+[阿里云](https://bytedream.marlene.top/) · [Netlify](https://bytedream.netlify.app/) · [Vercel](https://vercel.bytedream.top/) · [本地部署版本](http://op.bytedream.top/)
 
 ## 目录结构
 
@@ -350,7 +373,7 @@ ByteDream-JueJin
 ├─ package.json
 ├─ README.md
 ├─ SECURITY.md
-├─ turbo.json
+├─ turbo.json // MonoRepo 主要配置文件
 └─ yarn.lock
 
 ```
