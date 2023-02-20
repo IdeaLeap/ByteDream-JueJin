@@ -39,7 +39,7 @@ const transformToId = () => {
 const alertShow = ref(false)
 const copyBtn = () => {
   const markdownBody = document.getElementById('markdown-body')
-  const codeTags = markdownBody!.getElementsByTagName('code')
+  const pres = markdownBody!.getElementsByTagName('pre')
   const copyBtnStyle = {
     position: 'absolute',
     top: '6px',
@@ -82,8 +82,9 @@ const copyBtn = () => {
     }
   }
 
-  for (let i = 0; i < codeTags.length; i++) {
-    const codeTag = codeTags[i]
+  for (let i = 0; i < pres.length; i++) {
+    const pre = pres[i]
+    const codeTag = pre.getElementsByTagName('code')[0]
     const copybtn = btnInit()
     copyClick(copybtn, codeTag)
     // 创建按钮元素
