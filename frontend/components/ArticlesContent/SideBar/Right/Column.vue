@@ -152,7 +152,6 @@ onUnmounted(() => {
 }
 
 .active {
-  /* color: rgb(0, 127, 255); */
   @apply text-jj-link-normal;
 }
 </style>
