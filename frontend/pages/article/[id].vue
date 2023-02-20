@@ -52,8 +52,11 @@ onMounted(() => {
 @media (max-width: 1320px) and (min-width: 1140px) {
   .view-container {
     width: 1320px;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
   }
 }
+
 .main-area {
   padding-left: 2.67rem;
   padding-right: 2.67rem;
