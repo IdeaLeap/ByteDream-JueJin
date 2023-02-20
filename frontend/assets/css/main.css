@@ -401,3 +401,6 @@ html.dark {
 .markdown-body h6 {
   font-weight: bold;
 }
+.markdown-body pre{
+  margin:16px 0;
+}
