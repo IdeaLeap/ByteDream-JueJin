@@ -49,28 +49,29 @@ onMounted(() => {
 .view-container {
   @apply bg-jj-main;
 }
-@media screen and (max-width: 1320px) and (min-width: 1140px) {
+@media (max-width: 1320px) and (min-width: 1140px) {
   .view-container {
     width: 1320px;
   }
 }
 .main-area {
-  border-radius: 4px;
   padding-left: 2.67rem;
   padding-right: 2.67rem;
+  border-radius: 4px;
   box-sizing: border-box;
   position: relative;
   width: 820px;
   max-width: 100%;
   @apply bg-jj-article mb-1.5rem;
 }
-@media screen and (max-width: 1140px) {
+
+@media (max-width: 1140px) {
   .main-area {
     width: calc(100% - 26.67rem);
   }
 }
 
-@media screen and (max-width: 1000px) {
+@media (max-width: 1000px) {
   .article-area {
     margin-bottom: 0;
   }
