@@ -1,5 +1,48 @@
 # Changelog
 
+## [1.7.0](https://github.com/MarleneJiang/ByteDream-JueJin/compare/v1.6.0...v1.7.0) (2023-02-22)
+
+
+### Features
+
+* add 404 pages ([cf5d8be](https://github.com/MarleneJiang/ByteDream-JueJin/commit/cf5d8beea80c66d79432a85813061cb35dd49730))
+* add e2e test ([3ffdb7f](https://github.com/MarleneJiang/ByteDream-JueJin/commit/3ffdb7fbe3810a4af4296ef5ae897cafc01f6a28))
+* 优化部署自动 ([38fdc11](https://github.com/MarleneJiang/ByteDream-JueJin/commit/38fdc1162fd85a421c16406f9eac6a0d870c7455))
+* 修复点赞逻辑 ([afe8425](https://github.com/MarleneJiang/ByteDream-JueJin/commit/afe84254319dcd5c341893224fedaac8958f3b7b))
+* 删除无用变量 ([9874090](https://github.com/MarleneJiang/ByteDream-JueJin/commit/9874090546efbe360d7430c92d03f8471585c1d1))
+* 增量静态生成尝试 ([e959669](https://github.com/MarleneJiang/ByteDream-JueJin/commit/e959669e6f9e78bcd59778e6183c756ecb2519ad))
+* 新增代码复制 ([278031b](https://github.com/MarleneJiang/ByteDream-JueJin/commit/278031b96395b160a3739cc105f1dcbb871c8f11))
+* 更新搜索逻辑 ([b9bd8c6](https://github.com/MarleneJiang/ByteDream-JueJin/commit/b9bd8c6cdab37d6047c9002f8aaafdb82cffd516))
+* 空数据时不触底更新 ([2ab24ae](https://github.com/MarleneJiang/ByteDream-JueJin/commit/2ab24aebafc2c6a38f01507531cd7249b98a65c8))
+
+
+### Bug Fixes
+
+* **DarkToggle:** 主题切换问题修复 ([baf232f](https://github.com/MarleneJiang/ByteDream-JueJin/commit/baf232fd5972b32ec38b03f5718aca06acd9b8b3))
+* delete "screen and" ([570c7ee](https://github.com/MarleneJiang/ByteDream-JueJin/commit/570c7eee7098ff2d54482333023e88daf251b98e))
+* delete sth. ([205e494](https://github.com/MarleneJiang/ByteDream-JueJin/commit/205e494466e1d70e0ceada954162b41d3e59d0a6))
+* dependencies ([6c81575](https://github.com/MarleneJiang/ByteDream-JueJin/commit/6c8157505eba9473ff27f4cb3a76f083f4b1a613))
+* eslint ([8017b64](https://github.com/MarleneJiang/ByteDream-JueJin/commit/8017b64f6f8edf359becb2693b7ab95ff643a094))
+* eslint ([ee5b406](https://github.com/MarleneJiang/ByteDream-JueJin/commit/ee5b406bb1d1113d8a37c49c590120df1e3de961))
+* lint ([9caf414](https://github.com/MarleneJiang/ByteDream-JueJin/commit/9caf41490c71350fd6c0383030733cdafc7cc95c))
+* prerender ([6d44a4b](https://github.com/MarleneJiang/ByteDream-JueJin/commit/6d44a4b20b299cde33ccc8ca68cfabf191ed9d31))
+* safari滚动问题 ([8a717c0](https://github.com/MarleneJiang/ByteDream-JueJin/commit/8a717c00c7945165a953eb1d39d91c0396629363))
+* 作者面板三角问题 ([7736f02](https://github.com/MarleneJiang/ByteDream-JueJin/commit/7736f0235f80dac97f45db95042abc002f7edfe1))
+* 修复目录定位出现滚动条 ([9ec44bd](https://github.com/MarleneJiang/ByteDream-JueJin/commit/9ec44bd528cecaabb03c49ee239fc5efc704e598))
+* 修改图像oss源 ([f0da8bd](https://github.com/MarleneJiang/ByteDream-JueJin/commit/f0da8bdfdfb69f849d8071fd2bb20e290f23a1a7))
+* 刷新后#xxx定位到上一次浏览的地方 ([b63edf0](https://github.com/MarleneJiang/ByteDream-JueJin/commit/b63edf0635132b41e575841edadba5b1f7b9c353))
+* 加上fallbackTag ([36b358b](https://github.com/MarleneJiang/ByteDream-JueJin/commit/36b358b57134fbf836b7bbce4de4f0590acc6adc))
+* 升级后端的依赖 ([4e54720](https://github.com/MarleneJiang/ByteDream-JueJin/commit/4e54720f334acd0141e8b9ae4c95e73acddfc044))
+* 文章列表标签栏高亮 ([85b7999](https://github.com/MarleneJiang/ByteDream-JueJin/commit/85b79998278e894af38c80e4217a86e0c2f9b808))
+* 无障碍评分 ([a33f139](https://github.com/MarleneJiang/ByteDream-JueJin/commit/a33f139dec8af2414c4b8749b2b608e94b4a0e18))
+* 标签高亮问题 ([e978f09](https://github.com/MarleneJiang/ByteDream-JueJin/commit/e978f09563a1101c5e37295a84ecde6d676e3507))
+* 没有文章内容正确显示骨架屏 ([5dc654a](https://github.com/MarleneJiang/ByteDream-JueJin/commit/5dc654aed2fc82e4276a32440b5fecbcd9a70469))
+* 滚动目录居中 ([318f231](https://github.com/MarleneJiang/ByteDream-JueJin/commit/318f23103498221360a75a898bb964b2aa7ff760))
+* 路由请求参数不更新情况 ([f293401](https://github.com/MarleneJiang/ByteDream-JueJin/commit/f293401d9e0401aa84ebe86baa2b143bc78a2d7c))
+* 边距修改 ([420ccb0](https://github.com/MarleneJiang/ByteDream-JueJin/commit/420ccb0e36b514f4a7ad42d65be53861869ddfc2))
+* 逻辑修改 ([5e50d02](https://github.com/MarleneJiang/ByteDream-JueJin/commit/5e50d02b6ee7bc03d13a83a4698263b61c8c559c))
+* 页面刷新请求问题 ([6a6bd1b](https://github.com/MarleneJiang/ByteDream-JueJin/commit/6a6bd1be514b5445f8046558cf06af43e118be37))
+
 ## [1.6.0](https://github.com/MarleneJiang/ByteDream-JueJin/compare/v1.5.0...v1.6.0) (2023-02-18)
 
 
