@@ -1,20 +1,22 @@
 <script setup lang="ts">
 import type { IArticleItem } from '~~/types/IArticleItem'
-const artlist = useState<IArticleItem[]>('artlist', () => [])
 const { data: articleAds } = (await useFetch('/api/global/ad'))
-const isLoading = useState('isLoading', () => false)
 const route = useRoute()
 let pagenum = 1
+const { data: artlist, pending } = await useFetch<IArticleItem[]>(() => `/api/articles/list?sort=${route.query?.sort || 'recommended'}&type=${route?.params?.type || ''}&pageNum=1&tag=${route?.params?.tag || ''}`)
 const addArtListItem = useThrottle(async () => {
-  useScrollBottom() && artlist.value?.length && artlist.value.push(...(await useFetchPostData(route?.params, route.query?.sort, ++pagenum)))
+  if (useScrollBottom() && artlist.value != null) {
+    const { data } = await useFetch<IArticleItem[]>(`/api/articles/list?sort=${route.query?.sort || 'recommended'}&type=${route?.params?.type || ''}&pageNum=${++pagenum}&tag=${route?.params?.tag || ''}`)
+    if (!data.value)
+      return
+    artlist.value.push(...data.value)
+  }
 })
+watch(route, () => {
+  pagenum = 1
+}, { immediate: true, deep: true })
 provide('artlist', artlist)
 provide('ads', articleAds)
-watch([() => route.query, () => route.params], async () => {
-  isLoading.value = true
-  artlist.value = await useFetchPostData(route?.params, route.query?.sort, pagenum = 1)
-  isLoading.value = false
-}, { deep: true, immediate: true })
 onMounted(() => {
   (window as any).addEventListener('scroll', addArtListItem)
 })
@@ -26,11 +28,11 @@ onUnmounted(() => {
 <template>
   <div class="bg-jj-article">
     <ArticlesListNavigation />
-    <ClientOnly>
+    <ClientOnly fallback-tag="span">
       <template #fallback>
         <ArticlesListUiSkeleton />
       </template>
-      <ArticlesListUiSkeleton v-if="isLoading || !artlist?.length" />
+      <ArticlesListUiSkeleton v-if="pending || !artlist?.length" />
       <ArticlesListItem v-else />
     </ClientOnly>
   </div>

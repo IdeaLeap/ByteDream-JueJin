@@ -66,6 +66,11 @@ export default defineNuxtConfig({
       crawlLinks: true,
       routes: [
         '/',
+        '/?sort=newest',
+        '/?sort=three_days_hottest',
+        '/?sort=weekly_hottest',
+        '/?sort=monthly_hottest',
+        '/?sort=hottest',
       ],
     },
   },
