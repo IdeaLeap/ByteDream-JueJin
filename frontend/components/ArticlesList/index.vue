@@ -28,7 +28,7 @@ onUnmounted(() => {
 <template>
   <div class="bg-jj-article">
     <ArticlesListNavigation />
-    <ClientOnly>
+    <ClientOnly fallback-tag="span">
       <template #fallback>
         <ArticlesListUiSkeleton />
       </template>
