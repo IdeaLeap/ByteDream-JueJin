@@ -76,7 +76,7 @@ yarn dev
 
 ## 预览
 
-[阿里云](https://bytedream.marlene.top/) · [Netlify](https://bytedream.netlify.app/) · [Vercel](https://vercel.bytedream.top/) · [本地部署版本](http://op.bytedream.top/)
+[腾讯云](https://bytedream.marlene.top/) · [Netlify](https://bytedream.netlify.app/) · [Vercel](https://vercel.bytedream.top/)
 
 ## 目录结构
 
