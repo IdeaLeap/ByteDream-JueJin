@@ -19,9 +19,12 @@ test('e2e test', async ({ page }) => {
   await page.getByRole('link', { name: 'Back to home' }).click();
   const page1Promise = page.waitForEvent('popup');
   await page.locator('\/\/*[@id="__nuxt"]/main/div[3]/div/div/div[2]/div[1]/ul/li[5]/a').click(); // 选择某篇文章
+  await page.waitForLoadState('networkidle');
   const page1 = await page1Promise;
   await page1.locator('.panel-btn').first().click();
+  await page.waitForLoadState('networkidle');
   const page2Promise = page1.waitForEvent('popup');
+  await page.waitForLoadState('networkidle');
   await page1.locator('\/\/*[@id="__nuxt"]/main/div[3]/main/div/div[3]/div[3]/nav/div[2]/a').click(); // 专栏文章切换
   const page2 = await page2Promise;
   const page3Promise = page2.waitForEvent('popup');
